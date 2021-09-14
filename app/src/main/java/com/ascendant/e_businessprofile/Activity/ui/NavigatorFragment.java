@@ -17,13 +17,17 @@ import com.ascendant.e_businessprofile.Model.DataModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.BusinessRefrence.ActsModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.BusinessRefrence.BusinessRefrenceModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.BusinessRefrence.BusinessReviewModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.BusinessRefrence.ComplianceModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.BusinessRefrence.GovernmentRegulationsModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.BusinessRefrence.HealthMinisterRegulationsModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.BusinessRefrence.NewsletterModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.BusinessRefrence.PresidentialDecreeModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.BusinessRefrence.RegulationModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.BusinessRefrence.eBookModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.Ecosystem.EcosystemModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.Ecosystem.SupportingIndustriesModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.ListOfProbing.ListOfProbingModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.NewsModel;
 import com.ascendant.e_businessprofile.R;
 
 import java.util.ArrayList;
@@ -80,6 +84,14 @@ public class NavigatorFragment extends Fragment {
             pList.addAll(HealthMinisterRegulationsModel.getListData());
         }else if (Navigator.equals("List of Probing")){
             pList.addAll(ListOfProbingModel.getListData());
+        }else if (Navigator.equals("Compliance")){
+            pList.addAll(ComplianceModel.getListData());
+        }else if (Navigator.equals("News")){
+            pList.addAll(NewsModel.getListData());
+        }else if (Navigator.equals("Ecosystem")){
+            pList.addAll(EcosystemModel.getListData());
+        }else if (Navigator.equals("Supporting Industries")){
+            pList.addAll(SupportingIndustriesModel.getListData());
         }
 
         rv.setLayoutManager(new LinearLayoutManager(getActivity()));

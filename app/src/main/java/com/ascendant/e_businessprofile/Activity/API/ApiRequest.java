@@ -21,6 +21,7 @@ public interface ApiRequest {
                                      @Field("kategori") String kategori,
                                      @Field("page") String page);
 
+    //Healthcare
     @FormUrlEncoded
     @POST("healthcare/business_refrence")
     Call<ResponseArrayObject> HealthCare_Business_refrence(@Field("token") String token,
@@ -35,6 +36,10 @@ public interface ApiRequest {
     @FormUrlEncoded
     @POST("healthcare/list_of_probing")
     Call<ResponseArrayObject> HealthCare_List_of_Probing(@Field("token") String token);
+
+    @FormUrlEncoded
+    @POST("healthcare/video")
+    Call<ResponseArrayObject> HealthCare_Compliance(@Field("token") String token);
 
     @FormUrlEncoded
     @POST("register")

@@ -13,18 +13,18 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.ascendant.e_businessprofile.Activity.Method.Ascendant;
-import com.ascendant.e_businessprofile.Activity.NewsActivity;
+import com.ascendant.e_businessprofile.Activity.ui.Healthcare.Compliance.DetailComplianceActivity;
 import com.ascendant.e_businessprofile.Model.DataModel;
 import com.ascendant.e_businessprofile.R;
 import com.bumptech.glide.Glide;
 
 import java.util.List;
 
-public class AdapterBerita extends RecyclerView.Adapter<AdapterBerita.HolderData> {
+public class AdapterCompliance extends RecyclerView.Adapter<AdapterCompliance.HolderData> {
     private List<DataModel> mList;
     private Context ctx;
     Ascendant ascendant;
-    public AdapterBerita (Context ctx, List<DataModel> mList){
+    public AdapterCompliance(Context ctx, List<DataModel> mList){
         this.ctx = ctx;
         this.mList = mList;
     }
@@ -32,7 +32,7 @@ public class AdapterBerita extends RecyclerView.Adapter<AdapterBerita.HolderData
     @NonNull
     @Override
     public HolderData onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View layout = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_berita,viewGroup,false);
+        View layout = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_compliance,viewGroup,false);
         HolderData holder = new HolderData(layout);
         return holder;
     }
@@ -41,22 +41,17 @@ public class AdapterBerita extends RecyclerView.Adapter<AdapterBerita.HolderData
     public void onBindViewHolder(@NonNull final HolderData holderData, int posistion) {
         final DataModel dm = mList.get(posistion);
         ascendant = new Ascendant();
+        holderData.Tanggal.setText(ascendant.MagicDateChange(dm.getTgl_upload_video()));
+        holderData.Nama.setText(ascendant.SmallText(dm.getJudul_video()));
         Glide.with(ctx)
-                .load(ascendant.BASE_URL()+dm.getCover_berita())
+                .load(ascendant.BASE_URL()+dm.getThumbnail_video())
                 .into(holderData.Gambar);
-        holderData.Tanggal.setText(ascendant.MagicDateChange(dm.getCreated_at()));
-        holderData.Kategori.setText(dm.getKategori_berita());
-        holderData.Berita.setText(ascendant.FilterTextToJava(ascendant.SmallDescription(dm.getIsi_berita())));
         holderData.card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent goInput = new Intent(ctx, NewsActivity.class);
-                goInput.putExtra("JUDUL",dm.getJudul_berita());
-                goInput.putExtra("KATEGORI",dm.getKategori_berita());
-                goInput.putExtra("TGL_UPLOAD",dm.getCreated_at());
-                goInput.putExtra("COVER",dm.getCover_berita());
-                goInput.putExtra("ISI_BERITA",dm.getIsi_berita());
-                ctx.startActivities(new Intent[]{goInput});
+                Intent goInput = new Intent(ctx, DetailComplianceActivity.class);
+                goInput.putExtra("VIDEO_URL",dm.getLink_video());
+                ctx.startActivity(goInput);
             }
         });
     }
@@ -67,16 +62,16 @@ public class AdapterBerita extends RecyclerView.Adapter<AdapterBerita.HolderData
     }
 
     class HolderData extends RecyclerView.ViewHolder{
-        ImageView Gambar;
-        TextView Tanggal,Kategori,Berita;
         LinearLayout card;
+        TextView Tanggal,Nama;
+        ImageView Gambar;
+
         public HolderData(View v) {
             super(v);
-            Gambar = v.findViewById(R.id.ivGambar);
+            card = v.findViewById(R.id.linearCard);
             Tanggal = v.findViewById(R.id.tvTanggal);
-            Kategori = v.findViewById(R.id.tvCategory);
-            Berita = v.findViewById(R.id.tvBerita);
-            card = v.findViewById(R.id.card);
+            Nama = v.findViewById(R.id.tvNama);
+            Gambar = v.findViewById(R.id.ivImage);
         }
     }
 }

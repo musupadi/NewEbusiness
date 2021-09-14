@@ -6,6 +6,7 @@
     tools:context=".Activity.ui.Healthcare.ListOfProbing.ListOfProbingFragment">
 
     <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/recycler">

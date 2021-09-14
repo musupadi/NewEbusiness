@@ -97,7 +97,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:id="@+id/relativeEcosystem">
                         <ImageView
                             android:layout_margin="15dp"
                             android:layout_marginTop="10dp"
@@ -166,15 +167,20 @@
                             android:textColor="@color/colorBlack" />
                     </RelativeLayout>
                     <RelativeLayout
+                        android:id="@+id/relativeCompliance"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:orientation="vertical">
+
                         <ImageView
-                            android:layout_margin="15dp"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:src="@drawable/compliance"/>
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginEnd="15dp"
+                            android:layout_marginBottom="15dp"
+                            android:src="@drawable/compliance" />
                         <TextView
                             android:layout_alignParentBottom="true"
                             android:layout_width="match_parent"

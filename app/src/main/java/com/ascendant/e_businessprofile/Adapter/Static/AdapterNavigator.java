@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -20,10 +19,11 @@ import com.ascendant.e_businessprofile.Activity.ModuleActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.BusinessRefrence.BusinessRefrenceActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.BusinessRefrence.RegulationActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.BusinessRefrence.eBookActivity;
+import com.ascendant.e_businessprofile.Activity.ui.Healthcare.Compliance.ComplianceActivity;
+import com.ascendant.e_businessprofile.Activity.ui.Healthcare.Ecosystem.SupportingIndustries.SupportingInduestriesActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.ListOfProbing.ListOfProbingActivity;
 import com.ascendant.e_businessprofile.Model.DataModel;
 import com.ascendant.e_businessprofile.R;
-import com.bumptech.glide.Glide;
 
 import java.util.List;
 
@@ -107,6 +107,26 @@ public class AdapterNavigator extends RecyclerView.Adapter<AdapterNavigator.Hold
                 }else if (dm.getNavigator().equals("List of Probing")){
                     if (!dm.getONCLICK().equals("true")){
                         Intent i = new Intent(ctx, ListOfProbingActivity.class);
+                        ctx.startActivity(i);
+                    }
+                }else if (dm.getNavigator().equals("Compliance")){
+                    if (!dm.getONCLICK().equals("true")){
+                        Intent i = new Intent(ctx, ComplianceActivity.class);
+                        ctx.startActivity(i);
+                    }
+                }else if (dm.getNavigator().equals("News")){
+                    if (!dm.getONCLICK().equals("true")){
+                        Intent i = new Intent(ctx, ComplianceActivity.class);
+                        ctx.startActivity(i);
+                    }
+                }else if (dm.getNavigator().equals("Ecosystem")){
+                    if (!dm.getONCLICK().equals("true")){
+                        Intent i = new Intent(ctx, ComplianceActivity.class);
+                        ctx.startActivity(i);
+                    }
+                }else if (dm.getNavigator().equals("Supporting Industries")){
+                    if (!dm.getONCLICK().equals("true")){
+                        Intent i = new Intent(ctx, SupportingInduestriesActivity.class);
                         ctx.startActivity(i);
                     }
                 }

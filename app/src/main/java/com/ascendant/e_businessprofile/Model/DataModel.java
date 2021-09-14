@@ -107,6 +107,23 @@ public class DataModel {
     @Expose
     public String file_probing;
 
+    //Compliance
+    @SerializedName("link_video")
+    @Expose
+    public String link_video;
+
+    @SerializedName("judul_video")
+    @Expose
+    public String judul_video;
+
+    @SerializedName("thumbnail_video")
+    @Expose
+    public String thumbnail_video;
+
+    @SerializedName("tgl_upload_video")
+    @Expose
+    public String tgl_upload_video;
+
     //Static
     String idNavigator,Navigator,ONCLICK;
 
@@ -326,5 +343,37 @@ public class DataModel {
 
     public void setFile_probing(String file_probing) {
         this.file_probing = file_probing;
+    }
+
+    public String getLink_video() {
+        return link_video;
+    }
+
+    public void setLink_video(String link_video) {
+        this.link_video = link_video;
+    }
+
+    public String getJudul_video() {
+        return judul_video;
+    }
+
+    public void setJudul_video(String judul_video) {
+        this.judul_video = judul_video;
+    }
+
+    public String getThumbnail_video() {
+        return thumbnail_video;
+    }
+
+    public void setThumbnail_video(String thumbnail_video) {
+        this.thumbnail_video = thumbnail_video;
+    }
+
+    public String getTgl_upload_video() {
+        return tgl_upload_video;
+    }
+
+    public void setTgl_upload_video(String tgl_upload_video) {
+        this.tgl_upload_video = tgl_upload_video;
     }
 }
