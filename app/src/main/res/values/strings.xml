@@ -1,0 +1,51 @@
+<resources>
+    <string name="app_name">e-Business Profile</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="username_login">Email atau NIP</string>
+    <string name="email">Email</string>
+    <string name="nip">NIP</string>
+    <string name="divisi">Divisi</string>
+    <string name="password_login">Kata sandi</string>
+    <string name="confirm_password_login">Konfirmasi kata sandi</string>
+    <string name="name">Nama</string>
+    <string name="number_phone">Nomor Telepon</string>
+    <string name="code_phone">Kode</string>
+    <string name="forgot_password_login">Lupa Password?</string>
+    <string name="not_have_account">Belum punya akun ? </string>
+    <string name="have_account">Sudah punya akun ? </string>
+    <string name="register_here">Daftar Disini</string>
+    <string name="login_here">Login Disini</string>
+    <string name="your_point">Poin Anda</string>
+    <string name="look_new_quiz">Lihat Kuis Baru</string>
+    <string name="healthcare">Healthcare</string>
+    <string name="fmcg">FMCG</string>
+    <string name="mining">Mining</string>
+    <string name="contractor">Contractor</string>
+    <string name="oil_and_gas">Oil And Gas</string>
+    <string name="farm">Farm</string>
+    <string name="news">Berita</string>
+    <string name="view_more">View More</string>
+    <string name="back">Kembali</string>
+    <string name="detail_healthcare">Lorem ipsum dolor sitamet\nkapuska kapuskum</string>
+    <string name="business_refrence">Busineass Refrence</string>
+    <string name="ecosystem">Ecosystem</string>
+    <string name="list_of_probing">List of Probing</string>
+    <string name="credit_worthiness">Credit Worthiness</string>
+    <string name="compliance">Compliance</string>
+    <string name="credit_decisive_tool">Credit\nDecision Tool</string>
+
+    <!-- Business Refrence    -->
+    <string name="eBook">e-Book</string>
+    <string name="regulations">Regulations</string>
+    <string name="Newsletter">Newsletter</string>
+    <string name="BusinessReview">Business\nReview</string>
+    <string name="pdf_document">PDF Document</string>
+    <string name="acts">Acts</string>
+    <string name="government_regulations">Government Regulations</string>
+    <string name="president_decree">Presidential Decree</string>
+    <string name="health_minister_decree">Health Minister Regulations</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

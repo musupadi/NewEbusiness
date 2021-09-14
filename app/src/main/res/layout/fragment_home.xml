@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Activity.ui.HomeFragment">
+    
+    <ScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:background="@color/colorBackground"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <RelativeLayout
+                    android:background="@color/colorWhite"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="170dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="20dp"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/mandiri_logo" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="170dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/inter"
+                            android:gravity="center"
+                            android:text="@string/app_name"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="@dimen/text"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                    <RelativeLayout
+                        android:layout_marginRight="20dp"
+                        android:elevation="10dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_width="81dp"
+                        android:layout_height="81dp"
+                        android:layout_centerInParent="true"
+                        android:layout_alignParentRight="true">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerInParent="true"
+                            android:src="@drawable/notifications" />
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="130dp"
+                    android:orientation="vertical">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="220dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        app:cardCornerRadius="10dp"
+                        app:cardElevation="10dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/colorWhite"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="85dp"
+                                android:background="@color/colorPrimary"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:orientation="vertical"
+                                    android:padding="15dp">
+
+                                    <TextView
+                                        android:id="@+id/tvNama"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/inter"
+                                        android:text="-"
+                                        android:textColor="@color/colorWhite"
+                                        android:textSize="@dimen/text_extra_large"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:id="@+id/tvDivisi"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/inter"
+                                        android:text="-"
+                                        android:textColor="@color/colorWhite"
+                                        android:textSize="@dimen/text_extra_large"
+                                        android:textStyle="bold" />
+
+                                </LinearLayout>
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="4">
+
+                                    <LinearLayout
+                                        android:layout_width="57dp"
+                                        android:layout_height="30dp"
+                                        android:layout_centerInParent="true"
+                                        android:background="@drawable/btn_rounded_accent_2">
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:fontFamily="@font/inter"
+                                            android:gravity="center"
+                                            android:text="Aktif"
+                                            android:textColor="@color/colorWhite"
+                                            android:textSize="@dimen/text_medium"
+                                            android:textStyle="bold" />
+                                    </LinearLayout>
+                                </RelativeLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal">
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="3">
+
+                                        <LinearLayout
+                                            android:layout_width="52dp"
+                                            android:layout_height="52dp"
+                                            android:layout_centerInParent="true"
+                                            android:background="@drawable/round_primary">
+
+                                            <ImageView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:layout_margin="15dp"
+                                                android:src="@drawable/wallet" />
+                                        </LinearLayout>
+                                    </RelativeLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:orientation="vertical"
+                                        android:padding="10dp">
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/inter"
+                                            android:text="@string/your_point"
+                                            android:textColor="@color/colorBlack"
+                                            android:textSize="@dimen/text_medium" />
+
+                                        <TextView
+                                            android:id="@+id/tvPoin"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/inter_extra_bold"
+                                            android:text="0"
+                                            android:textColor="@color/colorPrimary"
+                                            android:textSize="@dimen/header_text_large" />
+                                    </LinearLayout>
+                                </LinearLayout>
+
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2"
+                                    app:cardElevation="19dp">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/colorWhite"
+                                        android:gravity="center"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/inter_extra_bold"
+                                            android:gravity="center"
+                                            android:text="@string/look_new_quiz"
+                                            android:textColor="@color/colorPrimary"
+                                            android:textSize="@dimen/text_medium" />
+
+                                        <ImageView
+                                            android:layout_width="14dp"
+                                            android:layout_height="18dp"
+                                            android:layout_marginLeft="10dp"
+                                            android:src="@drawable/chevron_right" />
+                                    </LinearLayout>
+                                </androidx.cardview.widget.CardView>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="20dp"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="120dp"
+                            android:layout_margin="5dp"
+                            android:orientation="horizontal">
+
+                            <RelativeLayout
+                                android:id="@+id/relativeHealthcare"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginStart="15dp"
+                                    android:layout_marginTop="15dp"
+                                    android:layout_marginEnd="15dp"
+                                    android:layout_marginBottom="15dp"
+                                    android:src="@drawable/healthcare" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentBottom="true"
+                                    android:layout_centerInParent="true"
+                                    android:fontFamily="@font/inter"
+                                    android:gravity="center"
+                                    android:text="@string/healthcare"
+                                    android:textColor="@color/colorBlack" />
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_margin="15dp"
+                                    android:layout_marginTop="10dp"
+                                    android:src="@drawable/fmcg" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentBottom="true"
+                                    android:fontFamily="@font/inter"
+                                    android:gravity="center"
+                                    android:text="@string/fmcg"
+                                    android:textColor="@color/colorBlack" />
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_margin="15dp"
+                                    android:layout_marginTop="10dp"
+                                    android:src="@drawable/mining" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentBottom="true"
+                                    android:fontFamily="@font/inter"
+                                    android:gravity="center"
+                                    android:text="@string/mining"
+                                    android:textColor="@color/colorBlack" />
+                            </RelativeLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="120dp"
+                            android:layout_margin="5dp"
+                            android:orientation="horizontal">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_margin="15dp"
+                                    android:layout_marginTop="10dp"
+                                    android:src="@drawable/contractor" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentBottom="true"
+                                    android:fontFamily="@font/inter"
+                                    android:gravity="center"
+                                    android:text="@string/contractor"
+                                    android:textColor="@color/colorBlack" />
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_margin="15dp"
+                                    android:src="@drawable/oil_and_gas" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentBottom="true"
+                                    android:fontFamily="@font/inter"
+                                    android:gravity="center"
+                                    android:text="@string/oil_and_gas"
+                                    android:textColor="@color/colorBlack" />
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_margin="15dp"
+                                    android:src="@drawable/peternakan" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentBottom="true"
+                                    android:fontFamily="@font/inter"
+                                    android:gravity="center"
+                                    android:text="@string/farm"
+                                    android:textColor="@color/colorBlack" />
+                            </RelativeLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginRight="15dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/inter"
+                            android:text="@string/news"
+                            android:textColor="@color/colorBlack"
+                            android:textFontWeight="1"
+                            android:textSize="@dimen/text_extra_large" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/inter_extra_bold"
+                            android:gravity="right"
+                            android:text="@string/view_more"
+                            android:textColor="@color/colorPrimary"
+                            android:textFontWeight="1"
+                            android:textSize="@dimen/text_extra_large" />
+                    </LinearLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recycler"
+                        android:layout_width="match_parent"
+                        android:layout_height="400dp">
+
+                    </androidx.recyclerview.widget.RecyclerView>
+
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>
