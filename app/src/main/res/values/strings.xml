@@ -63,6 +63,17 @@
     <string name="hospital_equipment">Hospital Equipment</string>
     <string name="total_hospital">Total Hospital</string>
     <string name="total_bed">Total Bed</string>
+
+    <!-- Credit Worthiness   -->
+    <string name="creidt_worthiness">Credit Worthiness</string>
+    <string name="hospital_operational_perfomance_indicator">Hospital Operational Perfomance Indicator</string>
+    <string name="hospital_finance_indicator">Hospital Finance Indicator</string>
+    <string name="hospital_requirement_ratio">Hospital Requirement Ratio</string>
+    <string name="business_opportinity_for_bank">Business Opportunity for Bank</string>
+    <string name="hospital_key_of_success">Hospital Key of Success</string>
+    <string name="risk_and_mitigation">Risk &amp; Mitigation</string>
+    <string name="parameters">Parameters</string>
+    <string name="simulation">Simulation</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_maps">MapsActivity</string>

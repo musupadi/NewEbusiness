@@ -20,11 +20,17 @@ import com.ascendant.e_businessprofile.Activity.ui.Healthcare.BusinessRefrence.B
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.BusinessRefrence.RegulationActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.BusinessRefrence.eBookActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.Compliance.ComplianceActivity;
+import com.ascendant.e_businessprofile.Activity.ui.Healthcare.CreditWorthiness.CreditWorthinessActivity;
+import com.ascendant.e_businessprofile.Activity.ui.Healthcare.CreditWorthiness.HospitalOperationalPerfomanceIndicator.HospitalOperationalPerfomanceActivity;
+import com.ascendant.e_businessprofile.Activity.ui.Healthcare.CreditWorthiness.HospitalOperationalPerfomanceIndicator.ParameterHospitalOperationalActivity;
+import com.ascendant.e_businessprofile.Activity.ui.Healthcare.CreditWorthiness.HospitalOperationalPerfomanceIndicator.SimulationHospitalOperationalActivity;
+import com.ascendant.e_businessprofile.Activity.ui.Healthcare.Ecosystem.HospitalAssociation.HospitalAssociationActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.Ecosystem.ListOfHospital.ListOfHospitalActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.Ecosystem.SupportingIndustries.HospitalEquipmentActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.Ecosystem.SupportingIndustries.SupportingInduestriesActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.ListOfProbing.ListOfProbingActivity;
 import com.ascendant.e_businessprofile.Model.DataModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.Ecosystem.HospitalAssociationModel;
 import com.ascendant.e_businessprofile.R;
 
 import java.util.List;
@@ -48,6 +54,7 @@ public class AdapterNavigator extends RecyclerView.Adapter<AdapterNavigator.Hold
 
     @Override
     public void onBindViewHolder(@NonNull final HolderData holderData, int posistion) {
+        int i = posistion;
         final DataModel dm = mList.get(posistion);
         ascendant = new Ascendant();
         holderData.Navigator.setText(dm.getNavigator());
@@ -141,9 +148,50 @@ public class AdapterNavigator extends RecyclerView.Adapter<AdapterNavigator.Hold
                         Intent i = new Intent(ctx, ListOfHospitalActivity.class);
                         ctx.startActivity(i);
                     }
+                }else if (dm.getNavigator().equals("Hospital Association")){
+                    if (!dm.getONCLICK().equals("true")){
+                        Intent i = new Intent(ctx, HospitalAssociationActivity.class);
+                        ctx.startActivity(i);
+                    }
+                }else if (dm.getNavigator().equals("Credit Worthiness")){
+                    if (!dm.getONCLICK().equals("true")){
+                        Intent i = new Intent(ctx, CreditWorthinessActivity.class);
+                        ctx.startActivity(i);
+                    }
+                }else if (dm.getNavigator().equals("Hospital Operational Perfomance Indicator")){
+                    if (!dm.getONCLICK().equals("true")){
+                        Intent i = new Intent(ctx, HospitalOperationalPerfomanceActivity.class);
+                        ctx.startActivity(i);
+                    }
+                }else if (dm.getNavigator().equals("Parameters")){
+                    if (mList.get(i-1).equals("Hospital Operational Perfomance Indicator")){
+                        if (!dm.getONCLICK().equals("true")){
+                            Intent i = new Intent(ctx, ParameterHospitalOperationalActivity.class);
+                            ctx.startActivity(i);
+                        }
+                    }
+                }else if (dm.getNavigator().equals("Simulation")) {
+                    if (mList.get(i - 1).equals("Hospital Operational Perfomance Indicator")) {
+                        if (!dm.getONCLICK().equals("true")) {
+                            Intent i = new Intent(ctx, SimulationHospitalOperationalActivity.class);
+                            ctx.startActivity(i);
+                        }
+                    }
+                }else if (dm.getNavigator().equals("Simulation")) {
+                    if (mList.get(i - 1).equals("Hospital Operational Perfomance Indicator")) {
+                        if (!dm.getONCLICK().equals("true")) {
+                            Intent i = new Intent(ctx, SimulationHospitalOperationalActivity.class);
+                            ctx.startActivity(i);
+                        }
+                    }
+                }else if (dm.getNavigator().equals("Input Simulation")) {
+                    if (mList.get(i - 1).equals("Hospital Operational Perfomance Indicator")) {
+                        if (!dm.getONCLICK().equals("true")) {
+                            Intent i = new Intent(ctx, HospitalOperationalPerfomanceActivity.class);
+                            ctx.startActivity(i);
+                        }
+                    }
                 }
-
-
             }
         });
     }

@@ -270,8 +270,9 @@ public class DataModel {
     List<DataModel> daftar_rs;
 
     //Static
+    String Email,Password;
     String idNavigator,Navigator,ONCLICK;
-
+    String id_persi,nama_persi,alamat_persi,telpon_persi,email_persi;
 
 
     public String getId_berita() {
@@ -800,5 +801,61 @@ public class DataModel {
 
     public void setDaftar_rs(List<DataModel> daftar_rs) {
         this.daftar_rs = daftar_rs;
+    }
+
+    public String getId_persi() {
+        return id_persi;
+    }
+
+    public void setId_persi(String id_persi) {
+        this.id_persi = id_persi;
+    }
+
+    public String getNama_persi() {
+        return nama_persi;
+    }
+
+    public void setNama_persi(String nama_persi) {
+        this.nama_persi = nama_persi;
+    }
+
+    public String getAlamat_persi() {
+        return alamat_persi;
+    }
+
+    public void setAlamat_persi(String alamat_persi) {
+        this.alamat_persi = alamat_persi;
+    }
+
+    public String getTelpon_persi() {
+        return telpon_persi;
+    }
+
+    public void setTelpon_persi(String telpon_persi) {
+        this.telpon_persi = telpon_persi;
+    }
+
+    public String getEmail_persi() {
+        return email_persi;
+    }
+
+    public void setEmail_persi(String email_persi) {
+        this.email_persi = email_persi;
+    }
+
+    public String getEmail() {
+        return Email;
+    }
+
+    public void setEmail(String email) {
+        Email = email;
+    }
+
+    public String getPassword() {
+        return Password;
+    }
+
+    public void setPassword(String password) {
+        Password = password;
     }
 }
