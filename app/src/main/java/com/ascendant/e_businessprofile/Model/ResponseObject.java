@@ -26,6 +26,10 @@ public class ResponseObject {
     @Expose
     DataModel data;
 
+    @SerializedName("daftar_rs")
+    @Expose
+    List<DataModel> daftar_rs;
+
     public Integer getKode() {
         return kode;
     }
@@ -64,5 +68,14 @@ public class ResponseObject {
 
     public void setData(DataModel data) {
         this.data = data;
+    }
+
+
+    public List<DataModel> getDaftar_rs() {
+        return daftar_rs;
+    }
+
+    public void setDaftar_rs(List<DataModel> daftar_rs) {
+        this.daftar_rs = daftar_rs;
     }
 }

@@ -42,6 +42,37 @@ public interface ApiRequest {
     Call<ResponseArrayObject> HealthCare_Compliance(@Field("token") String token);
 
     @FormUrlEncoded
+    @POST("healthcare/alkes")
+    Call<ResponseArrayObject> HealthCare_Hospital_Equipment(@Field("token") String token);
+
+    @FormUrlEncoded
+    @POST("daerah/provinsi")
+    Call<ResponseArrayObject> Provinsi(@Field("token") String token);
+
+    @FormUrlEncoded
+    @POST("daerah/kab_kota")
+    Call<ResponseArrayObject> Kota(@Field("token") String token,
+                                   @Field("id_provinsi") String id_provinsi);
+
+//    @FormUrlEncoded
+//    @POST("healthcare/hospital")
+//    Call<ResponseArrayObject> ListHospital(@Field("token") String token,
+//                                           @Field("provinsi_rs") String provinsi_rs,
+//                                           @Field("kab_kota_rs") String kab_kota_rs,
+//                                           @Field("kelas_rs") String kelas_rs,
+//                                           @Field("nama_rs") String nama_rs);
+
+    @FormUrlEncoded
+    @POST("healthcare/hospital")
+    Call<ResponseObject> ListHospital(@Field("token") String token,
+                                           @Field("provinsi_rs") String provinsi_rs,
+                                           @Field("kab_kota_rs") String kab_kota_rs,
+                                           @Field("kelas_rs") String kelas_rs,
+                                           @Field("nama_rs") String nama_rs);
+
+
+
+    @FormUrlEncoded
     @POST("register")
     Call<ResponseArrayObject> Register(@Field("nama") String nama,
                                        @Field("email") String email,

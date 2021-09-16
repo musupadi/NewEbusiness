@@ -16,6 +16,16 @@
         <item>Artikel</item>
     </string-array>
 
+    <string-array name="Kelas">
+        <item>Semua Kelas</item>
+        <item>A</item>
+        <item>B</item>
+        <item>C</item>
+        <item>D</item>
+        <item>D Pratama</item>
+        <item>Belum Ditetapkan</item>
+    </string-array>
+
     <string-array name="lembaga">
         <item>SMP</item>
         <item>MTS</item>

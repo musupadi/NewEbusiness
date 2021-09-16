@@ -20,6 +20,8 @@ import com.ascendant.e_businessprofile.Activity.ui.Healthcare.BusinessRefrence.B
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.BusinessRefrence.RegulationActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.BusinessRefrence.eBookActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.Compliance.ComplianceActivity;
+import com.ascendant.e_businessprofile.Activity.ui.Healthcare.Ecosystem.ListOfHospital.ListOfHospitalActivity;
+import com.ascendant.e_businessprofile.Activity.ui.Healthcare.Ecosystem.SupportingIndustries.HospitalEquipmentActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.Ecosystem.SupportingIndustries.SupportingInduestriesActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.ListOfProbing.ListOfProbingActivity;
 import com.ascendant.e_businessprofile.Model.DataModel;
@@ -129,7 +131,19 @@ public class AdapterNavigator extends RecyclerView.Adapter<AdapterNavigator.Hold
                         Intent i = new Intent(ctx, SupportingInduestriesActivity.class);
                         ctx.startActivity(i);
                     }
+                }else if (dm.getNavigator().equals("Hospital Equipment")){
+                    if (!dm.getONCLICK().equals("true")){
+                        Intent i = new Intent(ctx, HospitalEquipmentActivity.class);
+                        ctx.startActivity(i);
+                    }
+                }else if (dm.getNavigator().equals("List of Hospital")){
+                    if (!dm.getONCLICK().equals("true")){
+                        Intent i = new Intent(ctx, ListOfHospitalActivity.class);
+                        ctx.startActivity(i);
+                    }
                 }
+
+
             }
         });
     }

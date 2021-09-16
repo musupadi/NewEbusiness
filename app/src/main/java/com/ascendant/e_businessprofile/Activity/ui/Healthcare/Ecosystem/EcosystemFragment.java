@@ -13,6 +13,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.ascendant.e_businessprofile.Activity.ui.Healthcare.Ecosystem.ListOfHospital.ListOfHospitalActivity;
+import com.ascendant.e_businessprofile.Activity.ui.Healthcare.Ecosystem.ListOfHospital.MapsActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.Ecosystem.SupportingIndustries.SupportingInduestriesActivity;
 import com.ascendant.e_businessprofile.R;
 import com.github.barteksc.pdfviewer.PDFView;
@@ -57,13 +59,15 @@ public class EcosystemFragment extends Fragment {
         ListOfHospital.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(getActivity(), ListOfHospitalActivity.class);
+                startActivity(intent);
             }
         });
         HospitalAssociation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(getActivity(), MapsActivity.class);
+                startActivity(intent);
             }
         });
         SupportingIndustries.setOnClickListener(new View.OnClickListener() {

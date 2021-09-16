@@ -25,6 +25,8 @@ import com.ascendant.e_businessprofile.Model.StaticModel.BusinessRefrence.Presid
 import com.ascendant.e_businessprofile.Model.StaticModel.BusinessRefrence.RegulationModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.BusinessRefrence.eBookModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.Ecosystem.EcosystemModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.Ecosystem.HospitalEquipmentodel;
+import com.ascendant.e_businessprofile.Model.StaticModel.Ecosystem.ListOfHospitalModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.Ecosystem.SupportingIndustriesModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.ListOfProbing.ListOfProbingModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.NewsModel;
@@ -92,8 +94,11 @@ public class NavigatorFragment extends Fragment {
             pList.addAll(EcosystemModel.getListData());
         }else if (Navigator.equals("Supporting Industries")){
             pList.addAll(SupportingIndustriesModel.getListData());
+        }else if (Navigator.equals("Hospital Equipment")){
+            pList.addAll(HospitalEquipmentodel.getListData());
+        }else if (Navigator.equals("List of Hospital")){
+            pList.addAll(ListOfHospitalModel.getListData());
         }
-
         rv.setLayoutManager(new LinearLayoutManager(getActivity()));
         AdapterNavigator adapters = new AdapterNavigator(getActivity(),pList);
         rv.setAdapter(adapters);

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.ui.Healthcare.Ecosystem.ListOfHospital.ListHospitalFragment">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:padding="10dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:id="@+id/tvJumlahRS"
+                    android:textSize="@dimen/header_text_small"
+                    android:text="400"
+                    android:textColor="@color/colorBlack"
+                    android:fontFamily="@font/inter_extra_bold"
+                    android:gravity="center|left"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:textSize="@dimen/text_medium"
+                    android:text="@string/total_hospital"
+                    android:fontFamily="@font/inter"
+                    android:gravity="center|left"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:padding="10dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:id="@+id/tvJumlahBed"
+                    android:textSize="@dimen/header_text_small"
+                    android:text="400"
+                    android:textColor="@color/colorBlack"
+                    android:fontFamily="@font/inter_extra_bold"
+                    android:gravity="center|left"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:textSize="@dimen/text_medium"
+                    android:text="@string/total_bed"
+
+                    android:fontFamily="@font/inter"
+                    android:gravity="center|left"/>
+
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+    <fragment
+        tools:context=".Activity.ui.Healthcare.Ecosystem.ListOfHospital.ListOfHospitalActivity"
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</FrameLayout>

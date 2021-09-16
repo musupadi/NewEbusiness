@@ -3,6 +3,8 @@ package com.ascendant.e_businessprofile.Model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 public class DataModel {
     //Berita
     @SerializedName("id_berita")
@@ -123,6 +125,149 @@ public class DataModel {
     @SerializedName("tgl_upload_video")
     @Expose
     public String tgl_upload_video;
+
+    //Supporting Industries
+    @SerializedName("nama_provinsi")
+    @Expose
+    public String nama_provinsi;
+
+    @SerializedName("link_alkes")
+    @Expose
+    public String link_alkes;
+
+    //List Of Hospital
+    @SerializedName("id_provinsi")
+    @Expose
+    public String id_provinsi;
+
+    @SerializedName("latitude")
+    @Expose
+    public String latitude;
+
+    @SerializedName("longitude")
+    @Expose
+    public String longitude;
+
+    @SerializedName("luas_provinsi")
+    @Expose
+    public String luas_provinsi;
+
+    @SerializedName("total_penduduk_provinsi")
+    @Expose
+    public String total_penduduk_provinsi;
+
+    @SerializedName("kepadatan_penduduk_provinsi")
+    @Expose
+    public String kepadatan_penduduk_provinsi;
+
+    @SerializedName("pdrb_provinsi")
+    @Expose
+    public String pdrb_provinsi;
+
+    @SerializedName("food_provinsi")
+    @Expose
+    public String food_provinsi;
+
+    @SerializedName("non_food_provinsi")
+    @Expose
+    public String non_food_provinsi;
+
+    @SerializedName("non_food_filter_provinsi")
+    @Expose
+    public String non_food_filter_provinsi;
+
+    @SerializedName("market_size_food")
+    @Expose
+    public String market_size_food;
+
+    @SerializedName("market_size_non_food")
+    @Expose
+    public String market_size_non_food;
+
+    @SerializedName("total_market_perbulan")
+    @Expose
+    public String total_market_perbulan;
+
+    @SerializedName("total_market_pertahun")
+    @Expose
+    public String total_market_pertahun;
+
+    @SerializedName("id_kab_kota")
+    @Expose
+    public String id_kab_kota;
+
+    @SerializedName("tipe_kab_kota")
+    @Expose
+    public String tipe_kab_kota;
+
+    @SerializedName("nama_kab_kota")
+    @Expose
+    public String nama_kab_kota;
+
+    @SerializedName("kode_pos")
+    @Expose
+    public String kode_pos;
+
+    @SerializedName("total_penduduk")
+    @Expose
+    public String total_penduduk;
+
+    @SerializedName("luas_wilayah")
+    @Expose
+    public String luas_wilayah;
+
+    @SerializedName("kepadatan_penduduk")
+    @Expose
+    public String kepadatan_penduduk;
+
+    @SerializedName("pdrb_2015")
+    @Expose
+    public String pdrb_2015;
+
+    @SerializedName("pengeluaran_perkapita_food")
+    @Expose
+    public String pengeluaran_perkapita_food;
+
+    @SerializedName("pengeluaran_perkapita_non_food")
+    @Expose
+    public String pengeluaran_perkapita_non_food;
+
+    @SerializedName("tahun_pengeluaran_perkapita")
+    @Expose
+    public String tahun_pengeluaran_perkapita;
+
+    @SerializedName("kode_rs")
+    @Expose
+    public String kode_rs;
+
+    @SerializedName("nama_rs")
+    @Expose
+    public String nama_rs;
+
+
+    @SerializedName("kelas_rs")
+    @Expose
+    public String kelas_rs;
+
+    @SerializedName("jumlah_bed_rs")
+    @Expose
+    public String jumlah_bed_rs;
+
+    @SerializedName("jumlah_tenaga_rs")
+    @Expose
+    public String jumlah_tenaga_rs;
+
+    @SerializedName("total_rs")
+    @Expose
+    public String total_rs;
+
+    @SerializedName("total_bed")
+    @Expose
+    public String total_bed;
+
+    @SerializedName("daftar_rs")
+    @Expose
+    List<DataModel> daftar_rs;
 
     //Static
     String idNavigator,Navigator,ONCLICK;
@@ -375,5 +520,285 @@ public class DataModel {
 
     public void setTgl_upload_video(String tgl_upload_video) {
         this.tgl_upload_video = tgl_upload_video;
+    }
+
+    public String getNama_provinsi() {
+        return nama_provinsi;
+    }
+
+    public void setNama_provinsi(String nama_provinsi) {
+        this.nama_provinsi = nama_provinsi;
+    }
+
+    public String getLink_alkes() {
+        return link_alkes;
+    }
+
+    public void setLink_alkes(String link_alkes) {
+        this.link_alkes = link_alkes;
+    }
+
+    public String getId_provinsi() {
+        return id_provinsi;
+    }
+
+    public void setId_provinsi(String id_provinsi) {
+        this.id_provinsi = id_provinsi;
+    }
+
+    public String getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
+    }
+
+    public String getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
+    }
+
+    public String getLuas_provinsi() {
+        return luas_provinsi;
+    }
+
+    public void setLuas_provinsi(String luas_provinsi) {
+        this.luas_provinsi = luas_provinsi;
+    }
+
+    public String getTotal_penduduk_provinsi() {
+        return total_penduduk_provinsi;
+    }
+
+    public void setTotal_penduduk_provinsi(String total_penduduk_provinsi) {
+        this.total_penduduk_provinsi = total_penduduk_provinsi;
+    }
+
+    public String getKepadatan_penduduk_provinsi() {
+        return kepadatan_penduduk_provinsi;
+    }
+
+    public void setKepadatan_penduduk_provinsi(String kepadatan_penduduk_provinsi) {
+        this.kepadatan_penduduk_provinsi = kepadatan_penduduk_provinsi;
+    }
+
+    public String getPdrb_provinsi() {
+        return pdrb_provinsi;
+    }
+
+    public void setPdrb_provinsi(String pdrb_provinsi) {
+        this.pdrb_provinsi = pdrb_provinsi;
+    }
+
+    public String getFood_provinsi() {
+        return food_provinsi;
+    }
+
+    public void setFood_provinsi(String food_provinsi) {
+        this.food_provinsi = food_provinsi;
+    }
+
+    public String getNon_food_provinsi() {
+        return non_food_provinsi;
+    }
+
+    public void setNon_food_provinsi(String non_food_provinsi) {
+        this.non_food_provinsi = non_food_provinsi;
+    }
+
+    public String getNon_food_filter_provinsi() {
+        return non_food_filter_provinsi;
+    }
+
+    public void setNon_food_filter_provinsi(String non_food_filter_provinsi) {
+        this.non_food_filter_provinsi = non_food_filter_provinsi;
+    }
+
+    public String getMarket_size_food() {
+        return market_size_food;
+    }
+
+    public void setMarket_size_food(String market_size_food) {
+        this.market_size_food = market_size_food;
+    }
+
+    public String getMarket_size_non_food() {
+        return market_size_non_food;
+    }
+
+    public void setMarket_size_non_food(String market_size_non_food) {
+        this.market_size_non_food = market_size_non_food;
+    }
+
+    public String getTotal_market_perbulan() {
+        return total_market_perbulan;
+    }
+
+    public void setTotal_market_perbulan(String total_market_perbulan) {
+        this.total_market_perbulan = total_market_perbulan;
+    }
+
+    public String getTotal_market_pertahun() {
+        return total_market_pertahun;
+    }
+
+    public void setTotal_market_pertahun(String total_market_pertahun) {
+        this.total_market_pertahun = total_market_pertahun;
+    }
+
+    public String getId_kab_kota() {
+        return id_kab_kota;
+    }
+
+    public void setId_kab_kota(String id_kab_kota) {
+        this.id_kab_kota = id_kab_kota;
+    }
+
+    public String getTipe_kab_kota() {
+        return tipe_kab_kota;
+    }
+
+    public void setTipe_kab_kota(String tipe_kab_kota) {
+        this.tipe_kab_kota = tipe_kab_kota;
+    }
+
+    public String getNama_kab_kota() {
+        return nama_kab_kota;
+    }
+
+    public void setNama_kab_kota(String nama_kab_kota) {
+        this.nama_kab_kota = nama_kab_kota;
+    }
+
+    public String getKode_pos() {
+        return kode_pos;
+    }
+
+    public void setKode_pos(String kode_pos) {
+        this.kode_pos = kode_pos;
+    }
+
+    public String getTotal_penduduk() {
+        return total_penduduk;
+    }
+
+    public void setTotal_penduduk(String total_penduduk) {
+        this.total_penduduk = total_penduduk;
+    }
+
+    public String getLuas_wilayah() {
+        return luas_wilayah;
+    }
+
+    public void setLuas_wilayah(String luas_wilayah) {
+        this.luas_wilayah = luas_wilayah;
+    }
+
+    public String getKepadatan_penduduk() {
+        return kepadatan_penduduk;
+    }
+
+    public void setKepadatan_penduduk(String kepadatan_penduduk) {
+        this.kepadatan_penduduk = kepadatan_penduduk;
+    }
+
+    public String getPdrb_2015() {
+        return pdrb_2015;
+    }
+
+    public void setPdrb_2015(String pdrb_2015) {
+        this.pdrb_2015 = pdrb_2015;
+    }
+
+    public String getPengeluaran_perkapita_food() {
+        return pengeluaran_perkapita_food;
+    }
+
+    public void setPengeluaran_perkapita_food(String pengeluaran_perkapita_food) {
+        this.pengeluaran_perkapita_food = pengeluaran_perkapita_food;
+    }
+
+    public String getPengeluaran_perkapita_non_food() {
+        return pengeluaran_perkapita_non_food;
+    }
+
+    public void setPengeluaran_perkapita_non_food(String pengeluaran_perkapita_non_food) {
+        this.pengeluaran_perkapita_non_food = pengeluaran_perkapita_non_food;
+    }
+
+    public String getTahun_pengeluaran_perkapita() {
+        return tahun_pengeluaran_perkapita;
+    }
+
+    public void setTahun_pengeluaran_perkapita(String tahun_pengeluaran_perkapita) {
+        this.tahun_pengeluaran_perkapita = tahun_pengeluaran_perkapita;
+    }
+
+    public String getKode_rs() {
+        return kode_rs;
+    }
+
+    public void setKode_rs(String kode_rs) {
+        this.kode_rs = kode_rs;
+    }
+
+    public String getNama_rs() {
+        return nama_rs;
+    }
+
+    public void setNama_rs(String nama_rs) {
+        this.nama_rs = nama_rs;
+    }
+
+    public String getKelas_rs() {
+        return kelas_rs;
+    }
+
+    public void setKelas_rs(String kelas_rs) {
+        this.kelas_rs = kelas_rs;
+    }
+
+    public String getJumlah_bed_rs() {
+        return jumlah_bed_rs;
+    }
+
+    public void setJumlah_bed_rs(String jumlah_bed_rs) {
+        this.jumlah_bed_rs = jumlah_bed_rs;
+    }
+
+    public String getJumlah_tenaga_rs() {
+        return jumlah_tenaga_rs;
+    }
+
+    public void setJumlah_tenaga_rs(String jumlah_tenaga_rs) {
+        this.jumlah_tenaga_rs = jumlah_tenaga_rs;
+    }
+
+    public String getTotal_rs() {
+        return total_rs;
+    }
+
+    public void setTotal_rs(String total_rs) {
+        this.total_rs = total_rs;
+    }
+
+    public String getTotal_bed() {
+        return total_bed;
+    }
+
+    public void setTotal_bed(String total_bed) {
+        this.total_bed = total_bed;
+    }
+
+    public List<DataModel> getDaftar_rs() {
+        return daftar_rs;
+    }
+
+    public void setDaftar_rs(List<DataModel> daftar_rs) {
+        this.daftar_rs = daftar_rs;
     }
 }

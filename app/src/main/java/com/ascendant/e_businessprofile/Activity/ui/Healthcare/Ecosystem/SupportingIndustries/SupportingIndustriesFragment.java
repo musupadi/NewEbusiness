@@ -98,5 +98,186 @@ public class SupportingIndustriesFragment extends Fragment {
                 });
             }
         });
+        HealthInsurance.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(android.view.View view) {
+                myDialog.show();
+                View.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://fabakonsultan.com/uploads/hospital/ekosistem/Ekosistem_RS_Asuransi.pdf"));
+                        startActivity(browserIntent);
+                    }
+                });
+                Download.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                        builder.setMessage("Download File ?")
+                                .setCancelable(false)
+                                .setPositiveButton("Iya", new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        ascendant.DownloadPDF("https://fabakonsultan.com/uploads/hospital/ekosistem/Ekosistem_RS_Asuransi.pdf","Health Insurance",getActivity());
+                                    }
+                                })
+                                .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        dialog.cancel();
+                                    }
+                                })
+                                //Set your icon here
+                                .setTitle("Perhatian !!!")
+                                .setIcon(R.drawable.ic_baseline_print_24);
+                        AlertDialog alert = builder.create();
+                        alert.show();
+                    }
+                });
+            }
+        });
+        ClinicalLab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(android.view.View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                builder.setMessage("Download File ?")
+                        .setCancelable(false)
+                        .setPositiveButton("Iya", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                ascendant.DownloadPDF("https://fabakonsultan.com/uploads/ekosistem/hospital/Ekosistem_RS_Alkes.pdf","Clinical Labolatory",getActivity());
+                            }
+                        })
+                        .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        })
+                        //Set your icon here
+                        .setTitle("Perhatian !!!")
+                        .setIcon(R.drawable.ic_baseline_print_24);
+                AlertDialog alert = builder.create();
+                alert.show();
+            }
+        });
+        MedicalWasteManagement.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(android.view.View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                builder.setMessage("Download File ?")
+                        .setCancelable(false)
+                        .setPositiveButton("Iya", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                ascendant.DownloadPDF("https://fabakonsultan.com/uploads/hospital/ekosistem/Ekosistem_RS_Jasa_Pengelola_Limbah_Medis.pdf","Medical Waste Management Service",getActivity());
+                            }
+                        })
+                        .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        })
+                        //Set your icon here
+                        .setTitle("Perhatian !!!")
+                        .setIcon(R.drawable.ic_baseline_print_24);
+                AlertDialog alert = builder.create();
+                alert.show();
+            }
+        });
+        ThirdPartyAdmin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(android.view.View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                builder.setMessage("Download File ?")
+                        .setCancelable(false)
+                        .setPositiveButton("Iya", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                ascendant.DownloadPDF("https://fabakonsultan.com/uploads/hospital/ekosistem/Ekosistem_RS_Klinik.pdf","Third Party Administrator",getActivity());
+                            }
+                        })
+                        .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        })
+                        //Set your icon here
+                        .setTitle("Perhatian !!!")
+                        .setIcon(R.drawable.ic_baseline_print_24);
+                AlertDialog alert = builder.create();
+                alert.show();
+            }
+        });
+        MedicalDevicesSupplies.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(android.view.View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                builder.setMessage("Download File ?")
+                        .setCancelable(false)
+                        .setPositiveButton("Iya", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                ascendant.DownloadPDF("https://fabakonsultan.com/uploads/hospital/ekosistem/Ekosistem_RS_Laboratorium_Klinik.pdf","Medical Device Supplies",getActivity());
+                            }
+                        })
+                        .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        })
+                        //Set your icon here
+                        .setTitle("Perhatian !!!")
+                        .setIcon(R.drawable.ic_baseline_print_24);
+                AlertDialog alert = builder.create();
+                alert.show();
+            }
+        });
+        Clinic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(android.view.View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                builder.setMessage("Download File ?")
+                        .setCancelable(false)
+                        .setPositiveButton("Iya", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                ascendant.DownloadPDF("https://fabakonsultan.com/uploads/hospital/ekosistem/Ekosistem_RS_Klinik.pdf","Clinic",getActivity());
+                            }
+                        })
+                        .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        })
+                        //Set your icon here
+                        .setTitle("Perhatian !!!")
+                        .setIcon(R.drawable.ic_baseline_print_24);
+                AlertDialog alert = builder.create();
+                alert.show();
+            }
+        });
+        BPJS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(android.view.View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                builder.setMessage("Download File ?")
+                        .setCancelable(false)
+                        .setPositiveButton("Iya", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                ascendant.DownloadPDF("https://fabakonsultan.com/uploads/hospital/ekosistem/Ekosistem_RS_BPJS.pdf","BPJS",getActivity());
+                            }
+                        })
+                        .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        })
+                        //Set your icon here
+                        .setTitle("Perhatian !!!")
+                        .setIcon(R.drawable.ic_baseline_print_24);
+                AlertDialog alert = builder.create();
+                alert.show();
+            }
+        });
+        HospitalEquipment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(android.view.View view) {
+                Intent intent = new Intent(getActivity(),HospitalEquipmentActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

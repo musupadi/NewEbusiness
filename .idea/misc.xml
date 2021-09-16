@@ -18,12 +18,15 @@
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/activity_ecosystem.xml" value="0.16757246376811594" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/activity_healthcare.xml" value="0.12" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/activity_home.xml" value="0.1" />
+        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/activity_hospital_equipment.xml" value="0.1" />
+        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/activity_list_of_hospital.xml" value="0.1" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/activity_list_of_probing.xml" value="0.1816123188405797" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/activity_main.xml" value="0.11503623188405797" />
+        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/activity_maps.xml" value="0.1" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/activity_module.xml" value="0.22" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/activity_news.xml" value="0.1" />
-        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/activity_register.xml" value="0.22" />
+        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/activity_register.xml" value="0.18" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/activity_regulation.xml" value="0.1816123188405797" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/activity_supporting_induestries.xml" value="0.14" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/dialog_navigator.xml" value="0.25" />
@@ -34,7 +37,11 @@
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/fragment_ecosystem.xml" value="0.15" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/fragment_healthcare.xml" value="0.30538922155688625" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/fragment_home.xml" value="0.18" />
+        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/fragment_hospital_equipment.xml" value="0.1" />
+        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/fragment_list_hospital.xml" value="0.18" />
+        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/fragment_list_of_hospital.xml" value="0.12" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/fragment_list_of_probing.xml" value="0.1816123188405797" />
+        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/fragment_maps_hospital.xml" value="0.1" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/fragment_navigator.xml" value="0.25" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/fragment_news.xml" value="0.1" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/fragment_regulations.xml" value="0.2" />
@@ -42,7 +49,8 @@
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/list_berita.xml" value="0.25" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/list_compliance.xml" value="0.16757246376811594" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/list_ebook.xml" value="0.18" />
-        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/list_list_of_probing.xml" value="0.16" />
+        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/list_hospital.xml" value="0.2" />
+        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/list_list_of_probing.xml" value="0.25" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/list_navigation.xml" value="0.22" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/list_spinner.xml" value="0.18614130434782608" />
       </map>
