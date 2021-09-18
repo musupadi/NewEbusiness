@@ -111,7 +111,8 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginLeft="5dp"
-                android:layout_marginBottom="5dp">
+                android:layout_marginBottom="5dp"
+                android:id="@+id/cardHospitalFinanceIndicator">
               <LinearLayout
                   android:padding="10dp"
                   android:layout_width="match_parent"
@@ -141,6 +142,7 @@
             android:orientation="horizontal">
 
           <androidx.cardview.widget.CardView
+              android:id="@+id/cardHosoutakRequirementRatio"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:layout_weight="1"
@@ -171,6 +173,7 @@
             </LinearLayout>
           </androidx.cardview.widget.CardView>
           <androidx.cardview.widget.CardView
+              android:id="@+id/cardBusinessOppurtinity"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:layout_weight="1"
@@ -209,6 +212,7 @@
             android:orientation="horizontal">
 
           <androidx.cardview.widget.CardView
+              android:id="@+id/cardKeyOfSuccess"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:layout_weight="1"
@@ -239,6 +243,7 @@
             </LinearLayout>
           </androidx.cardview.widget.CardView>
           <androidx.cardview.widget.CardView
+              android:id="@+id/cardRiskAndMitigation"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:layout_weight="1"

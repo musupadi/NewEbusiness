@@ -74,6 +74,56 @@
     <string name="risk_and_mitigation">Risk &amp; Mitigation</string>
     <string name="parameters">Parameters</string>
     <string name="simulation">Simulation</string>
+    <string name="result">Result</string>
+    <!-- Credit Decision Tool   -->
+    <string name="five_c_analysis">5C Analysis</string>
+    <string name="requirement_analysis">Requirement Analysis</string>
+    <string name="financial_statement_analysis">Financial Statement Analysis</string>
+    <string name="investment_credit">Investment Credit</string>
+    <string name="working_capital_credit">Working Capital Credit</string>
+    <string name="liquidity_ratio">Liquidity Ratio</string>
+    <string name="solvency_ratio">Solvency Ratio</string>
+    <string name="profitability_ratio">Profitability Ratio</string>
+    <string name="activity_ratio">Activity Ratio</string>
+    <string name="current_ratio">Current Ratio</string>
+    <string name="quick_ratio">Quick Ratio</string>
+    <string name="debt_to_equties">Debt To Equities</string>
+    <string name="debt_to_total_assets">Debt to Total Assets</string>
+    <string name="interest_coverage">Intereset Coverage</string>
+    <string name="receivable_turnover">Receivable Turnover</string>
+    <string name="inventory_turnover">Inventory Turnover</string>
+    <string name="payable_turnover">payable Turnover</string>
+    <string name="net_profit_margin">Net Profit Margin</string>
+    <string name="return_on_investment">Return On Investment</string>
+    <string name="return_on_equitu">Return On Equity</string>
+
+    <!-- Laporan Keuangan   -->
+    <string name="liquiditas">Rasio Likuiditas Merupakan Tools yang digunakan Untuk Mengukur kemampuan perusahaan dalam memenuhi liabilitas jangka pendeknya</string>
+    <string name="solvabilitas">Rasio Solvabilitas Merupakan Tools yang digunakan Untuk Menunjukan Sejauh Mana Perusahaan Dibiayai oleh utang</string>
+    <string name="aktivitas">Rasio Aktivitas Merupakan Tools yang digunakan Untuk Mengukur bagaimana perusahaan menggunakan asetnya</string>
+    <string name="profitabilitas">Rasio Profitabilitas Merupakan Tools yang digunakan Untuk Mengukur kemampuan perusahaan dalam menghasilkan laba</string>
+    <!-- /Laporan Keuangan   -->
+
+    <!--  Rasio Likuiditas  -->
+    <string name="rasio_lancar">Semakin tinggi angka rasio lancar,maka semakin besar kemampuan perusahaan untuk membayar liabilitas jangka pendeknya. Namun, rasio ini tidak memperhitungkan likuiditas setiap komponen aset sehingga bisa dianggap sebagai ukuran kasar dari likuiditas perusahaan.</string>
+    <string name="rasio_cepat">Semakin tinggi rasio cepat, maka semakin besar kemampuan perusahaan untuk membayar liabilitas jangka pendeknya. Rasio ini memberikan ukuran likuiditas yang lebih konservatif dibandingkan dengan rasio lancar karena mengeluarkan aset lancar yang paling tidak likuid yaitu persediaan</string>
+    <!--  /Rasio Likuiditas  -->
+    <!--  Rasio Solvabilitas  -->
+    <string name="DER">Dept to Equity Rasio (DER) dibawah 100 % mengidintesikan perusahaan memiliki hutang lebih kecil dari modal. Apabila DER diatas 100 % dikhawatirkan mengganggu perteumbuhan kinerja perusahaan dan mengganggu pertumbuhan harga saham </string>
+    <string name="DAR">Semakin rendah rasio utang terhadap total aset, maka semakin rendah resiko keuangan yang dimiliki perusahaan. Hal ini karena aset lebih banyak dibiayai dengan ekuitas jika dibandingan dengan utang</string>
+    <string name="cakupan_bunga">Semakin besar rasio cakupan bunga maka semakin besar kemampuan perusahaan untuk membayar beban bunga. Selain itu, besarnya rasio ini juga menunjukan bahwa perusahaan mampu mengambil utang baru</string>
+    <!--  /Rasio Solvabilitas  -->
+    <!--  Rasio Aktivitas  -->
+    <string name="perputaran_piutang">Semakin tinggi perputaran piutang, semakin pendek waktu antara penjualan kredit dengan penagihan tunainya. Hal ini memberikan dampak positif terhadap arus kas karena penjualan yang dilakukan oleh perusahaan dapat dengan cepat terkonversi menjadi kas</string>
+    <string name="perputaran_persediaan">Semakin tinggi perputaran persediaan, maka semakin efektif perusahaan dalam mengelola persediaan dan semakin likuid persediaan tersebut. Namun, dalam beberapa kondisi yang lain, bisa saja semakin tinggi perputaran persediaan malah mengindikasikan operasi perusahaan yang pas-pasan sehingga sering kehabisan stok</string>
+    <string name="perputaran_total_aset">Semakin besar perputaran utang, semakin cepat jangka waktu perusahaan membayar hutang pada pemasok yang berarti perusahaan memiliki kecupukupan kas dan aset lancar untuk membayar utang</string>
+    <!--  /Rasio Aktivitas  -->
+    <!-- Rasio Profitabilitas  -->
+    <string name="margin_laba_neto">Semakin besar rasio margin laba neto, maka semakin besar profit yang dihasilkan dari setiap satu rupiah penjualan. Rasio ini menghitung profitabilitas perusahaan dari penjualan setelah memperhitungkan semua biaya dan pajak penghasilan</string>
+    <string name="roi">Semakin besar rasio imbal hasil atas investasi, maka semakin efektif perusahaan dalam menghasilkan profit dari aset yang tersedia</string>
+    <string name="roe">Semakin besar rasio imbal hasil atas ekuitas, maka semakin baik kemampuan perusahaan dalam menghasilkan profit untuk pemegang saham. Besarnya rasio ini sering kali mengindikasikan bahwa  penerimaan perusahaan atas peluang investasi yang baik dan manajemen biaya yang efektif</string>
+    <!-- /Rasio Profitabilitas  -->
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_maps">MapsActivity</string>

@@ -24,13 +24,13 @@ import com.ascendant.e_businessprofile.Activity.API.RetroServer;
 import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.BusinessRefrence.BusinessRefrenceActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.Compliance.ComplianceActivity;
+import com.ascendant.e_businessprofile.Activity.ui.Healthcare.CreditDecisionTool.CrreditDecisionToolActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.CreditWorthiness.CreditWorthinessActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.Ecosystem.EcosystemActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.ListOfProbing.ListOfProbingActivity;
 import com.ascendant.e_businessprofile.Adapter.AdapterBerita;
 import com.ascendant.e_businessprofile.Model.DataModel;
 import com.ascendant.e_businessprofile.Model.ResponseArrayObject;
-import com.ascendant.e_businessprofile.Model.StaticModel.CreditWorthiness.CreditWorthinessModel;
 import com.ascendant.e_businessprofile.R;
 
 import java.util.ArrayList;
@@ -49,7 +49,7 @@ public class HealthcareFragment extends Fragment {
     DB_Helper dbHelper;
     String Token;
     LinearLayout Back;
-    RelativeLayout BusinessRefrence,ListOfProbing,Compliance,Ecosystem,CreditWorthiness;
+    RelativeLayout BusinessRefrence,ListOfProbing,Compliance,Ecosystem,CreditWorthiness,CreditDecisionTool;
     ScrollView scroll;
     public HealthcareFragment() {
         // Required empty public constructor
@@ -85,6 +85,7 @@ public class HealthcareFragment extends Fragment {
         Compliance = view.findViewById(R.id.relativeCompliance);
         Ecosystem = view.findViewById(R.id.relativeEcosystem);
         CreditWorthiness = view.findViewById(R.id.relativeCreditWorthiness);
+        CreditDecisionTool = view.findViewById(R.id.relativeCreditDecisionTool);
         Logic();
         BusinessRefrence.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -118,6 +119,13 @@ public class HealthcareFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), CreditWorthinessActivity.class);
+                startActivity(intent);
+            }
+        });
+        CreditDecisionTool.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), CrreditDecisionToolActivity.class);
                 startActivity(intent);
             }
         });

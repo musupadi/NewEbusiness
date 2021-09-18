@@ -269,11 +269,32 @@ public class DataModel {
     @Expose
     List<DataModel> daftar_rs;
 
+    //Key Of Success
+    @SerializedName("jenis_kos")
+    @Expose
+    public String jenis_kos;
+
+    @SerializedName("kategori_kos")
+    @Expose
+    public String kategori_kos;
+
+    @SerializedName("judul_kos")
+    @Expose
+    public String judul_kos;
+
+    @SerializedName("isi_kos")
+    @Expose
+    public String isi_kos;
+
+    @SerializedName("file_kos")
+    @Expose
+    public String file_kos;
+
     //Static
     String Email,Password;
     String idNavigator,Navigator,ONCLICK;
     String id_persi,nama_persi,alamat_persi,telpon_persi,email_persi;
-
+    String no_quis,category_quis,soal_quis,simulasi,jawaban;
 
     public String getId_berita() {
         return id_berita;
@@ -857,5 +878,85 @@ public class DataModel {
 
     public void setPassword(String password) {
         Password = password;
+    }
+
+    public String getJenis_kos() {
+        return jenis_kos;
+    }
+
+    public void setJenis_kos(String jenis_kos) {
+        this.jenis_kos = jenis_kos;
+    }
+
+    public String getKategori_kos() {
+        return kategori_kos;
+    }
+
+    public void setKategori_kos(String kategori_kos) {
+        this.kategori_kos = kategori_kos;
+    }
+
+    public String getJudul_kos() {
+        return judul_kos;
+    }
+
+    public void setJudul_kos(String judul_kos) {
+        this.judul_kos = judul_kos;
+    }
+
+    public String getIsi_kos() {
+        return isi_kos;
+    }
+
+    public void setIsi_kos(String isi_kos) {
+        this.isi_kos = isi_kos;
+    }
+
+    public String getFile_kos() {
+        return file_kos;
+    }
+
+    public void setFile_kos(String file_kos) {
+        this.file_kos = file_kos;
+    }
+
+    public String getNo_quis() {
+        return no_quis;
+    }
+
+    public void setNo_quis(String no_quis) {
+        this.no_quis = no_quis;
+    }
+
+    public String getCategory_quis() {
+        return category_quis;
+    }
+
+    public void setCategory_quis(String category_quis) {
+        this.category_quis = category_quis;
+    }
+
+    public String getSoal_quis() {
+        return soal_quis;
+    }
+
+    public void setSoal_quis(String soal_quis) {
+        this.soal_quis = soal_quis;
+    }
+
+    public String getSimulasi() {
+        return simulasi;
+    }
+
+    public void setSimulasi(String simulasi) {
+        this.simulasi = simulasi;
+    }
+
+    public String getJawaban() {
+        return jawaban;
+    }
+
+    public void setJawaban(String jawaban) {
+        this.jawaban = jawaban;
     }
 }

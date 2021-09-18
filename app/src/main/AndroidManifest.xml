@@ -25,6 +25,61 @@
         android:theme="@style/AppThemeNoAction"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".Activity.ui.Healthcare.CreditDecisionTool.FiveC.SoalActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.ui.Healthcare.CreditDecisionTool.FiveC.FiveCActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.ui.Healthcare.CreditDecisionTool.FinancialStatementAnalysis.SolvencyRatio.SolvencyRatioActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.ui.Healthcare.CreditDecisionTool.FinancialStatementAnalysis.ProfitabilityRatio.ProfitabilityRatioActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.ui.Healthcare.CreditDecisionTool.FinancialStatementAnalysis.ActivityRatio.ActtivityRatioActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.ui.Healthcare.CreditDecisionTool.FinancialStatementAnalysis.LiquidityRatio.LquidityRatioActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.ui.Healthcare.CreditDecisionTool.FinancialStatementAnalysis.FinancialStatementAnalysisActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.ui.Healthcare.CreditDecisionTool.RequirementAnalysis.InvestmentCredit.ResultInvestmentCreditActivity"
+            android:exported="true"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".Activity.ui.Healthcare.CreditDecisionTool.RequirementAnalysis.WorkingCapitalCredit.WorkingCapitalCreditActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.ui.Healthcare.CreditDecisionTool.RequirementAnalysis.InvestmentCredit.InvestmentCreditActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.ui.Healthcare.CreditDecisionTool.RequirementAnalysis.RequirementAnalysisActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.ui.Healthcare.CreditDecisionTool.CrreditDecisionToolActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.ui.Healthcare.CreditWorthiness.HospitalKeyOfSucces.HospitalKeyOfSuccessActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.ui.Healthcare.CreditWorthiness.HospitalRequirementRatio.HospitalRequirementRatioActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.ui.Healthcare.CreditWorthiness.HospitalFinanceIndicator.ResultHospitalFinanceIndicatorActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.ui.Healthcare.CreditWorthiness.HospitalFinanceIndicator.SimulationHospitalFinanceIndicatorActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.ui.Healthcare.CreditWorthiness.HospitalFinanceIndicator.ParametersHospitalFinanceIndicatorActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.ui.Healthcare.CreditWorthiness.HospitalFinanceIndicator.HospitalFinanceIndicatorActivity"
+            android:exported="true" />
+        <activity
             android:name=".Activity.ui.Healthcare.CreditWorthiness.HospitalOperationalPerfomanceIndicator.GraphLineActivity"
             android:exported="true" />
         <activity

@@ -38,6 +38,10 @@ public interface ApiRequest {
     Call<ResponseArrayObject> HealthCare_List_of_Probing(@Field("token") String token);
 
     @FormUrlEncoded
+    @POST("healthcare/key_of_success")
+    Call<ResponseArrayObject> HealthCare_Key_Of_Success(@Field("token") String token);
+
+    @FormUrlEncoded
     @POST("healthcare/video")
     Call<ResponseArrayObject> HealthCare_Compliance(@Field("token") String token);
 

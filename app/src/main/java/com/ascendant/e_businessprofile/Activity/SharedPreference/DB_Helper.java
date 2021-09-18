@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import com.ascendant.e_businessprofile.Model.DataModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.AnalisisInput;
+import com.ascendant.e_businessprofile.Model.StaticModel.Quis;
 import com.ascendant.e_businessprofile.Model.StaticModel.models_fivec;
 
 import java.util.LinkedList;
@@ -114,7 +115,14 @@ public class DB_Helper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL("DELETE FROM "+TABLE_CLICK_NOTIFICATION);
     }
-
+    public void saveScore(Quis quis){
+        SQLiteDatabase db =this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_KATEGORI, quis.getKategori());
+        values.put(COLUMN_SKOR, quis.getSkor());
+        db.insert(TABLE_QUIZ,null,values);
+        db.close();
+    }
     public Cursor getClick(){
         SQLiteDatabase db = this.getWritableDatabase();
         String query ="SELECT * FROM "+TABLE_CLICK_NOTIFICATION;

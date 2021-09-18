@@ -3,9 +3,6 @@ package com.ascendant.e_businessprofile.Activity.ui.Healthcare.Ecosystem.ListOfH
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -28,7 +25,6 @@ import android.widget.Toast;
 import com.ascendant.e_businessprofile.Activity.API.ApiRequest;
 import com.ascendant.e_businessprofile.Activity.API.RetroServer;
 import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
-import com.ascendant.e_businessprofile.Activity.ui.NavigatorFragment;
 import com.ascendant.e_businessprofile.Adapter.AdapterListHospital;
 import com.ascendant.e_businessprofile.Adapter.Spinner.SpinnerKota;
 import com.ascendant.e_businessprofile.Adapter.Spinner.SpinnerProvinsi;
@@ -36,10 +32,8 @@ import com.ascendant.e_businessprofile.Adapter.Static.AdapterNavigator;
 import com.ascendant.e_businessprofile.Model.DataModel;
 import com.ascendant.e_businessprofile.Model.ResponseArrayObject;
 import com.ascendant.e_businessprofile.Model.ResponseObject;
-import com.ascendant.e_businessprofile.Model.StaticModel.BusinessRefrence.BusinessRefrenceModel;
-import com.ascendant.e_businessprofile.Model.StaticModel.Ecosystem.ListOfHospitalModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.Ecosystem.ListOfHospitalModel;
 import com.ascendant.e_businessprofile.R;
-import com.ascendant.e_businessprofile.databinding.ActivityMapsBinding;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -50,7 +44,6 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;

@@ -20,17 +20,24 @@ import com.ascendant.e_businessprofile.Activity.ui.Healthcare.BusinessRefrence.B
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.BusinessRefrence.RegulationActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.BusinessRefrence.eBookActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.Compliance.ComplianceActivity;
+import com.ascendant.e_businessprofile.Activity.ui.Healthcare.CreditDecisionTool.CrreditDecisionToolActivity;
+import com.ascendant.e_businessprofile.Activity.ui.Healthcare.CreditDecisionTool.RequirementAnalysis.InvestmentCredit.InvestmentCreditActivity;
+import com.ascendant.e_businessprofile.Activity.ui.Healthcare.CreditDecisionTool.RequirementAnalysis.RequirementAnalysisActivity;
+import com.ascendant.e_businessprofile.Activity.ui.Healthcare.CreditDecisionTool.RequirementAnalysis.WorkingCapitalCredit.WorkingCapitalCreditActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.CreditWorthiness.CreditWorthinessActivity;
+import com.ascendant.e_businessprofile.Activity.ui.Healthcare.CreditWorthiness.HospitalFinanceIndicator.HospitalFinanceIndicatorActivity;
+import com.ascendant.e_businessprofile.Activity.ui.Healthcare.CreditWorthiness.HospitalFinanceIndicator.ParametersHospitalFinanceIndicatorActivity;
+import com.ascendant.e_businessprofile.Activity.ui.Healthcare.CreditWorthiness.HospitalFinanceIndicator.ResultHospitalFinanceIndicatorActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.CreditWorthiness.HospitalOperationalPerfomanceIndicator.HospitalOperationalPerfomanceActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.CreditWorthiness.HospitalOperationalPerfomanceIndicator.ParameterHospitalOperationalActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.CreditWorthiness.HospitalOperationalPerfomanceIndicator.SimulationHospitalOperationalActivity;
+import com.ascendant.e_businessprofile.Activity.ui.Healthcare.CreditWorthiness.HospitalRequirementRatio.HospitalRequirementRatioActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.Ecosystem.HospitalAssociation.HospitalAssociationActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.Ecosystem.ListOfHospital.ListOfHospitalActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.Ecosystem.SupportingIndustries.HospitalEquipmentActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.Ecosystem.SupportingIndustries.SupportingInduestriesActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.ListOfProbing.ListOfProbingActivity;
 import com.ascendant.e_businessprofile.Model.DataModel;
-import com.ascendant.e_businessprofile.Model.StaticModel.Ecosystem.HospitalAssociationModel;
 import com.ascendant.e_businessprofile.R;
 
 import java.util.List;
@@ -188,6 +195,63 @@ public class AdapterNavigator extends RecyclerView.Adapter<AdapterNavigator.Hold
                     if (mList.get(i - 1).equals("Hospital Operational Perfomance Indicator")) {
                         if (!dm.getONCLICK().equals("true")) {
                             Intent i = new Intent(ctx, HospitalOperationalPerfomanceActivity.class);
+                            ctx.startActivity(i);
+                        }
+                    }
+                }else if (dm.getNavigator().equals("Hospital Finance Indicator")){
+                    if (!dm.getONCLICK().equals("true")){
+                        Intent i = new Intent(ctx, HospitalFinanceIndicatorActivity.class);
+                        ctx.startActivity(i);
+                    }
+                }else if (dm.getNavigator().equals("Parameters")){
+                    if (mList.get(i-1).equals("Hospital Finance Indicator")){
+                        if (!dm.getONCLICK().equals("true")){
+                            Intent i = new Intent(ctx, ParametersHospitalFinanceIndicatorActivity.class);
+                            ctx.startActivity(i);
+                        }
+                    }
+                }else if (dm.getNavigator().equals("Simulation")){
+                    if (mList.get(i-1).equals("Hospital Finance Indicator")){
+                        if (!dm.getONCLICK().equals("true")){
+                            Intent i = new Intent(ctx, SimulationHospitalOperationalActivity.class);
+                            ctx.startActivity(i);
+                        }
+                    }
+                } else if (dm.getNavigator().equals("Result")){
+                    if (mList.get(i-2).equals("Hospital Finance Indicator")){
+                        if (!dm.getONCLICK().equals("true")){
+                            Intent i = new Intent(ctx, ResultHospitalFinanceIndicatorActivity.class);
+                            ctx.startActivity(i);
+                        }
+                    }
+                }else if (dm.getNavigator().equals("Hospital Requirement Ratio")){
+                    if (!dm.getONCLICK().equals("true")){
+                        Intent i = new Intent(ctx, HospitalRequirementRatioActivity.class);
+                        ctx.startActivity(i);
+                    }
+                }else if (dm.getNavigator().equals("Credit Decision Tool")){
+                    if (!dm.getONCLICK().equals("true")){
+                        Intent i = new Intent(ctx, CrreditDecisionToolActivity.class);
+                        ctx.startActivity(i);
+                    }
+                }else if (dm.getNavigator().equals("Inveastment Credit")){
+                    if (mList.get(i-3).equals("Healthcare")){
+                        if (!dm.getONCLICK().equals("true")){
+                            Intent i = new Intent(ctx, InvestmentCreditActivity.class);
+                            ctx.startActivity(i);
+                        }
+                    }
+                }else if (dm.getNavigator().equals("Workingn Capital Credit")){
+                    if (mList.get(i-3).equals("Healthcare")){
+                        if (!dm.getONCLICK().equals("true")){
+                            Intent i = new Intent(ctx, WorkingCapitalCreditActivity.class);
+                            ctx.startActivity(i);
+                        }
+                    }
+                }else if (dm.getNavigator().equals("Requirement Analysis")){
+                    if (mList.get(i-2).equals("Healthcare")){
+                        if (!dm.getONCLICK().equals("true")){
+                            Intent i = new Intent(ctx, RequirementAnalysisActivity.class);
                             ctx.startActivity(i);
                         }
                     }

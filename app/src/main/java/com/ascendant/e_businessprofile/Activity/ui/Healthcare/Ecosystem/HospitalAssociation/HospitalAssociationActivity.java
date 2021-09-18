@@ -12,9 +12,8 @@ import android.widget.LinearLayout;
 import com.ascendant.e_businessprofile.Adapter.AdapterHospitalAssociation;
 import com.ascendant.e_businessprofile.Adapter.Static.AdapterNavigator;
 import com.ascendant.e_businessprofile.Model.DataModel;
-import com.ascendant.e_businessprofile.Model.StaticModel.Ecosystem.AsosiasiPersiData;
-import com.ascendant.e_businessprofile.Model.StaticModel.Ecosystem.HospitalAssociationModel;
-import com.ascendant.e_businessprofile.Model.StaticModel.Ecosystem.ListOfHospitalModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.Ecosystem.AsosiasiPersiData;
+import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.Ecosystem.HospitalAssociationModel;
 import com.ascendant.e_businessprofile.R;
 
 import java.util.ArrayList;

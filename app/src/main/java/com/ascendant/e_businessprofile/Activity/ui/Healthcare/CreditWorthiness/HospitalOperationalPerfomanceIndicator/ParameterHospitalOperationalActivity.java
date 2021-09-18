@@ -12,8 +12,7 @@ import android.widget.LinearLayout;
 
 import com.ascendant.e_businessprofile.Adapter.Static.AdapterNavigator;
 import com.ascendant.e_businessprofile.Model.DataModel;
-import com.ascendant.e_businessprofile.Model.StaticModel.CreditWorthiness.HospitalOperationalIndicatorModel;
-import com.ascendant.e_businessprofile.Model.StaticModel.CreditWorthiness.ParametersHospitalOperationalIndicatorModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.CreditWorthiness.ParametersHospitalOperationalIndicatorModel;
 import com.ascendant.e_businessprofile.R;
 
 import java.util.ArrayList;
