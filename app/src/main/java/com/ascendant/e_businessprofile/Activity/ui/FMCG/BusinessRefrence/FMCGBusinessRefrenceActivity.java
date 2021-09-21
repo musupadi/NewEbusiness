@@ -1,48 +1,40 @@
-package com.ascendant.e_businessprofile.Activity;
+package com.ascendant.e_businessprofile.Activity.ui.FMCG.BusinessRefrence;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.content.Intent;
+import android.app.Dialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.ascendant.e_businessprofile.Activity.ui.ChatFragment;
-import com.ascendant.e_businessprofile.Activity.ui.FMCG.FMCGFragment;
 import com.ascendant.e_businessprofile.Activity.ui.ForumFragment;
-import com.ascendant.e_businessprofile.Activity.ui.Healthcare.HealthcareFragment;
+import com.ascendant.e_businessprofile.Activity.ui.Healthcare.BusinessRefrence.BusinessRefrenceFragment;
 import com.ascendant.e_businessprofile.Activity.ui.HomeFragment;
+import com.ascendant.e_businessprofile.Activity.ui.NavigatorFragment;
 import com.ascendant.e_businessprofile.R;
 
-public class ModuleActivity extends AppCompatActivity {
+public class FMCGBusinessRefrenceActivity extends AppCompatActivity {
     LinearLayout LHome, LForum, LChat, LProfile;
     ImageView Home, Forum, Chat, Profile;
     Fragment fragment;
-    String MODULE;
+    Dialog dialog;
+    ImageView ivMore;
+    LinearLayout More,Back;
+    Boolean more=true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_module);
+        setContentView(R.layout.activity_fmcgbusiness_refrence);
         Declaration();
-        Home();
+        Home.setImageResource(R.drawable.home_active);
+        fragment = new FMCGBusinessRefrenceFragment();
+        ChangeFragment(fragment);
         OnClick();
-        try {
-            Intent intent = getIntent();
-            MODULE = intent.getExtras().getString("MODULE");
-            if (MODULE.equals("HEALTHCARE")){
-                fragment = new HealthcareFragment();
-                ChangeFragment(fragment);
-            }else if (MODULE.equals("FMCG")){
-                fragment = new FMCGFragment();
-                ChangeFragment(fragment);
-            }
-        }catch (Exception e){
-
-        }
     }
     private void OnClick() {
         LHome.setOnClickListener(new View.OnClickListener() {
@@ -69,6 +61,36 @@ public class ModuleActivity extends AppCompatActivity {
                 Profile();
             }
         });
+        Back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
+        More.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    Bundle bundle = new Bundle();
+                    bundle.putString("Navigator", "Business Refrence");
+                    if (more){
+                        more = false;
+                        ivMore.setImageResource(R.drawable.close_concerate);
+                        fragment = new NavigatorFragment();
+                        fragment.setArguments(bundle);
+                        ChangeFragment(fragment);
+                    }else{
+                        more = true;
+                        ivMore.setImageResource(R.drawable.more_vertical_concerate);
+                        fragment = new BusinessRefrenceFragment();
+                        ChangeFragment(fragment);
+                    }
+                }catch (Exception e){
+
+                }
+
+            }
+        });
     }
 
     private void Declaration() {
@@ -81,6 +103,10 @@ public class ModuleActivity extends AppCompatActivity {
         Forum = findViewById(R.id.ivForum);
         Chat = findViewById(R.id.ivChat);
         Profile = findViewById(R.id.ivProfile);
+
+        ivMore = findViewById(R.id.ivMore);
+        More = findViewById(R.id.linearMore);
+        Back = findViewById(R.id.linearBack);
     }
 
     private void Default() {

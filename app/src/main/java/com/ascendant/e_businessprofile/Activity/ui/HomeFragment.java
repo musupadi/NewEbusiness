@@ -45,7 +45,7 @@ public class HomeFragment extends Fragment {
     DB_Helper dbHelper;
     String Token;
     TextView divisi,nama,poin;
-    RelativeLayout Healtcare;
+    RelativeLayout Healtcare,FMCG;
     ScrollView scroll;
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -72,9 +72,11 @@ public class HomeFragment extends Fragment {
         scroll = view.findViewById(R.id.scroll);
         rv = view.findViewById(R.id.recycler);
         Healtcare = view.findViewById(R.id.relativeHealthcare);
+        FMCG = view.findViewById(R.id.relativeFMCG);
         nama = view.findViewById(R.id.tvNama);
         divisi = view.findViewById(R.id.tvDivisi);
         poin = view.findViewById(R.id.tvPoin);
+
         scroll.fullScroll(View.FOCUS_UP);
         GetData();
         GetPoin();
@@ -84,6 +86,14 @@ public class HomeFragment extends Fragment {
             public void onClick(View view) {
                 Intent i = new Intent(getActivity(), ModuleActivity.class);
                 i.putExtra("MODULE", "HEALTHCARE");
+                startActivity(i);
+            }
+        });
+        FMCG.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getActivity(), ModuleActivity.class);
+                i.putExtra("MODULE", "FMCG");
                 startActivity(i);
             }
         });

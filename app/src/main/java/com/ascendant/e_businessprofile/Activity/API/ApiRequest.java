@@ -75,6 +75,17 @@ public interface ApiRequest {
                                            @Field("nama_rs") String nama_rs);
 
 
+    //FMCG
+    @FormUrlEncoded
+    @POST("fmcg/video")
+    Call<ResponseArrayObject> FMCG_Compliance(@Field("token") String token);
+
+    @FormUrlEncoded
+    @POST("fmcg/list_of_probing")
+    Call<ResponseArrayObject> FMCG_List_of_Probing(@Field("token") String token,
+                                                   @Field("kategori_probing") String kategori_probing);
+
+
 
     @FormUrlEncoded
     @POST("register")
