@@ -151,7 +151,7 @@ public class FMCGFragment extends Fragment {
         mManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL,false);
         rv.setLayoutManager(mManager);
         ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
-        final Call<ResponseArrayObject> data =api.Berita(Token,"HEALTHCARE","1");
+        final Call<ResponseArrayObject> data =api.Berita(Token,"FMCG","1");
         data.enqueue(new Callback<ResponseArrayObject>() {
             @Override
             public void onResponse(Call<ResponseArrayObject> call, Response<ResponseArrayObject> response) {

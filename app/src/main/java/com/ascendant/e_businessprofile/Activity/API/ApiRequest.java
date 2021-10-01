@@ -97,6 +97,13 @@ public interface ApiRequest {
                                        @Field("password") String password);
 
     @FormUrlEncoded
+    @POST("fmcg/business_refrence")
+    Call<ResponseArrayObject> FMCG_Business_refrence(@Field("token") String token,
+                                                           @Field("regulasi") String regulasi,
+                                                           @Field("jenis_br") String jenis_br,
+                                                           @Field("tipe") String tipe);
+
+    @FormUrlEncoded
     @POST("profil")
     Call<ResponseObject> Profil(@Field("token") String token);
 
