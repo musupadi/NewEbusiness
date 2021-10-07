@@ -54,6 +54,13 @@
     <string name="healthcare_ecosystem_flow">Healthcare Ecosystem Flow</string>
     <string name="view">View</string>
     <string name="list_of_hospital">List of Hospital</string>
+    <string name="distributor">Distributor</string>
+    <string name="retail">Retail</string>
+    <string name="e_commerce">E-Commerce</string>
+    <string name="players">Players</string>
+    <string name="association">Association</string>
+    <string name="manufacture">Manufacture</string>
+    <string name="suppliers">Supplier</string>
     <string name="supporting_industries">Supporting Industries</string>
     <string name="hospital_association">Hospital Association</string>
     <string name="pharmaceutical_wholesaler">Pharmaceutical Wholesaler</string>

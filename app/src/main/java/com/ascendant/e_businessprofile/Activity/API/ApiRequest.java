@@ -1,12 +1,16 @@
 package com.ascendant.e_businessprofile.Activity.API;
 
+import com.ascendant.e_businessprofile.Model.DataModel;
 import com.ascendant.e_businessprofile.Model.ResponseArrayObject;
 import com.ascendant.e_businessprofile.Model.ResponseObject;
+import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Perusahaan.Perusahaan;
+import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Probing;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.Header;
 import retrofit2.http.POST;
 
 public interface ApiRequest {
@@ -115,5 +119,35 @@ public interface ApiRequest {
     @GET("divisi")
     Call<ResponseArrayObject> Divisi();
 
+    //Old API
+    //FMCG
+    @FormUrlEncoded
+    @POST("fmcg/perusahaan")
+    Call<Perusahaan> DataPerusahaan(@Header("Authorization") String authHeader,
+                                    @Field("kuncifaba") String kuncifaba,
+                                    @Field("nama") String nama,
+                                    @Field("tipe") String tipe,
+                                    @Field("kategori") String kategori,
+                                    @Field("page") String page,
+                                    @Field("tbk") String tbk,
+                                    @Field("id_provinsi") String id_provinsi,
+                                    @Field("id_kab_kota") String id_kab_kota);
+
+    @FormUrlEncoded
+    @POST("fmcg/perusahaan")
+    Call<Perusahaan> DataPerusahaan(@Header("Authorization") String authHeader,
+                                    @Field("kuncifaba") String kuncifaba,
+                                    @Field("id_perusahaan") String id_perusahaan);
+
+    @FormUrlEncoded
+    @POST("fmcg/asosiasi")
+    Call<DataModel> DetailAssosiationFMCG(@Header("Authorization") String authHeader,
+                                          @Field("kuncifaba") String kuncifaba,
+                                          @Field("id_asosiasi") String id_asosiasi);
+
+    @FormUrlEncoded
+    @POST("fmcg/asosiasi")
+    Call<Probing> AssosiationFMCG(@Header("Authorization") String authHeader,
+                                  @Field("kuncifaba") String kuncifaba);
 
 }

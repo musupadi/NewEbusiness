@@ -290,7 +290,28 @@ public class DataModel {
     @Expose
     public String file_kos;
 
+
+    //Asosiasi
+    String id_asosiasi,nilaiperkapita;
+    String password,nama,no_telpon,status,level_user;
+    String pengurus,anggota;
     //Static
+    String tgl_registrasi,jenis,
+            kelas,direktur,latar_belakang,pemilik,
+            alamat,kab_kota,
+            telepon,fax,telepon_humas,website,luas_tanah,
+            luas_bangunan,tanggal_surat_ijin,
+            berlaku_sampai,vvip,vip,kelas_1,kelas_2,kelas_3,icu,picu,nicu,
+            tt_bayi,hcu,iccu,tt_operasi,tt_isolasi,dr_og,dr_pd,dr_b,
+            dr_rad,dr_rm,dr_an,dr_jp,dr_m,dr_tht,dr_pk,dr_paru_paru,dr_bedah_thoraks,
+            dr_bedah_anak,dr_bedah_orthopedi,dr_a,dr_okupasi,dr_urologi,dr_kulit,
+            dr_forensik,dr_psikiatri,dr_ofthalmologi,dr_anatomi,dr_jiwa,dr_saraf,dr_lainnya,
+            dr_bedah_saraf,dr_bedah_plastik,dr_bedah_mulut,dr_konservasi,
+            dr_penyakit_mulut,dr_radiologi,dr_karang_gigi,dr_gigi_anak,dr_gigi_tiruan,dr_periodonsia,
+            dr_gigi_lainnya,bidan_pendidikan,radiografi,refraksionis,
+            rekam_medis,transfusi_darah,kardiovaskular,epidemiology,prilaku,biostatik,dietisien,admin_kesehatan,bank;
+
+
     String Email,Password;
     String idNavigator,Navigator,ONCLICK;
     String id_persi,nama_persi,alamat_persi,telpon_persi,email_persi;
@@ -958,5 +979,685 @@ public class DataModel {
 
     public void setJawaban(String jawaban) {
         this.jawaban = jawaban;
+    }
+
+    public String getId_asosiasi() {
+        return id_asosiasi;
+    }
+
+    public void setId_asosiasi(String id_asosiasi) {
+        this.id_asosiasi = id_asosiasi;
+    }
+
+    public String getNilaiperkapita() {
+        return nilaiperkapita;
+    }
+
+    public void setNilaiperkapita(String nilaiperkapita) {
+        this.nilaiperkapita = nilaiperkapita;
+    }
+
+    public String getNama() {
+        return nama;
+    }
+
+    public void setNama(String nama) {
+        this.nama = nama;
+    }
+
+    public String getNo_telpon() {
+        return no_telpon;
+    }
+
+    public void setNo_telpon(String no_telpon) {
+        this.no_telpon = no_telpon;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getLevel_user() {
+        return level_user;
+    }
+
+    public void setLevel_user(String level_user) {
+        this.level_user = level_user;
+    }
+
+    public String getTgl_registrasi() {
+        return tgl_registrasi;
+    }
+
+    public void setTgl_registrasi(String tgl_registrasi) {
+        this.tgl_registrasi = tgl_registrasi;
+    }
+
+    public String getJenis() {
+        return jenis;
+    }
+
+    public void setJenis(String jenis) {
+        this.jenis = jenis;
+    }
+
+    public String getKelas() {
+        return kelas;
+    }
+
+    public void setKelas(String kelas) {
+        this.kelas = kelas;
+    }
+
+    public String getDirektur() {
+        return direktur;
+    }
+
+    public void setDirektur(String direktur) {
+        this.direktur = direktur;
+    }
+
+    public String getLatar_belakang() {
+        return latar_belakang;
+    }
+
+    public void setLatar_belakang(String latar_belakang) {
+        this.latar_belakang = latar_belakang;
+    }
+
+    public String getPemilik() {
+        return pemilik;
+    }
+
+    public void setPemilik(String pemilik) {
+        this.pemilik = pemilik;
+    }
+
+    public String getAlamat() {
+        return alamat;
+    }
+
+    public void setAlamat(String alamat) {
+        this.alamat = alamat;
+    }
+
+    public String getKab_kota() {
+        return kab_kota;
+    }
+
+    public void setKab_kota(String kab_kota) {
+        this.kab_kota = kab_kota;
+    }
+
+    public String getTelepon() {
+        return telepon;
+    }
+
+    public void setTelepon(String telepon) {
+        this.telepon = telepon;
+    }
+
+    public String getFax() {
+        return fax;
+    }
+
+    public void setFax(String fax) {
+        this.fax = fax;
+    }
+
+    public String getTelepon_humas() {
+        return telepon_humas;
+    }
+
+    public void setTelepon_humas(String telepon_humas) {
+        this.telepon_humas = telepon_humas;
+    }
+
+    public String getWebsite() {
+        return website;
+    }
+
+    public void setWebsite(String website) {
+        this.website = website;
+    }
+
+    public String getLuas_tanah() {
+        return luas_tanah;
+    }
+
+    public void setLuas_tanah(String luas_tanah) {
+        this.luas_tanah = luas_tanah;
+    }
+
+    public String getLuas_bangunan() {
+        return luas_bangunan;
+    }
+
+    public void setLuas_bangunan(String luas_bangunan) {
+        this.luas_bangunan = luas_bangunan;
+    }
+
+    public String getTanggal_surat_ijin() {
+        return tanggal_surat_ijin;
+    }
+
+    public void setTanggal_surat_ijin(String tanggal_surat_ijin) {
+        this.tanggal_surat_ijin = tanggal_surat_ijin;
+    }
+
+    public String getBerlaku_sampai() {
+        return berlaku_sampai;
+    }
+
+    public void setBerlaku_sampai(String berlaku_sampai) {
+        this.berlaku_sampai = berlaku_sampai;
+    }
+
+    public String getVvip() {
+        return vvip;
+    }
+
+    public void setVvip(String vvip) {
+        this.vvip = vvip;
+    }
+
+    public String getVip() {
+        return vip;
+    }
+
+    public void setVip(String vip) {
+        this.vip = vip;
+    }
+
+    public String getKelas_1() {
+        return kelas_1;
+    }
+
+    public void setKelas_1(String kelas_1) {
+        this.kelas_1 = kelas_1;
+    }
+
+    public String getKelas_2() {
+        return kelas_2;
+    }
+
+    public void setKelas_2(String kelas_2) {
+        this.kelas_2 = kelas_2;
+    }
+
+    public String getKelas_3() {
+        return kelas_3;
+    }
+
+    public void setKelas_3(String kelas_3) {
+        this.kelas_3 = kelas_3;
+    }
+
+    public String getIcu() {
+        return icu;
+    }
+
+    public void setIcu(String icu) {
+        this.icu = icu;
+    }
+
+    public String getPicu() {
+        return picu;
+    }
+
+    public void setPicu(String picu) {
+        this.picu = picu;
+    }
+
+    public String getNicu() {
+        return nicu;
+    }
+
+    public void setNicu(String nicu) {
+        this.nicu = nicu;
+    }
+
+    public String getTt_bayi() {
+        return tt_bayi;
+    }
+
+    public void setTt_bayi(String tt_bayi) {
+        this.tt_bayi = tt_bayi;
+    }
+
+    public String getHcu() {
+        return hcu;
+    }
+
+    public void setHcu(String hcu) {
+        this.hcu = hcu;
+    }
+
+    public String getIccu() {
+        return iccu;
+    }
+
+    public void setIccu(String iccu) {
+        this.iccu = iccu;
+    }
+
+    public String getTt_operasi() {
+        return tt_operasi;
+    }
+
+    public void setTt_operasi(String tt_operasi) {
+        this.tt_operasi = tt_operasi;
+    }
+
+    public String getTt_isolasi() {
+        return tt_isolasi;
+    }
+
+    public void setTt_isolasi(String tt_isolasi) {
+        this.tt_isolasi = tt_isolasi;
+    }
+
+    public String getDr_og() {
+        return dr_og;
+    }
+
+    public void setDr_og(String dr_og) {
+        this.dr_og = dr_og;
+    }
+
+    public String getDr_pd() {
+        return dr_pd;
+    }
+
+    public void setDr_pd(String dr_pd) {
+        this.dr_pd = dr_pd;
+    }
+
+    public String getDr_b() {
+        return dr_b;
+    }
+
+    public void setDr_b(String dr_b) {
+        this.dr_b = dr_b;
+    }
+
+    public String getDr_rad() {
+        return dr_rad;
+    }
+
+    public void setDr_rad(String dr_rad) {
+        this.dr_rad = dr_rad;
+    }
+
+    public String getDr_rm() {
+        return dr_rm;
+    }
+
+    public void setDr_rm(String dr_rm) {
+        this.dr_rm = dr_rm;
+    }
+
+    public String getDr_an() {
+        return dr_an;
+    }
+
+    public void setDr_an(String dr_an) {
+        this.dr_an = dr_an;
+    }
+
+    public String getDr_jp() {
+        return dr_jp;
+    }
+
+    public void setDr_jp(String dr_jp) {
+        this.dr_jp = dr_jp;
+    }
+
+    public String getDr_m() {
+        return dr_m;
+    }
+
+    public void setDr_m(String dr_m) {
+        this.dr_m = dr_m;
+    }
+
+    public String getDr_tht() {
+        return dr_tht;
+    }
+
+    public void setDr_tht(String dr_tht) {
+        this.dr_tht = dr_tht;
+    }
+
+    public String getDr_pk() {
+        return dr_pk;
+    }
+
+    public void setDr_pk(String dr_pk) {
+        this.dr_pk = dr_pk;
+    }
+
+    public String getDr_paru_paru() {
+        return dr_paru_paru;
+    }
+
+    public void setDr_paru_paru(String dr_paru_paru) {
+        this.dr_paru_paru = dr_paru_paru;
+    }
+
+    public String getDr_bedah_thoraks() {
+        return dr_bedah_thoraks;
+    }
+
+    public void setDr_bedah_thoraks(String dr_bedah_thoraks) {
+        this.dr_bedah_thoraks = dr_bedah_thoraks;
+    }
+
+    public String getDr_bedah_anak() {
+        return dr_bedah_anak;
+    }
+
+    public void setDr_bedah_anak(String dr_bedah_anak) {
+        this.dr_bedah_anak = dr_bedah_anak;
+    }
+
+    public String getDr_bedah_orthopedi() {
+        return dr_bedah_orthopedi;
+    }
+
+    public void setDr_bedah_orthopedi(String dr_bedah_orthopedi) {
+        this.dr_bedah_orthopedi = dr_bedah_orthopedi;
+    }
+
+    public String getDr_a() {
+        return dr_a;
+    }
+
+    public void setDr_a(String dr_a) {
+        this.dr_a = dr_a;
+    }
+
+    public String getDr_okupasi() {
+        return dr_okupasi;
+    }
+
+    public void setDr_okupasi(String dr_okupasi) {
+        this.dr_okupasi = dr_okupasi;
+    }
+
+    public String getDr_urologi() {
+        return dr_urologi;
+    }
+
+    public void setDr_urologi(String dr_urologi) {
+        this.dr_urologi = dr_urologi;
+    }
+
+    public String getDr_kulit() {
+        return dr_kulit;
+    }
+
+    public void setDr_kulit(String dr_kulit) {
+        this.dr_kulit = dr_kulit;
+    }
+
+    public String getDr_forensik() {
+        return dr_forensik;
+    }
+
+    public void setDr_forensik(String dr_forensik) {
+        this.dr_forensik = dr_forensik;
+    }
+
+    public String getDr_psikiatri() {
+        return dr_psikiatri;
+    }
+
+    public void setDr_psikiatri(String dr_psikiatri) {
+        this.dr_psikiatri = dr_psikiatri;
+    }
+
+    public String getDr_ofthalmologi() {
+        return dr_ofthalmologi;
+    }
+
+    public void setDr_ofthalmologi(String dr_ofthalmologi) {
+        this.dr_ofthalmologi = dr_ofthalmologi;
+    }
+
+    public String getDr_anatomi() {
+        return dr_anatomi;
+    }
+
+    public void setDr_anatomi(String dr_anatomi) {
+        this.dr_anatomi = dr_anatomi;
+    }
+
+    public String getDr_jiwa() {
+        return dr_jiwa;
+    }
+
+    public void setDr_jiwa(String dr_jiwa) {
+        this.dr_jiwa = dr_jiwa;
+    }
+
+    public String getDr_saraf() {
+        return dr_saraf;
+    }
+
+    public void setDr_saraf(String dr_saraf) {
+        this.dr_saraf = dr_saraf;
+    }
+
+    public String getDr_lainnya() {
+        return dr_lainnya;
+    }
+
+    public void setDr_lainnya(String dr_lainnya) {
+        this.dr_lainnya = dr_lainnya;
+    }
+
+    public String getDr_bedah_saraf() {
+        return dr_bedah_saraf;
+    }
+
+    public void setDr_bedah_saraf(String dr_bedah_saraf) {
+        this.dr_bedah_saraf = dr_bedah_saraf;
+    }
+
+    public String getDr_bedah_plastik() {
+        return dr_bedah_plastik;
+    }
+
+    public void setDr_bedah_plastik(String dr_bedah_plastik) {
+        this.dr_bedah_plastik = dr_bedah_plastik;
+    }
+
+    public String getDr_bedah_mulut() {
+        return dr_bedah_mulut;
+    }
+
+    public void setDr_bedah_mulut(String dr_bedah_mulut) {
+        this.dr_bedah_mulut = dr_bedah_mulut;
+    }
+
+    public String getDr_konservasi() {
+        return dr_konservasi;
+    }
+
+    public void setDr_konservasi(String dr_konservasi) {
+        this.dr_konservasi = dr_konservasi;
+    }
+
+    public String getDr_penyakit_mulut() {
+        return dr_penyakit_mulut;
+    }
+
+    public void setDr_penyakit_mulut(String dr_penyakit_mulut) {
+        this.dr_penyakit_mulut = dr_penyakit_mulut;
+    }
+
+    public String getDr_radiologi() {
+        return dr_radiologi;
+    }
+
+    public void setDr_radiologi(String dr_radiologi) {
+        this.dr_radiologi = dr_radiologi;
+    }
+
+    public String getDr_karang_gigi() {
+        return dr_karang_gigi;
+    }
+
+    public void setDr_karang_gigi(String dr_karang_gigi) {
+        this.dr_karang_gigi = dr_karang_gigi;
+    }
+
+    public String getDr_gigi_anak() {
+        return dr_gigi_anak;
+    }
+
+    public void setDr_gigi_anak(String dr_gigi_anak) {
+        this.dr_gigi_anak = dr_gigi_anak;
+    }
+
+    public String getDr_gigi_tiruan() {
+        return dr_gigi_tiruan;
+    }
+
+    public void setDr_gigi_tiruan(String dr_gigi_tiruan) {
+        this.dr_gigi_tiruan = dr_gigi_tiruan;
+    }
+
+    public String getDr_periodonsia() {
+        return dr_periodonsia;
+    }
+
+    public void setDr_periodonsia(String dr_periodonsia) {
+        this.dr_periodonsia = dr_periodonsia;
+    }
+
+    public String getDr_gigi_lainnya() {
+        return dr_gigi_lainnya;
+    }
+
+    public void setDr_gigi_lainnya(String dr_gigi_lainnya) {
+        this.dr_gigi_lainnya = dr_gigi_lainnya;
+    }
+
+    public String getBidan_pendidikan() {
+        return bidan_pendidikan;
+    }
+
+    public void setBidan_pendidikan(String bidan_pendidikan) {
+        this.bidan_pendidikan = bidan_pendidikan;
+    }
+
+    public String getRadiografi() {
+        return radiografi;
+    }
+
+    public void setRadiografi(String radiografi) {
+        this.radiografi = radiografi;
+    }
+
+    public String getRefraksionis() {
+        return refraksionis;
+    }
+
+    public void setRefraksionis(String refraksionis) {
+        this.refraksionis = refraksionis;
+    }
+
+    public String getRekam_medis() {
+        return rekam_medis;
+    }
+
+    public void setRekam_medis(String rekam_medis) {
+        this.rekam_medis = rekam_medis;
+    }
+
+    public String getTransfusi_darah() {
+        return transfusi_darah;
+    }
+
+    public void setTransfusi_darah(String transfusi_darah) {
+        this.transfusi_darah = transfusi_darah;
+    }
+
+    public String getKardiovaskular() {
+        return kardiovaskular;
+    }
+
+    public void setKardiovaskular(String kardiovaskular) {
+        this.kardiovaskular = kardiovaskular;
+    }
+
+    public String getEpidemiology() {
+        return epidemiology;
+    }
+
+    public void setEpidemiology(String epidemiology) {
+        this.epidemiology = epidemiology;
+    }
+
+    public String getPrilaku() {
+        return prilaku;
+    }
+
+    public void setPrilaku(String prilaku) {
+        this.prilaku = prilaku;
+    }
+
+    public String getBiostatik() {
+        return biostatik;
+    }
+
+    public void setBiostatik(String biostatik) {
+        this.biostatik = biostatik;
+    }
+
+    public String getDietisien() {
+        return dietisien;
+    }
+
+    public void setDietisien(String dietisien) {
+        this.dietisien = dietisien;
+    }
+
+    public String getAdmin_kesehatan() {
+        return admin_kesehatan;
+    }
+
+    public void setAdmin_kesehatan(String admin_kesehatan) {
+        this.admin_kesehatan = admin_kesehatan;
+    }
+
+    public String getBank() {
+        return bank;
+    }
+
+    public void setBank(String bank) {
+        this.bank = bank;
+    }
+
+    public String getPengurus() {
+        return pengurus;
+    }
+
+    public void setPengurus(String pengurus) {
+        this.pengurus = pengurus;
+    }
+
+    public String getAnggota() {
+        return anggota;
+    }
+
+    public void setAnggota(String anggota) {
+        this.anggota = anggota;
     }
 }

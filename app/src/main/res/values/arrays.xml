@@ -10,7 +10,21 @@
         <item>gallery_image</item>
         <item>camera_image</item>
     </string-array>
-
+    <string-array name="tbk">
+        <item>Semua</item>
+        <item>TBK</item>
+        <item>Non TBK</item>
+    </string-array>
+    <string-array name="kategori">
+        <item>Semua Kategori</item>
+        <item>Food</item>
+        <item>Non Food</item>
+    </string-array>
+    <string-array name="tipe">
+        <item>Semua Tipe</item>
+        <item>FMCG</item>
+        <item>Distributor</item>
+    </string-array>
     <string-array name="Loading">
         <item>Loading</item>
         <item>camera_image</item>

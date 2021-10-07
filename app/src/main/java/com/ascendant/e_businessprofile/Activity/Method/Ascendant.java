@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.net.Uri;
 import android.os.Environment;
+import android.util.Base64;
 
 import com.ascendant.e_businessprofile.R;
 
@@ -15,6 +16,15 @@ import java.util.Date;
 import java.util.Locale;
 
 public class Ascendant {
+    public String AUTH(){
+        String username = "faba_admin_db";
+        String password = "WhiteList_admin_FABA2019";
+
+        String base = username+":"+password;
+
+        String authHeader = "Basic "+ Base64.encodeToString(base.getBytes(),Base64.NO_WRAP);
+        return authHeader;
+    }
     public String BASE_URL(){
         String URL = "https://ebuss.fabakonsultan.com/";
         return URL;

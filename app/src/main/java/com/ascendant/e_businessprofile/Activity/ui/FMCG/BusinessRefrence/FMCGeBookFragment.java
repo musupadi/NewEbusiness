@@ -82,6 +82,8 @@ public class FMCGeBookFragment extends Fragment {
         Call<ResponseArrayObject> data =api.FMCG_Business_refrence(Token,"",MODULE,"");
         if (MODULE.equals("umum") || MODULE.equals("fmcg") || MODULE.equals("non fnb household") || MODULE.equals("non fnb rokok")){
             data =api.FMCG_Business_refrence(Token,"regulations",MODULE,"fmcg");
+        }else{
+
         }
         data.enqueue(new Callback<ResponseArrayObject>() {
             @Override
