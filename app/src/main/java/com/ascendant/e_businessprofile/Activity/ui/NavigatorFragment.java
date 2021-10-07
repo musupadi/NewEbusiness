@@ -93,6 +93,7 @@ public class NavigatorFragment extends Fragment {
         }else if (Navigator.equals("Ecosystem")){
             pList.addAll(EcosystemModel.getListData());
         }else if (Navigator.equals("Supporting Industries")){
+
             pList.addAll(SupportingIndustriesModel.getListData());
         }else if (Navigator.equals("Hospital Equipment")){
             pList.addAll(HospitalEquipmentodel.getListData());
