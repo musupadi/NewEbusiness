@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.ascendant.e_businessprofile.Adapter.Static.AdapterNavigator;
 import com.ascendant.e_businessprofile.Model.DataModel;
@@ -94,15 +95,7 @@ public class InvestmentCreditActivity extends AppCompatActivity {
         hitung.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent goInput = new Intent(InvestmentCreditActivity.this, ResultInvestmentCreditActivity.class);
-                String Bangunan = bangunan.getText().toString().replace(".","");
-                String Sarana = sarana.getText().toString().replace(".","");
-                String Peralatann = peralatan.getText().toString().replace(".","");
-                goInput.putExtra("KELAS",kelas.getSelectedItem().toString());
-                goInput.putExtra("BANGUNAN",Bangunan.replace(",",""));
-                goInput.putExtra("SARANA",Sarana.replace(",",""));
-                goInput.putExtra("PERALATAN",Peralatann.replace(",",""));
-                startActivities(new Intent[]{goInput});
+                Checker();
             }
         });
         parameter.setOnClickListener(new View.OnClickListener() {
@@ -112,5 +105,24 @@ public class InvestmentCreditActivity extends AppCompatActivity {
                 startActivity(browserIntent);
             }
         });
+    }
+    private void Checker(){
+        if (sarana.getText().toString().isEmpty()){
+            Toast.makeText(InvestmentCreditActivity.this, "Sarana Tidak Boleh Kosong", Toast.LENGTH_SHORT).show();
+        }else if (peralatan.getText().toString().isEmpty()){
+            Toast.makeText(InvestmentCreditActivity.this, "PeralatanTidak Boleh Kosong", Toast.LENGTH_SHORT).show();
+        }else if (bangunan.getText().toString().isEmpty()){
+            Toast.makeText(InvestmentCreditActivity.this, "Bangunan Tidak Boleh Kosong", Toast.LENGTH_SHORT).show();
+        }else{
+            Intent goInput = new Intent(InvestmentCreditActivity.this, ResultInvestmentCreditActivity.class);
+            String Bangunan = bangunan.getText().toString().replace(".","");
+            String Sarana = sarana.getText().toString().replace(".","");
+            String Peralatann = peralatan.getText().toString().replace(".","");
+            goInput.putExtra("KELAS",kelas.getSelectedItem().toString());
+            goInput.putExtra("BANGUNAN",Bangunan.replace(",",""));
+            goInput.putExtra("SARANA",Sarana.replace(",",""));
+            goInput.putExtra("PERALATAN",Peralatann.replace(",",""));
+            startActivities(new Intent[]{goInput});
+        }
     }
 }

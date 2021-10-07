@@ -13,9 +13,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
+import com.ascendant.e_businessprofile.Activity.ui.Healthcare.CreditDecisionTool.CrreditDecisionToolActivity;
 import com.ascendant.e_businessprofile.Adapter.Static.AdapterNavigator;
 import com.ascendant.e_businessprofile.Model.DataModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.CreditDecisionTool.CreditDecisionToolModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.CreditDecisionTool.FiveCModel;
 import com.ascendant.e_businessprofile.R;
 
 import java.util.ArrayList;
@@ -44,7 +46,7 @@ public class FiveCActivity extends AppCompatActivity {
         More = findViewById(R.id.linearMore);
         Back = findViewById(R.id.linearBack);
         Available.setVisibility(View.VISIBLE);
-        pList.addAll(CreditDecisionToolModel.getListData());
+        pList.addAll(FiveCModel.getListData());
         rv.setLayoutManager(new LinearLayoutManager(this));
         AdapterNavigator adapters = new AdapterNavigator(this,pList);
         rv.setAdapter(adapters);
@@ -235,5 +237,11 @@ public class FiveCActivity extends AppCompatActivity {
                 startActivities(new Intent[]{goInput});
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(FiveCActivity.this, CrreditDecisionToolActivity.class);
+        startActivity(intent);
     }
 }

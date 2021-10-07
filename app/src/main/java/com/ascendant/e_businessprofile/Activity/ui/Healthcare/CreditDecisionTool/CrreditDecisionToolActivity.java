@@ -6,11 +6,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.CreditDecisionTool.FinancialStatementAnalysis.FinancialStatementAnalysisActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.CreditDecisionTool.FiveC.FiveCActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.CreditDecisionTool.RequirementAnalysis.RequirementAnalysisActivity;
@@ -82,6 +84,8 @@ public class CrreditDecisionToolActivity extends AppCompatActivity {
         FiveC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                final DB_Helper dbHelper = new DB_Helper(CrreditDecisionToolActivity.this);
+                dbHelper.FiveC();
                 Intent intent = new Intent(CrreditDecisionToolActivity.this, FiveCActivity.class);
                 startActivity(intent);
             }

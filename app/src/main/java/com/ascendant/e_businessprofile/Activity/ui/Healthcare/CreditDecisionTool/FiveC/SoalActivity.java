@@ -24,6 +24,8 @@ import com.ascendant.e_businessprofile.Activity.API.ApiRequest;
 import com.ascendant.e_businessprofile.Activity.API.RetroServer;
 import com.ascendant.e_businessprofile.Activity.Method.Ascendant;
 import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
+import com.ascendant.e_businessprofile.Activity.ui.Healthcare.CreditDecisionTool.CrreditDecisionToolActivity;
+import com.ascendant.e_businessprofile.Activity.ui.Healthcare.CreditWorthiness.HospitalRequirementRatio.HospitalRequirementRatioActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.Ecosystem.ListOfHospital.HospitalListActivity;
 import com.ascendant.e_businessprofile.Adapter.AdapterListHospital;
 import com.ascendant.e_businessprofile.Adapter.Spinner.SpinnerKota;
@@ -39,6 +41,7 @@ import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.CreditDecisi
 import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.CreditDecisionTool.FiveC.CharacterData;
 import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.CreditDecisionTool.FiveC.CollateralData;
 import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.CreditDecisionTool.FiveC.ConditionData;
+import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.CreditDecisionTool.FiveCModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.Quis;
 import com.ascendant.e_businessprofile.R;
 import com.github.mikephil.charting.charts.LineChart;
@@ -111,7 +114,7 @@ public class SoalActivity extends AppCompatActivity {
         More = findViewById(R.id.linearMore);
         Back = findViewById(R.id.linearBack);
         Available.setVisibility(View.VISIBLE);
-        pListt.addAll(CreditDecisionToolModel.getListData());
+        pListt.addAll(FiveCModel.getListData());
         rv.setLayoutManager(new LinearLayoutManager(this));
         AdapterNavigator adapters = new AdapterNavigator(this,pListt);
         rv.setAdapter(adapters);
@@ -175,7 +178,7 @@ public class SoalActivity extends AppCompatActivity {
         if (SIMULASI.equals("NOPE")){
             simulasi.setVisibility(View.INVISIBLE);
         }else{
-            simulasi.setVisibility(View.VISIBLE);
+            simulasi.setVisibility(View.INVISIBLE);
             if (SIMULASI.equals("Simulasi Perhitungan Tempat Tidur")){
                 myDialog = new Dialog(this);
                 myDialog.setContentView(R.layout.dialog_rasio_kebutuhan);
@@ -392,7 +395,8 @@ public class SoalActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-
+        Intent intent = new Intent(SoalActivity.this, FiveCActivity.class);
+        startActivity(intent);
     }
 
     private void Hitung(){
@@ -463,20 +467,24 @@ public class SoalActivity extends AppCompatActivity {
         });
     }
 
-    private void getProvinsi(){
+    private void GetProvinsi(){
         ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
-        Call<ResponseArrayObject> getProvinsi = api.Provinsi(Token);
-        getProvinsi.enqueue(new Callback<ResponseArrayObject>() {
+        final Call<ResponseArrayObject> Data =api.Provinsi(Token);
+        Data.enqueue(new Callback<ResponseArrayObject>() {
             @Override
             public void onResponse(Call<ResponseArrayObject> call, Response<ResponseArrayObject> response) {
-                mItems=response.body().getData();
-                SpinnerProvinsi adapter = new SpinnerProvinsi(SoalActivity.this,mItems);
-                Provinsi.setAdapter(adapter);
+                if (response.body().getKode().equals(200)){
+                    mItems=response.body().getData();
+                    SpinnerProvinsi adapter = new SpinnerProvinsi(SoalActivity.this,mItems);
+                    Provinsi.setAdapter(adapter);
+                }else{
+
+                }
             }
 
             @Override
             public void onFailure(Call<ResponseArrayObject> call, Throwable t) {
-                Toast.makeText(SoalActivity.this,"Kelas Tidak Ditemukan",Toast.LENGTH_SHORT).show();
+                Toast.makeText(SoalActivity.this, "Koneksi Gagal", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -485,16 +493,20 @@ public class SoalActivity extends AppCompatActivity {
         myDialog.show();
         Rasio.setVisibility(View.INVISIBLE);
         tempattidur.setVisibility(View.INVISIBLE);
-        getProvinsi();
+        GetProvinsi();
         cardHasil.setVisibility(View.GONE);
         aProvinsi = new SpinnerProvinsi(SoalActivity.this,mItems);
         Provinsi.setAdapter(aProvinsi);
         Provinsi.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                DataModel clickedItem = (DataModel) parent.getItemAtPosition(position);
-                String clickedItems = clickedItem.getId_provinsi();
-                getKota(clickedItems);
+                try {
+                    DataModel clickedItem = (DataModel) parent.getItemAtPosition(position);
+                    String clickedItems = clickedItem.getId_provinsi();
+                    getKota(clickedItems);
+                }catch (Exception e){
+
+                }
             }
 
             @Override
@@ -507,11 +519,15 @@ public class SoalActivity extends AppCompatActivity {
         Kota.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                DataModel clickedItem = (DataModel) parent.getItemAtPosition(position);
-                idKota.setText(clickedItem.getId_kab_kota());
-                Penduduk.setText(clickedItem.getTotal_penduduk());
-                JumlahTempatTidur.setText(clickedItem.getJumlah_bed_rs());
-                Logic();
+                try {
+                    DataModel clickedItem = (DataModel) parent.getItemAtPosition(position);
+                    idKota.setText(clickedItem.getId_kab_kota());
+                    Penduduk.setText(clickedItem.getTotal_penduduk());
+                    JumlahTempatTidur.setText(clickedItem.getJumlah_bed_rs());
+                    Logic();
+                }catch (Exception e){
+
+                }
 //
             }
             @Override

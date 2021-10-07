@@ -149,7 +149,7 @@
                                                         android:orientation="horizontal">
                                                         <Spinner
                                                             android:layout_weight="1"
-                                                            android:entries="@array/itemIds"
+                                                            android:entries="@array/Loading"
                                                             android:background="@color/colorWhite"
                                                             android:layout_width="match_parent"
                                                             android:layout_height="wrap_content"
@@ -193,7 +193,7 @@
                                                         android:orientation="horizontal">
                                                         <Spinner
                                                             android:layout_weight="1"
-                                                            android:entries="@array/itemIds"
+                                                            android:entries="@array/Loading"
                                                             android:background="@color/colorWhite"
                                                             android:layout_width="match_parent"
                                                             android:layout_height="wrap_content"

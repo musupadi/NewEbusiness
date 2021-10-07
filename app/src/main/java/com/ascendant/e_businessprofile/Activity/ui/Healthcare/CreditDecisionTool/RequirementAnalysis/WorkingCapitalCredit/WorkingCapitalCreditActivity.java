@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.ascendant.e_businessprofile.Adapter.Static.AdapterNavigator;
 import com.ascendant.e_businessprofile.Model.DataModel;
@@ -84,8 +85,7 @@ public class WorkingCapitalCreditActivity extends AppCompatActivity {
         KebutuhanModalKerja = findViewById(R.id.tvKebutuhanModalKerja);
         Plafond = findViewById(R.id.tvPlafond);
 
-        Locale localeID = new Locale("in", "ID");
-        final NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(localeID);
+
 
         Piutang.addTextChangedListener(new NumberTextWatcher(Piutang));
         Persediaan.addTextChangedListener(new NumberTextWatcher(Persediaan));
@@ -94,14 +94,27 @@ public class WorkingCapitalCreditActivity extends AppCompatActivity {
         Hitung.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final String piutang = Piutang.getText().toString().replace(".","");
-                final String persediaan = Persediaan.getText().toString().replace(".","");
-                final String utang = Utang.getText().toString().replace(".","");
-                double modalKerja = (Double.parseDouble(piutang.replace(",",""))+Double.parseDouble(persediaan.replace(",",""))) - Double.parseDouble(utang.replace(",",""));
-                double plafond = 0.8 * modalKerja;
-                KebutuhanModalKerja.setText(": "+String.valueOf(formatRupiah.format(modalKerja).replace("Rp","Rp ")));
-                Plafond.setText(": "+String.valueOf(formatRupiah.format(plafond).replace("Rp","Rp ")));
+                Checker();
             }
         });
+    }
+    private void Checker(){
+        if (Piutang.getText().toString().isEmpty()){
+            Toast.makeText(WorkingCapitalCreditActivity.this, "Piutang Tidak Boleh Kosong", Toast.LENGTH_SHORT).show();
+        }else if (Persediaan.getText().toString().isEmpty()){
+            Toast.makeText(WorkingCapitalCreditActivity.this, "Persediaan Tidak Boleh Kosong", Toast.LENGTH_SHORT).show();
+        }else if (Utang.getText().toString().isEmpty()){
+            Toast.makeText(WorkingCapitalCreditActivity.this, "Utang Tidak Boleh Kosong", Toast.LENGTH_SHORT).show();
+        }else{
+            Locale localeID = new Locale("in", "ID");
+            final NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(localeID);
+            final String piutang = Piutang.getText().toString().replace(".","");
+            final String persediaan = Persediaan.getText().toString().replace(".","");
+            final String utang = Utang.getText().toString().replace(".","");
+            double modalKerja = (Double.parseDouble(piutang.replace(",",""))+Double.parseDouble(persediaan.replace(",",""))) - Double.parseDouble(utang.replace(",",""));
+            double plafond = 0.8 * modalKerja;
+            KebutuhanModalKerja.setText(": "+String.valueOf(formatRupiah.format(modalKerja).replace("Rp","Rp ")));
+            Plafond.setText(": "+String.valueOf(formatRupiah.format(plafond).replace("Rp","Rp ")));
+        }
     }
 }
