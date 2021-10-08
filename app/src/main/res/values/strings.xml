@@ -86,6 +86,11 @@
     <string name="parameters">Parameters</string>
     <string name="simulation">Simulation</string>
     <string name="result">Result</string>
+    <string name="operational">Operational</string>
+    <string name="financial">Financial</string>
+    <string name="parameter">Parameter</string>
+    <string name="key_of_success">Key Of Success</string>
+    <string name="market_potetial">Market Potential</string>
     <!-- Credit Decision Tool   -->
     <string name="five_c_analysis">5C Analysis</string>
     <string name="requirement_analysis">Requirement Analysis</string>

@@ -24,6 +24,8 @@ import com.ascendant.e_businessprofile.Activity.API.RetroServer;
 import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
 import com.ascendant.e_businessprofile.Activity.ui.FMCG.BusinessRefrence.FMCGBusinessRefrenceActivity;
 import com.ascendant.e_businessprofile.Activity.ui.FMCG.Compliance.FMCGComplianceActivity;
+import com.ascendant.e_businessprofile.Activity.ui.FMCG.CreditWorthiness.FMCGCreditWorthinessActivity;
+import com.ascendant.e_businessprofile.Activity.ui.FMCG.CreditWorthiness.FMCGMainCreditWorthinessActivity;
 import com.ascendant.e_businessprofile.Activity.ui.FMCG.Ecosystem.FMCGEcosystemActivity;
 import com.ascendant.e_businessprofile.Activity.ui.FMCG.ListOfProbing.FMCGListOfProbingActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.BusinessRefrence.BusinessRefrenceActivity;
@@ -124,8 +126,8 @@ public class FMCGFragment extends Fragment {
         CreditWorthiness.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent intent = new Intent(getActivity(), CreditWorthinessActivity.class);
-//                startActivity(intent);
+                Intent intent = new Intent(getActivity(), FMCGMainCreditWorthinessActivity.class);
+                startActivity(intent);
             }
         });
         CreditDecisionTool.setOnClickListener(new View.OnClickListener() {

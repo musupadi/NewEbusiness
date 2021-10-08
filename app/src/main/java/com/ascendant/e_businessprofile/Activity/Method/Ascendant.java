@@ -10,12 +10,22 @@ import android.util.Base64;
 
 import com.ascendant.e_businessprofile.R;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
 public class Ascendant {
+    public String BatasanDouble2(double nilai){
+        BigDecimal bd1 = new BigDecimal(nilai).setScale(2, RoundingMode.HALF_UP);
+        return String.valueOf(bd1);
+    }
+    public String BatasanDouble(double nilai){
+        BigDecimal bd1 = new BigDecimal(nilai).setScale(0, RoundingMode.HALF_UP);
+        return String.valueOf(bd1);
+    }
     public String AUTH(){
         String username = "faba_admin_db";
         String password = "WhiteList_admin_FABA2019";

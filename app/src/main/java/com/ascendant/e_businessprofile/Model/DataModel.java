@@ -291,7 +291,8 @@ public class DataModel {
     public String file_kos;
 
 
-    //Asosiasi
+    //Old EBusiness
+    String id_fmcg_param,nama_param,rumus_param,kategori_param,rata_rata_param,penjelasan_param,penjelasan2_param;
     String id_asosiasi,nilaiperkapita;
     String password,nama,no_telpon,status,level_user;
     String pengurus,anggota;
@@ -1659,5 +1660,61 @@ public class DataModel {
 
     public void setAnggota(String anggota) {
         this.anggota = anggota;
+    }
+
+    public String getId_fmcg_param() {
+        return id_fmcg_param;
+    }
+
+    public void setId_fmcg_param(String id_fmcg_param) {
+        this.id_fmcg_param = id_fmcg_param;
+    }
+
+    public String getNama_param() {
+        return nama_param;
+    }
+
+    public void setNama_param(String nama_param) {
+        this.nama_param = nama_param;
+    }
+
+    public String getRumus_param() {
+        return rumus_param;
+    }
+
+    public void setRumus_param(String rumus_param) {
+        this.rumus_param = rumus_param;
+    }
+
+    public String getKategori_param() {
+        return kategori_param;
+    }
+
+    public void setKategori_param(String kategori_param) {
+        this.kategori_param = kategori_param;
+    }
+
+    public String getRata_rata_param() {
+        return rata_rata_param;
+    }
+
+    public void setRata_rata_param(String rata_rata_param) {
+        this.rata_rata_param = rata_rata_param;
+    }
+
+    public String getPenjelasan_param() {
+        return penjelasan_param;
+    }
+
+    public void setPenjelasan_param(String penjelasan_param) {
+        this.penjelasan_param = penjelasan_param;
+    }
+
+    public String getPenjelasan2_param() {
+        return penjelasan2_param;
+    }
+
+    public void setPenjelasan2_param(String penjelasan2_param) {
+        this.penjelasan2_param = penjelasan2_param;
     }
 }

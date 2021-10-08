@@ -5,6 +5,7 @@ import com.ascendant.e_businessprofile.Model.ResponseArrayObject;
 import com.ascendant.e_businessprofile.Model.ResponseObject;
 import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Perusahaan.Perusahaan;
 import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Probing;
+import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.RumusKMK;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -150,4 +151,16 @@ public interface ApiRequest {
     Call<Probing> AssosiationFMCG(@Header("Authorization") String authHeader,
                                   @Field("kuncifaba") String kuncifaba);
 
+    @FormUrlEncoded
+    @POST("kos/fmcg")
+    Call<Probing> KosFMCG(@Header("Authorization") String authHeader,
+                          @Field("kuncifaba") String kuncifaba,
+                          @Field("industri") String industri);
+
+    @FormUrlEncoded
+    @POST("fmcg/param")
+    Call<RumusKMK> KMK(@Header("Authorization") String authHeader,
+                       @Field("kuncifaba") String kuncifaba,
+                       @Field("nama_param") String nama_param,
+                       @Field("kategori") String kategori);
 }
