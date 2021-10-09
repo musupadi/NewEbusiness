@@ -17,6 +17,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.ascendant.e_businessprofile.Activity.Method.Ascendant;
+import com.ascendant.e_businessprofile.Activity.ui.FMCG.CreditWorthiness.Financial.FMCGSimulationFinancialActivity;
+import com.ascendant.e_businessprofile.Activity.ui.FMCG.CreditWorthiness.Operational.FMCGCreditWorthinessOperationalActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.CreditWorthiness.CreditWorthinessActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.CreditWorthiness.HospitalFinanceIndicator.HospitalFinanceIndicatorActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.CreditWorthiness.HospitalKeyOfSucces.HospitalKeyOfSuccessActivity;
@@ -103,15 +105,17 @@ public class FMCGCreditWorthinessActivity extends AppCompatActivity {
         Operational.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent =new Intent(FMCGCreditWorthinessActivity.this, HospitalOperationalPerfomanceActivity.class);
-                startActivity(intent);
+                Intent goInput = new Intent(FMCGCreditWorthinessActivity.this, FMCGCreditWorthinessOperationalActivity.class);
+                goInput.putExtra("KATEGORI",KATEGORI);
+                startActivity(goInput);
             }
         });
         Financial.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent =new Intent(FMCGCreditWorthinessActivity.this, HospitalFinanceIndicatorActivity.class);
-                startActivity(intent);
+                Intent goInput = new Intent(FMCGCreditWorthinessActivity.this, FMCGSimulationFinancialActivity.class);
+                goInput.putExtra("KATEGORI",KATEGORI);
+                startActivity(goInput);
             }
         });
         Parameters.setOnClickListener(new View.OnClickListener() {

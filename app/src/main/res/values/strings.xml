@@ -112,7 +112,8 @@
     <string name="net_profit_margin">Net Profit Margin</string>
     <string name="return_on_investment">Return On Investment</string>
     <string name="return_on_equitu">Return On Equity</string>
-
+    <string name="sustainable_financing">Sustainable Financing</string>
+    <string name="supply_chain_financing">Supply Chain Financing &amp; Trade Financing</string>
     <!-- Laporan Keuangan   -->
     <string name="liquiditas">Rasio Likuiditas Merupakan Tools yang digunakan Untuk Mengukur kemampuan perusahaan dalam memenuhi liabilitas jangka pendeknya</string>
     <string name="solvabilitas">Rasio Solvabilitas Merupakan Tools yang digunakan Untuk Menunjukan Sejauh Mana Perusahaan Dibiayai oleh utang</string>

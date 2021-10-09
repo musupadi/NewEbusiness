@@ -317,6 +317,8 @@ public class DataModel {
     String idNavigator,Navigator,ONCLICK;
     String id_persi,nama_persi,alamat_persi,telpon_persi,email_persi;
     String no_quis,category_quis,soal_quis,simulasi,jawaban;
+    String total_online,register,status_online,market;
+    String market_size,dua,share;
 
     public String getId_berita() {
         return id_berita;
@@ -1716,5 +1718,61 @@ public class DataModel {
 
     public void setPenjelasan2_param(String penjelasan2_param) {
         this.penjelasan2_param = penjelasan2_param;
+    }
+
+    public String getTotal_online() {
+        return total_online;
+    }
+
+    public void setTotal_online(String total_online) {
+        this.total_online = total_online;
+    }
+
+    public String getRegister() {
+        return register;
+    }
+
+    public void setRegister(String register) {
+        this.register = register;
+    }
+
+    public String getStatus_online() {
+        return status_online;
+    }
+
+    public void setStatus_online(String status_online) {
+        this.status_online = status_online;
+    }
+
+    public String getMarket() {
+        return market;
+    }
+
+    public void setMarket(String market) {
+        this.market = market;
+    }
+
+    public String getMarket_size() {
+        return market_size;
+    }
+
+    public void setMarket_size(String market_size) {
+        this.market_size = market_size;
+    }
+
+    public String getDua() {
+        return dua;
+    }
+
+    public void setDua(String dua) {
+        this.dua = dua;
+    }
+
+    public String getShare() {
+        return share;
+    }
+
+    public void setShare(String share) {
+        this.share = share;
     }
 }

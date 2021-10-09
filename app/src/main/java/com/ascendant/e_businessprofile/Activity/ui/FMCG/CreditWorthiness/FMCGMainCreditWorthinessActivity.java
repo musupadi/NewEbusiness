@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.ascendant.e_businessprofile.Activity.ui.FMCG.CreditWorthiness.MarketPotential.FMCGMarketPotentialActivity;
 import com.ascendant.e_businessprofile.Adapter.Static.AdapterNavigator;
 import com.ascendant.e_businessprofile.Model.DataModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.CreditWorthiness.CreditWorthinessModel;
@@ -96,6 +97,13 @@ public class FMCGMainCreditWorthinessActivity extends AppCompatActivity {
                 Intent goInput = new Intent(FMCGMainCreditWorthinessActivity.this, FMCGCreditWorthinessActivity.class);
                 goInput.putExtra("KATEGORI","rokok");
                 startActivity(goInput);
+            }
+        });
+        MarketPotential.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(FMCGMainCreditWorthinessActivity.this, FMCGMarketPotentialActivity.class);
+                startActivity(intent);
             }
         });
     }

@@ -18,6 +18,15 @@ import java.util.Date;
 import java.util.Locale;
 
 public class Ascendant {
+    public String KategoriFMCG(String kategori){
+        String hasil=kategori.toLowerCase();
+        if (kategori.equals("F&B")){
+            hasil="food";
+        }else if(kategori.equals("NON F&B")){
+            hasil="non food";
+        }
+        return hasil;
+    }
     public String BatasanDouble2(double nilai){
         BigDecimal bd1 = new BigDecimal(nilai).setScale(2, RoundingMode.HALF_UP);
         return String.valueOf(bd1);

@@ -69,7 +69,21 @@
         <item>Cerita dan Dongeng</item>
         <item>Gerak dan Lagu</item>
     </string-array>
+    <string-array name="FMCG_KATEGORI">
+        <item>SEMUA</item>
+        <item>F&amp;B</item>
+        <item>NON F&amp;B</item>
+    </string-array>
 
+    <string-array name="JenisPeraturan">
+        <item>Pilih Jenis Peraturan</item>
+        <item>Peraturan1</item>
+        <item>Peraturan2</item>
+        <item>Peraturan3</item>
+        <item>Peraturan4</item>
+        <item>Peraturan5</item>
+        <item>Peraturan6</item>
+    </string-array>
 
 
 </resources>

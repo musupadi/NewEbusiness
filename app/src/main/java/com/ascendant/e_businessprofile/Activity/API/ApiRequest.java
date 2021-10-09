@@ -163,4 +163,11 @@ public interface ApiRequest {
                        @Field("kuncifaba") String kuncifaba,
                        @Field("nama_param") String nama_param,
                        @Field("kategori") String kategori);
+
+    @FormUrlEncoded
+    @POST("fmcg/permintaan/potensial_market")
+    Call<ResponseArrayObject> PotensialMarket(@Header("Authorization") String authHeader,
+                                        @Field("kuncifaba") String kuncifaba,
+                                        @Field("id_provinsi") String id_provinsi,
+                                        @Field("tipe") String tipe);
 }
