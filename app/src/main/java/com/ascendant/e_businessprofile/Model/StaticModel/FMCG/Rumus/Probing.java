@@ -1,4 +1,4 @@
-package com.ascendant.e_businessprofile.Model.StaticModel.FMCG;
+package com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Rumus;
 
 import com.ascendant.e_businessprofile.Model.DataModel;
 import com.google.gson.annotations.Expose;

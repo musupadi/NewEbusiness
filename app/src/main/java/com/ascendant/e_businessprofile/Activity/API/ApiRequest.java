@@ -4,8 +4,8 @@ import com.ascendant.e_businessprofile.Model.DataModel;
 import com.ascendant.e_businessprofile.Model.ResponseArrayObject;
 import com.ascendant.e_businessprofile.Model.ResponseObject;
 import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Perusahaan.Perusahaan;
-import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Probing;
-import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.RumusKMK;
+import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Rumus.Probing;
+import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Rumus.RumusKMK;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
