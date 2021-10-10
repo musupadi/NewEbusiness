@@ -14,8 +14,8 @@ import android.view.ViewGroup;
 
 import com.ascendant.e_businessprofile.Adapter.Static.AdapterNavigator;
 import com.ascendant.e_businessprofile.Model.DataModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.FMCGBusinessRefrenceModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.BusinessRefrence.ActsModel;
-import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.BusinessRefrence.BusinessRefrenceModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.BusinessRefrence.BusinessReviewModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.BusinessRefrence.ComplianceModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.BusinessRefrence.GovernmentRegulationsModel;
@@ -71,7 +71,7 @@ public class FMCGNavigatorFragment extends Fragment {
 
     private void GetData(){
         if (Navigator.equals("Business Refrence")){
-            pList.addAll(BusinessRefrenceModel.getListData());
+            pList.addAll(FMCGBusinessRefrenceModel.getListData());
         }else if (Navigator.equals("e-Book")){
             pList.addAll(eBookModel.getListData());
         }else if (Navigator.equals("Newsletter")){

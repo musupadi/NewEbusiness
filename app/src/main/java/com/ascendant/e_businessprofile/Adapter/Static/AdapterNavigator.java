@@ -86,10 +86,10 @@ public class AdapterNavigator extends RecyclerView.Adapter<AdapterNavigator.Hold
                         Intent intent = new Intent(ctx, HomeActivity.class);
                         ctx.startActivity(intent);
                     }
-                }else if (dm.getNavigator().equals("Healthcare")){
+                }else if (dm.getNavigator().equals("FMCG")){
                     if (!dm.getONCLICK().equals("true")){
                         Intent i = new Intent(ctx, ModuleActivity.class);
-                        i.putExtra("MODULE", "HEALTHCARE");
+                        i.putExtra("MODULE", "FMCG");
                         ctx.startActivity(i);
                     }
                 }else if (dm.getNavigator().equals("Business Refrences")){

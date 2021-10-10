@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.ascendant.e_businessprofile.Activity.ui.ChatFragment;
+import com.ascendant.e_businessprofile.Activity.ui.FMCG.FMCGNavigatorFragment;
 import com.ascendant.e_businessprofile.Activity.ui.ForumFragment;
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.BusinessRefrence.BusinessRefrenceFragment;
 import com.ascendant.e_businessprofile.Activity.ui.HomeFragment;
@@ -76,7 +77,7 @@ public class FMCGBusinessRefrenceActivity extends AppCompatActivity {
                     if (more){
                         more = false;
                         ivMore.setImageResource(R.drawable.close_concerate);
-                        fragment = new NavigatorFragment();
+                        fragment = new FMCGNavigatorFragment();
                         fragment.setArguments(bundle);
                         ChangeFragment(fragment);
                     }else{
