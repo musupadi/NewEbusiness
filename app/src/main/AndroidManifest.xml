@@ -25,6 +25,9 @@
         android:theme="@style/AppThemeNoAction"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".Activity.ui.FMCG.CreditDecisionTool.FiveC.FMCGFiveCActivity"
+            android:exported="true" />
+        <activity
             android:name=".Activity.ui.FMCG.CreditDecisionTool.SustainableFinancing.FMCGSustainableFinancingActivity"
             android:exported="true" />
         <activity

@@ -4,8 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,6 +19,7 @@ import android.widget.TextView;
 
 import com.ascendant.e_businessprofile.Activity.Method.Ascendant;
 import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
+import com.ascendant.e_businessprofile.Activity.ui.FMCG.CreditDecisionTool.FiveC.FMCGFiveCActivity;
 import com.ascendant.e_businessprofile.Adapter.Static.AdapterNavigator;
 import com.ascendant.e_businessprofile.Model.DataModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.CreditWorthiness.CreditWorthinessModel;
@@ -83,7 +88,132 @@ public class FMCGCreditDecisionToolActivity extends AppCompatActivity {
             }
         });
 
+        myDialog = new Dialog(FMCGCreditDecisionToolActivity.this);
+        myDialog.setContentView(R.layout.dialog_view_download);
+        linear5C = findViewById(R.id.card5CAnalysis);
+        linearKreditInvestasi = findViewById(R.id.cardRequirementAnalysis);
+        linearModalKerja = findViewById(R.id.cardFinancialStatementAnalysis);
+        View=myDialog.findViewById(R.id.btnView);
+        Download=myDialog.findViewById(R.id.btnDownload);
+        Intent data = getIntent();
+        final String KATEGORI = data.getStringExtra("KATEGORI");
+        if (KATEGORI.equals("FOOD")){
+            header.setText("FMCG / Credit Decision Tool / Food & Beverage");
+            linearKreditInvestasi.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+//                    Intent goInput = new Intent(FMCGCreditDecisionToolActivity.this, KreditInvestasiFMCGActivity.class);
+//                    goInput.putExtra("TITTLE","Food");
+//                    startActivity(goInput);
+                }
+            });
+        }else if (KATEGORI.equals("NON FOOD ROKOK")){
+            header.setText("FMCG / Credit Decision Tool / Non Food & Beverage / Industri Rokok");
+            linearKreditInvestasi.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    myDialog.show();
+                    View.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://fabakonsultan.com/uploads/fmcg/kredit_investasi/ki-tobacco.pdf"));
+                            startActivity(browserIntent);
+                        }
+                    });
+                    Download.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            AlertDialog.Builder builder = new AlertDialog.Builder(FMCGCreditDecisionToolActivity.this);
+                            builder.setMessage("Download File ?")
+                                    .setCancelable(false)
+                                    .setPositiveButton("Iya", new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int id) {
+                                            method.DownloadPDF("https://fabakonsultan.com/uploads/fmcg/kredit_investasi/ki-tobacco.pdf","Rokok",FMCGCreditDecisionToolActivity.this);
+                                        }
+                                    })
+                                    .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int id) {
+                                            dialog.cancel();
+                                        }
+                                    })
+                                    //Set your icon here
+                                    .setTitle("Perhatian !!!")
+                                    .setIcon(R.drawable.print_primary);
+                            AlertDialog alert = builder.create();
+                            alert.show();
+                        }
+                    });
+//                    Intent goInput = new Intent(FMCGCreditDecisionToolActivity.this, KreditInvestasiFMCGActivity.class);
+//                    goInput.putExtra("TITTLE","Tobacco");
+//                    startActivity(goInput);
+                }
+            });
+        }else if (KATEGORI.equals("NON FOOD")){
+            header.setText("FMCG / Credit Decision Tool / Non Food & Beverage / Non Food & Beverage");
+            linearKreditInvestasi.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    myDialog.show();
+                    View.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://fabakonsultan.com/uploads/fmcg/kredit_investasi/ki-non-fnb.pdf"));
+                            startActivity(browserIntent);
+                        }
+                    });
+                    Download.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            AlertDialog.Builder builder = new AlertDialog.Builder(FMCGCreditDecisionToolActivity.this);
+                            builder.setMessage("Download File ?")
+                                    .setCancelable(false)
+                                    .setPositiveButton("Iya", new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int id) {
+                                            method.DownloadPDF("https://fabakonsultan.com/uploads/fmcg/kredit_investasi/ki-non-fnb.pdf","Non Food",FMCGCreditDecisionToolActivity.this);
+                                        }
+                                    })
+                                    .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int id) {
+                                            dialog.cancel();
+                                        }
+                                    })
+                                    //Set your icon here
+                                    .setTitle("Perhatian !!!")
+                                    .setIcon(R.drawable.print_primary);
+                            AlertDialog alert = builder.create();
+                            alert.show();
+                        }
+                    });
+//                    Intent goInput = new Intent(FMCGCreditDecisionToolActivity.this, KreditInvestasiFMCGActivity.class);
+//                    goInput.putExtra("TITTLE","Non Food");
+//                    startActivity(goInput);
+                }
+            });
+        }
+        linear5C.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goInput = new Intent(FMCGCreditDecisionToolActivity.this, FMCGFiveCActivity.class);
+                goInput.putExtra("KATEGORI",KATEGORI);
+                DB_Helper dbHelper = new DB_Helper(FMCGCreditDecisionToolActivity.this);
+                dbHelper.FiveC();
+                startActivity(goInput);
+            }
+        });
 
-
+        linearModalKerja.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                Intent goInput = new Intent(FMCGCreditDecisionToolActivity.this, KreditModalKerjaFMCGActivity.class);
+//                goInput.putExtra("KATEGORI",KATEGORI);
+//                startActivity(goInput);
+            }
+        });
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
 }

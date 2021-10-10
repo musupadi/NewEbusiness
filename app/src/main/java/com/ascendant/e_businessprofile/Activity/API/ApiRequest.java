@@ -122,6 +122,9 @@ public interface ApiRequest {
 
     //Old API
     //FMCG
+    @GET("ebook/sustainable_ebook?kuncifaba=FABAJakartaIndonesia2019kunci")
+    Call<ResponseArrayObject> SustainableFMCG(@Header("Authorization") String authHeader);
+
     @FormUrlEncoded
     @POST("fmcg/perusahaan")
     Call<Perusahaan> DataPerusahaan(@Header("Authorization") String authHeader,
