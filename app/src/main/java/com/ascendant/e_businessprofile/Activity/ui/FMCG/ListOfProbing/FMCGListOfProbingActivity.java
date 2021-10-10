@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.Manifest;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -13,10 +12,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.ListOfProbing.ListOfProbingFragment;
-import com.ascendant.e_businessprofile.Activity.ui.NavigatorFragment;
+import com.ascendant.e_businessprofile.Activity.ui.Healthcare.NavigatorFragment;
 import com.ascendant.e_businessprofile.R;
-
-import pub.devrel.easypermissions.EasyPermissions;
 
 public class FMCGListOfProbingActivity extends AppCompatActivity {
     ImageView ivMore;

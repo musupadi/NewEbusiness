@@ -5,25 +5,16 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.ascendant.e_businessprofile.Activity.HomeActivity;
-import com.ascendant.e_businessprofile.Activity.LoginActivity;
-import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
 import com.ascendant.e_businessprofile.Activity.ui.ChatFragment;
 import com.ascendant.e_businessprofile.Activity.ui.ForumFragment;
 import com.ascendant.e_businessprofile.Activity.ui.HomeFragment;
-import com.ascendant.e_businessprofile.Activity.ui.NavigatorFragment;
+import com.ascendant.e_businessprofile.Activity.ui.Healthcare.NavigatorFragment;
 import com.ascendant.e_businessprofile.R;
 
 public class BusinessRefrenceActivity extends AppCompatActivity {

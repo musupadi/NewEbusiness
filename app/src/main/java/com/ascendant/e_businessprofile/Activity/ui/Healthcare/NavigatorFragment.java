@@ -1,4 +1,4 @@
-package com.ascendant.e_businessprofile.Activity.ui;
+package com.ascendant.e_businessprofile.Activity.ui.Healthcare;
 
 import android.os.Bundle;
 
