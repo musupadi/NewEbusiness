@@ -27,7 +27,10 @@ import com.ascendant.e_businessprofile.Activity.ui.Healthcare.CreditWorthiness.H
 import com.ascendant.e_businessprofile.Adapter.Static.AdapterNavigator;
 import com.ascendant.e_businessprofile.Model.DataModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.CreditWorthiness.FMCGCreditWorthinessFNBModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.CreditWorthiness.FMCGCreditWorthinessMarketPotentialModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.CreditWorthiness.FMCGCreditWorthinessModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.CreditWorthiness.FMCGCreditWorthinessNFNBModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.CreditWorthiness.FMCGCreditWorthinessTobaccoModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.CreditWorthiness.CreditWorthinessModel;
 import com.ascendant.e_businessprofile.R;
 
@@ -76,9 +79,9 @@ public class FMCGCreditWorthinessActivity extends AppCompatActivity {
         if (KATEGORI.equals("fnb")){
             pList.addAll(FMCGCreditWorthinessFNBModel.getListData());
         }else if (KATEGORI.equals("non fnb")){
-            pList.addAll(CreditWorthinessModel.getListData());
+            pList.addAll(FMCGCreditWorthinessNFNBModel.getListData());
         }else{
-            pList.addAll(CreditWorthinessModel.getListData());
+            pList.addAll(FMCGCreditWorthinessTobaccoModel.getListData());
         }
         rv.setLayoutManager(new LinearLayoutManager(this));
         AdapterNavigator adapters = new AdapterNavigator(this,pList);
