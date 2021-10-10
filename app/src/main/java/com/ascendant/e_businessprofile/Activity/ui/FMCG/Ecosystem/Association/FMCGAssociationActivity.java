@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.ascendant.e_businessprofile.Activity.ui.FMCG.FMCGNavigatorFragment;
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.Ecosystem.EcosystemFragment;
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.NavigatorFragment;
 import com.ascendant.e_businessprofile.R;
@@ -42,11 +43,11 @@ public class FMCGAssociationActivity extends AppCompatActivity {
             public void onClick(View view) {
                 try {
                     Bundle bundle = new Bundle();
-                    bundle.putString("Navigator", "Ecosystem");
+                    bundle.putString("Navigator", "Association");
                     if (more){
                         more = false;
                         ivMore.setImageResource(R.drawable.close_concerate);
-                        fragment = new NavigatorFragment();
+                        fragment = new FMCGNavigatorFragment();
                         fragment.setArguments(bundle);
                         ChangeFragment(fragment);
                     }else{

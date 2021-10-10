@@ -14,6 +14,9 @@ import android.view.ViewGroup;
 
 import com.ascendant.e_businessprofile.Adapter.Static.AdapterNavigator;
 import com.ascendant.e_businessprofile.Model.DataModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.Ecosystem.FMCGEcosystemAssociationModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.Ecosystem.FMCGEcosystemModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.Ecosystem.FMCGEcosystemPlayersModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.BusinessRefrence.FMCGBusinessRefrenceModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.BusinessRefrence.FMCGBusinessReviewModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.BusinessRefrence.FMCGNewsletterModel;
@@ -95,13 +98,17 @@ public class FMCGNavigatorFragment extends Fragment {
         }else if (Navigator.equals("News")){
             pList.addAll(NewsModel.getListData());
         }else if (Navigator.equals("Ecosystem")){
-            pList.addAll(EcosystemModel.getListData());
+            pList.addAll(FMCGEcosystemModel.getListData());
         }else if (Navigator.equals("Supporting Industries")){
             pList.addAll(SupportingIndustriesModel.getListData());
         }else if (Navigator.equals("Hospital Equipment")){
             pList.addAll(HospitalEquipmentodel.getListData());
         }else if (Navigator.equals("List of Hospital")){
             pList.addAll(ListOfHospitalModel.getListData());
+        }else if (Navigator.equals("Players")){
+            pList.addAll(FMCGEcosystemPlayersModel.getListData());
+        }else if (Navigator.equals("Association")){
+            pList.addAll(FMCGEcosystemAssociationModel.getListData());
         }
         rv.setLayoutManager(new LinearLayoutManager(getActivity()));
         AdapterNavigator adapters = new AdapterNavigator(getActivity(),pList);
