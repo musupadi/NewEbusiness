@@ -1,10 +1,10 @@
-package com.ascendant.e_businessprofile.Model.StaticModel.Ecosystem;
+package com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.Ecosystem;
 
 import com.ascendant.e_businessprofile.Model.DataModel;
 
 import java.util.ArrayList;
 
-public class FMCGEcosystemPlayersModel {
+public class FMCGEcosystemAssociationModel {
     public static String[][] data = new String[][]{
             {"1",
                     "Home",
@@ -19,7 +19,7 @@ public class FMCGEcosystemPlayersModel {
                     "false"
             },
             {"4",
-                    "Players",
+                    "Association",
                     "true"
             },
     };

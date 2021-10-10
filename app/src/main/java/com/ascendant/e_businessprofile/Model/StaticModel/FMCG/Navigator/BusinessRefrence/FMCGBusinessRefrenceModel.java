@@ -1,10 +1,10 @@
-package com.ascendant.e_businessprofile.Model.StaticModel.FMCG.BusinessRefrence;
+package com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.BusinessRefrence;
 
 import com.ascendant.e_businessprofile.Model.DataModel;
 
 import java.util.ArrayList;
 
-public class FMCGNewsletterModel {
+public class FMCGBusinessRefrenceModel {
     public static String[][] data = new String[][]{
             {"1",
                     "Home",
@@ -16,10 +16,6 @@ public class FMCGNewsletterModel {
             },
             {"3",
                     "Business Refrences",
-                    "false"
-            },
-            {"4",
-                    "Newsletter",
                     "true"
             },
     };

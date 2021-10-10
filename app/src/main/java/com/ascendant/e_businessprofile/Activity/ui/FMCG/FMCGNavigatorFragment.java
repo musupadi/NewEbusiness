@@ -14,12 +14,12 @@ import android.view.ViewGroup;
 
 import com.ascendant.e_businessprofile.Adapter.Static.AdapterNavigator;
 import com.ascendant.e_businessprofile.Model.DataModel;
-import com.ascendant.e_businessprofile.Model.StaticModel.Ecosystem.FMCGEcosystemAssociationModel;
-import com.ascendant.e_businessprofile.Model.StaticModel.Ecosystem.FMCGEcosystemModel;
-import com.ascendant.e_businessprofile.Model.StaticModel.Ecosystem.FMCGEcosystemPlayersModel;
-import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.BusinessRefrence.FMCGBusinessRefrenceModel;
-import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.BusinessRefrence.FMCGBusinessReviewModel;
-import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.BusinessRefrence.FMCGNewsletterModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.Ecosystem.FMCGEcosystemAssociationModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.Ecosystem.FMCGEcosystemModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.Ecosystem.FMCGEcosystemPlayersModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.BusinessRefrence.FMCGBusinessRefrenceModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.BusinessRefrence.FMCGBusinessReviewModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.BusinessRefrence.FMCGNewsletterModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.BusinessRefrence.ActsModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.BusinessRefrence.ComplianceModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.BusinessRefrence.GovernmentRegulationsModel;
@@ -27,7 +27,6 @@ import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.BusinessRefr
 import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.BusinessRefrence.PresidentialDecreeModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.BusinessRefrence.RegulationModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.BusinessRefrence.eBookModel;
-import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.Ecosystem.EcosystemModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.Ecosystem.HospitalEquipmentodel;
 import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.Ecosystem.ListOfHospitalModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.Ecosystem.SupportingIndustriesModel;

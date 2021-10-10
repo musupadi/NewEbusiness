@@ -1,10 +1,10 @@
-package com.ascendant.e_businessprofile.Model.StaticModel.FMCG.BusinessRefrence;
+package com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.CreditWorthiness;
 
 import com.ascendant.e_businessprofile.Model.DataModel;
 
 import java.util.ArrayList;
 
-public class FMCGBusinessReviewModel {
+public class FMCGCreditWorthinessFNBModel {
     public static String[][] data = new String[][]{
             {"1",
                     "Home",
@@ -15,13 +15,13 @@ public class FMCGBusinessReviewModel {
                     "false"
             },
             {"3",
-                    "Business Refrences",
+                    "Credit Worthiness",
                     "false"
             },
             {"4",
-                    "Business Review",
+                    "Food And Beverage",
                     "true"
-            },
+            }
     };
     public static ArrayList<DataModel> getListData(){
         DataModel model = null;

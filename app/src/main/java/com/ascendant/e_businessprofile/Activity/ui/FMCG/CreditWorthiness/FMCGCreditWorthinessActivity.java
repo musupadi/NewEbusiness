@@ -26,6 +26,8 @@ import com.ascendant.e_businessprofile.Activity.ui.Healthcare.CreditWorthiness.H
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.CreditWorthiness.HospitalRequirementRatio.HospitalRequirementRatioActivity;
 import com.ascendant.e_businessprofile.Adapter.Static.AdapterNavigator;
 import com.ascendant.e_businessprofile.Model.DataModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.CreditWorthiness.FMCGCreditWorthinessFNBModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.CreditWorthiness.FMCGCreditWorthinessModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.CreditWorthiness.CreditWorthinessModel;
 import com.ascendant.e_businessprofile.R;
 
@@ -68,12 +70,19 @@ public class FMCGCreditWorthinessActivity extends AppCompatActivity {
         KeyOfSuccess = findViewById(R.id.cardKeyOfSuccess);
         RiskAndMitigation = findViewById(R.id.cardRiskAndMitigation);
         Available.setVisibility(View.VISIBLE);
-        pList.addAll(CreditWorthinessModel.getListData());
+
+        Intent data = getIntent();
+        final String KATEGORI = data.getStringExtra("KATEGORI");
+        if (KATEGORI.equals("fnb")){
+            pList.addAll(FMCGCreditWorthinessFNBModel.getListData());
+        }else if (KATEGORI.equals("non fnb")){
+            pList.addAll(CreditWorthinessModel.getListData());
+        }else{
+            pList.addAll(CreditWorthinessModel.getListData());
+        }
         rv.setLayoutManager(new LinearLayoutManager(this));
         AdapterNavigator adapters = new AdapterNavigator(this,pList);
         rv.setAdapter(adapters);
-        Intent data = getIntent();
-        final String KATEGORI = data.getStringExtra("KATEGORI");
         Back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
