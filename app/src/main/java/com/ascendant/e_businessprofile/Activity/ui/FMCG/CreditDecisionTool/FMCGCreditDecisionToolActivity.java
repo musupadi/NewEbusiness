@@ -103,7 +103,6 @@ public class FMCGCreditDecisionToolActivity extends AppCompatActivity {
         Intent data = getIntent();
         final String KATEGORI = data.getStringExtra("KATEGORI");
         if (KATEGORI.equals("FOOD")){
-            header.setText("FMCG / Credit Decision Tool / Food & Beverage");
             linearKreditInvestasi.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -113,7 +112,6 @@ public class FMCGCreditDecisionToolActivity extends AppCompatActivity {
                 }
             });
         }else if (KATEGORI.equals("NON FOOD ROKOK")){
-            header.setText("FMCG / Credit Decision Tool / Non Food & Beverage / Industri Rokok");
             linearKreditInvestasi.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -154,7 +152,6 @@ public class FMCGCreditDecisionToolActivity extends AppCompatActivity {
                 }
             });
         }else if (KATEGORI.equals("NON FOOD")){
-            header.setText("FMCG / Credit Decision Tool / Non Food & Beverage / Non Food & Beverage");
             linearKreditInvestasi.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

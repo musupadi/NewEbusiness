@@ -48,12 +48,15 @@ public class FMCGSustainableFinancingActivity extends AppCompatActivity {
     private RecyclerView.LayoutManager mManager;
     ProgressBar pd;
     Ascendant method = new Ascendant();
-    TextView header;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fmcgsustainable_financing);
-
+        rv = findViewById(R.id.recyclerNav);
+        Available = findViewById(R.id.linearAvailable);
+        Navigator = findViewById(R.id.linearNavigator);
+        ivMore = findViewById(R.id.ivMore);
+        More = findViewById(R.id.linearMore);
         Back = findViewById(R.id.linearBack);
         Available.setVisibility(View.VISIBLE);
         pList.addAll(CreditWorthinessModel.getListData());
