@@ -46,7 +46,11 @@ public class FMCGMainCreditDecisionToolActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fmcg_main_credit_decision_tool);
-
+        rv = findViewById(R.id.recyclerNav);
+        Available = findViewById(R.id.linearAvailable);
+        Navigator = findViewById(R.id.linearNavigator);
+        ivMore = findViewById(R.id.ivMore);
+        More = findViewById(R.id.linearMore);
         Back = findViewById(R.id.linearBack);
         Available.setVisibility(View.VISIBLE);
         pList.addAll(CreditWorthinessModel.getListData());
