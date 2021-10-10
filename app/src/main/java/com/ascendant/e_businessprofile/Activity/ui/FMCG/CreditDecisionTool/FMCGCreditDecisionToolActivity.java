@@ -1,6 +1,7 @@
 package com.ascendant.e_businessprofile.Activity.ui.FMCG.CreditDecisionTool;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -37,8 +38,7 @@ public class FMCGCreditDecisionToolActivity extends AppCompatActivity {
     DB_Helper dbHelper;
     String Token;
 
-    LinearLayout linear5C,linearKreditInvestasi,linearModalKerja;
-    ImageView back,home;
+    CardView linear5C,linearKreditInvestasi,linearModalKerja;
     TextView header;
     Ascendant method = new Ascendant();
     Dialog myDialog;
@@ -212,12 +212,6 @@ public class FMCGCreditDecisionToolActivity extends AppCompatActivity {
 //                Intent goInput = new Intent(FMCGCreditDecisionToolActivity.this, KreditModalKerjaFMCGActivity.class);
 //                goInput.putExtra("KATEGORI",KATEGORI);
 //                startActivity(goInput);
-            }
-        });
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
             }
         });
     }
