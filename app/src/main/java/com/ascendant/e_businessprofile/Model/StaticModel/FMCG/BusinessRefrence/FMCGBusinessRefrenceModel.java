@@ -1,4 +1,4 @@
-package com.ascendant.e_businessprofile.Model.StaticModel.FMCG;
+package com.ascendant.e_businessprofile.Model.StaticModel.FMCG.BusinessRefrence;
 
 import com.ascendant.e_businessprofile.Model.DataModel;
 
