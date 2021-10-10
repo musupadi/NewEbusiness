@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.ascendant.e_businessprofile.Activity.Method.Ascendant;
 import com.ascendant.e_businessprofile.Adapter.Static.AdapterNavigator;
 import com.ascendant.e_businessprofile.Model.DataModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.CreditWorthiness.FMCGCreditWorthinessFNBFinancialModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.CreditWorthiness.CreditWorthinessModel;
 import com.ascendant.e_businessprofile.R;
 
@@ -42,7 +43,6 @@ public class FMCGSimulationFinancialActivity extends AppCompatActivity {
         More = findViewById(R.id.linearMore);
         Back = findViewById(R.id.linearBack);
         Available.setVisibility(View.VISIBLE);
-        pList.addAll(CreditWorthinessModel.getListData());
         rv.setLayoutManager(new LinearLayoutManager(this));
         AdapterNavigator adapters = new AdapterNavigator(this,pList);
         rv.setAdapter(adapters);
@@ -91,6 +91,13 @@ public class FMCGSimulationFinancialActivity extends AppCompatActivity {
         Asset = findViewById(R.id.btnAset);
         Intent data = getIntent();
         final String KATEGORI = data.getStringExtra("KATEGORI");
+        if (KATEGORI.equals("fnb")){
+            pList.addAll(FMCGCreditWorthinessFNBFinancialModel.getListData());
+        }else if (KATEGORI.equals("non fnb")){
+            pList.addAll(CreditWorthinessModel.getListData());
+        }else{
+            pList.addAll(CreditWorthinessModel.getListData());
+        }
         CR.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

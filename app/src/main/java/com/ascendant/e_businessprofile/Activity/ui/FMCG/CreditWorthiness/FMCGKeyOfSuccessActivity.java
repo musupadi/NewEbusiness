@@ -57,13 +57,20 @@ public class FMCGKeyOfSuccessActivity extends AppCompatActivity {
         More = findViewById(R.id.linearMore);
         Back = findViewById(R.id.linearBack);
         Available.setVisibility(View.VISIBLE);
-        pList.addAll(CreditWorthinessModel.getListData());
+
         rv.setLayoutManager(new LinearLayoutManager(this));
         AdapterNavigator adapters = new AdapterNavigator(this,pList);
         rv.setAdapter(adapters);
         recyclerView = findViewById(R.id.recycler);
         Intent data = getIntent();
         String KOS = data.getStringExtra("KOS");
+        if (KOS.equals("non fnb")){
+            pList.addAll(CreditWorthinessModel.getListData());
+        }else if (KOS.equals("fnb")){
+
+        }else{
+
+        }
         getData(KOS);
 
         Back.setOnClickListener(new View.OnClickListener() {
