@@ -173,4 +173,12 @@ public interface ApiRequest {
                                         @Field("kuncifaba") String kuncifaba,
                                         @Field("id_provinsi") String id_provinsi,
                                         @Field("tipe") String tipe);
+
+    @FormUrlEncoded
+    @POST("fivec")
+    Call<ResponseArrayObject> fivec(@Header("Authorization") String authHeader,
+                              @Field("kuncifaba") String kuncifaba,
+                              @Field("kategori") String kategori,
+                              @Field("pernyataan") String pernyataan,
+                              @Field("tipe") String tipe);
 }

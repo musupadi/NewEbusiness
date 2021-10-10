@@ -7,7 +7,10 @@ import android.content.DialogInterface;
 import android.net.Uri;
 import android.os.Environment;
 import android.util.Base64;
+import android.widget.Toast;
 
+import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
+import com.ascendant.e_businessprofile.Model.StaticModel.Quis;
 import com.ascendant.e_businessprofile.R;
 
 import java.math.BigDecimal;
@@ -18,6 +21,203 @@ import java.util.Date;
 import java.util.Locale;
 
 public class Ascendant {
+    public void LOGICHOSPITAL5C(Context ctx,String category,int score){
+        String totalscore = "0";
+        if (category.equals("CHARACTER")){
+            if (score >= 0 && score <=5){
+                totalscore = "5";
+            }else if(score >5 && score<=10){
+                totalscore = "10";
+            }else if (score >11 && score<=15){
+                totalscore = "15";
+            }else if (score >=16 && score<=20){
+                totalscore = "20";
+            }
+        }else if(category.equals("CAPACITY")){
+            if (score >= 0 && score <=10){
+                totalscore = "10";
+            }else if(score >=11 && score<=20){
+                totalscore = "20";
+            }else if (score >21 && score<=30){
+                totalscore = "30";
+            }else if (score >=31 && score<=40){
+                totalscore = "40";
+            }
+        }else if(category.equals("CAPITAL")){
+            if (score >= 0 && score <=7){
+                totalscore = "5";
+            }else if(score >=8 && score<=14){
+                totalscore = "10";
+            }else if (score >=15 && score<=20){
+                totalscore = "15";
+            }
+        }else if(category.equals("COLLATERAL")){
+            if (score >= 0 && score <=5){
+                totalscore = "5";
+            }else if(score >=6 && score<=10){
+                totalscore = "10";
+            }
+        }else if(category.equals("CONDITION")){
+            if (score >=0 && score<=6){
+                totalscore = "5";
+            }else if(score >=7 && score<=11){
+                totalscore = "10";
+            }else if (score >=12 && score<=16){
+                totalscore = "15";
+            }
+        }
+        DB_Helper dbHelper = new DB_Helper(ctx);
+        Quis quis = new Quis(category,totalscore);
+        dbHelper.saveScore(quis);
+    }
+    public void LOGICFMCG5C(Context ctx,String KATEGORI,String category,int score){
+        String totalscore = "0";
+        if (KATEGORI.equals("FOOD")){
+            if (category.equals("CHARACTER")){
+                if (score >= 0 && score <=9){
+                    totalscore = "5";
+                }else if(score >9 && score<=18){
+                    totalscore = "10";
+                }else if (score >18 && score<=27){
+                    totalscore = "15";
+                }else if (score >27 && score<=36){
+                    totalscore = "20";
+                }
+            }else if(category.equals("CAPACITY")){
+                if (score >= 0 && score <=12){
+                    totalscore = "10";
+                }else if(score >12 && score<=24){
+                    totalscore = "20";
+                }else if (score >24 && score<=36){
+                    totalscore = "30";
+                }else if (score >36 && score<=48){
+                    totalscore = "40";
+                }
+            }else if(category.equals("CAPITAL")){
+                if (score >= 0 && score <=7){
+                    totalscore = "5";
+                }else if(score >7 && score<=14){
+                    totalscore = "10";
+                }else if (score >14 && score<=20){
+                    totalscore = "15";
+                }
+            }else if(category.equals("COLLATERAL")){
+                if (score >= 1 && score <=10){
+                    totalscore = "5";
+                }else if(score >10 && score<=20){
+                    totalscore = "10";
+                }
+            }else if(category.equals("CONDITION")){
+                if (score >=0 && score<=10){
+                    totalscore = "5";
+                }else if(score >10 && score<=20){
+                    totalscore = "10";
+                }else if (score >20 && score<=30){
+                    totalscore = "15";
+                }
+            }
+        }else if(KATEGORI.equals("NON FOOD ROKOK")){
+            if (category.equals("CHARACTER")){
+                if (score >= 0 && score <=5){
+                    totalscore = "5";
+                }else if(score >5 && score<=10){
+                    totalscore = "10";
+                }else if (score >10 && score<=15){
+                    totalscore = "15";
+                }else if (score >21 && score<=30){
+                    totalscore = "20";
+                }
+            }else if(category.equals("CAPACITY")){
+                if (score >= 0 && score <=7){
+                    totalscore = "5";
+                }else if(score >7 && score<=15){
+                    totalscore = "10";
+                }else if (score >15 && score<=22){
+                    totalscore = "15";
+                }else if (score >22 && score<=30){
+                    totalscore = "20";
+                }
+            }else if(category.equals("CAPITAL")){
+                if (score >= 0 && score <=6){
+                    totalscore = "5";
+                }else if(score >6 && score<=12){
+                    totalscore = "10";
+                }else if (score >12 && score<=18){
+                    totalscore = "15";
+                }else if (score >18 && score<=24){
+                    totalscore = "20";
+                }
+            }else if(category.equals("COLLATERAL")){
+                if (score >= 0 && score <=5){
+                    totalscore = "5";
+                }else if(score >5 && score<=10){
+                    totalscore = "10";
+                }else if(score >=10 && score<=15){
+                    totalscore = "15";
+                }else if(score >=15 && score<=20){
+                    totalscore = "20";
+                }
+            }else if(category.equals("CONDITION")){
+                if (score >=0 && score<=7){
+                    totalscore = "5";
+                }else if(score >7 && score<=15){
+                    totalscore = "10";
+                }else if (score >15 && score<=22){
+                    totalscore = "15";
+                }else if (score >22 && score<=30){
+                    totalscore = "20";
+                }
+            }
+        }else if(KATEGORI.equals("NON FOOD")){
+            if (category.equals("CHARACTER")){
+                if (score >= 0 && score <=9){
+                    totalscore = "5";
+                }else if(score >10 && score<=18){
+                    totalscore = "10";
+                }else if (score >18 && score<=27){
+                    totalscore = "15";
+                }else if (score >27 && score<=36){
+                    totalscore = "20";
+                }
+            }else if(category.equals("CAPACITY")){
+                if (score >= 0 && score <=12){
+                    totalscore = "10";
+                }else if(score >12 && score<=24){
+                    totalscore = "20";
+                }else if (score >24 && score<=36){
+                    totalscore = "30";
+                }else if (score >36 && score<=48){
+                    totalscore = "40";
+                }
+            }else if(category.equals("CAPITAL")){
+                if (score >= 0 && score <=7){
+                    totalscore = "5";
+                }else if(score >7 && score<=14){
+                    totalscore = "10";
+                }else if (score >14 && score<=20){
+                    totalscore = "15";
+                }
+            }else if(category.equals("COLLATERAL")){
+                if (score >= 0 && score <=10){
+                    totalscore = "5";
+                }else if(score >10 && score<=20){
+                    totalscore = "10";
+                }
+            }else if(category.equals("CONDITION")){
+                if (score >=0 && score<=11){
+                    totalscore = "5";
+                }else if(score >11 && score<=21){
+                    totalscore = "10";
+                }else if (score >21 && score<=32){
+                    totalscore = "15";
+                }
+            }
+        }
+        DB_Helper dbHelper = new DB_Helper(ctx);
+        Toast.makeText(ctx, totalscore, Toast.LENGTH_SHORT).show();
+        Quis quis = new Quis(category,totalscore);
+        dbHelper.saveScore(quis);
+    }
     public String KategoriFMCG(String kategori){
         String hasil=kategori.toLowerCase();
         if (kategori.equals("F&B")){

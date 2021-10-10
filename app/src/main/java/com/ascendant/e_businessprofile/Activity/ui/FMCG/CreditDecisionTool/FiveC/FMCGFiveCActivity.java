@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.ascendant.e_businessprofile.Activity.Analisis5CActivity;
 import com.ascendant.e_businessprofile.Activity.Method.Ascendant;
 import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
 import com.ascendant.e_businessprofile.Adapter.Static.AdapterNavigator;
@@ -89,6 +90,7 @@ public class FMCGFiveCActivity extends AppCompatActivity {
             }
         });
 
+        header = findViewById(R.id.tvHeader);
         Character = findViewById(R.id.btnCharacter);
         Capacity = findViewById(R.id.btnCapacity);
         Capital = findViewById(R.id.btnCapital);
@@ -104,25 +106,25 @@ public class FMCGFiveCActivity extends AppCompatActivity {
         this.cat = KATEGORI;
         final DB_Helper dbHelper = new DB_Helper(FMCGFiveCActivity.this);
         if (KATEGORI.equals("FOOD")){
-            header.setText("FMCG / Credit Decision Tool / Food & Beverage / Analysis 5 C");
+            header.setText("Analysis 5 C");
             LOGICBACK(KATEGORI);
         }else if(KATEGORI.equals("NON FOOD ROKOK")){
-            header.setText("FMCG / Credit Decision Tool / Tobacco Industry / Analysis 5 C");
+            header.setText("Analysis 5 C");
             LOGICBACK(KATEGORI);
         }else if(KATEGORI.equals("NON FOOD")){
-            header.setText("FMCG / Credit Decision Tool / Non Food & Beverage  / Analysis 5 C");
+            header.setText("Analysis 5 C");
             LOGICBACK(KATEGORI);
         }else{
-            header.setText("Healthcare / Credit Decision Tool /  Analysis 5 C");
+            header.setText("Analysis 5 C");
             LOGICBACK(KATEGORI);
         }
         //Character
-//        Cursor cursor = dbHelper.checkQuiz("CHARACTER");
+        Cursor cursor1 = dbHelper.checkQuiz("CHARACTER");
         hitung = 0;
-        if (cursor.getCount()>0){
-            while (cursor.moveToNext()){
-                caracter = cursor.getString(0);
-                scoreCaracter = cursor.getString(1);
+        if (cursor1.getCount()>0){
+            while (cursor1.moveToNext()){
+                caracter = cursor1.getString(0);
+                scoreCaracter = cursor1.getString(1);
             }
         }
         if (caracter != null){
@@ -206,11 +208,11 @@ public class FMCGFiveCActivity extends AppCompatActivity {
         Character.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent goInput = new Intent(FMCGFiveCActivity.this, Analisis5CActivity.class);
-//                goInput.putExtra("KATEGORI",KATEGORI.toLowerCase());
-//                goInput.putExtra("PERNYATAAN","character");
-//                goInput.putExtra("TIPE","fmcg");
-//                startActivities(new Intent[]{goInput});
+                Intent goInput = new Intent(FMCGFiveCActivity.this, Analisis5CActivity.class);
+                goInput.putExtra("KATEGORI",KATEGORI.toLowerCase());
+                goInput.putExtra("PERNYATAAN","character");
+                goInput.putExtra("TIPE","fmcg");
+                startActivities(new Intent[]{goInput});
 //                Intent goInput = new Intent(FMCGFiveCActivity.this, SoalFMCGActivity.class);
 //                goInput.putExtra("SCORE","0");
 //                goInput.putExtra("NO","0");
@@ -224,11 +226,11 @@ public class FMCGFiveCActivity extends AppCompatActivity {
         Capacity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent goInput = new Intent(FMCGFiveCActivity.this, Analisis5CActivity.class);
-//                goInput.putExtra("KATEGORI",KATEGORI.toLowerCase());
-//                goInput.putExtra("PERNYATAAN","capacity");
-//                goInput.putExtra("TIPE","fmcg");
-//                startActivities(new Intent[]{goInput});
+                Intent goInput = new Intent(FMCGFiveCActivity.this, Analisis5CActivity.class);
+                goInput.putExtra("KATEGORI",KATEGORI.toLowerCase());
+                goInput.putExtra("PERNYATAAN","capacity");
+                goInput.putExtra("TIPE","fmcg");
+                startActivities(new Intent[]{goInput});
 
 //                Intent goInput = new Intent(FMCGFiveCActivity.this,SoalFMCGActivity.class);
 //                goInput.putExtra("SCORE","0");
@@ -243,11 +245,11 @@ public class FMCGFiveCActivity extends AppCompatActivity {
         Capital.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent goInput = new Intent(FMCGFiveCActivity.this, Analisis5CActivity.class);
-//                goInput.putExtra("KATEGORI",KATEGORI.toLowerCase());
-//                goInput.putExtra("PERNYATAAN","capital");
-//                goInput.putExtra("TIPE","fmcg");
-//                startActivities(new Intent[]{goInput});
+                Intent goInput = new Intent(FMCGFiveCActivity.this, Analisis5CActivity.class);
+                goInput.putExtra("KATEGORI",KATEGORI.toLowerCase());
+                goInput.putExtra("PERNYATAAN","capital");
+                goInput.putExtra("TIPE","fmcg");
+                startActivities(new Intent[]{goInput});
 
 
 //                Intent goInput = new Intent(FMCGFiveCActivity.this,SoalFMCGActivity.class);
@@ -263,11 +265,11 @@ public class FMCGFiveCActivity extends AppCompatActivity {
         Colleteral.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent goInput = new Intent(FMCGFiveCActivity.this, Analisis5CActivity.class);
-//                goInput.putExtra("KATEGORI",KATEGORI.toLowerCase());
-//                goInput.putExtra("PERNYATAAN","collateral");
-//                goInput.putExtra("TIPE","fmcg");
-//                startActivities(new Intent[]{goInput});
+                Intent goInput = new Intent(FMCGFiveCActivity.this, Analisis5CActivity.class);
+                goInput.putExtra("KATEGORI",KATEGORI.toLowerCase());
+                goInput.putExtra("PERNYATAAN","collateral");
+                goInput.putExtra("TIPE","fmcg");
+                startActivities(new Intent[]{goInput});
 
 //                Intent goInput = new Intent(FMCGFiveCActivity.this,SoalFMCGActivity.class);
 //                goInput.putExtra("SCORE","0");
@@ -282,11 +284,11 @@ public class FMCGFiveCActivity extends AppCompatActivity {
         Condition.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent goInput = new Intent(FMCGFiveCActivity.this, Analisis5CActivity.class);
-//                goInput.putExtra("KATEGORI",KATEGORI.toLowerCase());
-//                goInput.putExtra("PERNYATAAN","condition");
-//                goInput.putExtra("TIPE","fmcg");
-//                startActivities(new Intent[]{goInput});
+                Intent goInput = new Intent(FMCGFiveCActivity.this, Analisis5CActivity.class);
+                goInput.putExtra("KATEGORI",KATEGORI.toLowerCase());
+                goInput.putExtra("PERNYATAAN","condition");
+                goInput.putExtra("TIPE","fmcg");
+                startActivities(new Intent[]{goInput});
 
 
 //                Intent goInput = new Intent(FMCGFiveCActivity.this,SoalFMCGActivity.class);
@@ -304,23 +306,9 @@ public class FMCGFiveCActivity extends AppCompatActivity {
 
     public void LOGICBACK(String kat){
         if (kat.equals("hospital")){
-            back.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-//                    Intent intent = new Intent(FMCGFiveCActivity.this,SustainableFinancingActivity.class);
-//                    startActivity(intent);
-                    onBackPressed();
-                }
-            });
+
         }else{
-            back.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-//                    Intent intent = new Intent(FMCGFiveCActivity.this, MainSustainableFinancingActivity.class);
-//                    startActivity(intent);
-                    onBackPressed();
-                }
-            });
+
         }
     }
 }

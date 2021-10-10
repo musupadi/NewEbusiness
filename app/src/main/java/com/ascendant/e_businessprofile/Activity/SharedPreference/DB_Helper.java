@@ -181,7 +181,12 @@ public class DB_Helper extends SQLiteOpenHelper {
         db.execSQL("DELETE FROM "+TABLE_NAME_ACCOUNT+"");
     }
 
-
+    public Cursor Checker(String id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query ="SELECT * FROM "+TABLE_5C+" WHERE "+COLUMN_ID_FIVE_C+" = "+id;
+        Cursor cursor = db.rawQuery(query,null);
+        return cursor;
+    }
     public void saveNotif(String notif){
         SQLiteDatabase db =this.getWritableDatabase();
         ContentValues values = new ContentValues();

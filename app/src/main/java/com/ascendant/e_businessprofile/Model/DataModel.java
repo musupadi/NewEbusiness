@@ -319,6 +319,7 @@ public class DataModel {
     String no_quis,category_quis,soal_quis,simulasi,jawaban;
     String total_online,register,status_online,market;
     String market_size,dua,share;
+    String id_fmcg_fivec,no_fivec,kategori_fivec,pernyataan_fivec,isi_fivec,nilai_yes,nilai_no,simulasi_fivec;
 
     public String getId_berita() {
         return id_berita;
@@ -1774,5 +1775,69 @@ public class DataModel {
 
     public void setShare(String share) {
         this.share = share;
+    }
+
+    public String getId_fmcg_fivec() {
+        return id_fmcg_fivec;
+    }
+
+    public void setId_fmcg_fivec(String id_fmcg_fivec) {
+        this.id_fmcg_fivec = id_fmcg_fivec;
+    }
+
+    public String getNo_fivec() {
+        return no_fivec;
+    }
+
+    public void setNo_fivec(String no_fivec) {
+        this.no_fivec = no_fivec;
+    }
+
+    public String getKategori_fivec() {
+        return kategori_fivec;
+    }
+
+    public void setKategori_fivec(String kategori_fivec) {
+        this.kategori_fivec = kategori_fivec;
+    }
+
+    public String getPernyataan_fivec() {
+        return pernyataan_fivec;
+    }
+
+    public void setPernyataan_fivec(String pernyataan_fivec) {
+        this.pernyataan_fivec = pernyataan_fivec;
+    }
+
+    public String getIsi_fivec() {
+        return isi_fivec;
+    }
+
+    public void setIsi_fivec(String isi_fivec) {
+        this.isi_fivec = isi_fivec;
+    }
+
+    public String getNilai_yes() {
+        return nilai_yes;
+    }
+
+    public void setNilai_yes(String nilai_yes) {
+        this.nilai_yes = nilai_yes;
+    }
+
+    public String getNilai_no() {
+        return nilai_no;
+    }
+
+    public void setNilai_no(String nilai_no) {
+        this.nilai_no = nilai_no;
+    }
+
+    public String getSimulasi_fivec() {
+        return simulasi_fivec;
+    }
+
+    public void setSimulasi_fivec(String simulasi_fivec) {
+        this.simulasi_fivec = simulasi_fivec;
     }
 }
