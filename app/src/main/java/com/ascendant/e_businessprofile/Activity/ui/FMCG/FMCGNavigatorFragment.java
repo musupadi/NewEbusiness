@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 
 import com.ascendant.e_businessprofile.Adapter.Static.AdapterNavigator;
 import com.ascendant.e_businessprofile.Model.DataModel;
-import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.BusinessRefrence.FMCGBusinessRefrenceModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.FMCGBusinessRefrenceModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.BusinessRefrence.FMCGBusinessReviewModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.BusinessRefrence.FMCGNewsletterModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.BusinessRefrence.ActsModel;
