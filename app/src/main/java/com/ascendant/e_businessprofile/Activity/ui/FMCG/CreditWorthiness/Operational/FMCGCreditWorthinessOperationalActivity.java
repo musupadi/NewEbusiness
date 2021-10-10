@@ -73,7 +73,15 @@ public class FMCGCreditWorthinessOperationalActivity extends AppCompatActivity {
             }
         });
 
-
+        Intent data = getIntent();
+        final String KATEGORI = data.getStringExtra("KATEGORI");
+        if (KATEGORI.equals("fnb")){
+            pList.addAll(CreditWorthinessModel.getListData());
+        }else if (KATEGORI.equals("non fnb")){
+            pList.addAll(CreditWorthinessModel.getListData());
+        }else{
+            pList.addAll(CreditWorthinessModel.getListData());
+        }
         DOR = findViewById(R.id.btnDOR);
         DOI = findViewById(R.id.btnDOI);
         DOP = findViewById(R.id.btnDOP);
