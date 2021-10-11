@@ -1,4 +1,4 @@
-FMCGCreditWorthinessFNBOperationalModelpackage com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.CreditWorthiness;
+package com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.CreditWorthiness;
 
 import com.ascendant.e_businessprofile.Model.DataModel;
 
