@@ -15,12 +15,33 @@ import com.ascendant.e_businessprofile.R;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
 public class Ascendant {
+    public String PembulatanHari(String hari){
+        Double hari1 = Double.parseDouble(BatasanDouble(Double.parseDouble(hari)));
+        Double total = Double.parseDouble(hari)-hari1;
+        Integer thot = Integer.parseInt(BatasanDouble(Double.parseDouble(hari)));
+        if (total>0){
+            thot=thot+1;
+        }
+        return String.valueOf(thot);
+    }
+    public String MagicChange(String magic){
+        String MAGIC1 = magic.replace("Rp","");
+        String MAGIC2 = MAGIC1.replace(",","");
+        return MAGIC2.replace(".","");
+    }
+    public String MagicRP(double nilai){
+        Locale localeID = new Locale("in", "ID");
+        NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(localeID);
+        BigDecimal bd1 = new BigDecimal(nilai).setScale(0, RoundingMode.HALF_UP);
+        return formatRupiah.format(bd1);
+    }
     public void LOGICHOSPITAL5C(Context ctx,String category,int score){
         String totalscore = "0";
         if (category.equals("CHARACTER")){

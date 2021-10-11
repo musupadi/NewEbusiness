@@ -23,7 +23,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppThemeNoAction"
-        android:usesCleartextTraffic="true">
+        android:usesCleartextTraffic="true"
+        android:screenOrientation="portrait" >
+        <activity
+            android:name=".Activity.ui.FMCG.CreditDecisionTool.FinancialStatementAnalysis.FMCGResultFinancialStatementAnalysisActivity"
+            android:exported="true"
+            android:screenOrientation="landscape"/>
+        <activity
+            android:name=".Activity.ui.FMCG.CreditDecisionTool.FinancialStatementAnalysis.FMCGFinancialStatementAnalysisActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.ui.FMCG.CreditDecisionTool.FMCGRequirementAnalysisActivity"
+            android:exported="true" />
         <activity
             android:name=".Activity.Analisis5CActivity"
             android:exported="true" />

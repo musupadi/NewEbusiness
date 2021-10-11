@@ -181,4 +181,11 @@ public interface ApiRequest {
                               @Field("kategori") String kategori,
                               @Field("pernyataan") String pernyataan,
                               @Field("tipe") String tipe);
+
+    @FormUrlEncoded
+    @POST("fmcg/param")
+    Call<ResponseArrayObject> KMK2(@Header("Authorization") String authHeader,
+                             @Field("kuncifaba") String kuncifaba,
+                             @Field("kmk") String kmk,
+                             @Field("kategori") String kategori);
 }
