@@ -20,6 +20,7 @@ import android.widget.TextView;
 
 import com.ascendant.e_businessprofile.Activity.Method.Ascendant;
 import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
+import com.ascendant.e_businessprofile.Activity.ui.FMCG.CreditDecisionTool.FinancialStatementAnalysis.FMCGFinancialStatementAnalysisActivity;
 import com.ascendant.e_businessprofile.Activity.ui.FMCG.CreditDecisionTool.FiveC.FMCGFiveCActivity;
 import com.ascendant.e_businessprofile.Adapter.Static.AdapterNavigator;
 import com.ascendant.e_businessprofile.Model.DataModel;
@@ -106,9 +107,9 @@ public class FMCGCreditDecisionToolActivity extends AppCompatActivity {
             linearKreditInvestasi.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-//                    Intent goInput = new Intent(FMCGCreditDecisionToolActivity.this, KreditInvestasiFMCGActivity.class);
-//                    goInput.putExtra("TITTLE","Food");
-//                    startActivity(goInput);
+                    Intent goInput = new Intent(FMCGCreditDecisionToolActivity.this, FMCGRequirementAnalysisActivity.class);
+                    goInput.putExtra("TITTLE","Food");
+                    startActivity(goInput);
                 }
             });
         }else if (KATEGORI.equals("NON FOOD ROKOK")){
@@ -206,9 +207,9 @@ public class FMCGCreditDecisionToolActivity extends AppCompatActivity {
         linearModalKerja.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent goInput = new Intent(FMCGCreditDecisionToolActivity.this, KreditModalKerjaFMCGActivity.class);
-//                goInput.putExtra("KATEGORI",KATEGORI);
-//                startActivity(goInput);
+                Intent goInput = new Intent(FMCGCreditDecisionToolActivity.this, FMCGFinancialStatementAnalysisActivity.class);
+                goInput.putExtra("KATEGORI",KATEGORI);
+                startActivity(goInput);
             }
         });
     }

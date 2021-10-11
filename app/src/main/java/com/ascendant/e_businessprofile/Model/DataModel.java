@@ -312,7 +312,7 @@ public class DataModel {
             dr_gigi_lainnya,bidan_pendidikan,radiografi,refraksionis,
             rekam_medis,transfusi_darah,kardiovaskular,epidemiology,prilaku,biostatik,dietisien,admin_kesehatan,bank;
 
-
+    String id_ebook,nama_ebook,tgl_upload_ebook,link_file_ebook,ext_file;
     String Email,Password;
     String idNavigator,Navigator,ONCLICK;
     String id_persi,nama_persi,alamat_persi,telpon_persi,email_persi;
@@ -1839,5 +1839,45 @@ public class DataModel {
 
     public void setSimulasi_fivec(String simulasi_fivec) {
         this.simulasi_fivec = simulasi_fivec;
+    }
+
+    public String getId_ebook() {
+        return id_ebook;
+    }
+
+    public void setId_ebook(String id_ebook) {
+        this.id_ebook = id_ebook;
+    }
+
+    public String getNama_ebook() {
+        return nama_ebook;
+    }
+
+    public void setNama_ebook(String nama_ebook) {
+        this.nama_ebook = nama_ebook;
+    }
+
+    public String getTgl_upload_ebook() {
+        return tgl_upload_ebook;
+    }
+
+    public void setTgl_upload_ebook(String tgl_upload_ebook) {
+        this.tgl_upload_ebook = tgl_upload_ebook;
+    }
+
+    public String getLink_file_ebook() {
+        return link_file_ebook;
+    }
+
+    public void setLink_file_ebook(String link_file_ebook) {
+        this.link_file_ebook = link_file_ebook;
+    }
+
+    public String getExt_file() {
+        return ext_file;
+    }
+
+    public void setExt_file(String ext_file) {
+        this.ext_file = ext_file;
     }
 }

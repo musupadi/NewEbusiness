@@ -18,6 +18,7 @@ import com.ascendant.e_businessprofile.Activity.API.OldRetroServer;
 import com.ascendant.e_businessprofile.Activity.Method.Ascendant;
 import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
 import com.ascendant.e_businessprofile.Adapter.AdapterEBook;
+import com.ascendant.e_businessprofile.Adapter.AdaptereBook2;
 import com.ascendant.e_businessprofile.Adapter.Static.AdapterNavigator;
 import com.ascendant.e_businessprofile.Model.DataModel;
 import com.ascendant.e_businessprofile.Model.EbookModel;
@@ -108,7 +109,7 @@ public class FMCGSustainableFinancingActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<ResponseArrayObject> call, Response<ResponseArrayObject> response) {
                 mItems =response.body().getData();
-                AdapterEBook adapter = new AdapterEBook(FMCGSustainableFinancingActivity.this,mItems);
+                AdaptereBook2 adapter = new AdaptereBook2(FMCGSustainableFinancingActivity.this,mItems);
                 rvEbook.setAdapter(adapter);
                 pd.setVisibility(View.GONE);
             }
