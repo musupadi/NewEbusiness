@@ -15,6 +15,9 @@ import com.ascendant.e_businessprofile.Activity.Method.Ascendant;
 import com.ascendant.e_businessprofile.Activity.ui.FMCG.CreditWorthiness.Financial.FMCGCreditWorthinessHitunganActivity;
 import com.ascendant.e_businessprofile.Adapter.Static.AdapterNavigator;
 import com.ascendant.e_businessprofile.Model.DataModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.CreditWorthiness.FMCGCreditWorthinessFNBModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.CreditWorthiness.FMCGCreditWorthinessNFNBModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.CreditWorthiness.FMCGCreditWorthinessTobaccoModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.CreditWorthiness.CreditWorthinessModel;
 import com.ascendant.e_businessprofile.R;
 
@@ -41,7 +44,6 @@ public class FMCGCreditWorthinessOperationalActivity extends AppCompatActivity {
         More = findViewById(R.id.linearMore);
         Back = findViewById(R.id.linearBack);
         Available.setVisibility(View.VISIBLE);
-        pList.addAll(CreditWorthinessModel.getListData());
         rv.setLayoutManager(new LinearLayoutManager(this));
         AdapterNavigator adapters = new AdapterNavigator(this,pList);
         rv.setAdapter(adapters);
@@ -76,11 +78,11 @@ public class FMCGCreditWorthinessOperationalActivity extends AppCompatActivity {
         Intent data = getIntent();
         final String KATEGORI = data.getStringExtra("KATEGORI");
         if (KATEGORI.equals("fnb")){
-            pList.addAll(CreditWorthinessModel.getListData());
+            pList.addAll(FMCGCreditWorthinessFNBModel.getListData());
         }else if (KATEGORI.equals("non fnb")){
-            pList.addAll(CreditWorthinessModel.getListData());
+            pList.addAll(FMCGCreditWorthinessNFNBModel.getListData());
         }else{
-            pList.addAll(CreditWorthinessModel.getListData());
+            pList.addAll(FMCGCreditWorthinessTobaccoModel.getListData());
         }
         DOR = findViewById(R.id.btnDOR);
         DOI = findViewById(R.id.btnDOI);

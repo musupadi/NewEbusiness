@@ -11,10 +11,14 @@ public class HospitalAssociationModel {
                     "false"
             },
             {"2",
-                    "Ecosystem",
-                    "true"
+                    "Healthcare",
+                    "false"
             },
             {"3",
+                    "Ecosystem",
+                    "false"
+            },
+            {"4",
                     "Hospital Association",
                     "true"
             },
