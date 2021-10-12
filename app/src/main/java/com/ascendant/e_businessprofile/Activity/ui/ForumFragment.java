@@ -1,60 +1,60 @@
 package com.ascendant.e_businessprofile.Activity.ui;
 
+import android.database.Cursor;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Spinner;
+import android.widget.Toast;
 
+import com.ascendant.e_businessprofile.Activity.API.ApiRequest;
+import com.ascendant.e_businessprofile.Activity.API.RetroServer;
+import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
+import com.ascendant.e_businessprofile.Adapter.AdapterForum;
+import com.ascendant.e_businessprofile.Model.DataModel;
+import com.ascendant.e_businessprofile.Model.ResponseArrayObject;
 import com.ascendant.e_businessprofile.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link ForumFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+
 public class ForumFragment extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
+    ImageView Search;
+    EditText etSearch;
+    Spinner Category;
+    DB_Helper dbHelper;
+    String Token;
+    private List<DataModel> mItems = new ArrayList<>();
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager mManager;
+    RecyclerView rv;
     public ForumFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment ForumFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static ForumFragment newInstance(String param1, String param2) {
-        ForumFragment fragment = new ForumFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+
     }
 
     @Override
@@ -62,5 +62,72 @@ public class ForumFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_forum, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        Search = view.findViewById(R.id.ivSearch);
+        etSearch = view.findViewById(R.id.etSearch);
+        Category = view.findViewById(R.id.spinnerCategory);
+        rv = view.findViewById(R.id.recycler);
+        dbHelper = new DB_Helper(getActivity());
+        Cursor cursor = dbHelper.checkUser();
+        if (cursor.getCount()>0){
+            while (cursor.moveToNext()){
+                Token = cursor.getString(0);
+            }
+        }
+        Category.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                Logic();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+    }
+
+    private void Logic(){
+        mManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL,false);
+        rv.setLayoutManager(mManager);
+        ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
+        final Call<ResponseArrayObject> data =api.Daftar_Postingan(Token,Checker(Category.getSelectedItem().toString()),"1","");
+        data.enqueue(new Callback<ResponseArrayObject>() {
+            @Override
+            public void onResponse(Call<ResponseArrayObject> call, Response<ResponseArrayObject> response) {
+                try {
+                    if (response.body().getKode().equals(200)){
+                        mItems=response.body().getData();
+                        mAdapter = new AdapterForum(getActivity(),mItems);
+                        rv.setAdapter(mAdapter);
+                        mAdapter.notifyDataSetChanged();
+                    }else{
+                        Toast.makeText(getActivity(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                }catch (Exception e){
+                    Log.d("DONTOL : ",e.toString());
+                    Toast.makeText(getActivity(), "Terjadi Kesaqlahan", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseArrayObject> call, Throwable t) {
+                Toast.makeText(getActivity(), "Koneksi Gagal", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private String Checker(String text){
+        if (text.equals("All Category")){
+            text = "";
+        }else{
+            text = text.toLowerCase(Locale.ROOT);
+        }
+
+        return text;
     }
 }

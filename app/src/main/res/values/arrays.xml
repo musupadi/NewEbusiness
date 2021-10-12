@@ -85,5 +85,15 @@
         <item>Peraturan6</item>
     </string-array>
 
+    <string-array name="Category">
+        <item>All Category</item>
+        <item>Healthcare</item>
+        <item>FMCG</item>
+        <item>Mining</item>
+        <item>Contractor</item>
+        <item>Oil And Gas</item>
+        <item>Farm</item>
+    </string-array>
+
 
 </resources>

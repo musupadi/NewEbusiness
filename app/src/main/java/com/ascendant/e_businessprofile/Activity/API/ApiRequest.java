@@ -108,6 +108,13 @@ public interface ApiRequest {
                                                            @Field("jenis_br") String jenis_br,
                                                            @Field("tipe") String tipe);
 
+    //Forum
+    @FormUrlEncoded
+    @POST("daftar_posting")
+    Call<ResponseArrayObject> Daftar_Postingan(@Field("token") String token,
+                                               @Field("kategori") String kategori,
+                                               @Field("page") String page,
+                                               @Field("judul") String judul);
     @FormUrlEncoded
     @POST("profil")
     Call<ResponseObject> Profil(@Field("token") String token);
@@ -115,6 +122,12 @@ public interface ApiRequest {
     @FormUrlEncoded
     @POST("poin")
     Call<ResponseObject> Poin(@Field("token") String token);
+
+
+    @FormUrlEncoded
+    @POST("detail_posting")
+    Call<ResponseObject> DetailPosting(@Field("token") String token,
+                                       @Field("id_post") String id_post);
 
     //GET
     @GET("divisi")

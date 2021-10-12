@@ -290,6 +290,98 @@ public class DataModel {
     @Expose
     public String file_kos;
 
+    //Daftar Posting
+    @SerializedName("id_post")
+    @Expose
+    public String id_post;
+
+    @SerializedName("kategori_post")
+    @Expose
+    public String kategori_post;
+
+    @SerializedName("id_user_mandiri")
+    @Expose
+    public String id_user_mandiri;
+
+    @SerializedName("judul_post")
+    @Expose
+    public String judul_post;
+
+    @SerializedName("isi_post")
+    @Expose
+    public String isi_post;
+
+    @SerializedName("status_post")
+    @Expose
+    public String status_post;
+
+    @SerializedName("tgl_post")
+    @Expose
+    public String tgl_post;
+
+    @SerializedName("tgl_last_edit_post")
+    @Expose
+    public String tgl_last_edit_post;
+
+    @SerializedName("created_at_post")
+    @Expose
+    public String created_at_post;
+
+    @SerializedName("detail")
+    @Expose
+    DataModel detail;
+
+    @SerializedName("image")
+    @Expose
+    List<DataModel> image;
+
+    @SerializedName("id_post_img")
+    @Expose
+    public String id_post_img;
+
+    @SerializedName("file_img_post")
+    @Expose
+    public String file_img_post;
+
+    @SerializedName("caption")
+    @Expose
+    public String caption;
+
+    @SerializedName("komen")
+    @Expose
+    List<DataModel> komen;
+
+    @SerializedName("id_post_komen")
+    @Expose
+    public String id_post_komen;
+
+    @SerializedName("isi_komen")
+    @Expose
+    public String isi_komen;
+
+    @SerializedName("img_komen")
+    @Expose
+    public String img_komen;
+
+    @SerializedName("tgl_komen")
+    @Expose
+    public String tgl_komen;
+
+    @SerializedName("tgl_last_edit_komen")
+    @Expose
+    public String tgl_last_edit_komen;
+
+    @SerializedName("total_sub_komen")
+    @Expose
+    public String total_sub_komen;
+
+    @SerializedName("sub_komen")
+    @Expose
+    List<DataModel> sub_komen;
+
+    @SerializedName("id_post_komen_sub")
+    @Expose
+    public String id_post_komen_sub;
 
     //Old EBusiness
     String id_fmcg_param,nama_param,rumus_param,kategori_param,rata_rata_param,penjelasan_param,penjelasan2_param;
@@ -1879,5 +1971,189 @@ public class DataModel {
 
     public void setExt_file(String ext_file) {
         this.ext_file = ext_file;
+    }
+
+    public String getId_post() {
+        return id_post;
+    }
+
+    public void setId_post(String id_post) {
+        this.id_post = id_post;
+    }
+
+    public String getKategori_post() {
+        return kategori_post;
+    }
+
+    public void setKategori_post(String kategori_post) {
+        this.kategori_post = kategori_post;
+    }
+
+    public String getId_user_mandiri() {
+        return id_user_mandiri;
+    }
+
+    public void setId_user_mandiri(String id_user_mandiri) {
+        this.id_user_mandiri = id_user_mandiri;
+    }
+
+    public String getJudul_post() {
+        return judul_post;
+    }
+
+    public void setJudul_post(String judul_post) {
+        this.judul_post = judul_post;
+    }
+
+    public String getIsi_post() {
+        return isi_post;
+    }
+
+    public void setIsi_post(String isi_post) {
+        this.isi_post = isi_post;
+    }
+
+    public String getStatus_post() {
+        return status_post;
+    }
+
+    public void setStatus_post(String status_post) {
+        this.status_post = status_post;
+    }
+
+    public String getTgl_post() {
+        return tgl_post;
+    }
+
+    public void setTgl_post(String tgl_post) {
+        this.tgl_post = tgl_post;
+    }
+
+    public String getTgl_last_edit_post() {
+        return tgl_last_edit_post;
+    }
+
+    public void setTgl_last_edit_post(String tgl_last_edit_post) {
+        this.tgl_last_edit_post = tgl_last_edit_post;
+    }
+
+    public String getCreated_at_post() {
+        return created_at_post;
+    }
+
+    public void setCreated_at_post(String created_at_post) {
+        this.created_at_post = created_at_post;
+    }
+
+    public DataModel getDetail() {
+        return detail;
+    }
+
+    public void setDetail(DataModel detail) {
+        this.detail = detail;
+    }
+
+    public List<DataModel> getImage() {
+        return image;
+    }
+
+    public void setImage(List<DataModel> image) {
+        this.image = image;
+    }
+
+    public String getId_post_img() {
+        return id_post_img;
+    }
+
+    public void setId_post_img(String id_post_img) {
+        this.id_post_img = id_post_img;
+    }
+
+    public String getFile_img_post() {
+        return file_img_post;
+    }
+
+    public void setFile_img_post(String file_img_post) {
+        this.file_img_post = file_img_post;
+    }
+
+    public String getCaption() {
+        return caption;
+    }
+
+    public void setCaption(String caption) {
+        this.caption = caption;
+    }
+
+    public List<DataModel> getKomen() {
+        return komen;
+    }
+
+    public void setKomen(List<DataModel> komen) {
+        this.komen = komen;
+    }
+
+    public String getId_post_komen() {
+        return id_post_komen;
+    }
+
+    public void setId_post_komen(String id_post_komen) {
+        this.id_post_komen = id_post_komen;
+    }
+
+    public String getIsi_komen() {
+        return isi_komen;
+    }
+
+    public void setIsi_komen(String isi_komen) {
+        this.isi_komen = isi_komen;
+    }
+
+    public String getImg_komen() {
+        return img_komen;
+    }
+
+    public void setImg_komen(String img_komen) {
+        this.img_komen = img_komen;
+    }
+
+    public String getTgl_komen() {
+        return tgl_komen;
+    }
+
+    public void setTgl_komen(String tgl_komen) {
+        this.tgl_komen = tgl_komen;
+    }
+
+    public String getTgl_last_edit_komen() {
+        return tgl_last_edit_komen;
+    }
+
+    public void setTgl_last_edit_komen(String tgl_last_edit_komen) {
+        this.tgl_last_edit_komen = tgl_last_edit_komen;
+    }
+
+    public String getTotal_sub_komen() {
+        return total_sub_komen;
+    }
+
+    public void setTotal_sub_komen(String total_sub_komen) {
+        this.total_sub_komen = total_sub_komen;
+    }
+
+    public List<DataModel> getSub_komen() {
+        return sub_komen;
+    }
+
+    public void setSub_komen(List<DataModel> sub_komen) {
+        this.sub_komen = sub_komen;
+    }
+
+    public String getId_post_komen_sub() {
+        return id_post_komen_sub;
+    }
+
+    public void setId_post_komen_sub(String id_post_komen_sub) {
+        this.id_post_komen_sub = id_post_komen_sub;
     }
 }

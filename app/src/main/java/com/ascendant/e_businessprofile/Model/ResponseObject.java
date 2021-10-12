@@ -26,6 +26,14 @@ public class ResponseObject {
     @Expose
     DataModel data;
 
+    @SerializedName("new_key")
+    @Expose
+    public String new_key;
+
+    @SerializedName("token")
+    @Expose
+    public String token;
+
     @SerializedName("daftar_rs")
     @Expose
     List<DataModel> daftar_rs;
@@ -77,5 +85,21 @@ public class ResponseObject {
 
     public void setDaftar_rs(List<DataModel> daftar_rs) {
         this.daftar_rs = daftar_rs;
+    }
+
+    public String getNew_key() {
+        return new_key;
+    }
+
+    public void setNew_key(String new_key) {
+        this.new_key = new_key;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 }
