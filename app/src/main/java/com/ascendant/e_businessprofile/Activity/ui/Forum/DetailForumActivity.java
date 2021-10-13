@@ -53,6 +53,9 @@ import java.util.List;
 import java.util.Locale;
 import java.util.logging.Logger;
 
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -216,6 +219,115 @@ public class DetailForumActivity extends AppCompatActivity {
                 GambarKomen.setVisibility(View.VISIBLE);
             }
         });
+        Send.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (REPLY.equals("")){
+                    Komen();
+                }else{
+                    SubKomen();
+                }
+            }
+        });
+    }
+    private void Komen(){
+        final ProgressDialog pd = new ProgressDialog(DetailForumActivity.this);
+        pd.setMessage("Sedang Mengisi Komen");
+        pd.show();
+        pd.setCancelable(false);
+
+        File file4 = new File(postFoto1);
+        RequestBody fileReqBody4 = RequestBody.create(MediaType.parse("image/*"), file4);
+        MultipartBody.Part Foto = MultipartBody.Part.createFormData("img_komen", file4.getName(), fileReqBody4);
+        Call<ResponseObject> data;
+        if (Gambar1){
+            ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
+            data =api.PostKomen(
+                    RequestBody.create(MediaType.parse("text/plain"),Token),
+                            RequestBody.create(MediaType.parse("text/plain"),ID),
+                            RequestBody.create(MediaType.parse("text/plain"),etKomen.getText().toString()),
+                            Foto);
+        }else{
+            ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
+            data =api.PostKomen(
+                            RequestBody.create(MediaType.parse("text/plain"),Token),
+                            RequestBody.create(MediaType.parse("text/plain"),ID),
+                            RequestBody.create(MediaType.parse("text/plain"),etKomen.getText().toString()));
+        }
+        data.enqueue(new Callback<ResponseObject>() {
+            @Override
+            public void onResponse(Call<ResponseObject> call, Response<ResponseObject> response) {
+                pd.hide();
+                try {
+                    Intent goInput = new Intent(DetailForumActivity.this, DetailForumActivity.class);
+                    goInput.putExtra("ID",ID);
+                    goInput.putExtra("CATEGORY",CATEGORY);
+                    goInput.putExtra("JUDUL",JUDUL);
+                    goInput.putExtra("REPLY_NAME","");
+                    goInput.putExtra("REPLY","");
+                    startActivities(new Intent[]{goInput});
+                }catch (Exception e){
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseObject> call, Throwable t) {
+                pd.hide();
+                Toast.makeText(DetailForumActivity.this, "Koneksi Gagal", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
+    private void SubKomen(){
+        final ProgressDialog pd = new ProgressDialog(DetailForumActivity.this);
+        pd.setMessage("Sedang Mengisi Komen");
+        pd.show();
+        pd.setCancelable(false);
+
+        File file4 = new File(postFoto1);
+        RequestBody fileReqBody4 = RequestBody.create(MediaType.parse("image/*"), file4);
+        MultipartBody.Part Foto = MultipartBody.Part.createFormData("img_komen", file4.getName(), fileReqBody4);
+        Call<ResponseObject> data;
+        if (Gambar1){
+            ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
+            data =api.PostSubKomen(
+                    RequestBody.create(MediaType.parse("text/plain"),Token),
+                    RequestBody.create(MediaType.parse("text/plain"),ID),
+                    RequestBody.create(MediaType.parse("text/plain"),etKomen.getText().toString()),
+                    RequestBody.create(MediaType.parse("text/plain"),REPLY),
+                    Foto);
+        }else{
+            ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
+            data =api.PostSubKomen(
+                    RequestBody.create(MediaType.parse("text/plain"),Token),
+                    RequestBody.create(MediaType.parse("text/plain"),ID),
+                    RequestBody.create(MediaType.parse("text/plain"),etKomen.getText().toString()),
+                    RequestBody.create(MediaType.parse("text/plain"),REPLY));
+        }
+        data.enqueue(new Callback<ResponseObject>() {
+            @Override
+            public void onResponse(Call<ResponseObject> call, Response<ResponseObject> response) {
+                pd.hide();
+                try {
+                    Intent goInput = new Intent(DetailForumActivity.this, DetailForumActivity.class);
+                    goInput.putExtra("ID",ID);
+                    goInput.putExtra("CATEGORY",CATEGORY);
+                    goInput.putExtra("JUDUL",JUDUL);
+                    goInput.putExtra("REPLY_NAME","");
+                    goInput.putExtra("REPLY","");
+                    startActivities(new Intent[]{goInput});
+                }catch (Exception e){
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseObject> call, Throwable t) {
+                pd.hide();
+                Toast.makeText(DetailForumActivity.this, "Koneksi Gagal", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
     private void Logic(){
         mManager = new LinearLayoutManager(DetailForumActivity.this, LinearLayoutManager.HORIZONTAL,false);
@@ -354,7 +466,7 @@ public class DetailForumActivity extends AppCompatActivity {
                     cardImg.setVisibility(View.VISIBLE);
                     GambarKomen.setVisibility(View.VISIBLE);
                     GambarKomen.setImageBitmap(BitmapFactory.decodeFile(mediaPath));
-                    Gambar1 = false;
+                    Gambar1 = true;
                     Toast.makeText(this, filename, Toast.LENGTH_SHORT).show();
                 }
         }}

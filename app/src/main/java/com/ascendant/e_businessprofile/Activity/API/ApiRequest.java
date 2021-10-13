@@ -7,12 +7,16 @@ import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Perusahaan.Perusah
 import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Rumus.Probing;
 import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Rumus.RumusKMK;
 
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.Part;
 
 public interface ApiRequest {
     @FormUrlEncoded
@@ -128,6 +132,36 @@ public interface ApiRequest {
     @POST("detail_posting")
     Call<ResponseObject> DetailPosting(@Field("token") String token,
                                        @Field("id_post") String id_post);
+
+
+    @Multipart
+    @POST("post_komen")
+    Call<ResponseObject> PostKomen(@Part("token") RequestBody token,
+                                   @Part("id_post") RequestBody id_post,
+                                   @Part("isi_komen") RequestBody isi_komen,
+                                   @Part MultipartBody.Part img_komen);
+
+    @Multipart
+    @POST("post_komen")
+    Call<ResponseObject> PostKomen(@Part("token") RequestBody token,
+                                   @Part("id_post") RequestBody id_post,
+                                   @Part("isi_komen") RequestBody isi_komen);
+
+    @Multipart
+    @POST("post_komen_sub")
+    Call<ResponseObject> PostSubKomen(@Part("token") RequestBody token,
+                                      @Part("id_post") RequestBody id_post,
+                                      @Part("isi_komen") RequestBody isi_komen,
+                                      @Part("id_komen") RequestBody id_komen,
+                                      @Part MultipartBody.Part img_komen);
+
+    @Multipart
+    @POST("post_komen_sub")
+    Call<ResponseObject> PostSubKomen(@Part("token") RequestBody token,
+                                      @Part("id_post") RequestBody id_post,
+                                      @Part("isi_komen") RequestBody isi_komen,
+                                      @Part("id_komen") RequestBody id_komen);
+
 
     //GET
     @GET("divisi")

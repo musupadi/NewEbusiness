@@ -24,6 +24,7 @@ import com.ascendant.e_businessprofile.Activity.API.RetroServer;
 import com.ascendant.e_businessprofile.Activity.HomeActivity;
 import com.ascendant.e_businessprofile.Activity.ModuleActivity;
 import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
+import com.ascendant.e_businessprofile.Activity.WebViewEbookActivity;
 import com.ascendant.e_businessprofile.Adapter.AdapterBerita;
 import com.ascendant.e_businessprofile.Model.DataModel;
 import com.ascendant.e_businessprofile.Model.ResponseArrayObject;
@@ -45,7 +46,7 @@ public class HomeFragment extends Fragment {
     DB_Helper dbHelper;
     String Token;
     TextView divisi,nama,poin;
-    RelativeLayout Healtcare,FMCG;
+    RelativeLayout Healtcare,FMCG,Mining;
     ScrollView scroll;
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -73,6 +74,7 @@ public class HomeFragment extends Fragment {
         rv = view.findViewById(R.id.recycler);
         Healtcare = view.findViewById(R.id.relativeHealthcare);
         FMCG = view.findViewById(R.id.relativeFMCG);
+        Mining = view.findViewById(R.id.relativeMining);
         nama = view.findViewById(R.id.tvNama);
         divisi = view.findViewById(R.id.tvDivisi);
         poin = view.findViewById(R.id.tvPoin);
@@ -95,6 +97,13 @@ public class HomeFragment extends Fragment {
                 Intent i = new Intent(getActivity(), ModuleActivity.class);
                 i.putExtra("MODULE", "FMCG");
                 startActivity(i);
+            }
+        });
+        Mining.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), WebViewEbookActivity.class);
+                startActivity(intent);
             }
         });
 

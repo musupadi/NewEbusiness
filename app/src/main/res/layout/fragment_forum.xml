@@ -50,6 +50,7 @@
                 android:layout_height="50dp"
                 android:entries="@array/Category"/>
         </androidx.cardview.widget.CardView>
+
         <androidx.recyclerview.widget.RecyclerView
             android:layout_marginTop="5dp"
             android:layout_width="match_parent"
