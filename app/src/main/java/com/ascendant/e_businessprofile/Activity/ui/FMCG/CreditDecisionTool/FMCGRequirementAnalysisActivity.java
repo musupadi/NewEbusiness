@@ -55,7 +55,15 @@ public class FMCGRequirementAnalysisActivity extends AppCompatActivity {
         More = findViewById(R.id.linearMore);
         Back = findViewById(R.id.linearBack);
         Available.setVisibility(View.VISIBLE);
-        pList.addAll(CreditWorthinessModel.getListData());
+        Intent data = getIntent();
+        final String Tittle = data.getStringExtra("TITTLE");
+        if (Tittle.equals("Food")){
+            pList.addAll(CreditWorthinessModel.getListData());
+        }else if (Tittle.equals("Tobacco")){
+            pList.addAll(CreditWorthinessModel.getListData());
+        }else{
+            pList.addAll(CreditWorthinessModel.getListData());
+        }
         rv.setLayoutManager(new LinearLayoutManager(this));
         AdapterNavigator adapters = new AdapterNavigator(this,pList);
         rv.setAdapter(adapters);
@@ -105,8 +113,6 @@ public class FMCGRequirementAnalysisActivity extends AppCompatActivity {
         NonFood = findViewById(R.id.linearNonFood);
         Rokok = findViewById(R.id.linearRokok);
         toolbar = findViewById(R.id.tvHeader);
-        Intent data = getIntent();
-        final String Tittle = data.getStringExtra("TITTLE");
         toolbar.setText("Requirment Analysis");
         if (Tittle.equals("Food")){
             NonFood.setVisibility(View.GONE);
