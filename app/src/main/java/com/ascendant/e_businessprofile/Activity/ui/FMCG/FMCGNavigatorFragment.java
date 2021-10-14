@@ -20,6 +20,9 @@ import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.Ecosyste
 import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.BusinessRefrence.FMCGBusinessRefrenceModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.BusinessRefrence.FMCGBusinessReviewModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.BusinessRefrence.FMCGNewsletterModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.ListOfProbing.FMCGListOfProbingFoodAndBeverageModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.ListOfProbing.FMCGListOfProbingNonFoodAndBeverageModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.ListOfProbing.FMCGListOfProbingTobaccoModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.BusinessRefrence.ActsModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.BusinessRefrence.ComplianceModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.BusinessRefrence.GovernmentRegulationsModel;
@@ -108,6 +111,12 @@ public class FMCGNavigatorFragment extends Fragment {
             pList.addAll(FMCGEcosystemPlayersModel.getListData());
         }else if (Navigator.equals("Association")){
             pList.addAll(FMCGEcosystemAssociationModel.getListData());
+        }else if (Navigator.equals("Food and Beverage")){
+            pList.addAll(FMCGListOfProbingFoodAndBeverageModel.getListData());
+        }else if (Navigator.equals("Non Food and Beverage")){
+            pList.addAll(FMCGListOfProbingNonFoodAndBeverageModel.getListData());
+        }else if (Navigator.equals("Tobacco")){
+            pList.addAll(FMCGListOfProbingTobaccoModel.getListData());
         }
         rv.setLayoutManager(new LinearLayoutManager(getActivity()));
         AdapterNavigator adapters = new AdapterNavigator(getActivity(),pList);
