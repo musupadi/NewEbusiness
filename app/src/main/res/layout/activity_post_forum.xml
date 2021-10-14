@@ -147,12 +147,13 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
                                         android:background="@color/colorBlack"
-                                        android:alpha="0.5f"/>
+                                        android:alpha="0.5"/>
+
                                     <ImageView
-                                        android:layout_centerInParent="true"
                                         android:layout_width="50dp"
                                         android:layout_height="50dp"
-                                        android:src="@drawable/photo_primary"/>
+                                        android:layout_centerInParent="true"
+                                        android:src="@drawable/photo_primary" />
                                 </RelativeLayout>
                                 <ImageView
                                     android:visibility="gone"
@@ -178,7 +179,7 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
                                         android:background="@color/colorBlack"
-                                        android:alpha="0.5f"/>
+                                        android:alpha="0.5"/>
                                     <ImageView
                                         android:layout_centerInParent="true"
                                         android:layout_width="50dp"
@@ -209,7 +210,7 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
                                         android:background="@color/colorBlack"
-                                        android:alpha="0.5f"/>
+                                        android:alpha="0.5"/>
                                     <ImageView
                                         android:layout_centerInParent="true"
                                         android:layout_width="50dp"
@@ -240,7 +241,7 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
                                         android:background="@color/colorBlack"
-                                        android:alpha="0.5f"/>
+                                        android:alpha="0.5"/>
                                     <ImageView
                                         android:layout_centerInParent="true"
                                         android:layout_width="50dp"
