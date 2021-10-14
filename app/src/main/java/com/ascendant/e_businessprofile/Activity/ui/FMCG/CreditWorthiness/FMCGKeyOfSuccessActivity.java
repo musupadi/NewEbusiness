@@ -20,6 +20,8 @@ import com.ascendant.e_businessprofile.Activity.Method.Ascendant;
 import com.ascendant.e_businessprofile.Adapter.AdapterKeyOfSuccess;
 import com.ascendant.e_businessprofile.Adapter.Static.AdapterNavigator;
 import com.ascendant.e_businessprofile.Model.DataModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.CreditWorthiness.FMCGCreditWorthinessFNBKeyOfSuccessModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.CreditWorthiness.FMCGCreditWorthinessNFNBKeyOfSuccessModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Rumus.Probing;
 import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.CreditWorthiness.CreditWorthinessModel;
 import com.ascendant.e_businessprofile.R;
@@ -64,12 +66,12 @@ public class FMCGKeyOfSuccessActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recycler);
         Intent data = getIntent();
         String KOS = data.getStringExtra("KOS");
-        if (KOS.equals("non fnb")){
-            pList.addAll(CreditWorthinessModel.getListData());
-        }else if (KOS.equals("fnb")){
-
+        if (KOS.equals("fnb")){
+            pList.addAll(FMCGCreditWorthinessFNBKeyOfSuccessModel.getListData());
+        }else if (KOS.equals("non fnb")){
+            pList.addAll(FMCGCreditWorthinessNFNBKeyOfSuccessModel.getListData());
         }else{
-
+            pList.addAll(FMCGCreditWorthinessNFNBKeyOfSuccessModel.getListData());
         }
         getData(KOS);
 
