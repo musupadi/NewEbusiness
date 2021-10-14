@@ -65,7 +65,19 @@ public class FMCGResultFinancialStatementAnalysisActivity extends AppCompatActiv
         More = findViewById(R.id.linearMore);
         Back = findViewById(R.id.linearBack);
         Available.setVisibility(View.VISIBLE);
-        pList.addAll(CreditWorthinessModel.getListData());
+        Intent data = getIntent();
+        final String COGS = data.getStringExtra("COGS");
+        final String PIUTANG = data.getStringExtra("PIUTANG");
+        final String HUTANG = data.getStringExtra("HUTANG");
+        final String PERSEDIAAN = data.getStringExtra("PERSEDIAAN");
+        final String KATEGORI = data.getStringExtra("KATEGORI");
+        if (KATEGORI.equals("FOOD")){
+            pList.addAll(CreditWorthinessModel.getListData());
+        }else if (KATEGORI.equals("NON FOOD ROKOK")){
+            pList.addAll(CreditWorthinessModel.getListData());
+        }else{
+            pList.addAll(CreditWorthinessModel.getListData());
+        }
         rv.setLayoutManager(new LinearLayoutManager(this));
         AdapterNavigator adapters = new AdapterNavigator(this,pList);
         rv.setAdapter(adapters);
@@ -130,12 +142,7 @@ public class FMCGResultFinancialStatementAnalysisActivity extends AppCompatActiv
                 onBackPressed();
             }
         });
-        Intent data = getIntent();
-        final String KATEGORI = data.getStringExtra("KATEGORI");
-        final String COGS = data.getStringExtra("COGS");
-        final String PIUTANG = data.getStringExtra("PIUTANG");
-        final String HUTANG = data.getStringExtra("HUTANG");
-        final String PERSEDIAAN = data.getStringExtra("PERSEDIAAN");
+
         DATA.setAlpha(0.1f);
         failed.setVisibility(View.GONE);
         ConnectionFailed.setOnClickListener(new View.OnClickListener() {

@@ -63,7 +63,15 @@ public class FMCGFinancialStatementAnalysisActivity extends AppCompatActivity {
         More = findViewById(R.id.linearMore);
         Back = findViewById(R.id.linearBack);
         Available.setVisibility(View.VISIBLE);
-        pList.addAll(CreditWorthinessModel.getListData());
+        Intent data = getIntent();
+        final String KATEGORI = data.getStringExtra("KATEGORI");
+        if (KATEGORI.equals("FOOD")){
+            pList.addAll(CreditWorthinessModel.getListData());
+        }else if (KATEGORI.equals("NON FOOD ROKOK")){
+            pList.addAll(CreditWorthinessModel.getListData());
+        }else{
+            pList.addAll(CreditWorthinessModel.getListData());
+        }
         rv.setLayoutManager(new LinearLayoutManager(this));
         AdapterNavigator adapters = new AdapterNavigator(this,pList);
         rv.setAdapter(adapters);
@@ -137,8 +145,7 @@ public class FMCGFinancialStatementAnalysisActivity extends AppCompatActivity {
         TotalPiutang.addTextChangedListener(new NumberTextWatcher(TotalPiutang));
         TotalHutang.addTextChangedListener(new NumberTextWatcher(TotalHutang));
         TotalPersediaan.addTextChangedListener(new NumberTextWatcher(TotalPersediaan));
-        Intent data = getIntent();
-        final String KATEGORI = data.getStringExtra("KATEGORI");
+
         if (KATEGORI.equals("FOOD")){
             header.setText("FMCG / Credit Decision Tool / Food & Beverage / Working Capital Credit");
         }else if (KATEGORI.equals("NON FOOD ROKOK")){
