@@ -4,7 +4,7 @@ import com.ascendant.e_businessprofile.Model.DataModel;
 
 import java.util.ArrayList;
 
-public class FMCGCreditDecisionToolModel {
+public class FMCGCreditDecisionToolFNBModel {
     public static String[][] data = new String[][]{
             {"1",
                     "Home",
@@ -16,6 +16,10 @@ public class FMCGCreditDecisionToolModel {
             },
             {"3",
                     "Credit Decision Tool",
+                    "false"
+            },
+            {"4",
+                    "Food & Beverage",
                     "true"
             }
     };

@@ -24,7 +24,10 @@ import com.ascendant.e_businessprofile.Activity.ui.FMCG.CreditDecisionTool.Finan
 import com.ascendant.e_businessprofile.Activity.ui.FMCG.CreditDecisionTool.FiveC.FMCGFiveCActivity;
 import com.ascendant.e_businessprofile.Adapter.Static.AdapterNavigator;
 import com.ascendant.e_businessprofile.Model.DataModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.CreditDecisionTool.FMCGCreditDecisionToolFNBModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.CreditDecisionTool.FMCGCreditDecisionToolModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.CreditDecisionTool.FMCGCreditDecisionToolNFNBModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.CreditDecisionTool.FMCGCreditDecisionToolTobaccoModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.CreditDecisionTool.CreditDecisionToolModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.CreditWorthiness.CreditWorthinessModel;
 import com.ascendant.e_businessprofile.R;
@@ -60,11 +63,11 @@ public class FMCGCreditDecisionToolActivity extends AppCompatActivity {
         Intent data = getIntent();
         final String KATEGORI = data.getStringExtra("KATEGORI");
         if (KATEGORI.equals("NON FOOD")){
-            pList.addAll(FMCGCreditDecisionToolModel.getListData());
+            pList.addAll(FMCGCreditDecisionToolNFNBModel.getListData());
         }else if (KATEGORI.equals("FOOD")){
-            pList.addAll(FMCGCreditDecisionToolModel.getListData());
+            pList.addAll(FMCGCreditDecisionToolFNBModel.getListData());
         }else{
-            pList.addAll(FMCGCreditDecisionToolModel.getListData());
+            pList.addAll(FMCGCreditDecisionToolTobaccoModel.getListData());
         }
 
         rv.setLayoutManager(new LinearLayoutManager(this));
