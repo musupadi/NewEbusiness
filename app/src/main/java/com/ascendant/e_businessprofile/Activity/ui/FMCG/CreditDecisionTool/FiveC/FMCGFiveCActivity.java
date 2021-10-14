@@ -18,6 +18,7 @@ import com.ascendant.e_businessprofile.Activity.Method.Ascendant;
 import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
 import com.ascendant.e_businessprofile.Adapter.Static.AdapterNavigator;
 import com.ascendant.e_businessprofile.Model.DataModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.CreditDecisionTool.FMCGCreditDecisionToolFNB5CModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.CreditDecisionTool.FMCGCreditDecisionToolModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.CreditWorthiness.CreditWorthinessModel;
 import com.ascendant.e_businessprofile.R;
@@ -57,7 +58,7 @@ public class FMCGFiveCActivity extends AppCompatActivity {
         if (KATEGORI.equals("NON FOOD")){
             pList.addAll(FMCGCreditDecisionToolModel.getListData());
         }else if (KATEGORI.equals("FOOD")){
-            pList.addAll(FMCGCreditDecisionToolModel.getListData());
+            pList.addAll(FMCGCreditDecisionToolFNB5CModel.getListData());
         }else{
             pList.addAll(FMCGCreditDecisionToolModel.getListData());
         }
