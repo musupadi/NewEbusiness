@@ -50,7 +50,14 @@
                 android:layout_height="50dp"
                 android:entries="@array/Category"/>
         </androidx.cardview.widget.CardView>
-
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_rounded_primary"
+            android:layout_margin="10dp"
+            android:text="Post Forum"
+            android:textColor="@color/colorWhite"
+            android:id="@+id/btnPost"/>
         <androidx.recyclerview.widget.RecyclerView
             android:layout_marginTop="5dp"
             android:layout_width="match_parent"

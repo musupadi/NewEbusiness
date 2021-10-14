@@ -4,6 +4,8 @@
     <string name="register">Register</string>
     <string name="username_login">Email atau NIP</string>
     <string name="type_here">Type here...</string>
+    <string name="title">Title</string>
+<!--    <string name="type_here">Type here...</string>-->
     <string name="search">Search</string>
     <string name="email">Email</string>
     <string name="nip">NIP</string>

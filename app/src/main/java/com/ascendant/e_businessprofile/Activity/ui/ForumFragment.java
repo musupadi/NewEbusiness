@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
@@ -42,6 +43,7 @@ public class ForumFragment extends Fragment {
     Spinner Category;
     DB_Helper dbHelper;
     String Token;
+    Button Post;
     private List<DataModel> mItems = new ArrayList<>();
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mManager;
@@ -71,6 +73,7 @@ public class ForumFragment extends Fragment {
         etSearch = view.findViewById(R.id.etSearch);
         Category = view.findViewById(R.id.spinnerCategory);
         rv = view.findViewById(R.id.recycler);
+        Post = view.findViewById(R.id.btnPost);
         dbHelper = new DB_Helper(getActivity());
         Cursor cursor = dbHelper.checkUser();
         if (cursor.getCount()>0){
@@ -86,6 +89,12 @@ public class ForumFragment extends Fragment {
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+        Post.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
             }
         });

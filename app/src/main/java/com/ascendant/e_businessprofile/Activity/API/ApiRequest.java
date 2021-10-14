@@ -163,6 +163,45 @@ public interface ApiRequest {
                                       @Part("id_komen") RequestBody id_komen);
 
 
+    //1
+    @Multipart
+    @POST("posting")
+    Call<ResponseObject> PostingForum(@Part("token") RequestBody token,
+                                      @Part("kategori_post") RequestBody kategori_post,
+                                      @Part("judul_post") RequestBody judul_post,
+                                      @Part("isi_post") RequestBody id_komen,
+                                      @Part MultipartBody.Part img_post1,
+                                      @Part("caption[]") RequestBody caption1);
+
+    //2
+    @Multipart
+    @POST("posting")
+    Call<ResponseObject> PostingForum(@Part("token") RequestBody token,
+                                      @Part("kategori_post") RequestBody kategori_post,
+                                      @Part("judul_post") RequestBody judul_post,
+                                      @Part("isi_post") RequestBody id_komen,
+                                      @Part MultipartBody.Part img_post1,
+                                      @Part("caption[]") RequestBody caption1,
+                                      @Part MultipartBody.Part img_post2,
+                                      @Part("caption[]") RequestBody caption2);
+
+    //3
+    @Multipart
+    @POST("posting")
+    Call<ResponseObject> PostingForum(@Part("token") RequestBody token,
+                                      @Part("kategori_post") RequestBody kategori_post,
+                                      @Part("judul_post") RequestBody judul_post,
+                                      @Part("isi_post") RequestBody id_komen,
+                                      @Part MultipartBody.Part img_post1,
+                                      @Part("caption[]") RequestBody caption1,
+                                      @Part MultipartBody.Part img_post2,
+                                      @Part("caption[]") RequestBody caption2,
+                                      @Part MultipartBody.Part img_post3,
+                                      @Part("caption[]") RequestBody caption3,
+                                      @Part MultipartBody.Part img_post4,
+                                      @Part("caption[]") RequestBody caption4);
+
+
     //GET
     @GET("divisi")
     Call<ResponseArrayObject> Divisi();
