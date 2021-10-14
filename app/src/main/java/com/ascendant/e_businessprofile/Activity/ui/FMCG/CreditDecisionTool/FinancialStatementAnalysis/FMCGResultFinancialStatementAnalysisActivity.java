@@ -23,6 +23,9 @@ import com.ascendant.e_businessprofile.Adapter.Static.AdapterNavigator;
 import com.ascendant.e_businessprofile.Model.DataModel;
 import com.ascendant.e_businessprofile.Model.ResponseArrayObject;
 import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.CreditDecisionTool.FMCGCreditDecisionToolFNBResultFinancialStatementAnalysisModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.CreditDecisionTool.FMCGCreditDecisionToolNFNBRequirementAnalysisModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.CreditDecisionTool.FMCGCreditDecisionToolNFNBResultFinancialStatementAnalysisModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.CreditDecisionTool.FMCGCreditDecisionToolTobaccoResultFinancialStatementAnalysisModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.CreditWorthiness.CreditWorthinessModel;
 import com.ascendant.e_businessprofile.R;
 
@@ -75,9 +78,9 @@ public class FMCGResultFinancialStatementAnalysisActivity extends AppCompatActiv
         if (KATEGORI.equals("FOOD")){
             pList.addAll(FMCGCreditDecisionToolFNBResultFinancialStatementAnalysisModel.getListData());
         }else if (KATEGORI.equals("NON FOOD ROKOK")){
-            pList.addAll(CreditWorthinessModel.getListData());
+            pList.addAll(FMCGCreditDecisionToolTobaccoResultFinancialStatementAnalysisModel.getListData());
         }else{
-            pList.addAll(CreditWorthinessModel.getListData());
+            pList.addAll(FMCGCreditDecisionToolNFNBResultFinancialStatementAnalysisModel.getListData());
         }
         rv.setLayoutManager(new LinearLayoutManager(this));
         AdapterNavigator adapters = new AdapterNavigator(this,pList);
