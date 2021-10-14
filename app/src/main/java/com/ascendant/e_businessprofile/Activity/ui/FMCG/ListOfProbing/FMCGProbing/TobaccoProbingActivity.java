@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.ascendant.e_businessprofile.Activity.ui.FMCG.FMCGNavigatorFragment;
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.ListOfProbing.ListOfProbingFragment;
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.NavigatorFragment;
 import com.ascendant.e_businessprofile.R;
@@ -64,12 +65,12 @@ public class TobaccoProbingActivity extends AppCompatActivity {
             public void onClick(View view) {
                 try {
                     Bundle bundle = new Bundle();
-                    bundle.putString("Navigator", "List of Probing");
+                    bundle.putString("Navigator", "Tobacco");
 
                     if (more){
                         more = false;
                         ivMore.setImageResource(R.drawable.close_concerate);
-                        fragment = new NavigatorFragment();
+                        fragment = new FMCGNavigatorFragment();
                         fragment.setArguments(bundle);
                         ChangeFragment(fragment);
                     }else{
