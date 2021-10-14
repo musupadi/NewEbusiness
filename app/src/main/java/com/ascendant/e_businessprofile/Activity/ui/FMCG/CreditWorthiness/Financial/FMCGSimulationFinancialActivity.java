@@ -17,6 +17,7 @@ import com.ascendant.e_businessprofile.Adapter.Static.AdapterNavigator;
 import com.ascendant.e_businessprofile.Model.DataModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.CreditWorthiness.FMCGCreditWorthinessFNBFinancialModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.CreditWorthiness.FMCGCreditWorthinessNFNBFinancialModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.CreditWorthiness.FMCGCreditWorthinessTobaccoFinancialModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.CreditWorthiness.CreditWorthinessModel;
 import com.ascendant.e_businessprofile.R;
 
@@ -97,7 +98,7 @@ public class FMCGSimulationFinancialActivity extends AppCompatActivity {
         }else if (KATEGORI.equals("non fnb")){
             pList.addAll(FMCGCreditWorthinessNFNBFinancialModel.getListData());
         }else{
-            pList.addAll(CreditWorthinessModel.getListData());
+            pList.addAll(FMCGCreditWorthinessTobaccoFinancialModel.getListData());
         }
         CR.setOnClickListener(new View.OnClickListener() {
             @Override

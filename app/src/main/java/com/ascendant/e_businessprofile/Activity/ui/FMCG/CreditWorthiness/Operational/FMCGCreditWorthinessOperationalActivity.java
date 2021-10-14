@@ -20,6 +20,7 @@ import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.CreditWo
 import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.CreditWorthiness.FMCGCreditWorthinessNFNBModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.CreditWorthiness.FMCGCreditWorthinessNFNBOperationalModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.CreditWorthiness.FMCGCreditWorthinessTobaccoModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.CreditWorthiness.FMCGCreditWorthinessTobaccoOperationalModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.CreditWorthiness.CreditWorthinessModel;
 import com.ascendant.e_businessprofile.R;
 
@@ -84,7 +85,7 @@ public class FMCGCreditWorthinessOperationalActivity extends AppCompatActivity {
         }else if (KATEGORI.equals("non fnb")){
             pList.addAll(FMCGCreditWorthinessNFNBOperationalModel.getListData());
         }else{
-            pList.addAll(FMCGCreditWorthinessTobaccoModel.getListData());
+            pList.addAll(FMCGCreditWorthinessTobaccoOperationalModel.getListData());
         }
         DOR = findViewById(R.id.btnDOR);
         DOI = findViewById(R.id.btnDOI);

@@ -22,6 +22,7 @@ import com.ascendant.e_businessprofile.Adapter.Static.AdapterNavigator;
 import com.ascendant.e_businessprofile.Model.DataModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.CreditWorthiness.FMCGCreditWorthinessFNBKeyOfSuccessModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.CreditWorthiness.FMCGCreditWorthinessNFNBKeyOfSuccessModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.CreditWorthiness.FMCGCreditWorthinessTobaccoKeyOfSuccessModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Rumus.Probing;
 import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.CreditWorthiness.CreditWorthinessModel;
 import com.ascendant.e_businessprofile.R;
@@ -71,7 +72,7 @@ public class FMCGKeyOfSuccessActivity extends AppCompatActivity {
         }else if (KOS.equals("non fnb")){
             pList.addAll(FMCGCreditWorthinessNFNBKeyOfSuccessModel.getListData());
         }else{
-            pList.addAll(FMCGCreditWorthinessNFNBKeyOfSuccessModel.getListData());
+            pList.addAll(FMCGCreditWorthinessTobaccoKeyOfSuccessModel.getListData());
         }
         getData(KOS);
 
