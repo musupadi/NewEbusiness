@@ -18,6 +18,7 @@ import com.ascendant.e_businessprofile.Activity.Method.Ascendant;
 import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
 import com.ascendant.e_businessprofile.Adapter.Static.AdapterNavigator;
 import com.ascendant.e_businessprofile.Model.DataModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.CreditDecisionTool.FMCGCreditDecisionToolModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.CreditWorthiness.CreditWorthinessModel;
 import com.ascendant.e_businessprofile.R;
 
@@ -51,7 +52,15 @@ public class FMCGFiveCActivity extends AppCompatActivity {
         More = findViewById(R.id.linearMore);
         Back = findViewById(R.id.linearBack);
         Available.setVisibility(View.VISIBLE);
-        pList.addAll(CreditWorthinessModel.getListData());
+        Intent data = getIntent();
+        KATEGORI = data.getStringExtra("KATEGORI");
+        if (KATEGORI.equals("NON FOOD")){
+            pList.addAll(FMCGCreditDecisionToolModel.getListData());
+        }else if (KATEGORI.equals("FOOD")){
+            pList.addAll(FMCGCreditDecisionToolModel.getListData());
+        }else{
+            pList.addAll(FMCGCreditDecisionToolModel.getListData());
+        }
         rv.setLayoutManager(new LinearLayoutManager(this));
         AdapterNavigator adapters = new AdapterNavigator(this,pList);
         rv.setAdapter(adapters);
@@ -101,8 +110,6 @@ public class FMCGFiveCActivity extends AppCompatActivity {
         Save = findViewById(R.id.btnSave);
         back = findViewById(R.id.ivBack);
         home = findViewById(R.id.ivHome);
-        Intent data = getIntent();
-        KATEGORI = data.getStringExtra("KATEGORI");
         this.cat = KATEGORI;
         final DB_Helper dbHelper = new DB_Helper(FMCGFiveCActivity.this);
         if (KATEGORI.equals("FOOD")){

@@ -57,7 +57,16 @@ public class FMCGCreditDecisionToolActivity extends AppCompatActivity {
         More = findViewById(R.id.linearMore);
         Back = findViewById(R.id.linearBack);
         Available.setVisibility(View.VISIBLE);
-        pList.addAll(FMCGCreditDecisionToolModel.getListData());
+        Intent data = getIntent();
+        final String KATEGORI = data.getStringExtra("KATEGORI");
+        if (KATEGORI.equals("NON FOOD")){
+            pList.addAll(FMCGCreditDecisionToolModel.getListData());
+        }else if (KATEGORI.equals("FOOD")){
+            pList.addAll(FMCGCreditDecisionToolModel.getListData());
+        }else{
+            pList.addAll(FMCGCreditDecisionToolModel.getListData());
+        }
+
         rv.setLayoutManager(new LinearLayoutManager(this));
         AdapterNavigator adapters = new AdapterNavigator(this,pList);
         rv.setAdapter(adapters);
@@ -103,8 +112,7 @@ public class FMCGCreditDecisionToolActivity extends AppCompatActivity {
         linearModalKerja = findViewById(R.id.cardFinancialStatementAnalysis);
         View=myDialog.findViewById(R.id.btnView);
         Download=myDialog.findViewById(R.id.btnDownload);
-        Intent data = getIntent();
-        final String KATEGORI = data.getStringExtra("KATEGORI");
+
         if (KATEGORI.equals("FOOD")){
             linearKreditInvestasi.setOnClickListener(new View.OnClickListener() {
                 @Override
