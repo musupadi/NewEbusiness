@@ -22,6 +22,7 @@ import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
 import com.ascendant.e_businessprofile.Adapter.Static.AdapterNavigator;
 import com.ascendant.e_businessprofile.Model.DataModel;
 import com.ascendant.e_businessprofile.Model.NumberTextWatcher;
+import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.CreditDecisionTool.FMCGCreditDecisionToolFNBFinancialStatementAnalysisModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.CreditWorthiness.CreditWorthinessModel;
 import com.ascendant.e_businessprofile.R;
 
@@ -66,7 +67,7 @@ public class FMCGFinancialStatementAnalysisActivity extends AppCompatActivity {
         Intent data = getIntent();
         final String KATEGORI = data.getStringExtra("KATEGORI");
         if (KATEGORI.equals("FOOD")){
-            pList.addAll(CreditWorthinessModel.getListData());
+            pList.addAll(FMCGCreditDecisionToolFNBFinancialStatementAnalysisModel.getListData());
         }else if (KATEGORI.equals("NON FOOD ROKOK")){
             pList.addAll(CreditWorthinessModel.getListData());
         }else{
