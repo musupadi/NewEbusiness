@@ -17,6 +17,7 @@ import com.ascendant.e_businessprofile.Adapter.Static.AdapterNavigator;
 import com.ascendant.e_businessprofile.Model.DataModel;
 import com.ascendant.e_businessprofile.Model.NumberTextWatcher;
 import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.CreditDecisionTool.RequirmentAnalysisModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.CreditDecisionTool.WorkingCapitalCreditModel;
 import com.ascendant.e_businessprofile.R;
 
 import java.text.NumberFormat;
@@ -45,7 +46,7 @@ public class WorkingCapitalCreditActivity extends AppCompatActivity {
         More = findViewById(R.id.linearMore);
         Back = findViewById(R.id.linearBack);
         Available.setVisibility(View.VISIBLE);
-        pList.addAll(RequirmentAnalysisModel.getListData());
+        pList.addAll(WorkingCapitalCreditModel.getListData());
         rv.setLayoutManager(new LinearLayoutManager(this));
         AdapterNavigator adapters = new AdapterNavigator(this,pList);
         rv.setAdapter(adapters);

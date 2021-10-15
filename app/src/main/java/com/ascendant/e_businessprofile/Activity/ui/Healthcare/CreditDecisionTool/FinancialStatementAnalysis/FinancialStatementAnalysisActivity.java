@@ -17,7 +17,7 @@ import com.ascendant.e_businessprofile.Activity.ui.Healthcare.CreditDecisionTool
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.CreditDecisionTool.FinancialStatementAnalysis.SolvencyRatio.SolvencyRatioActivity;
 import com.ascendant.e_businessprofile.Adapter.Static.AdapterNavigator;
 import com.ascendant.e_businessprofile.Model.DataModel;
-import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.CreditDecisionTool.RequirmentAnalysisModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.CreditDecisionTool.FinancialStatementAnalysisModel;
 import com.ascendant.e_businessprofile.R;
 
 import java.util.ArrayList;
@@ -43,7 +43,7 @@ public class FinancialStatementAnalysisActivity extends AppCompatActivity {
         More = findViewById(R.id.linearMore);
         Back = findViewById(R.id.linearBack);
         Available.setVisibility(View.VISIBLE);
-        pList.addAll(RequirmentAnalysisModel.getListData());
+        pList.addAll(FinancialStatementAnalysisModel.getListData());
         rv.setLayoutManager(new LinearLayoutManager(this));
         AdapterNavigator adapters = new AdapterNavigator(this,pList);
         rv.setAdapter(adapters);

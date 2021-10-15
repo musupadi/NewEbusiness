@@ -15,7 +15,7 @@ public class FiveCModel {
                     "false"
             },
             {"3",
-                    "Credit Decision Model",
+                    "Credit Decision Tool",
                     "false"
             },
             {"4",
