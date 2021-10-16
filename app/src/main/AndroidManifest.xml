@@ -31,7 +31,7 @@
         <activity
             android:name=".Activity.WebViewEbookActivity"
             android:exported="true"
-            android:screenOrientation="landscape" />
+            android:screenOrientation="landscape"/>
         <activity
             android:name=".Activity.ui.Forum.DetailForumActivity"
             android:exported="true" />

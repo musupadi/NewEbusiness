@@ -5,6 +5,7 @@
     <string name="username_login">Email atau NIP</string>
     <string name="type_here">Type here...</string>
     <string name="title">Title</string>
+    <string name="caption">Caption</string>
 <!--    <string name="type_here">Type here...</string>-->
     <string name="search">Search</string>
     <string name="email">Email</string>
@@ -38,6 +39,7 @@
     <string name="credit_worthiness">Credit Worthiness</string>
     <string name="compliance">Compliance</string>
     <string name="credit_decisive_tool">Credit Decision Tool</string>
+    <string name="input_forum">Input Forum</string>
     <string name="food_and_beverage">Food &amp; Beverage</string>
     <string name="non_food_and_beverage">Non Food &amp; Beverage</string>
     <string name="tobacco">Tobacco</string>

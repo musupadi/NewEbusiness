@@ -1,5 +1,6 @@
 package com.ascendant.e_businessprofile.Activity.ui;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 
@@ -23,6 +24,7 @@ import android.widget.Toast;
 import com.ascendant.e_businessprofile.Activity.API.ApiRequest;
 import com.ascendant.e_businessprofile.Activity.API.RetroServer;
 import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
+import com.ascendant.e_businessprofile.Activity.ui.Forum.PostForumActivity;
 import com.ascendant.e_businessprofile.Adapter.AdapterForum;
 import com.ascendant.e_businessprofile.Model.DataModel;
 import com.ascendant.e_businessprofile.Model.ResponseArrayObject;
@@ -95,7 +97,8 @@ public class ForumFragment extends Fragment {
         Post.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(getActivity(), PostForumActivity.class);
+                startActivity(intent);
             }
         });
     }
