@@ -4,7 +4,7 @@ import com.ascendant.e_businessprofile.Model.DataModel;
 
 import java.util.ArrayList;
 
-public class WorkingCapitalCreditModel {
+public class FinancialStatementAnalysisModel {
     public static String[][] data = new String[][]{
             {"1",
                     "Home",
@@ -19,11 +19,7 @@ public class WorkingCapitalCreditModel {
                     "false"
             },
             {"4",
-                    "Requirement Analyss",
-                    "false"
-            },
-            {"5",
-                    "Working Capital Credit",
+                    "Financial Statement Analysis",
                     "true"
             }
     };

@@ -22,6 +22,8 @@ import com.ascendant.e_businessprofile.Activity.Method.Ascendant;
 import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
 import com.ascendant.e_businessprofile.Adapter.Static.AdapterNavigator;
 import com.ascendant.e_businessprofile.Model.DataModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.CreditDecisionTool.FMCGCreditDecisionToolFNBRequirementAnalysisModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.CreditDecisionTool.FMCGCreditDecisionToolNFNBRequirementAnalysisModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.CreditWorthiness.CreditWorthinessModel;
 import com.ascendant.e_businessprofile.R;
 
@@ -58,11 +60,11 @@ public class FMCGRequirementAnalysisActivity extends AppCompatActivity {
         Intent data = getIntent();
         final String Tittle = data.getStringExtra("TITTLE");
         if (Tittle.equals("Food")){
-            pList.addAll(CreditWorthinessModel.getListData());
+            pList.addAll(FMCGCreditDecisionToolFNBRequirementAnalysisModel.getListData());
         }else if (Tittle.equals("Tobacco")){
             pList.addAll(CreditWorthinessModel.getListData());
         }else{
-            pList.addAll(CreditWorthinessModel.getListData());
+            pList.addAll(FMCGCreditDecisionToolNFNBRequirementAnalysisModel.getListData());
         }
         rv.setLayoutManager(new LinearLayoutManager(this));
         AdapterNavigator adapters = new AdapterNavigator(this,pList);

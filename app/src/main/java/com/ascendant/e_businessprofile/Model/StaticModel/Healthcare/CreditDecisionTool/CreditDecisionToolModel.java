@@ -15,7 +15,7 @@ public class CreditDecisionToolModel {
                     "false"
             },
             {"3",
-                    "Credit Decision Model",
+                    "Credit Decision Tool",
                     "true"
             }
     };

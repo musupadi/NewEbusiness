@@ -1,10 +1,10 @@
-package com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.CreditDecisionTool;
+package com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.CreditWorthiness;
 
 import com.ascendant.e_businessprofile.Model.DataModel;
 
 import java.util.ArrayList;
 
-public class WorkingCapitalCreditModel {
+public class HospitalKeyOfSuccessModel {
     public static String[][] data = new String[][]{
             {"1",
                     "Home",
@@ -15,15 +15,11 @@ public class WorkingCapitalCreditModel {
                     "false"
             },
             {"3",
-                    "Credit Decision Tool",
+                    "Credit Worthiness",
                     "false"
             },
             {"4",
-                    "Requirement Analyss",
-                    "false"
-            },
-            {"5",
-                    "Working Capital Credit",
+                    "Hospital Key of Success",
                     "true"
             }
     };

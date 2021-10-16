@@ -14,6 +14,7 @@ import android.widget.LinearLayout;
 import com.ascendant.e_businessprofile.Adapter.Static.AdapterNavigator;
 import com.ascendant.e_businessprofile.Model.DataModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.CreditWorthiness.HospitalOperationalIndicatorModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.CreditWorthiness.SimulationHospitalOperationalndicatorModel;
 import com.ascendant.e_businessprofile.R;
 
 import java.util.ArrayList;
@@ -42,7 +43,7 @@ public class SimulationHospitalOperationalActivity extends AppCompatActivity {
 
 
         Available.setVisibility(View.VISIBLE);
-        pList.addAll(HospitalOperationalIndicatorModel.getListData());
+        pList.addAll(SimulationHospitalOperationalndicatorModel.getListData());
         rv.setLayoutManager(new LinearLayoutManager(this));
         AdapterNavigator adapters = new AdapterNavigator(this,pList);
         rv.setAdapter(adapters);

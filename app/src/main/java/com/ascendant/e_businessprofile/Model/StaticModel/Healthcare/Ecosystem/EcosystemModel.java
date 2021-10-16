@@ -11,6 +11,10 @@ public class EcosystemModel {
                     "false"
             },
             {"2",
+                    "Healthcare",
+                    "false"
+            },
+            {"3",
                     "Ecosystem",
                     "true"
             },

@@ -19,6 +19,7 @@ import com.ascendant.e_businessprofile.Adapter.AdapterKeyOfSuccess;
 import com.ascendant.e_businessprofile.Adapter.Static.AdapterNavigator;
 import com.ascendant.e_businessprofile.Model.DataModel;
 import com.ascendant.e_businessprofile.Model.ResponseArrayObject;
+import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.CreditWorthiness.HospitalKeyOfSuccessModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.CreditWorthiness.HospitalRequirementRatioModel;
 import com.ascendant.e_businessprofile.R;
 
@@ -56,7 +57,7 @@ public class HospitalKeyOfSuccessActivity extends AppCompatActivity {
 
 
         Available.setVisibility(View.VISIBLE);
-        pList.addAll(HospitalRequirementRatioModel.getListData());
+        pList.addAll(HospitalKeyOfSuccessModel.getListData());
         rv.setLayoutManager(new LinearLayoutManager(this));
         AdapterNavigator adapters = new AdapterNavigator(this,pList);
         rv.setAdapter(adapters);

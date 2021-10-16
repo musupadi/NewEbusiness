@@ -15,11 +15,11 @@ public class RequirmentAnalysisModel {
                     "false"
             },
             {"3",
-                    "Credit Decision Model",
+                    "Credit Decision Tool",
                     "false"
             },
             {"4",
-                    "Requirement Analyss",
+                    "Requirement Analysis",
                     "true"
             }
     };

@@ -1,17 +1,17 @@
-package com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.CreditDecisionTool;
+package com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.CreditDecisionTool;
 
 import com.ascendant.e_businessprofile.Model.DataModel;
 
 import java.util.ArrayList;
 
-public class WorkingCapitalCreditModel {
+public class FMCGCreditDecisionToolTobaccoResultFinancialStatementAnalysisModel {
     public static String[][] data = new String[][]{
             {"1",
                     "Home",
                     "false"
             },
             {"2",
-                    "Healthcare",
+                    "FMCG",
                     "false"
             },
             {"3",
@@ -19,11 +19,11 @@ public class WorkingCapitalCreditModel {
                     "false"
             },
             {"4",
-                    "Requirement Analyss",
+                    "Tobacco",
                     "false"
             },
             {"5",
-                    "Working Capital Credit",
+                    "Result",
                     "true"
             }
     };
