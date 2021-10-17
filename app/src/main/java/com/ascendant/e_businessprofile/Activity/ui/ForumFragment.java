@@ -122,7 +122,7 @@ public class ForumFragment extends Fragment {
                     }
                 }catch (Exception e){
                     Log.d("DONTOL : ",e.toString());
-                    Toast.makeText(getActivity(), "Terjadi Kesaqlahan", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Terjadi Kesalahan", Toast.LENGTH_SHORT).show();
                 }
             }
 
