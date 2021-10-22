@@ -64,7 +64,7 @@ public class RegisterActivity extends AppCompatActivity {
                     int clickedItems = Integer.parseInt(clickedItem.getId_divisi_mandiri());
                     idDivisi.setText(String.valueOf(clickedItems));
                 }catch (Exception e){
-                    Log.d("DONTOL : ",e.toString());
+                    Log.d("ZYARGA : ",e.toString());
                 }
             }
 
@@ -127,7 +127,7 @@ public class RegisterActivity extends AppCompatActivity {
                             Toast.makeText(RegisterActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     }catch (Exception e){
-                        Log.d("DONTOL : ",e.toString());
+                        Log.d("ZYARGA : ",e.toString());
                         Toast.makeText(RegisterActivity.this, "Terjadi Kesalahan", Toast.LENGTH_SHORT).show();
                     }
                 }

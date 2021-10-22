@@ -200,7 +200,7 @@ public class HospitalListActivity extends AppCompatActivity implements OnMapRead
 //                        Toast.makeText(HospitalListActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 }catch (Exception e){
-                    Log.d("DONTOL : ",e.toString());
+                    Log.d("ZYARGA : ",e.toString());
                     Toast.makeText(HospitalListActivity.this, "Terjadi Kesaqlahan", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -241,7 +241,7 @@ public class HospitalListActivity extends AppCompatActivity implements OnMapRead
                     IdProvinsi.setText(String.valueOf(clickedItems));
                     GetKota();
                 }catch (Exception e){
-                    Log.d("DONTOL : ",e.toString());
+                    Log.d("ZYARGA : ",e.toString());
                 }
             }
 
@@ -274,7 +274,7 @@ public class HospitalListActivity extends AppCompatActivity implements OnMapRead
                         Logic();
                     }
                 }catch (Exception e){
-                    Log.d("DONTOL : ",e.toString());
+                    Log.d("ZYARGA : ",e.toString());
                 }
             }
 

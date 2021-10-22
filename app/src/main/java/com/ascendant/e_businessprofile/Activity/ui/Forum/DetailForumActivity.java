@@ -367,7 +367,7 @@ public class DetailForumActivity extends AppCompatActivity {
                         Toast.makeText(DetailForumActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 }catch (Exception e){
-                    Log.d("DONTOL : ",e.toString());
+                    Log.d("ZYARGA : ",e.toString());
                     Toast.makeText(DetailForumActivity.this, "Terjadi Kesaqlahan", Toast.LENGTH_SHORT).show();
                 }
             }

@@ -126,7 +126,7 @@ public class HomeFragment extends Fragment {
                         Toast.makeText(getActivity(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 }catch (Exception e){
-                    Log.d("DONTOL : ",e.toString());
+                    Log.d("ZYARGA : ",e.toString());
                     Toast.makeText(getActivity(), "Terjadi Kesaqlahan", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -150,7 +150,7 @@ public class HomeFragment extends Fragment {
                         response.body().getMessage();
                     }
                 }catch (Exception e){
-                    Log.d("DONTOL : ",e.toString());
+                    Log.d("ZYARGA : ",e.toString());
                     Toast.makeText(getActivity(), "Koneksi Gagal", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -175,7 +175,7 @@ public class HomeFragment extends Fragment {
                         response.body().getMessage();
                     }
                 }catch (Exception e){
-                    Log.d("DONTOL : ",e.toString());
+                    Log.d("ZYARGA : ",e.toString());
                     Toast.makeText(getActivity(), "Koneksi Gagal", Toast.LENGTH_SHORT).show();
                 }
             }

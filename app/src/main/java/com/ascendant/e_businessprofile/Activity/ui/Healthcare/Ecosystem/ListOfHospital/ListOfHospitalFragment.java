@@ -111,7 +111,7 @@ public class ListOfHospitalFragment extends Fragment{
                     IdProvinsi.setText(String.valueOf(clickedItems));
                     GetKota();
                 }catch (Exception e){
-                    Log.d("DONTOL : ",e.toString());
+                    Log.d("ZYARGA : ",e.toString());
                 }
             }
 
@@ -142,7 +142,7 @@ public class ListOfHospitalFragment extends Fragment{
                         ChangeFragment(fragment);
                     }
                 }catch (Exception e){
-                    Log.d("DONTOL : ",e.toString());
+                    Log.d("ZYARGA : ",e.toString());
                 }
             }
 

@@ -90,7 +90,7 @@ public class HospitalEquipmentFragment extends Fragment {
                         Toast.makeText(getActivity(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 }catch (Exception e){
-                    Log.d("DONTOL : ",e.toString());
+                    Log.d("ZYARGA : ",e.toString());
                     Toast.makeText(getActivity(), "Terjadi Kesaqlahan", Toast.LENGTH_SHORT).show();
                 }
             }

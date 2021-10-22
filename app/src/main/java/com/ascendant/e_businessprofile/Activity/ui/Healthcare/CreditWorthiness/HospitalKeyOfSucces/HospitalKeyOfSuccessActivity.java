@@ -120,7 +120,7 @@ public class HospitalKeyOfSuccessActivity extends AppCompatActivity {
                         Toast.makeText(HospitalKeyOfSuccessActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 }catch (Exception e){
-                    Log.d("DONTOL : ",e.toString());
+                    Log.d("ZYARGA : ",e.toString());
                     Toast.makeText(HospitalKeyOfSuccessActivity.this, "Terjadi Kesaqlahan", Toast.LENGTH_SHORT).show();
                 }
             }

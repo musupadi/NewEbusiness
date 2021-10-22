@@ -269,7 +269,7 @@ public class PostForumActivity extends AppCompatActivity {
                     Intent intent = new Intent(PostForumActivity.this, HomeActivity.class);
                     startActivity(intent);
                 }catch (Exception e){
-                    Log.d("DONTOL : ",e.toString());
+                    Log.d("ZYARGA : ",e.toString());
                     Toast.makeText(PostForumActivity.this, "Terjadi Kesalahan", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -308,7 +308,7 @@ public class PostForumActivity extends AppCompatActivity {
                     Intent intent = new Intent(PostForumActivity.this, HomeActivity.class);
                     startActivity(intent);
                 }catch (Exception e){
-                    Log.d("DONTOL : ",e.toString());
+                    Log.d("ZYARGA : ",e.toString());
                     Toast.makeText(PostForumActivity.this, "Terjadi Kesalahan", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -353,7 +353,7 @@ public class PostForumActivity extends AppCompatActivity {
                     Intent intent = new Intent(PostForumActivity.this, HomeActivity.class);
                     startActivity(intent);
                 }catch (Exception e){
-                    Log.d("DONTOL : ",e.toString());
+                    Log.d("ZYARGA : ",e.toString());
                     Toast.makeText(PostForumActivity.this, "Terjadi Kesalahan", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -405,7 +405,7 @@ public class PostForumActivity extends AppCompatActivity {
                     Intent intent = new Intent(PostForumActivity.this, HomeActivity.class);
                     startActivity(intent);
                 }catch (Exception e){
-                    Log.d("DONTOL : ",e.toString());
+                    Log.d("ZYARGA : ",e.toString());
                     Toast.makeText(PostForumActivity.this, "Terjadi Kesalahan", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -463,7 +463,7 @@ public class PostForumActivity extends AppCompatActivity {
                     Intent intent = new Intent(PostForumActivity.this, HomeActivity.class);
                     startActivity(intent);
                 }catch (Exception e){
-                    Log.d("DONTOL : ",e.toString());
+                    Log.d("ZYARGA : ",e.toString());
                     Toast.makeText(PostForumActivity.this, "Terjadi Kesalahan", Toast.LENGTH_SHORT).show();
                 }
             }
