@@ -3,6 +3,7 @@ package com.ascendant.e_businessprofile.Activity.API;
 import com.ascendant.e_businessprofile.Model.DataModel;
 import com.ascendant.e_businessprofile.Model.ResponseArrayObject;
 import com.ascendant.e_businessprofile.Model.ResponseObject;
+import com.ascendant.e_businessprofile.Model.ResponseQuiz;
 import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Perusahaan.Perusahaan;
 import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Rumus.Probing;
 import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Rumus.RumusKMK;
@@ -127,11 +128,29 @@ public interface ApiRequest {
     @POST("poin")
     Call<ResponseObject> Poin(@Field("token") String token);
 
+    @FormUrlEncoded
+    @POST("check_quiz")
+    Call<ResponseArrayObject> check_quiz(@Field("token") String token);
+
+    @FormUrlEncoded
+    @POST("quiz_harian")
+    Call<ResponseQuiz> quiz_harian(@Field("token") String token);
 
     @FormUrlEncoded
     @POST("detail_posting")
     Call<ResponseObject> DetailPosting(@Field("token") String token,
                                        @Field("id_post") String id_post);
+
+    @FormUrlEncoded
+    @POST("update_divisi")
+    Call<ResponseObject> UpdateDivisi(@Field("token") String token,
+                                       @Field("id_divisi_mandiri") String id_divisi_mandiri);
+
+    @FormUrlEncoded
+    @POST("jawab_quiz_harian")
+    Call<ResponseObject> JawabQuizHarian(@Field("token") String token,
+                                         @Field("id_quiz") String id_quiz,
+                                         @Field("jawaban") String jawaban);
 
 
     @Multipart

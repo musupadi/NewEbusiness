@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="270dp"
+    android:layout_height="270dp"
+    android:layout_gravity="center"
+    android:gravity="center">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pilih Divisi"
+        android:textColor="@color/colorPrimary"
+        android:fontFamily="@font/inter_extra_bold"
+        android:textSize="@dimen/header_text_small"
+        android:layout_margin="10dp"
+        android:gravity="center"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mohon Isi Divisi Terlebih Dahulu"
+        android:textColor="@color/colorPrimary"
+        android:fontFamily="@font/inter_extra_bold"
+        android:textSize="@dimen/text_medium"
+        android:layout_margin="10dp"
+        android:gravity="center"/>
+    <Spinner
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/Loading"
+        android:id="@+id/spDivisi"/>
+    <Button
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnPilih"
+        android:text="Pilih Divisi"
+        android:textColor="@color/colorWhite"
+        android:background="@drawable/button_blue_rounded" />
+</LinearLayout>

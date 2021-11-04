@@ -128,7 +128,7 @@
                             android:layout_marginTop="15dp"
                             android:layout_marginEnd="15dp"
                             android:layout_marginBottom="15dp"
-                            android:src="@drawable/list_of_propbiang" />
+                            android:src="@drawable/list_of_probing" />
                         <TextView
                             android:layout_alignParentBottom="true"
                             android:layout_width="match_parent"

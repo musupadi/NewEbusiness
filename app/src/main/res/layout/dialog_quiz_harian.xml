@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="400dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:padding="5dp">
+    <TextView
+        android:layout_margin="10dp"
+        android:id="@+id/tvSoal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Quiz Harian "
+        android:textColor="@color/colorPrimary"
+        android:fontFamily="@font/inter_extra_bold"
+        android:textSize="@dimen/text_extra_large" />
+    <LinearLayout
+        android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal">
+        <Button
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/btnA"
+            android:text="A. Test A"
+            android:textColor="@color/colorWhite"
+            android:background="@drawable/button_blue_rounded" />
+        <Button
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/btnB"
+            android:text="B. Test B"
+            android:textColor="@color/colorWhite"
+            android:background="@drawable/button_blue_rounded" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal">
+        <Button
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/btnC"
+            android:text="C. Test C"
+            android:textColor="@color/colorWhite"
+            android:background="@drawable/button_blue_rounded" />
+        <Button
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/btnD"
+            android:text="D. Test D"
+            android:textColor="@color/colorWhite"
+            android:background="@drawable/button_blue_rounded" />
+    </LinearLayout>
+    <Button
+        android:layout_margin="10dp"
+        android:layout_weight="1"
+        android:textStyle="bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnKonfirmasi"
+        android:text="Konfirmasi"
+        android:textColor="@color/colorWhite"
+        android:background="@drawable/button_blue_rounded" />
+
+</LinearLayout>

@@ -1,11 +1,13 @@
 package com.ascendant.e_businessprofile.Activity.ui;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,21 +16,31 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.ascendant.e_businessprofile.Activity.API.ApiRequest;
 import com.ascendant.e_businessprofile.Activity.API.RetroServer;
 import com.ascendant.e_businessprofile.Activity.HomeActivity;
 import com.ascendant.e_businessprofile.Activity.ModuleActivity;
+import com.ascendant.e_businessprofile.Activity.RegisterActivity;
 import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
 import com.ascendant.e_businessprofile.Activity.WebViewEbookActivity;
+import com.ascendant.e_businessprofile.Activity.ui.FMCG.CreditDecisionTool.FMCGCreditDecisionToolActivity;
 import com.ascendant.e_businessprofile.Adapter.AdapterBerita;
+import com.ascendant.e_businessprofile.Adapter.Spinner.SpinnerDivisi;
 import com.ascendant.e_businessprofile.Model.DataModel;
+import com.ascendant.e_businessprofile.Model.Jawaban;
 import com.ascendant.e_businessprofile.Model.ResponseArrayObject;
 import com.ascendant.e_businessprofile.Model.ResponseObject;
+import com.ascendant.e_businessprofile.Model.ResponseQuiz;
 import com.ascendant.e_businessprofile.R;
 
 import java.util.ArrayList;
@@ -48,6 +60,17 @@ public class HomeFragment extends Fragment {
     TextView divisi,nama,poin;
     RelativeLayout Healtcare,FMCG,Mining;
     ScrollView scroll;
+    Dialog myDialog,quizDialog;
+    TextView Soal;
+    Button A,B,C,D,Konfirmasi;
+    Button PilihDivisi;
+    Spinner spDivisi;
+    TextView tvDivisi;
+    LottieAnimationView lottie;
+    Boolean Quiz=false;
+    LinearLayout linearQuiz;
+    String JawabQuiz="";
+    String IdQuiz="";
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,6 +93,19 @@ public class HomeFragment extends Fragment {
                 Token = cursor.getString(0);
             }
         }
+        myDialog = new Dialog(getActivity());
+        myDialog.setContentView(R.layout.dialog_divisi);
+        quizDialog = new Dialog(getActivity());
+        quizDialog.setContentView(R.layout.dialog_quiz_harian);
+        Soal = quizDialog.findViewById(R.id.tvSoal);
+        A = quizDialog.findViewById(R.id.btnA);
+        B = quizDialog.findViewById(R.id.btnB);
+        C = quizDialog.findViewById(R.id.btnC);
+        D = quizDialog.findViewById(R.id.btnD);
+        Konfirmasi = quizDialog.findViewById(R.id.btnKonfirmasi);
+        spDivisi = myDialog.findViewById(R.id.spDivisi);
+        PilihDivisi = myDialog.findViewById(R.id.btnPilih);
+        linearQuiz = view.findViewById(R.id.linearQuiz);
         scroll = view.findViewById(R.id.scroll);
         rv = view.findViewById(R.id.recycler);
         Healtcare = view.findViewById(R.id.relativeHealthcare);
@@ -78,11 +114,16 @@ public class HomeFragment extends Fragment {
         nama = view.findViewById(R.id.tvNama);
         divisi = view.findViewById(R.id.tvDivisi);
         poin = view.findViewById(R.id.tvPoin);
-
+        tvDivisi = view.findViewById(R.id.tvIdDivisi);
+        lottie = view.findViewById(R.id.lottie);
         scroll.fullScroll(View.FOCUS_UP);
+        lottie.setVisibility(View.GONE);
         GetData();
         GetPoin();
         Logic();
+        GetDivisi();
+        CheckQuiz();
+        IsiQuiz();
         Healtcare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -102,11 +143,189 @@ public class HomeFragment extends Fragment {
         Mining.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), WebViewEbookActivity.class);
-                startActivity(intent);
+                Intent i = new Intent(getActivity(), ModuleActivity.class);
+                i.putExtra("MODULE", "Mining");
+                startActivity(i);
             }
         });
+        spDivisi.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                try {
+                    DataModel clickedItem = (DataModel) adapterView.getItemAtPosition(i);
+                    int clickedItems = Integer.parseInt(clickedItem.getId_divisi_mandiri());
+                    tvDivisi.setText(String.valueOf(clickedItems));
+                }catch (Exception e){
+                    Log.d("ZYARGA : ",e.toString());
+                }
+            }
 
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+        PilihDivisi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                UpdateDivisi();
+            }
+        });
+        linearQuiz.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (Quiz){
+                    quizDialog.show();
+                }else{
+                    Toast.makeText(getActivity(), "Quiz Sudah Dikerjakan", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        A.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                JawabA();
+            }
+        });
+        B.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                JawabB();
+            }
+        });
+        C.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                JawabC();
+            }
+        });
+        D.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                JawabD();
+            }
+        });
+        Konfirmasi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                JawabQuiz();
+            }
+        });
+    }
+    private void UpdateDivisi(){
+        ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
+        final Call<ResponseObject> data =api.UpdateDivisi(Token,tvDivisi.getText().toString());
+        data.enqueue(new Callback<ResponseObject>() {
+            @Override
+            public void onResponse(Call<ResponseObject> call, Response<ResponseObject> response) {
+                myDialog.hide();
+                try {
+                    Toast.makeText(getActivity(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                }catch (Exception e){
+                    Toast.makeText(getActivity(), "Terjadi Kesalahan : "+e.toString(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseObject> call, Throwable t) {
+                Toast.makeText(getActivity(),"Koneksi Gagal ",Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+    private void JawabQuiz(){
+        ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
+        final Call<ResponseObject> data =api.JawabQuizHarian(Token,IdQuiz,JawabQuiz);
+        data.enqueue(new Callback<ResponseObject>() {
+            @Override
+            public void onResponse(Call<ResponseObject> call, Response<ResponseObject> response) {
+                quizDialog.hide();
+                try {
+                    Toast.makeText(getActivity(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                }catch (Exception e){
+                    Toast.makeText(getActivity(), "Terjadi Kesalahan : "+e.toString(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseObject> call, Throwable t) {
+                Toast.makeText(getActivity(),"Koneksi Gagal ",Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+    private void QuizDefault(){
+        A.setBackgroundResource(R.drawable.button_blue_rounded);
+        B.setBackgroundResource(R.drawable.button_blue_rounded);
+        C.setBackgroundResource(R.drawable.button_blue_rounded);
+        D.setBackgroundResource(R.drawable.button_blue_rounded);
+    }
+    private void JawabA(){
+        QuizDefault();
+        A.setBackgroundResource(R.drawable.button_red_rounded);
+        JawabQuiz = "a";
+    }
+    private void JawabB(){
+        QuizDefault();
+        B.setBackgroundResource(R.drawable.button_red_rounded);
+        JawabQuiz = "b";
+    }
+    private void JawabC(){
+        QuizDefault();
+        C.setBackgroundResource(R.drawable.button_red_rounded);
+        JawabQuiz = "c";
+    }
+    private void JawabD(){
+        QuizDefault();
+        D.setBackgroundResource(R.drawable.button_red_rounded);
+        JawabQuiz = "d";
+    }
+    private void IsiQuiz(){
+        ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
+        final Call<ResponseQuiz> data =api.quiz_harian(Token);
+        data.enqueue(new Callback<ResponseQuiz>() {
+            @Override
+            public void onResponse(Call<ResponseQuiz> call, Response<ResponseQuiz> response) {
+                try {
+                    IdQuiz = response.body().getData().getId_quiz();
+                    Soal.setText(response.body().getData().getSoal_quiz());
+                    A.setText("A."+response.body().getData().getJawaban().get(0).getIsi_jawaban());
+                    B.setText("B."+response.body().getData().getJawaban().get(1).getIsi_jawaban());
+                    C.setText("C."+response.body().getData().getJawaban().get(2).getIsi_jawaban());
+                    D.setText("D."+response.body().getData().getJawaban().get(3).getIsi_jawaban());
+                }catch (Exception e){
+                    Toast.makeText(getActivity(), "Terjadi Kesalahan : "+e.toString(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseQuiz> call, Throwable t) {
+
+            }
+        });
+    }
+    private void CheckQuiz(){
+        ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
+        final Call<ResponseArrayObject> data =api.check_quiz(Token);
+        data.enqueue(new Callback<ResponseArrayObject>() {
+            @Override
+            public void onResponse(Call<ResponseArrayObject> call, Response<ResponseArrayObject> response) {
+                try {
+                    if (response.body().getMessage().equals("Quiz tersedia")){
+                        lottie.setVisibility(View.VISIBLE);
+                        Quiz=true;
+                    }else{
+                        lottie.setVisibility(View.GONE);
+                        Quiz=false;
+                    }
+                }catch (Exception e){
+                    //Toast.makeText(getActivity(), "Kesalahan pada : "+e.toString(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseArrayObject> call, Throwable t) {
+                Toast.makeText(getActivity(), "Koneksi Gagal", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
     private void Logic(){
         mManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL,false);
@@ -161,6 +380,29 @@ public class HomeFragment extends Fragment {
             }
         });
     }
+    private void GetDivisi(){
+        ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
+        final Call<ResponseArrayObject> Data =api.Divisi();
+        Data.enqueue(new Callback<ResponseArrayObject>() {
+            @Override
+            public void onResponse(Call<ResponseArrayObject> call, Response<ResponseArrayObject> response) {
+                try {
+                    if (response.body().getKode().equals(200)){
+                        mItems=response.body().getData();
+                        SpinnerDivisi adapter = new SpinnerDivisi(getActivity(),mItems);
+                        spDivisi.setAdapter(adapter);
+                    }
+                }catch (Exception e){
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseArrayObject> call, Throwable t) {
+                Toast.makeText(getActivity(), "Koneksi Gagal", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
     private void GetData(){
         ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
         final Call<ResponseObject> data =api.Profil(Token);
@@ -171,6 +413,9 @@ public class HomeFragment extends Fragment {
                     if (response.body().getKode().equals(200)){
                         nama.setText(response.body().getData().getNama_user());
                         divisi.setText(response.body().getData().getDivisi());
+                        if (divisi.getText().toString().isEmpty() || divisi.getText().toString() == ""){
+                            myDialog.show();
+                        }
                     }else{
                         response.body().getMessage();
                     }

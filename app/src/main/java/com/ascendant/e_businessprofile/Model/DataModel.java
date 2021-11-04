@@ -383,6 +383,25 @@ public class DataModel {
     @Expose
     public String id_post_komen_sub;
 
+    //Quiz
+    @SerializedName("id_quiz")
+    @Expose
+    public String id_quiz;
+
+    @SerializedName("pg_jawaban")
+    @Expose
+    public String pg_jawaban;
+
+    @SerializedName("id_quiz_jawaban")
+    @Expose
+    public String id_quiz_jawaban;
+
+    @SerializedName("isi_jawaban")
+    @Expose
+    public String isi_jawaban;
+
+
+
     //Old EBusiness
     String id_fmcg_param,nama_param,rumus_param,kategori_param,rata_rata_param,penjelasan_param,penjelasan2_param;
     String id_asosiasi,nilaiperkapita;
@@ -2155,5 +2174,37 @@ public class DataModel {
 
     public void setId_post_komen_sub(String id_post_komen_sub) {
         this.id_post_komen_sub = id_post_komen_sub;
+    }
+
+    public String getId_quiz() {
+        return id_quiz;
+    }
+
+    public void setId_quiz(String id_quiz) {
+        this.id_quiz = id_quiz;
+    }
+
+    public String getPg_jawaban() {
+        return pg_jawaban;
+    }
+
+    public void setPg_jawaban(String pg_jawaban) {
+        this.pg_jawaban = pg_jawaban;
+    }
+
+    public String getId_quiz_jawaban() {
+        return id_quiz_jawaban;
+    }
+
+    public void setId_quiz_jawaban(String id_quiz_jawaban) {
+        this.id_quiz_jawaban = id_quiz_jawaban;
+    }
+
+    public String getIsi_jawaban() {
+        return isi_jawaban;
+    }
+
+    public void setIsi_jawaban(String isi_jawaban) {
+        this.isi_jawaban = isi_jawaban;
     }
 }

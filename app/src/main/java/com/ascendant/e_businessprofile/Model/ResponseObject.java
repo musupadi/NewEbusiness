@@ -38,6 +38,7 @@ public class ResponseObject {
     @Expose
     List<DataModel> daftar_rs;
 
+
     public Integer getKode() {
         return kode;
     }

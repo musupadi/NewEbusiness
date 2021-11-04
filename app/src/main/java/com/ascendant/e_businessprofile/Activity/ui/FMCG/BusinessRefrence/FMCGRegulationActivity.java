@@ -15,7 +15,7 @@ import com.ascendant.e_businessprofile.Activity.ui.ChatFragment;
 import com.ascendant.e_businessprofile.Activity.ui.ForumFragment;
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.BusinessRefrence.RegulationsFragment;
 import com.ascendant.e_businessprofile.Activity.ui.HomeFragment;
-import com.ascendant.e_businessprofile.Activity.ui.Healthcare.NavigatorFragment;
+import com.ascendant.e_businessprofile.Activity.ui.NavigatorFragment;
 import com.ascendant.e_businessprofile.R;
 
 public class FMCGRegulationActivity extends AppCompatActivity {

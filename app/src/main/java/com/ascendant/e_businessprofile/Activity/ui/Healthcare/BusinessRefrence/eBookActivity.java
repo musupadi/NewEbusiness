@@ -14,7 +14,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.ascendant.e_businessprofile.Activity.ui.Healthcare.NavigatorFragment;
+import com.ascendant.e_businessprofile.Activity.ui.NavigatorFragment;
 import com.ascendant.e_businessprofile.R;
 
 import pub.devrel.easypermissions.EasyPermissions;

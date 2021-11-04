@@ -16,6 +16,7 @@ import com.ascendant.e_businessprofile.Activity.ui.FMCG.FMCGFragment;
 import com.ascendant.e_businessprofile.Activity.ui.ForumFragment;
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.HealthcareFragment;
 import com.ascendant.e_businessprofile.Activity.ui.HomeFragment;
+import com.ascendant.e_businessprofile.Activity.ui.Mining.MiningFragment;
 import com.ascendant.e_businessprofile.R;
 
 public class ModuleActivity extends AppCompatActivity {
@@ -38,6 +39,18 @@ public class ModuleActivity extends AppCompatActivity {
                 ChangeFragment(fragment);
             }else if (MODULE.equals("FMCG")){
                 fragment = new FMCGFragment();
+                ChangeFragment(fragment);
+            }else if (MODULE.equals("Mining")){
+                fragment = new MiningFragment();
+                ChangeFragment(fragment);
+            }else if (MODULE.equals("Contractor")){
+                fragment = new MiningFragment();
+                ChangeFragment(fragment);
+            }else if (MODULE.equals("Oil & Gas")){
+                fragment = new MiningFragment();
+                ChangeFragment(fragment);
+            }else if (MODULE.equals("Farming")){
+                fragment = new MiningFragment();
                 ChangeFragment(fragment);
             }
         }catch (Exception e){

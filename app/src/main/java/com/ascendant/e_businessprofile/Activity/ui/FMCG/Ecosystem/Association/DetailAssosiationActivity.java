@@ -13,7 +13,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.Ecosystem.EcosystemFragment;
-import com.ascendant.e_businessprofile.Activity.ui.Healthcare.NavigatorFragment;
+import com.ascendant.e_businessprofile.Activity.ui.NavigatorFragment;
 import com.ascendant.e_businessprofile.R;
 
 public class DetailAssosiationActivity extends AppCompatActivity {

@@ -59,7 +59,6 @@ public class HomeActivity extends AppCompatActivity {
                 Forum();
             }
         });
-
         LProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -71,9 +70,7 @@ public class HomeActivity extends AppCompatActivity {
     private void Declaration() {
         LHome = findViewById(R.id.linearHome);
         LForum = findViewById(R.id.linearForum);
-
         LProfile = findViewById(R.id.linearProfile);
-
         Home = findViewById(R.id.ivHome);
         Forum = findViewById(R.id.ivForum);
         Profile = findViewById(R.id.ivProfile);
