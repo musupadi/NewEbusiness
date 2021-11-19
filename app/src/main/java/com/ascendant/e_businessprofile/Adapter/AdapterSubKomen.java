@@ -42,6 +42,7 @@ public class AdapterSubKomen extends RecyclerView.Adapter<AdapterSubKomen.Holder
         final Ascendant ascendant = new Ascendant();
         holderData.Komen.setText(dm.getIsi_komen());
         holderData.Nama.setText(dm.getNama_user());
+        holderData.Jam.setText(dm.getTgl_komen());
         if (dm.getImg_komen().equals("")){
             holderData.Gambar.setVisibility(View.GONE);
         }else{

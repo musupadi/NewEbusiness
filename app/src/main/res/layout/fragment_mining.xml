@@ -18,7 +18,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="220dp"
                 android:orientation="vertical"
-                android:background="@drawable/banner">
+                android:background="@drawable/mining_header">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -40,14 +40,16 @@
                         android:text="@string/back"
                         android:textSize="@dimen/text_extra_large"/>
                 </LinearLayout>
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/healthcare"
-                    android:textSize="@dimen/header_text_small"
+                    android:layout_marginLeft="20dp"
                     android:fontFamily="@font/inter_extra_bold"
+                    android:text="@string/mining"
                     android:textColor="@color/colorPrimary"
-                    android:layout_marginLeft="20dp"/>
+                    android:textSize="@dimen/header_text_small" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -73,7 +75,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:orientation="vertical"
-                        android:id="@+id/relativeBusinessRefrennce">
+                        android:id="@+id/relativeOutlook">
 
                         <ImageView
                             android:layout_width="match_parent"
@@ -83,15 +85,16 @@
                             android:layout_marginEnd="15dp"
                             android:layout_marginBottom="15dp"
                             android:src="@drawable/business_refrence" />
+
                         <TextView
-                            android:layout_centerInParent="true"
-                            android:layout_alignParentBottom="true"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/business_refrence"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerInParent="true"
+                            android:fontFamily="@font/inter"
                             android:gravity="center"
-                            android:textColor="@color/colorBlack"
-                            android:fontFamily="@font/inter"/>
+                            android:text="@string/outlook"
+                            android:textColor="@color/colorBlack" />
                     </RelativeLayout>
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -145,18 +148,20 @@
                     android:layout_height="120dp"
                     android:orientation="horizontal">
                     <RelativeLayout
-                        android:id="@+id/relativeCreditWorthiness"
+                        android:id="@+id/relativeMarketInteligence"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:orientation="vertical">
 
                         <ImageView
-                            android:layout_margin="15dp"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_marginTop="10dp"
-                            android:src="@drawable/credit_worthiness" />
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginEnd="15dp"
+                            android:layout_marginBottom="15dp"
+                            android:src="@drawable/market_inteligence" />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -164,7 +169,7 @@
                             android:layout_alignParentBottom="true"
                             android:fontFamily="@font/inter"
                             android:gravity="center"
-                            android:text="@string/credit_worthiness"
+                            android:text="@string/market_inteligence"
                             android:textColor="@color/colorBlack" />
                     </RelativeLayout>
                     <RelativeLayout
@@ -192,6 +197,7 @@
                             android:fontFamily="@font/inter"/>
                     </RelativeLayout>
                     <RelativeLayout
+                        android:visibility="invisible"
                         android:id="@+id/relativeCreditDecisionTool"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"

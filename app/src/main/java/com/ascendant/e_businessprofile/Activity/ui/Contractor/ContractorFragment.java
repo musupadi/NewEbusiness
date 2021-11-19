@@ -1,60 +1,71 @@
 package com.ascendant.e_businessprofile.Activity.ui.Contractor;
 
+import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.ScrollView;
+import android.widget.Toast;
 
+import com.ascendant.e_businessprofile.Activity.API.ApiRequest;
+import com.ascendant.e_businessprofile.Activity.API.RetroServer;
+import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
+import com.ascendant.e_businessprofile.Activity.ui.Contractor.Compliance.ComplianceContractorActivity;
+import com.ascendant.e_businessprofile.Activity.ui.Contractor.Ecosystem.EcosystemContractorActivity;
+import com.ascendant.e_businessprofile.Activity.ui.Contractor.ListOfProbing.ListOfProbingContractorActivity;
+import com.ascendant.e_businessprofile.Activity.ui.Contractor.MarketInteligence.MarketInteliganceContractorActivity;
+import com.ascendant.e_businessprofile.Activity.ui.Contractor.Outlook.OtulookActivity;
+import com.ascendant.e_businessprofile.Activity.ui.Healthcare.Compliance.ComplianceActivity;
+import com.ascendant.e_businessprofile.Activity.ui.Healthcare.Ecosystem.EcosystemActivity;
+import com.ascendant.e_businessprofile.Activity.ui.Healthcare.ListOfProbing.ListOfProbingActivity;
+import com.ascendant.e_businessprofile.Activity.ui.OilAndGas.Compliance.ComplianceOilAndGasActivity;
+import com.ascendant.e_businessprofile.Activity.ui.OilAndGas.Ecossytem.EcosystemOilAndGasActivity;
+import com.ascendant.e_businessprofile.Activity.ui.OilAndGas.ListOfProbing.ListOfProbingOilAndGasActivity;
+import com.ascendant.e_businessprofile.Activity.ui.OilAndGas.MarketInteligence.MarketInteligenceOilAndGasActivity;
+import com.ascendant.e_businessprofile.Activity.ui.OilAndGas.Outlook.OutlookOilAndGasActivity;
+import com.ascendant.e_businessprofile.Adapter.AdapterBerita;
+import com.ascendant.e_businessprofile.Model.DataModel;
+import com.ascendant.e_businessprofile.Model.ResponseArrayObject;
 import com.ascendant.e_businessprofile.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link ContractorFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class ContractorFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private List<DataModel> mItems = new ArrayList<>();
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager mManager;
+    RecyclerView rv;
+    DB_Helper dbHelper;
+    String Token;
+    LinearLayout Back;
+    RelativeLayout Outlook,ListOfProbing,Compliance,Ecosystem,MarketInteligence;
+    ScrollView scroll;
 
     public ContractorFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment ContractorFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static ContractorFragment newInstance(String param1, String param2) {
-        ContractorFragment fragment = new ContractorFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
@@ -62,5 +73,98 @@ public class ContractorFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_contractor, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        dbHelper = new DB_Helper(getActivity());
+        Cursor cursor = dbHelper.checkUser();
+        if (cursor.getCount()>0){
+            while (cursor.moveToNext()){
+                Token = cursor.getString(0);
+            }
+        }
+        scroll = view.findViewById(R.id.scroll);
+        rv = view.findViewById(R.id.recycler);
+        Back = view.findViewById(R.id.linearBack);
+        Outlook = view.findViewById(R.id.relativeOutlook);
+        ListOfProbing = view.findViewById(R.id.relativeListOfProbing);
+        Compliance = view.findViewById(R.id.relativeCompliance);
+        Ecosystem = view.findViewById(R.id.relativeEcosystem);
+        MarketInteligence = view.findViewById(R.id.relativeMarketInteligence);
+        Logic();
+
+        Outlook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), OtulookActivity.class);
+                startActivity(intent);
+            }
+        });
+        ListOfProbing.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), ListOfProbingContractorActivity.class);
+                startActivity(intent);
+            }
+        });
+        Compliance.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), ComplianceContractorActivity.class);
+                startActivity(intent);
+            }
+        });
+        Ecosystem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), EcosystemContractorActivity.class);
+                startActivity(intent);
+            }
+        });
+        MarketInteligence.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), MarketInteliganceContractorActivity.class);
+                startActivity(intent);
+            }
+        });
+        Back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getActivity().onBackPressed();
+            }
+        });
+        scroll.fullScroll(View.FOCUS_UP);
+    }
+    private void Logic(){
+        mManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL,false);
+        rv.setLayoutManager(mManager);
+        ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
+        final Call<ResponseArrayObject> data =api.Berita(Token,"HEALTHCARE","1");
+        data.enqueue(new Callback<ResponseArrayObject>() {
+            @Override
+            public void onResponse(Call<ResponseArrayObject> call, Response<ResponseArrayObject> response) {
+                try {
+                    if (response.body().getKode().equals(200)){
+                        mItems=response.body().getData();
+                        mAdapter = new AdapterBerita(getActivity(),mItems);
+                        rv.setAdapter(mAdapter);
+                        mAdapter.notifyDataSetChanged();
+                    }else{
+                        Toast.makeText(getActivity(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                }catch (Exception e){
+                    Log.d("ZYARGA : ",e.toString());
+                    Toast.makeText(getActivity(), "Terjadi Kesaqlahan", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseArrayObject> call, Throwable t) {
+                Toast.makeText(getActivity(), "Koneksi Gagal", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

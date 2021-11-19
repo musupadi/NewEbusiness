@@ -15,7 +15,7 @@ public class Jawaban {
 
     @SerializedName("id_quiz")
     @Expose
-    public String id_quiz;
+    public Integer id_quiz;
 
     @SerializedName("soal_quiz")
     @Expose
@@ -34,11 +34,11 @@ public class Jawaban {
         this.jawaban = jawaban;
     }
 
-    public String getId_quiz() {
+    public Integer getId_quiz() {
         return id_quiz;
     }
 
-    public void setId_quiz(String id_quiz) {
+    public void setId_quiz(Integer id_quiz) {
         this.id_quiz = id_quiz;
     }
 

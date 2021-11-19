@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.ascendant.e_businessprofile.Activity.HomeActivity;
 import com.ascendant.e_businessprofile.Activity.ui.ChatFragment;
 import com.ascendant.e_businessprofile.Activity.ui.ForumCategoryFragment;
 import com.ascendant.e_businessprofile.Activity.ui.ForumFragment;
@@ -96,5 +97,11 @@ public class ForumActivity extends AppCompatActivity {
             ft.replace(R.id.Container,fragment);
             ft.commit();
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(ForumActivity.this, HomeActivity.class);
+        startActivity(intent);
     }
 }

@@ -45,7 +45,7 @@ public class AdapterBerita extends RecyclerView.Adapter<AdapterBerita.HolderData
                 .load(ascendant.BASE_URL()+dm.getCover_berita())
                 .into(holderData.Gambar);
         holderData.Tanggal.setText(ascendant.MagicDateChange(dm.getCreated_at()));
-        holderData.Kategori.setText(dm.getJudul_berita()+" ("+dm.getKategori_berita()+")");
+        holderData.Kategori.setText(ascendant.ExtraSmallText(dm.getJudul_berita())+" ("+dm.getKategori_berita()+")");
         holderData.Berita.setText(ascendant.FilterTextToJava(ascendant.SmallDescription(dm.getIsi_berita())));
         holderData.card.setOnClickListener(new View.OnClickListener() {
             @Override

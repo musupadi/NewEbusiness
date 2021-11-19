@@ -57,6 +57,19 @@ public class DataModel {
     @Expose
     public String nama_divisi_mandiri;
 
+    //Wilayah
+    @SerializedName("nama_wilayah_mandiri")
+    @Expose
+    public String nama_wilayah_mandiri;
+
+    @SerializedName("id_wilayah_mandiri")
+    @Expose
+    public String id_wilayah_mandiri;
+
+    @SerializedName("wilayah")
+    @Expose
+    public String wilayah;
+
     //Profil
     @SerializedName("email_user")
     @Expose
@@ -2206,5 +2219,29 @@ public class DataModel {
 
     public void setIsi_jawaban(String isi_jawaban) {
         this.isi_jawaban = isi_jawaban;
+    }
+
+    public String getNama_wilayah_mandiri() {
+        return nama_wilayah_mandiri;
+    }
+
+    public void setNama_wilayah_mandiri(String nama_wilayah_mandiri) {
+        this.nama_wilayah_mandiri = nama_wilayah_mandiri;
+    }
+
+    public String getId_wilayah_mandiri() {
+        return id_wilayah_mandiri;
+    }
+
+    public void setId_wilayah_mandiri(String id_wilayah_mandiri) {
+        this.id_wilayah_mandiri = id_wilayah_mandiri;
+    }
+
+    public String getWilayah() {
+        return wilayah;
+    }
+
+    public void setWilayah(String wilayah) {
+        this.wilayah = wilayah;
     }
 }

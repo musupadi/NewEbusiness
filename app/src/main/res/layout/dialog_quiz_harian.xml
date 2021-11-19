@@ -9,19 +9,30 @@
     android:padding="5dp">
     <TextView
         android:layout_margin="10dp"
+        android:id="@+id/tvKategori"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Kategori"
+        android:textColor="@color/colorPrimary"
+        android:fontFamily="@font/inter_extra_bold"
+        android:textSize="@dimen/text_extra_large" />
+    <TextView
+        android:layout_margin="10dp"
         android:id="@+id/tvSoal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Quiz Harian "
         android:textColor="@color/colorPrimary"
-        android:fontFamily="@font/inter_extra_bold"
+        android:fontFamily="@font/inter"
         android:textSize="@dimen/text_extra_large" />
+
     <LinearLayout
         android:layout_margin="5dp"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:orientation="horizontal">
         <Button
+            android:padding="5dp"
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:textStyle="bold"
@@ -32,6 +43,7 @@
             android:textColor="@color/colorWhite"
             android:background="@drawable/button_blue_rounded" />
         <Button
+            android:padding="5dp"
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:textStyle="bold"
@@ -48,6 +60,7 @@
         android:layout_height="100dp"
         android:orientation="horizontal">
         <Button
+            android:padding="5dp"
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:textStyle="bold"
@@ -58,6 +71,7 @@
             android:textColor="@color/colorWhite"
             android:background="@drawable/button_blue_rounded" />
         <Button
+            android:padding="5dp"
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:textStyle="bold"

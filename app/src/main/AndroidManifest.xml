@@ -26,12 +26,72 @@
         android:theme="@style/AppThemeNoAction"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".Activity.ui.Farming.Compliance.ComplianceFarmingActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.ui.Farming.Ecosystem.EcosystemFarmingActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.ui.Farming.ListOfProbing.ListOfProbingFarmingActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.ui.Farming.MarketingInteligence.MarketingIntelienceFarmingActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.ui.Farming.Outlook.OutlookFarmingActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.ui.Contractor.Compliance.ComplianceContractorActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.ui.Contractor.Ecosystem.EcosystemContractorActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.ui.Contractor.ListOfProbing.ListOfProbingContractorActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.ui.Contractor.MarketInteligence.MarketInteliganceContractorActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.ui.OilAndGas.Compliance.ComplianceOilAndGasActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.ui.OilAndGas.Ecossytem.EcosystemOilAndGasActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.ui.OilAndGas.ListOfProbing.ListOfProbingOilAndGasActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.ui.OilAndGas.MarketInteligence.MarketInteligenceOilAndGasActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.ui.OilAndGas.Outlook.OutlookOilAndGasActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.ui.Mining.Compliance.ComplianceMiningActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.ui.Mining.ListOfProbing.ListOfProbingMiningActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.ui.Mining.MarketInteligence.MarketInteliganceMiningActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.ui.Mining.Ecosystem.EcosystemMiningActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.ui.Mining.Outlook.OutlookActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.ui.Contractor.Outlook.OtulookActivity"
+            android:exported="true" />
+        <activity
             android:name=".Activity.ui.Forum.PostForumActivity"
             android:exported="true" />
         <activity
             android:name=".Activity.WebViewEbookActivity"
             android:exported="true"
-            android:screenOrientation="landscape"/>
+            android:screenOrientation="landscape" />
         <activity
             android:name=".Activity.ui.Forum.DetailForumActivity"
             android:exported="true" />

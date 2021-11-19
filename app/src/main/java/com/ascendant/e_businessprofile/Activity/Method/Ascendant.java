@@ -311,6 +311,13 @@ public class Ascendant {
         }
         return Des;
     }
+    public String ExtraSmallText(String description){
+        String Des = description;
+        if (description.length() >= 15){
+            Des = description.substring(0,15)+"...";
+        }
+        return Des;
+    }
     public String SmallText(String description){
         String Des = description;
         if (description.length() >= 50){

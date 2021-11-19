@@ -30,6 +30,7 @@ import android.widget.Toast;
 
 import com.ascendant.e_businessprofile.Activity.API.ApiRequest;
 import com.ascendant.e_businessprofile.Activity.API.RetroServer;
+import com.ascendant.e_businessprofile.Activity.HomeActivity;
 import com.ascendant.e_businessprofile.Activity.Method.Ascendant;
 import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
 import com.ascendant.e_businessprofile.Adapter.AdapterEBook;
@@ -149,7 +150,8 @@ public class DetailForumActivity extends AppCompatActivity {
         Back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onBackPressed();
+                Intent intent = new Intent(DetailForumActivity.this, HomeActivity.class);
+                startActivity(intent);
             }
         });
         More.setOnClickListener(new View.OnClickListener() {
@@ -346,6 +348,7 @@ public class DetailForumActivity extends AppCompatActivity {
                         web.loadData(response.body().getData().getDetail().getIsi_post(),"text/html","UTF-8");
                         mItemsGambar=response.body().getData().getImage();
                         mItemsKomen=response.body().getData().getKomen();
+                        Jam.setText(response.body().getData().getTgl_post());
                         mAdapter = new AdapterGambarForum(DetailForumActivity.this,mItemsGambar);
                         recyclerViewGambar.setAdapter(mAdapter);
                         mAdapter.notifyDataSetChanged();
@@ -470,5 +473,11 @@ public class DetailForumActivity extends AppCompatActivity {
                     Toast.makeText(this, filename, Toast.LENGTH_SHORT).show();
                 }
         }}
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(DetailForumActivity.this, HomeActivity.class);
+        startActivity(intent);
     }
 }

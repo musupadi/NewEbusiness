@@ -603,4 +603,10 @@ public class PostForumActivity extends AppCompatActivity {
                 }
             }}
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(PostForumActivity.this, HomeActivity.class);
+        startActivity(intent);;
+    }
 }

@@ -144,7 +144,8 @@ public interface ApiRequest {
     @FormUrlEncoded
     @POST("update_divisi")
     Call<ResponseObject> UpdateDivisi(@Field("token") String token,
-                                       @Field("id_divisi_mandiri") String id_divisi_mandiri);
+                                      @Field("id_divisi_mandiri") String id_divisi_mandiri,
+                                      @Field("id_wilayah_mandiri") String id_wilayah_mandiri);
 
     @FormUrlEncoded
     @POST("jawab_quiz_harian")
@@ -248,6 +249,9 @@ public interface ApiRequest {
     @GET("divisi")
     Call<ResponseArrayObject> Divisi();
 
+    @GET("wilayah")
+    Call<ResponseArrayObject> Wilayah();
+
     //Old API
     //FMCG
     @GET("ebook/sustainable_ebook?kuncifaba=FABAJakartaIndonesia2019kunci")
@@ -316,4 +320,5 @@ public interface ApiRequest {
                              @Field("kuncifaba") String kuncifaba,
                              @Field("kmk") String kmk,
                              @Field("kategori") String kategori);
+
 }

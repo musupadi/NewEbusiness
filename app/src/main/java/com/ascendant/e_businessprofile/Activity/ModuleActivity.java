@@ -12,11 +12,14 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.ascendant.e_businessprofile.Activity.ui.ChatFragment;
+import com.ascendant.e_businessprofile.Activity.ui.Contractor.ContractorFragment;
 import com.ascendant.e_businessprofile.Activity.ui.FMCG.FMCGFragment;
+import com.ascendant.e_businessprofile.Activity.ui.Farming.FarmingFragment;
 import com.ascendant.e_businessprofile.Activity.ui.ForumFragment;
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.HealthcareFragment;
 import com.ascendant.e_businessprofile.Activity.ui.HomeFragment;
 import com.ascendant.e_businessprofile.Activity.ui.Mining.MiningFragment;
+import com.ascendant.e_businessprofile.Activity.ui.OilAndGas.OilAndGasFragment;
 import com.ascendant.e_businessprofile.R;
 
 public class ModuleActivity extends AppCompatActivity {
@@ -44,13 +47,13 @@ public class ModuleActivity extends AppCompatActivity {
                 fragment = new MiningFragment();
                 ChangeFragment(fragment);
             }else if (MODULE.equals("Contractor")){
-                fragment = new MiningFragment();
+                fragment = new ContractorFragment();
                 ChangeFragment(fragment);
             }else if (MODULE.equals("Oil & Gas")){
-                fragment = new MiningFragment();
+                fragment = new OilAndGasFragment();
                 ChangeFragment(fragment);
             }else if (MODULE.equals("Farming")){
-                fragment = new MiningFragment();
+                fragment = new FarmingFragment();
                 ChangeFragment(fragment);
             }
         }catch (Exception e){

@@ -20,6 +20,7 @@ import com.ascendant.e_businessprofile.Activity.ui.ChatFragment;
 import com.ascendant.e_businessprofile.Activity.ui.ForumFragment;
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.HealthcareFragment;
 import com.ascendant.e_businessprofile.Activity.ui.HomeFragment;
+import com.ascendant.e_businessprofile.Activity.ui.ProfileFragment;
 import com.ascendant.e_businessprofile.R;
 
 import pub.devrel.easypermissions.EasyPermissions;
@@ -102,7 +103,7 @@ public class HomeActivity extends AppCompatActivity {
     private void Profile() {
         Default();
         Profile.setImageResource(R.drawable.profile_active);
-        fragment = new ChatFragment();
+        fragment = new ProfileFragment();
         ChangeFragment(fragment);
     }
     private void ChangeFragment(Fragment fragment){

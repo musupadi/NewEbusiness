@@ -144,12 +144,7 @@ public class FMCGFragment extends Fragment {
                 getActivity().onBackPressed();
             }
         });
-        scroll.post(new Runnable() {
-            @Override
-            public void run() {
-                scroll.fullScroll(View.FOCUS_UP);
-            }
-        });
+        scroll.fullScroll(View.FOCUS_UP);
     }
     private void Logic(){
         mManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL,false);
