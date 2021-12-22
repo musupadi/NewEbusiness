@@ -39,6 +39,7 @@ public class FMCGEcosystemFragment extends Fragment {
     Dialog myDialog;
     Ascendant AscNet;
     Button Views,Download;
+    Ascendant ascendant = new Ascendant();
     public FMCGEcosystemFragment() {
         // Required empty public constructor
     }
@@ -74,7 +75,7 @@ public class FMCGEcosystemFragment extends Fragment {
         Views = myDialog.findViewById(R.id.btnView);
         Download = myDialog.findViewById(R.id.btnDownload);
         photoView = view.findViewById(R.id.ivEcosystem);
-        new RetreivePDFStreams().execute("https://ebuss.fabakonsultan.com/files/healthcare/ekosistem/map_ekosistem.pdf");
+        new RetreivePDFStreams().execute(ascendant.BASE_URL()+"/files/healthcare/ekosistem/map_ekosistem.pdf");
         Distributor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

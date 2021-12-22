@@ -11,4 +11,8 @@
     <dimen name="text_medium">14sp</dimen>
     <dimen name="text_small">8sp</dimen>
     <dimen name="text_small_medium">11sp</dimen>
+
+
+
+    <dimen name="box_long">150dp</dimen>
 </resources>

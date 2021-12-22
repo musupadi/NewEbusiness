@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.ascendant.e_businessprofile.Activity.Method.Ascendant;
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.Ecosystem.HospitalAssociation.HospitalAssociationActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.Ecosystem.ListOfHospital.HospitalListActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.Ecosystem.ListOfHospital.ListOfHospitalActivity;
@@ -31,6 +32,7 @@ public class EcosystemFragment extends Fragment {
 
     PDFView photoView;
     CardView ListOfHospital,SupportingIndustries,HospitalAssociation;
+    Ascendant ascendant = new Ascendant();
     public EcosystemFragment() {
         // Required empty public constructor
     }
@@ -57,7 +59,7 @@ public class EcosystemFragment extends Fragment {
         HospitalAssociation = view.findViewById(R.id.cardHospitalAssociation);
         photoView =view.findViewById(R.id.ivEcosystem);
 
-        new RetreivePDFStreamsss().execute("https://ebuss.fabakonsultan.com/files/healthcare/ekosistem/map_ekosistem.pdf");
+        new RetreivePDFStreamsss().execute(ascendant.BASE_URL()+"files/healthcare/ekosistem/map_ekosistem.pdf");
         ListOfHospital.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

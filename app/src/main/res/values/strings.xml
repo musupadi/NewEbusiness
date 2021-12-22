@@ -40,6 +40,7 @@
     <string name="list_of_probing">List of Probing</string>
     <string name="credit_worthiness">Credit Worthiness</string>
     <string name="compliance">Compliance</string>
+    <string name="mandiri_updatge">Mandiri update</string>
     <string name="credit_decisive_tool">Credit Decision Tool</string>
     <string name="input_forum">Input Forum</string>
     <string name="food_and_beverage">Food &amp; Beverage</string>
@@ -82,7 +83,8 @@
     <string name="hospital_equipment">Hospital Equipment</string>
     <string name="total_hospital">Total Hospital</string>
     <string name="total_bed">Total Bed</string>
-
+    <string name="loreum_ipsum_full">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </string>
+    <string name="loreum_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
     <!-- Credit Worthiness   -->
     <string name="creidt_worthiness">Credit Worthiness</string>
     <string name="hospital_operational_perfomance_indicator">Hospital Operational Perfomance Indicator</string>

@@ -49,12 +49,6 @@ public class FMCGBusinessRefrenceActivity extends AppCompatActivity {
                 Forum();
             }
         });
-        LChat.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Chat();
-            }
-        });
         LProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

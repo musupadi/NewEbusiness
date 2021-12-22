@@ -68,9 +68,8 @@
                 android:orientation="vertical">
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_height="@dimen/box_long"
                     android:orientation="horizontal">
-
                     <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -86,22 +85,40 @@
                             android:padding="10dp"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:orientation="vertical"
+                            android:orientation="horizontal"
                             android:gravity="center">
                             <ImageView
                                 android:layout_width="80dp"
                                 android:layout_height="80dp"
-                                android:src="@drawable/clinic"/>
-                            <TextView
+                                android:src="@drawable/clinic"
+                                android:layout_margin="10dp"/>
+                            <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:text="@string/operational"
-                                android:textStyle="bold"
-                                android:textSize="@dimen/text_extra_large"
-                                android:gravity="center"/>
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text="@string/operational"
+                                    android:textStyle="bold"
+                                    android:textSize="@dimen/text_extra_large" />
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text="@string/loreum_ipsum"
+                                    android:textColor="@color/colorConcrete"
+                                    android:textSize="@dimen/text_small_medium" />
+                            </LinearLayout>
 
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/box_long"
+                    android:orientation="horizontal">
+
                     <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -117,19 +134,30 @@
                             android:padding="10dp"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:orientation="vertical"
+                            android:orientation="horizontal"
                             android:gravity="center">
                             <ImageView
                                 android:layout_width="80dp"
                                 android:layout_height="80dp"
-                                android:src="@drawable/clinic"/>
-                            <TextView
+                                android:src="@drawable/clinic"
+                                android:layout_margin="10dp"/>
+                            <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:text="@string/financial"
-                                android:textStyle="bold"
-                                android:textSize="@dimen/text_extra_large"
-                                android:gravity="center"/>
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text="@string/financial"
+                                    android:textStyle="bold"
+                                    android:textSize="@dimen/text_extra_large" />
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text="@string/loreum_ipsum"
+                                    android:textColor="@color/colorConcrete"
+                                    android:textSize="@dimen/text_small_medium" />
+                            </LinearLayout>
 
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
@@ -138,7 +166,7 @@
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_height="@dimen/box_long"
                     android:orientation="horizontal">
 
                     <androidx.cardview.widget.CardView
@@ -156,22 +184,38 @@
                             android:padding="10dp"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:orientation="vertical"
+                            android:orientation="horizontal"
                             android:gravity="center">
                             <ImageView
                                 android:layout_width="80dp"
                                 android:layout_height="80dp"
-                                android:src="@drawable/clinic"/>
-                            <TextView
+                                android:src="@drawable/clinic"
+                                android:layout_margin="10dp"/>
+                            <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:text="@string/parameter"
-                                android:textStyle="bold"
-                                android:textSize="@dimen/text_extra_large"
-                                android:gravity="center"/>
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text="@string/parameters"
+                                    android:textStyle="bold"
+                                    android:textSize="@dimen/text_extra_large" />
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text="@string/loreum_ipsum"
+                                    android:textColor="@color/colorConcrete"
+                                    android:textSize="@dimen/text_small_medium" />
+                            </LinearLayout>
 
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/box_long"
+                    android:orientation="horizontal">
                     <androidx.cardview.widget.CardView
                         android:id="@+id/cardKeyOfSuccess"
                         android:layout_width="match_parent"
@@ -187,19 +231,30 @@
                             android:padding="10dp"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:orientation="vertical"
+                            android:orientation="horizontal"
                             android:gravity="center">
                             <ImageView
                                 android:layout_width="80dp"
                                 android:layout_height="80dp"
-                                android:src="@drawable/clinic"/>
-                            <TextView
+                                android:src="@drawable/clinic"
+                                android:layout_margin="10dp"/>
+                            <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:text="@string/key_of_success"
-                                android:textStyle="bold"
-                                android:textSize="@dimen/text_extra_large"
-                                android:gravity="center"/>
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text="@string/key_of_success"
+                                    android:textStyle="bold"
+                                    android:textSize="@dimen/text_extra_large" />
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text="@string/loreum_ipsum"
+                                    android:textColor="@color/colorConcrete"
+                                    android:textSize="@dimen/text_small_medium" />
+                            </LinearLayout>
 
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
@@ -208,7 +263,7 @@
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_height="@dimen/box_long"
                     android:orientation="horizontal">
 
                     <androidx.cardview.widget.CardView
@@ -226,53 +281,34 @@
                             android:padding="10dp"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:orientation="vertical"
+                            android:orientation="horizontal"
                             android:gravity="center">
                             <ImageView
                                 android:layout_width="80dp"
                                 android:layout_height="80dp"
-                                android:src="@drawable/clinic"/>
-                            <TextView
+                                android:src="@drawable/clinic"
+                                android:layout_margin="10dp"/>
+                            <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:text="@string/risk_and_mitigation"
-                                android:textStyle="bold"
-                                android:textSize="@dimen/text_extra_large"
-                                android:gravity="center"/>
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text="@string/risk_and_mitigation"
+                                    android:textStyle="bold"
+                                    android:textSize="@dimen/text_extra_large" />
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text="@string/loreum_ipsum"
+                                    android:textColor="@color/colorConcrete"
+                                    android:textSize="@dimen/text_small_medium" />
+                            </LinearLayout>
 
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
-                    <androidx.cardview.widget.CardView
-                        android:visibility="invisible"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        app:cardCornerRadius="10dp"
-                        app:cardElevation="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginBottom="5dp">
-                        <LinearLayout
-                            android:padding="10dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            android:gravity="center">
-                            <ImageView
-                                android:layout_width="80dp"
-                                android:layout_height="80dp"
-                                android:src="@drawable/clinic"/>
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:text="@string/risk_and_mitigation"
-                                android:textStyle="bold"
-                                android:textSize="@dimen/text_extra_large"
-                                android:gravity="center"/>
 
-                        </LinearLayout>
-                    </androidx.cardview.widget.CardView>
 
 
                 </LinearLayout>

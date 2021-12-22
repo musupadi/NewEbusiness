@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorBlueSky">#308AE6</color>
-    <color name="colorPrimary">#1F5389</color>
+    <color name="colorBlueSky">#4283E9</color>
+    <color name="colorPrimary">#4283E9</color>
     <color name="colorPrimaryDark">#183C6E</color>
     <color name="colorSecondary">#FAFAFA</color>
-    <color name="colorBackground">#E5E5E5</color>
+    <color name="colorBackground">#ECF2FC</color>
     <color name="colorAccent">#FBB712</color>
     <color name="colorAccent2">#93C771</color>
     <color name="colorButton">#00558E</color>

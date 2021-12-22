@@ -266,7 +266,7 @@ public class Ascendant {
         return authHeader;
     }
     public String BASE_URL(){
-        String URL = "https://ebuss.fabakonsultan.com/";
+        String URL = "https://ebuss.the-urbandev.com/";
         return URL;
     }
     public void Download(final Context ctx, final String file, final String link, final String nama){
