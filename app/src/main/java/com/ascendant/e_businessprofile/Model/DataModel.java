@@ -114,6 +114,11 @@ public class DataModel {
     @Expose
     public String judul_probing;
 
+    @SerializedName("nama_probing")
+    @Expose
+    public String nama_probing;
+
+
     @SerializedName("isi_probing")
     @Expose
     public String isi_probing;
@@ -135,9 +140,17 @@ public class DataModel {
     @Expose
     public String thumbnail_video;
 
+    @SerializedName("thumbnail")
+    @Expose
+    public String thumbnail;
+
     @SerializedName("tgl_upload_video")
     @Expose
     public String tgl_upload_video;
+
+    @SerializedName("source_video")
+    @Expose
+    public String source_video;
 
     //Supporting Industries
     @SerializedName("nama_provinsi")
@@ -413,6 +426,46 @@ public class DataModel {
     @Expose
     public String isi_jawaban;
 
+    //Mandiri update
+    @SerializedName("id_mandiri_update")
+    @Expose
+    public String id_mandiri_update;
+
+    @SerializedName("kategori_mandiri_update")
+    @Expose
+    public String kategori_mandiri_update;
+
+    @SerializedName("judul_mandiri_update")
+    @Expose
+    public String judul_mandiri_update;
+
+    @SerializedName("slug_mandiri_update")
+    @Expose
+    public String slug_mandiri_update;
+
+    @SerializedName("isi_mandiri_update")
+    @Expose
+    public String isi_mandiri_update;
+
+    @SerializedName("status_mandiri_update")
+    @Expose
+    public String status_mandiri_update;
+
+    @SerializedName("cover_mandiri_update")
+    @Expose
+    public String cover_mandiri_update;
+
+    @SerializedName("link_youtube")
+    @Expose
+    public String link_youtube;
+
+    @SerializedName("id_mandiri_update_file")
+    @Expose
+    public String id_mandiri_update_file;
+
+    @SerializedName("link_file_mandiri_update")
+    @Expose
+    public String link_file_mandiri_update;
 
 
     //Old EBusiness
@@ -2243,5 +2296,109 @@ public class DataModel {
 
     public void setWilayah(String wilayah) {
         this.wilayah = wilayah;
+    }
+
+    public String getSource_video() {
+        return source_video;
+    }
+
+    public void setSource_video(String source_video) {
+        this.source_video = source_video;
+    }
+
+    public String getThumbnail() {
+        return thumbnail;
+    }
+
+    public void setThumbnail(String thumbnail) {
+        this.thumbnail = thumbnail;
+    }
+
+    public String getId_mandiri_update() {
+        return id_mandiri_update;
+    }
+
+    public void setId_mandiri_update(String id_mandiri_update) {
+        this.id_mandiri_update = id_mandiri_update;
+    }
+
+    public String getKategori_mandiri_update() {
+        return kategori_mandiri_update;
+    }
+
+    public void setKategori_mandiri_update(String kategori_mandiri_update) {
+        this.kategori_mandiri_update = kategori_mandiri_update;
+    }
+
+    public String getJudul_mandiri_update() {
+        return judul_mandiri_update;
+    }
+
+    public void setJudul_mandiri_update(String judul_mandiri_update) {
+        this.judul_mandiri_update = judul_mandiri_update;
+    }
+
+    public String getSlug_mandiri_update() {
+        return slug_mandiri_update;
+    }
+
+    public void setSlug_mandiri_update(String slug_mandiri_update) {
+        this.slug_mandiri_update = slug_mandiri_update;
+    }
+
+    public String getIsi_mandiri_update() {
+        return isi_mandiri_update;
+    }
+
+    public void setIsi_mandiri_update(String isi_mandiri_update) {
+        this.isi_mandiri_update = isi_mandiri_update;
+    }
+
+    public String getStatus_mandiri_update() {
+        return status_mandiri_update;
+    }
+
+    public void setStatus_mandiri_update(String status_mandiri_update) {
+        this.status_mandiri_update = status_mandiri_update;
+    }
+
+    public String getCover_mandiri_update() {
+        return cover_mandiri_update;
+    }
+
+    public void setCover_mandiri_update(String cover_mandiri_update) {
+        this.cover_mandiri_update = cover_mandiri_update;
+    }
+
+    public String getLink_youtube() {
+        return link_youtube;
+    }
+
+    public void setLink_youtube(String link_youtube) {
+        this.link_youtube = link_youtube;
+    }
+
+    public String getId_mandiri_update_file() {
+        return id_mandiri_update_file;
+    }
+
+    public void setId_mandiri_update_file(String id_mandiri_update_file) {
+        this.id_mandiri_update_file = id_mandiri_update_file;
+    }
+
+    public String getLink_file_mandiri_update() {
+        return link_file_mandiri_update;
+    }
+
+    public void setLink_file_mandiri_update(String link_file_mandiri_update) {
+        this.link_file_mandiri_update = link_file_mandiri_update;
+    }
+
+    public String getNama_probing() {
+        return nama_probing;
+    }
+
+    public void setNama_probing(String nama_probing) {
+        this.nama_probing = nama_probing;
     }
 }

@@ -35,12 +35,12 @@
     <string name="detail_healthcare">Lorem ipsum dolor sitamet\nkapuska kapuskum</string>
     <string name="business_refrence">Busineass Refrence</string>
     <string name="outlook">Outlook</string>
-    <string name="market_inteligence">Market Inteligence</string>
+    <string name="market_inteligence">Market\nInteligence</string>
     <string name="ecosystem">Ecosystem</string>
     <string name="list_of_probing">List of Probing</string>
     <string name="credit_worthiness">Credit Worthiness</string>
-    <string name="compliance">Compliance</string>
-    <string name="mandiri_updatge">Mandiri update</string>
+    <string name="compliance">Internal\nResources</string>
+    <string name="mandiri_updatge">Mandiri Update</string>
     <string name="credit_decisive_tool">Credit Decision Tool</string>
     <string name="input_forum">Input Forum</string>
     <string name="food_and_beverage">Food &amp; Beverage</string>
@@ -84,7 +84,7 @@
     <string name="total_hospital">Total Hospital</string>
     <string name="total_bed">Total Bed</string>
     <string name="loreum_ipsum_full">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </string>
-    <string name="loreum_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
+    <string name="loreum_ipsum"></string>
     <!-- Credit Worthiness   -->
     <string name="creidt_worthiness">Credit Worthiness</string>
     <string name="hospital_operational_perfomance_indicator">Hospital Operational Perfomance Indicator</string>
@@ -176,6 +176,12 @@
     <string name="roe">Semakin besar rasio imbal hasil atas ekuitas, maka semakin baik kemampuan perusahaan dalam menghasilkan profit untuk pemegang saham. Besarnya rasio ini sering kali mengindikasikan bahwa  penerimaan perusahaan atas peluang investasi yang baik dan manajemen biaya yang efektif</string>
     <!-- /Rasio Profitabilitas  -->
 
+
+    <string name="stakeholder_tambang_batubara">Stakeholder Tambang Batu Bara</string>
+    <string name="perusahaan_jasa_pertambangan_indonesia">Perusahaan Jasa Pertambangan Indonesia</string>
+    <string name="perusahaan_tambang_batubara">Perusahaan Tambang Batubara</string>
+    <string name="daftar_perusahaan_tambang">Daftar Perusahaan Tambang</string>
+    <string name="minerba_one_map_indonesia">Minerba One Map Indonesia</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_maps">MapsActivity</string>

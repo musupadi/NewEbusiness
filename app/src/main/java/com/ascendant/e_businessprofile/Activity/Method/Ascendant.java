@@ -22,6 +22,10 @@ import java.util.Date;
 import java.util.Locale;
 
 public class Ascendant {
+    public String GetIDYoutube(String link){
+        String replace1 = link.replace("https://www.youtube.com/watch?v=","");
+        return replace1;
+    }
     public String PembulatanHari(String hari){
         Double hari1 = Double.parseDouble(BatasanDouble(Double.parseDouble(hari)));
         Double total = Double.parseDouble(hari)-hari1;
@@ -353,7 +357,7 @@ public class Ascendant {
         String replace15 = replace14.replace("</div>","");
         String replace16 = replace15.replace("<p>1.","");
         String replace17 = replace16.replace("<p style=\\\"text-align: left;\\\">","");
-        String replace18 = replace17.replace("<a href=","");
+        String replace18 = replace17.replace("<em>","");
         return replace18;
     }
     public void DownloadPDF(String url, String judul, Context ctx){

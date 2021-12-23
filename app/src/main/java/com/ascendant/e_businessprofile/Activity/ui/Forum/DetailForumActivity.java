@@ -79,7 +79,7 @@ public class DetailForumActivity extends AppCompatActivity {
     private RecyclerView.Adapter mAdapter2;
     private RecyclerView.LayoutManager mManager2;
     Ascendant AscNet = new Ascendant();
-    WebView web;
+    TextView web;
     CardView cardImg;
     ImageView Reply,GambarKomen,Upload,Send;
     LinearLayout cardKomen;
@@ -345,7 +345,7 @@ public class DetailForumActivity extends AppCompatActivity {
                 try {
                     if (response.body().getKode().equals(200)){
                         Nama.setText(response.body().getData().getDetail().getNama_user());
-                        web.loadData(response.body().getData().getDetail().getIsi_post(),"text/html","UTF-8");
+                        web.setText(response.body().getData().getDetail().getIsi_post());
                         mItemsGambar=response.body().getData().getImage();
                         mItemsKomen=response.body().getData().getKomen();
                         Jam.setText(response.body().getData().getTgl_post());
@@ -355,7 +355,6 @@ public class DetailForumActivity extends AppCompatActivity {
                         mAdapter2 = new AdapterKomen(DetailForumActivity.this,mItemsKomen,ID,CATEGORY,JUDUL);
                         recyclerKomen.setAdapter(mAdapter2);
                         mAdapter2.notifyDataSetChanged();
-
                         if (REPLY_NAME==null || REPLY_NAME.equals("")){
                             cardKomen.setVisibility(View.GONE);
                             ReplyName.setVisibility(View.GONE);

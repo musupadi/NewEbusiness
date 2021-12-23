@@ -28,6 +28,7 @@ import com.ascendant.e_businessprofile.Activity.ui.Healthcare.ListOfProbing.List
 import com.ascendant.e_businessprofile.Activity.ui.Mining.Compliance.ComplianceMiningActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Mining.Ecosystem.EcosystemMiningActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Mining.ListOfProbing.ListOfProbingMiningActivity;
+import com.ascendant.e_businessprofile.Activity.ui.Mining.MandiriUpdate.MiningMandiriUpdateActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Mining.MarketInteligence.MarketInteliganceMiningActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Mining.Outlook.OutlookActivity;
 import com.ascendant.e_businessprofile.Activity.ui.OilAndGas.Compliance.ComplianceOilAndGasActivity;
@@ -56,7 +57,7 @@ public class MiningFragment extends Fragment {
     DB_Helper dbHelper;
     String Token;
     LinearLayout Back;
-    RelativeLayout Outlook,ListOfProbing,Compliance,Ecosystem,MarketInteligence;
+    RelativeLayout Outlook,ListOfProbing,Compliance,Ecosystem,MarketInteligence,MandiriUpdate;
     ScrollView scroll;
     public MiningFragment() {
         // Required empty public constructor
@@ -94,6 +95,7 @@ public class MiningFragment extends Fragment {
         Compliance = view.findViewById(R.id.relativeCompliance);
         Ecosystem = view.findViewById(R.id.relativeEcosystem);
         MarketInteligence = view.findViewById(R.id.relativeMarketInteligence);
+        MandiriUpdate = view.findViewById(R.id.relativeMandiriUpdate);
         Logic();
 
         Outlook.setOnClickListener(new View.OnClickListener() {
@@ -128,6 +130,13 @@ public class MiningFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), MarketInteliganceMiningActivity.class);
+                startActivity(intent);
+            }
+        });
+        MandiriUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), MiningMandiriUpdateActivity.class);
                 startActivity(intent);
             }
         });

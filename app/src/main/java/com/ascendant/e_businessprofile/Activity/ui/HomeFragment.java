@@ -511,7 +511,7 @@ public class HomeFragment extends Fragment {
                     if (response.body().getKode().equals(200)){
                         nama.setText(response.body().getData().getNama_user());
                         divisi.setText(response.body().getData().getDivisi()+" ("+response.body().getData().getWilayah()+")");
-                        if (divisi.getText().toString().isEmpty() || divisi.getText().toString() == ""){
+                        if (response.body().getData().getDivisi().equals("")){
                             myDialog.show();
                         }
                     }else{

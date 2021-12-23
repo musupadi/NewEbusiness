@@ -187,14 +187,15 @@
                             android:layout_marginEnd="15dp"
                             android:layout_marginBottom="15dp"
                             android:src="@drawable/compliance" />
+
                         <TextView
-                            android:layout_alignParentBottom="true"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/compliance"
+                            android:layout_alignParentBottom="true"
+                            android:fontFamily="@font/inter"
                             android:gravity="center"
-                            android:textColor="@color/colorBlack"
-                            android:fontFamily="@font/inter"/>
+                            android:text="@string/compliance"
+                            android:textColor="@color/colorBlack" />
                     </RelativeLayout>
                     <RelativeLayout
                         android:id="@+id/relativeMandiriUpdate"

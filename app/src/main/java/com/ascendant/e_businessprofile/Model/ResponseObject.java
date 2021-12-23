@@ -39,6 +39,7 @@ public class ResponseObject {
     List<DataModel> daftar_rs;
 
 
+
     public Integer getKode() {
         return kode;
     }

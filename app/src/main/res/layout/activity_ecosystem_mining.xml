@@ -68,6 +68,7 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
                     <LinearLayout
+                        android:id="@+id/linearStakeHolder"
                         android:layout_margin="10dp"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/box_long"
@@ -100,7 +101,7 @@
                                         <TextView
                                             android:layout_width="match_parent"
                                             android:layout_height="match_parent"
-                                            android:text="@string/players_in_coal_mining"
+                                            android:text="@string/stakeholder_tambang_batubara"
                                             android:textStyle="bold"
                                             android:textSize="@dimen/text_extra_large" />
                                         <TextView
@@ -116,6 +117,7 @@
                         </RelativeLayout>
                     </LinearLayout>
                     <LinearLayout
+                        android:id="@+id/linearPerusahaanJasaPertambangan"
                         android:layout_margin="10dp"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/box_long"
@@ -148,7 +150,7 @@
                                         <TextView
                                             android:layout_width="match_parent"
                                             android:layout_height="match_parent"
-                                            android:text="@string/players_in_nickel_mining"
+                                            android:text="@string/perusahaan_jasa_pertambangan_indonesia"
                                             android:textStyle="bold"
                                             android:textSize="@dimen/text_extra_large" />
                                         <TextView
@@ -164,6 +166,7 @@
                         </RelativeLayout>
                     </LinearLayout>
                     <LinearLayout
+                        android:id="@+id/linearPerusahaanTambangBatubara"
                         android:layout_margin="10dp"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/box_long"
@@ -196,7 +199,105 @@
                                         <TextView
                                             android:layout_width="match_parent"
                                             android:layout_height="match_parent"
-                                            android:text="@string/supporting_players"
+                                            android:text="@string/perusahaan_tambang_batubara"
+                                            android:textStyle="bold"
+                                            android:textSize="@dimen/text_extra_large" />
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:text="@string/loreum_ipsum"
+                                            android:textColor="@color/colorConcrete"
+                                            android:textSize="@dimen/text_small_medium" />
+                                    </LinearLayout>
+
+                                </LinearLayout>
+                            </androidx.cardview.widget.CardView>
+                        </RelativeLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/linearDaftarPerusahaanTambang"
+                        android:layout_margin="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/box_long"
+                        android:orientation="horizontal">
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="match_parent"
+                                android:layout_centerInParent="true"
+                                android:layout_height="match_parent"
+                                app:cardCornerRadius="10dp"
+                                app:cardElevation="10dp">
+                                <LinearLayout
+                                    android:padding="10dp"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:orientation="horizontal"
+                                    android:gravity="center">
+                                    <ImageView
+                                        android:layout_width="80dp"
+                                        android:layout_height="80dp"
+                                        android:src="@drawable/government_regulations"
+                                        android:layout_margin="10dp"/>
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical">
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:text="@string/daftar_perusahaan_tambang"
+                                            android:textStyle="bold"
+                                            android:textSize="@dimen/text_extra_large" />
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:text="@string/loreum_ipsum"
+                                            android:textColor="@color/colorConcrete"
+                                            android:textSize="@dimen/text_small_medium" />
+                                    </LinearLayout>
+
+                                </LinearLayout>
+                            </androidx.cardview.widget.CardView>
+                        </RelativeLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/linearMinerbaOneMap"
+                        android:layout_margin="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/box_long"
+                        android:orientation="horizontal">
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="match_parent"
+                                android:layout_centerInParent="true"
+                                android:layout_height="match_parent"
+                                app:cardCornerRadius="10dp"
+                                app:cardElevation="10dp">
+                                <LinearLayout
+                                    android:padding="10dp"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:orientation="horizontal"
+                                    android:gravity="center">
+                                    <ImageView
+                                        android:layout_width="80dp"
+                                        android:layout_height="80dp"
+                                        android:src="@drawable/health_minister_decree"
+                                        android:layout_margin="10dp"/>
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical">
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:text="@string/minerba_one_map_indonesia"
                                             android:textStyle="bold"
                                             android:textSize="@dimen/text_extra_large" />
                                         <TextView

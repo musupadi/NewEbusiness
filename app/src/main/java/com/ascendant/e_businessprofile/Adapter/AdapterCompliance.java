@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -43,17 +44,34 @@ public class AdapterCompliance extends RecyclerView.Adapter<AdapterCompliance.Ho
         ascendant = new Ascendant();
         holderData.Tanggal.setText(ascendant.MagicDateChange(dm.getTgl_upload_video()));
         holderData.Nama.setText(ascendant.SmallText(dm.getJudul_video()));
-        Glide.with(ctx)
-                .load(ascendant.BASE_URL()+dm.getThumbnail_video())
-                .into(holderData.Gambar);
-        holderData.card.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent goInput = new Intent(ctx, DetailComplianceActivity.class);
-                goInput.putExtra("VIDEO_URL",dm.getLink_video());
-                ctx.startActivity(goInput);
-            }
-        });
+        if (dm.getSource_video().equals("youtube")){
+            Glide.with(ctx)
+                    .load(dm.getThumbnail())
+                    .into(holderData.Gambar);
+            holderData.card.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent goInput = new Intent(ctx, DetailComplianceActivity.class);
+                    goInput.putExtra("VIDEO_URL",dm.getLink_video());
+                    goInput.putExtra("SOURCE_VIDEO",dm.getSource_video());
+                    ctx.startActivity(goInput);
+                }
+            });
+        }else{
+            Glide.with(ctx)
+                    .load(ascendant.BASE_URL()+dm.getThumbnail_video())
+                    .into(holderData.Gambar);
+            holderData.card.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent goInput = new Intent(ctx, DetailComplianceActivity.class);
+                    goInput.putExtra("VIDEO_URL",dm.getLink_video());
+                    goInput.putExtra("SOURCE_VIDEO",dm.getSource_video());
+                    ctx.startActivity(goInput);
+                }
+            });
+        }
+
     }
 
     @Override

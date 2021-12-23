@@ -285,7 +285,7 @@
                         <ImageView
                             android:layout_width="50dp"
                             android:layout_height="match_parent"
-                            android:src="@drawable/indo_flag"
+                            android:src="@drawable/mandiri_logo"
                             android:layout_margin="5dp"/>
                         <com.google.android.material.textfield.TextInputLayout
                             android:layout_margin="5dp"

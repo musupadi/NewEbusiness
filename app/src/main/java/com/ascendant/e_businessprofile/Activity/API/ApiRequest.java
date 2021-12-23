@@ -2,6 +2,7 @@ package com.ascendant.e_businessprofile.Activity.API;
 
 import com.ascendant.e_businessprofile.Model.DataModel;
 import com.ascendant.e_businessprofile.Model.ResponseArrayObject;
+import com.ascendant.e_businessprofile.Model.ResponseDataModel;
 import com.ascendant.e_businessprofile.Model.ResponseObject;
 import com.ascendant.e_businessprofile.Model.ResponseQuiz;
 import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Perusahaan.Perusahaan;
@@ -321,4 +322,24 @@ public interface ApiRequest {
                              @Field("kmk") String kmk,
                              @Field("kategori") String kategori);
 
+    //Mining
+    @FormUrlEncoded
+    @POST("mining/video")
+    Call<ResponseArrayObject> Mining_compliance(@Field("token") String token);
+
+
+    @FormUrlEncoded
+    @POST("mandiri_update")
+    Call<ResponseArrayObject> MandiriUpdate(@Field("token") String token,
+                                            @Field("kategori") String kategori,
+                                            @Field("page") String page);
+
+    @FormUrlEncoded
+    @POST("mandiri_update/detail")
+    Call<ResponseDataModel> DetailMandiriUpdate(@Field("token") String token,
+                                                @Field("id_mandiri_update") String id_mandiri_update);
+
+    @FormUrlEncoded
+    @POST("mining/list_of_probing")
+    Call<ResponseArrayObject> Mining_List_of_Probing(@Field("token") String token);
 }

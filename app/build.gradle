@@ -68,3 +68,4 @@ dependencies {
     implementation 'androidx.multidex:multidex:2.0.1'
     implementation 'com.airbnb.android:lottie:3.3.0'
 }
+

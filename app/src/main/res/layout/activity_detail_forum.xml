@@ -92,7 +92,6 @@
                                     android:orientation="horizontal"
                                     android:layout_marginBottom="10dp">
                                     <TextView
-                                        android:gravity="center"
                                         android:fontFamily="@font/inter"
                                         android:textColor="@color/colorPrimary"
                                         android:textSize="@dimen/header_text_small"
@@ -123,7 +122,7 @@
                                             android:src="@drawable/reply_24_px"/>
                                     </LinearLayout>
                                 </LinearLayout>
-                                <WebView
+                                <TextView
                                     android:layout_marginTop="10dp"
                                     android:layout_marginBottom="10dp"
                                     android:layout_width="match_parent"
@@ -196,7 +195,7 @@
                                     android:layout_height="wrap_content"
                                     android:hint="@string/type_here"
                                     android:ems="10"
-                                    android:inputType="text"
+                                    android:inputType="textMultiLine"
                                     android:textSize="@dimen/text_medium"
                                     android:layout_weight="1"/>
                                 <ImageView
