@@ -255,6 +255,13 @@ public class AdapterNavigator extends RecyclerView.Adapter<AdapterNavigator.Hold
                             ctx.startActivity(i);
                         }
                     }
+                }else if (dm.getNavigator().equals("Outlook")){
+                    if (mList.get(i-2).equals("Mining")){
+                        if (!dm.getONCLICK().equals("true")){
+                            Intent i = new Intent(ctx, RequirementAnalysisActivity.class);
+                            ctx.startActivity(i);
+                        }
+                    }
                 }
             }
         });

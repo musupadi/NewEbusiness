@@ -11,6 +11,8 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.ascendant.e_businessprofile.Activity.API.ApiRequest;
@@ -22,8 +24,10 @@ import com.ascendant.e_businessprofile.Activity.ui.Healthcare.Compliance.Complia
 import com.ascendant.e_businessprofile.Activity.ui.HomeFragment;
 import com.ascendant.e_businessprofile.Activity.ui.NavigatorFragment;
 import com.ascendant.e_businessprofile.Adapter.AdapterCompliance;
+import com.ascendant.e_businessprofile.Adapter.Static.AdapterNavigator;
 import com.ascendant.e_businessprofile.Model.DataModel;
 import com.ascendant.e_businessprofile.Model.ResponseArrayObject;
+import com.ascendant.e_businessprofile.Model.StaticModel.Mining.MiningOutlookModel;
 import com.ascendant.e_businessprofile.R;
 
 import java.util.ArrayList;
@@ -41,6 +45,13 @@ public class ComplianceMiningActivity extends AppCompatActivity {
 
     DB_Helper dbHelper;
     String Token;
+
+    LinearLayout Available,Navigator;
+    RecyclerView rv2,recyclerView;
+    ImageView ivMore;
+    LinearLayout More,Back;
+    Boolean more=true;
+    private ArrayList<DataModel> pList = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,6 +66,48 @@ public class ComplianceMiningActivity extends AppCompatActivity {
         }
         rv = findViewById(R.id.recycler);
         Logic();
+        //Cut Here
+        rv2 = findViewById(R.id.recyclerNav);
+        Available = findViewById(R.id.linearAvailable);
+        Navigator = findViewById(R.id.linearNavigator);
+        ivMore = findViewById(R.id.ivMore);
+        More = findViewById(R.id.linearMore);
+        Back = findViewById(R.id.linearBack);
+        Available.setVisibility(View.VISIBLE);
+        pList.addAll(MiningOutlookModel.getListData());
+        rv2.setLayoutManager(new LinearLayoutManager(this));
+        AdapterNavigator adapters = new AdapterNavigator(this,pList);
+        rv2.setAdapter(adapters);
+
+        Back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
+        More.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    if (more){
+                        more = false;
+                        ivMore.setImageResource(R.drawable.close_concerate);
+                        Available.setVisibility(View.GONE);
+                        Navigator.setVisibility(View.VISIBLE);
+                    }else{
+                        more = true;
+                        ivMore.setImageResource(R.drawable.more_vertical_concerate);
+                        Available.setVisibility(View.VISIBLE);
+                        Navigator.setVisibility(View.GONE);
+                    }
+                }catch (Exception e){
+
+                }
+
+            }
+        });
+
+        //Cut Here
     }
     private void Logic(){
         mManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false);

@@ -32,8 +32,8 @@
     <string name="news">News</string>
     <string name="view_more">View More</string>
     <string name="back">Kembali</string>
-    <string name="detail_healthcare">Lorem ipsum dolor sitamet\nkapuska kapuskum</string>
-    <string name="business_refrence">Busineass Refrence</string>
+    <string name="detail_healthcare"></string>
+    <string name="business_refrence">Business Refrence</string>
     <string name="outlook">Outlook</string>
     <string name="market_inteligence">Market\nInteligence</string>
     <string name="ecosystem">Ecosystem</string>
@@ -103,7 +103,7 @@
     <string name="market_potetial">Market Potential</string>
     <string name="business_status">Business Status &amp; Prospects</string>
     <string name="business_proccess">Business Process</string>
-    <string name="key_succes_factor">Key Success Factor &amp; Risk And Mitigation</string>
+    <string name="key_succes_factor">Risk &amp; Mitigation</string>
     <string name="newsletter">Newsletter</string>
     <string name="business_review">Business Review</string>
     <string name="players_in_coal_mining">Players In Coal Mining</string>

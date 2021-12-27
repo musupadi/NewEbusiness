@@ -330,7 +330,7 @@
                                     android:layout_marginTop="15dp"
                                     android:layout_marginEnd="15dp"
                                     android:layout_marginBottom="15dp"
-                                    android:src="@drawable/fmcg" />
+                                        android:src="@drawable/fmcg" />
 
                                 <TextView
                                     android:layout_width="match_parent"
@@ -385,8 +385,10 @@
                                 <ImageView
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:layout_margin="15dp"
-                                    android:layout_marginTop="10dp"
+                                    android:layout_marginStart="15dp"
+                                    android:layout_marginTop="15dp"
+                                    android:layout_marginEnd="15dp"
+                                    android:layout_marginBottom="15dp"
                                     android:src="@drawable/contractor" />
 
                                 <TextView
@@ -409,7 +411,10 @@
                                 <ImageView
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:layout_margin="15dp"
+                                    android:layout_marginStart="15dp"
+                                    android:layout_marginTop="15dp"
+                                    android:layout_marginEnd="15dp"
+                                    android:layout_marginBottom="15dp"
                                     android:src="@drawable/oil_and_gas" />
 
                                 <TextView
@@ -432,7 +437,10 @@
                                 <ImageView
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:layout_margin="15dp"
+                                    android:layout_marginStart="15dp"
+                                    android:layout_marginTop="15dp"
+                                    android:layout_marginEnd="15dp"
+                                    android:layout_marginBottom="15dp"
                                     android:src="@drawable/farm" />
 
                                 <TextView

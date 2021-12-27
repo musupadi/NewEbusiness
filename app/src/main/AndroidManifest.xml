@@ -27,7 +27,8 @@
         android:usesCleartextTraffic="true">
         <activity
             android:name=".Activity.ui.Mining.MarketInteligence.MarketPotential.MarketPotentialActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="landscape"/>
         <activity
             android:name=".Activity.ui.Mining.MandiriUpdate.DetailMandiriUpdate"
             android:exported="true" />

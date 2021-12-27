@@ -161,7 +161,7 @@
                             android:layout_marginTop="15dp"
                             android:layout_marginEnd="15dp"
                             android:layout_marginBottom="15dp"
-                            android:src="@drawable/market_inteligence" />
+                            android:src="@drawable/credit_worthiness" />
 
                         <TextView
                             android:layout_width="match_parent"

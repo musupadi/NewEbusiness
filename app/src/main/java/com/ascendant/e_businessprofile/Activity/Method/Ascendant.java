@@ -281,6 +281,8 @@ public class Ascendant {
                     public void onClick(DialogInterface dialog, int id) {
                         if (file.equals("pdf")){
                             DownloadPDF(link,nama,ctx);
+                        }else if(file.equals("jpg")){
+                            Downloadjpg(link,nama,ctx);
                         }else{
                             DownloadPPT(link,nama,ctx);
                         }
@@ -296,6 +298,17 @@ public class Ascendant {
                 .setIcon(R.drawable.ic_baseline_print_24);
         AlertDialog alert = builder.create();
         alert.show();
+    }
+    public void Downloadjpg(String url,String judul,Context ctx){
+        DownloadManager.Request request = new DownloadManager.Request(Uri.parse(BASE_URL()+url));
+        request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI | DownloadManager.Request.NETWORK_MOBILE);
+        request.setTitle(judul);
+        request.setDescription("Downloading "+judul);
+        request.allowScanningByMediaScanner();
+        request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+        request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS,"/eBusiness/"+judul+".jpg");
+        DownloadManager manager = (DownloadManager)ctx.getSystemService(Context.DOWNLOAD_SERVICE);
+        manager.enqueue(request);
     }
     public void DownloadPPT(String url,String judul,Context ctx){
         DownloadManager.Request request = new DownloadManager.Request(Uri.parse(BASE_URL()+url));
