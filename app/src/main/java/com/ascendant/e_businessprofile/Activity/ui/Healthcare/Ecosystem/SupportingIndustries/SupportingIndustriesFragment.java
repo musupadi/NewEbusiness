@@ -69,7 +69,7 @@ public class SupportingIndustriesFragment extends Fragment {
                 View.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://fabakonsultan.com/uploads/hospital/ekosistem/Ekosistem_RS_Farmasi_PBF.pdf"));
+                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://mandiri-ebusinessraw.the-urbandev.com/uploads/hospital/ekosistem/Ekosistem_RS_Farmasi_PBF.pdf"));
                         startActivity(browserIntent);
                     }
                 });
@@ -81,7 +81,7 @@ public class SupportingIndustriesFragment extends Fragment {
                                 .setCancelable(false)
                                 .setPositiveButton("Iya", new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int id) {
-                                        ascendant.DownloadPDF("https://fabakonsultan.com/uploads/hospital/ekosistem/Ekosistem_RS_Farmasi_PBF.pdf","Pharmaceutical Wholesaler",getActivity());
+                                        ascendant.DownloadPDF("http://mandiri-ebusinessraw.the-urbandev.com/uploads/hospital/ekosistem/Ekosistem_RS_Farmasi_PBF.pdf","Pharmaceutical Wholesaler",getActivity());
                                     }
                                 })
                                 .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
@@ -105,7 +105,7 @@ public class SupportingIndustriesFragment extends Fragment {
                 View.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://fabakonsultan.com/uploads/hospital/ekosistem/Ekosistem_RS_Asuransi.pdf"));
+                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://mandiri-ebusinessraw.the-urbandev.com/uploads/hospital/ekosistem/Ekosistem_RS_Asuransi.pdf"));
                         startActivity(browserIntent);
                     }
                 });
@@ -117,7 +117,7 @@ public class SupportingIndustriesFragment extends Fragment {
                                 .setCancelable(false)
                                 .setPositiveButton("Iya", new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int id) {
-                                        ascendant.DownloadPDF("https://fabakonsultan.com/uploads/hospital/ekosistem/Ekosistem_RS_Asuransi.pdf","Health Insurance",getActivity());
+                                        ascendant.DownloadPDF("http://mandiri-ebusinessraw.the-urbandev.com/uploads/hospital/ekosistem/Ekosistem_RS_Asuransi.pdf","Health Insurance",getActivity());
                                     }
                                 })
                                 .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
@@ -142,7 +142,7 @@ public class SupportingIndustriesFragment extends Fragment {
                         .setCancelable(false)
                         .setPositiveButton("Iya", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-                                ascendant.DownloadPDF("https://fabakonsultan.com/uploads/ekosistem/hospital/Ekosistem_RS_Alkes.pdf","Clinical Labolatory",getActivity());
+                                ascendant.DownloadPDF("http://mandiri-ebusinessraw.the-urbandev.com/uploads/ekosistem/hospital/Ekosistem_RS_Alkes.pdf","Clinical Labolatory",getActivity());
                             }
                         })
                         .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
@@ -165,7 +165,7 @@ public class SupportingIndustriesFragment extends Fragment {
                         .setCancelable(false)
                         .setPositiveButton("Iya", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-                                ascendant.DownloadPDF("https://fabakonsultan.com/uploads/hospital/ekosistem/Ekosistem_RS_Jasa_Pengelola_Limbah_Medis.pdf","Medical Waste Management Service",getActivity());
+                                ascendant.DownloadPDF("http://mandiri-ebusinessraw.the-urbandev.com/uploads/hospital/ekosistem/Ekosistem_RS_Jasa_Pengelola_Limbah_Medis.pdf","Medical Waste Management Service",getActivity());
                             }
                         })
                         .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
@@ -188,7 +188,7 @@ public class SupportingIndustriesFragment extends Fragment {
                         .setCancelable(false)
                         .setPositiveButton("Iya", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-                                ascendant.DownloadPDF("https://fabakonsultan.com/uploads/hospital/ekosistem/Ekosistem_RS_Klinik.pdf","Third Party Administrator",getActivity());
+                                ascendant.DownloadPDF("http://mandiri-ebusinessraw.the-urbandev.com/uploads/hospital/ekosistem/Ekosistem_RS_Klinik.pdf","Third Party Administrator",getActivity());
                             }
                         })
                         .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
@@ -211,7 +211,7 @@ public class SupportingIndustriesFragment extends Fragment {
                         .setCancelable(false)
                         .setPositiveButton("Iya", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-                                ascendant.DownloadPDF("https://fabakonsultan.com/uploads/hospital/ekosistem/Ekosistem_RS_Laboratorium_Klinik.pdf","Medical Device Supplies",getActivity());
+                                ascendant.DownloadPDF("http://mandiri-ebusinessraw.the-urbandev.com/uploads/hospital/ekosistem/Ekosistem_RS_Laboratorium_Klinik.pdf","Medical Device Supplies",getActivity());
                             }
                         })
                         .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
@@ -234,7 +234,7 @@ public class SupportingIndustriesFragment extends Fragment {
                         .setCancelable(false)
                         .setPositiveButton("Iya", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-                                ascendant.DownloadPDF("https://fabakonsultan.com/uploads/hospital/ekosistem/Ekosistem_RS_Klinik.pdf","Clinic",getActivity());
+                                ascendant.DownloadPDF("http://mandiri-ebusinessraw.the-urbandev.com/uploads/hospital/ekosistem/Ekosistem_RS_Klinik.pdf","Clinic",getActivity());
                             }
                         })
                         .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
@@ -257,7 +257,7 @@ public class SupportingIndustriesFragment extends Fragment {
                         .setCancelable(false)
                         .setPositiveButton("Iya", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-                                ascendant.DownloadPDF("https://fabakonsultan.com/uploads/hospital/ekosistem/Ekosistem_RS_BPJS.pdf","BPJS",getActivity());
+                                ascendant.DownloadPDF("http://mandiri-ebusinessraw.the-urbandev.com/uploads/hospital/ekosistem/Ekosistem_RS_BPJS.pdf","BPJS",getActivity());
                             }
                         })
                         .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {

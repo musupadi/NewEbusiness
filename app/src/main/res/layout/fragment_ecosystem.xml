@@ -75,7 +75,7 @@
                         android:layout_marginBottom="10dp"
                         android:layout_width="37.5dp"
                         android:layout_height="37.5dp"
-                        android:src="@drawable/calendar"/>
+                        android:src="@drawable/list_of_hospital"/>
                     <TextView
                         android:layout_marginLeft="10dp"
                         android:layout_width="match_parent"
@@ -106,7 +106,7 @@
                         android:layout_marginBottom="10dp"
                         android:layout_width="37.5dp"
                         android:layout_height="37.5dp"
-                        android:src="@drawable/calendar"/>
+                        android:src="@drawable/supporting_industries"/>
                     <TextView
                         android:layout_marginLeft="10dp"
                         android:layout_width="match_parent"
@@ -137,7 +137,7 @@
                         android:layout_marginBottom="10dp"
                         android:layout_width="37.5dp"
                         android:layout_height="37.5dp"
-                        android:src="@drawable/calendar"/>
+                        android:src="@drawable/hospital_association"/>
                     <TextView
                         android:layout_marginLeft="10dp"
                         android:layout_width="match_parent"

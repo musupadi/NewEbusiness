@@ -109,7 +109,7 @@ public class FMCGMainCreditDecisionToolActivity extends AppCompatActivity {
                 View.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://fabakonsultan.com/uploads/fmcg/business_refrences/ebook/materi_supply_chain_financing_&_trade_financing.pdf"));
+                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://mandiri-ebusinessraw.the-urbandev.com/uploads/fmcg/business_refrences/ebook/materi_supply_chain_financing_&_trade_financing.pdf"));
                         startActivity(browserIntent);
                     }
                 });
@@ -121,7 +121,7 @@ public class FMCGMainCreditDecisionToolActivity extends AppCompatActivity {
                                 .setCancelable(false)
                                 .setPositiveButton("Iya", new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int id) {
-                                        method.DownloadPDF("https://fabakonsultan.com/uploads/fmcg/business_refrences/ebook/materi_supply_chain_financing_&_trade_financing.pdf","Supply Chain Financing & Trade Financing",FMCGMainCreditDecisionToolActivity.this);
+                                        method.DownloadPDF("http://mandiri-ebusinessraw.the-urbandev.com/uploads/fmcg/business_refrences/ebook/materi_supply_chain_financing_&_trade_financing.pdf","Supply Chain Financing & Trade Financing",FMCGMainCreditDecisionToolActivity.this);
                                     }
                                 })
                                 .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {

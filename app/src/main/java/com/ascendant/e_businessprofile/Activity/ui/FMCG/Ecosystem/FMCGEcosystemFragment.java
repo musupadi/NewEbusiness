@@ -83,7 +83,7 @@ public class FMCGEcosystemFragment extends Fragment {
                 Views.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://fabakonsultan.com/uploads/fmcg/distributor.pdf"));
+                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://mandiri-ebusinessraw.the-urbandev.com/uploads/fmcg/distributor.pdf"));
                         startActivity(browserIntent);
                     }
                 });
@@ -95,7 +95,7 @@ public class FMCGEcosystemFragment extends Fragment {
                                 .setCancelable(false)
                                 .setPositiveButton("Iya", new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int id) {
-                                        AscNet.DownloadPDF("https://fabakonsultan.com/uploads/fmcg/distributor.pdf","Distributor FMCG",getActivity());
+                                        AscNet.DownloadPDF("http://mandiri-ebusinessraw.the-urbandev.com/uploads/fmcg/distributor.pdf","Distributor FMCG",getActivity());
                                     }
                                 })
                                 .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
@@ -119,7 +119,7 @@ public class FMCGEcosystemFragment extends Fragment {
                 Views.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://fabakonsultan.com/uploads/fmcg/retail.pdf"));
+                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://mandiri-ebusinessraw.the-urbandev.com/uploads/fmcg/retail.pdf"));
                         startActivity(browserIntent);
                     }
                 });
@@ -131,7 +131,7 @@ public class FMCGEcosystemFragment extends Fragment {
                                 .setCancelable(false)
                                 .setPositiveButton("Iya", new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int id) {
-                                        AscNet.DownloadPDF("https://fabakonsultan.com/uploads/fmcg/retail.pdf","Retail FMCG",getActivity());
+                                        AscNet.DownloadPDF("http://mandiri-ebusinessraw.the-urbandev.com/uploads/fmcg/retail.pdf","Retail FMCG",getActivity());
                                     }
                                 })
                                 .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
@@ -155,7 +155,7 @@ public class FMCGEcosystemFragment extends Fragment {
                 Views.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://fabakonsultan.com/uploads/fmcg/e-commerce.pdf"));
+                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://mandiri-ebusinessraw.the-urbandev.com/uploads/fmcg/e-commerce.pdf"));
                         startActivity(browserIntent);
                     }
                 });
@@ -167,7 +167,7 @@ public class FMCGEcosystemFragment extends Fragment {
                                 .setCancelable(false)
                                 .setPositiveButton("Iya", new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int id) {
-                                        AscNet.DownloadPDF("https://fabakonsultan.com/uploads/fmcg/e-commerce.pdf","E-Commerce FMCG",getActivity());
+                                        AscNet.DownloadPDF("http://mandiri-ebusinessraw.the-urbandev.com/uploads/fmcg/e-commerce.pdf","E-Commerce FMCG",getActivity());
                                     }
                                 })
                                 .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
@@ -205,7 +205,7 @@ public class FMCGEcosystemFragment extends Fragment {
                 Views.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://fabakonsultan.com/uploads/fmcg/ekosistem-manufaktur.pdf"));
+                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://mandiri-ebusinessraw.the-urbandev.com/uploads/fmcg/ekosistem-manufaktur.pdf"));
                         startActivity(browserIntent);
                     }
                 });
@@ -217,7 +217,7 @@ public class FMCGEcosystemFragment extends Fragment {
                                 .setCancelable(false)
                                 .setPositiveButton("Iya", new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int id) {
-                                        AscNet.DownloadPDF("https://fabakonsultan.com/uploads/fmcg/ekosistem-manufaktur.pdf","Manufacture FMCG",getActivity());
+                                        AscNet.DownloadPDF("http://mandiri-ebusinessraw.the-urbandev.com/uploads/fmcg/ekosistem-manufaktur.pdf","Manufacture FMCG",getActivity());
                                     }
                                 })
                                 .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
@@ -241,7 +241,7 @@ public class FMCGEcosystemFragment extends Fragment {
                 Views.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://fabakonsultan.com/uploads/fmcg/ekosistem-suplier.pdf"));
+                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://mandiri-ebusinessraw.the-urbandev.com/uploads/fmcg/ekosistem-suplier.pdf"));
                         startActivity(browserIntent);
                     }
                 });
@@ -253,7 +253,7 @@ public class FMCGEcosystemFragment extends Fragment {
                                 .setCancelable(false)
                                 .setPositiveButton("Iya", new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int id) {
-                                        AscNet.DownloadPDF("https://fabakonsultan.com/uploads/fmcg/ekosistem-suplier.pdf","Supplier FMCG",getActivity());
+                                        AscNet.DownloadPDF("http://mandiri-ebusinessraw.the-urbandev.com/uploads/fmcg/ekosistem-suplier.pdf","Supplier FMCG",getActivity());
                                     }
                                 })
                                 .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {

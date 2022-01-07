@@ -1,9 +1,7 @@
 package com.ascendant.e_businessprofile.Activity.ui.Healthcare.Ecosystem.ListOfHospital;
 
 import android.database.Cursor;
-import android.graphics.Bitmap;
 import android.graphics.Color;
-import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -23,24 +21,15 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.ascendant.e_businessprofile.Activity.API.ApiRequest;
-import com.ascendant.e_businessprofile.Activity.API.RetroServer;
-import com.ascendant.e_businessprofile.Activity.RegisterActivity;
+import com.ascendant.e_businessprofile.API.ApiRequest;
+import com.ascendant.e_businessprofile.API.RetroServer;
 import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
-import com.ascendant.e_businessprofile.Activity.ui.Healthcare.Ecosystem.SupportingIndustries.HospitalEquipmentFragment;
-import com.ascendant.e_businessprofile.Adapter.Spinner.SpinnerDivisi;
 import com.ascendant.e_businessprofile.Adapter.Spinner.SpinnerKota;
 import com.ascendant.e_businessprofile.Adapter.Spinner.SpinnerProvinsi;
 import com.ascendant.e_businessprofile.Model.DataModel;
 import com.ascendant.e_businessprofile.Model.ResponseArrayObject;
 import com.ascendant.e_businessprofile.R;
-import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
 import java.util.List;

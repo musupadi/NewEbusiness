@@ -1,39 +1,21 @@
 package com.ascendant.e_businessprofile.Activity.ui.FMCG.ListOfProbing;
 
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
-import com.ascendant.e_businessprofile.Activity.API.ApiRequest;
-import com.ascendant.e_businessprofile.Activity.API.RetroServer;
-import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
 import com.ascendant.e_businessprofile.Activity.ui.FMCG.ListOfProbing.FMCGProbing.FoodAndBeverageProbingActivity;
 import com.ascendant.e_businessprofile.Activity.ui.FMCG.ListOfProbing.FMCGProbing.NonFoodAndBeverageProbingActivity;
 import com.ascendant.e_businessprofile.Activity.ui.FMCG.ListOfProbing.FMCGProbing.TobaccoProbingActivity;
-import com.ascendant.e_businessprofile.Adapter.AdapterListOfProbing;
-import com.ascendant.e_businessprofile.Model.DataModel;
-import com.ascendant.e_businessprofile.Model.ResponseArrayObject;
 import com.ascendant.e_businessprofile.R;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class FMCGListOfProbingFragment extends Fragment {
     RelativeLayout FnB,NFnB,Tobacco;

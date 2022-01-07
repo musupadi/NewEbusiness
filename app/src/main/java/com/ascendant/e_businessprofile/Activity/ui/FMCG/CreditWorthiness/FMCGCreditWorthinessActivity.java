@@ -134,11 +134,11 @@ public class FMCGCreditWorthinessActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (KATEGORI.equals("fnb")){
-                    ShowMethod("https://fabakonsultan.com/uploads/fmcg/param/food.pdf","Food & Beverage");
+                    ShowMethod("http://mandiri-ebusinessraw.the-urbandev.com/uploads/fmcg/param/food.pdf","Food & Beverage");
                 }else if(KATEGORI.equals("non fnb")){
-                    ShowMethod("https://fabakonsultan.com/uploads/fmcg/param/non_food.pdf","Non Food & Beverage");
+                    ShowMethod("http://mandiri-ebusinessraw.the-urbandev.com/uploads/fmcg/param/non_food.pdf","Non Food & Beverage");
                 }else{
-                    ShowMethod("https://fabakonsultan.com/uploads/fmcg/param/tobacco.pdf","Tobacco");
+                    ShowMethod("http://mandiri-ebusinessraw.the-urbandev.com/uploads/fmcg/param/tobacco.pdf","Tobacco");
                 }
             }
         });
@@ -160,11 +160,11 @@ public class FMCGCreditWorthinessActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (KATEGORI.equals("fnb")){
-                    ShowMethod("https://fabakonsultan.com/uploads/fmcg/risk-mitigasi-fnb.pdf","Food & Beverage");
+                    ShowMethod("http://mandiri-ebusinessraw.the-urbandev.com/uploads/fmcg/risk-mitigasi-fnb.pdf","Food & Beverage");
                 }else if(KATEGORI.equals("non fnb")){
-                    ShowMethod("https://fabakonsultan.com/uploads/fmcg/risk-mitigasi-household.pdf","Non Food & Beverage");
+                    ShowMethod("http://mandiri-ebusinessraw.the-urbandev.com/uploads/fmcg/risk-mitigasi-household.pdf","Non Food & Beverage");
                 }else{
-                    ShowMethod("https://fabakonsultan.com/uploads/fmcg/risk-mitigasi-rokok.pdf","Tobacco");
+                    ShowMethod("http://mandiri-ebusinessraw.the-urbandev.com/uploads/fmcg/risk-mitigasi-rokok.pdf","Tobacco");
                 }
             }
         });

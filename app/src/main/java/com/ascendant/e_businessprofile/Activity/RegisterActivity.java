@@ -14,8 +14,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.ascendant.e_businessprofile.Activity.API.ApiRequest;
-import com.ascendant.e_businessprofile.Activity.API.RetroServer;
+import com.ascendant.e_businessprofile.API.ApiRequest;
+import com.ascendant.e_businessprofile.API.RetroServer;
 import com.ascendant.e_businessprofile.Adapter.Spinner.SpinnerDivisi;
 import com.ascendant.e_businessprofile.Model.DataModel;
 import com.ascendant.e_businessprofile.Model.ResponseArrayObject;

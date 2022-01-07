@@ -188,7 +188,7 @@
                         android:layout_marginBottom="10dp"
                         android:layout_width="37.5dp"
                         android:layout_height="37.5dp"
-                        android:src="@drawable/medical_deavices_supplies"/>
+                        android:src="@drawable/hospital_equipment"/>
                     <TextView
                         android:layout_marginLeft="25dp"
                         android:layout_width="match_parent"

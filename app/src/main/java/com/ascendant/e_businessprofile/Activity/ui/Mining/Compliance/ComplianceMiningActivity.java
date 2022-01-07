@@ -1,9 +1,6 @@
 package com.ascendant.e_businessprofile.Activity.ui.Mining.Compliance;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -15,14 +12,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import com.ascendant.e_businessprofile.Activity.API.ApiRequest;
-import com.ascendant.e_businessprofile.Activity.API.RetroServer;
+import com.ascendant.e_businessprofile.API.ApiRequest;
+import com.ascendant.e_businessprofile.API.RetroServer;
 import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
-import com.ascendant.e_businessprofile.Activity.ui.ChatFragment;
-import com.ascendant.e_businessprofile.Activity.ui.ForumFragment;
-import com.ascendant.e_businessprofile.Activity.ui.Healthcare.Compliance.ComplianceFragment;
-import com.ascendant.e_businessprofile.Activity.ui.HomeFragment;
-import com.ascendant.e_businessprofile.Activity.ui.NavigatorFragment;
 import com.ascendant.e_businessprofile.Adapter.AdapterCompliance;
 import com.ascendant.e_businessprofile.Adapter.Static.AdapterNavigator;
 import com.ascendant.e_businessprofile.Model.DataModel;

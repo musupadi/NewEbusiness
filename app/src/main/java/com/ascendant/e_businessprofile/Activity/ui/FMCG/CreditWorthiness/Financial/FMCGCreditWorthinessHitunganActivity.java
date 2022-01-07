@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -16,12 +17,14 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.ascendant.e_businessprofile.Activity.API.ApiRequest;
-import com.ascendant.e_businessprofile.Activity.API.OldRetroServer;
+import com.ascendant.e_businessprofile.API.ApiRequest;
+import com.ascendant.e_businessprofile.API.RetroServer;
 import com.ascendant.e_businessprofile.Activity.Method.Ascendant;
+import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
 import com.ascendant.e_businessprofile.Adapter.Static.AdapterNavigator;
 import com.ascendant.e_businessprofile.Model.DataModel;
 import com.ascendant.e_businessprofile.Model.NumberTextWatcher;
+import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Rumus.ResponseKMK;
 import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Rumus.RumusKMK;
 import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.CreditWorthiness.CreditWorthinessModel;
 import com.ascendant.e_businessprofile.R;
@@ -51,12 +54,23 @@ public class FMCGCreditWorthinessHitunganActivity extends AppCompatActivity {
     ImageView back,home;
     ImageView rumus;
     LinearLayout hasils;
-
+    DB_Helper dbHelper;
+    String Token;
     Ascendant method = new Ascendant();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fmcgcredit_worthiness_hitungan);
+
+
+
+        dbHelper = new DB_Helper(this);
+        Cursor cursor = dbHelper.checkUser();
+        if (cursor.getCount()>0){
+            while (cursor.moveToNext()){
+                Token = cursor.getString(0);
+            }
+        }
 
         rv = findViewById(R.id.recyclerNav);
         Available = findViewById(R.id.linearAvailable);
@@ -141,29 +155,31 @@ public class FMCGCreditWorthinessHitunganActivity extends AppCompatActivity {
                 .into(rumus);
     }
     private void getRumus(final String param,String kategori,final String KATEGORI){
-        ApiRequest api = OldRetroServer.getClient().create(ApiRequest.class);
-        final Call<RumusKMK> Rumus =api.KMK(method.AUTH(),
-                "FABAJakartaIndonesia2019kunci",
+        ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
+        final Call<ResponseKMK> Rumus =api.KMKV2(method.AUTH(),
+                Token,
                 param,
                 kategori);
-        Rumus.enqueue(new Callback<RumusKMK>() {
+        Rumus.enqueue(new Callback<ResponseKMK>() {
             @Override
-            public void onResponse(Call<RumusKMK> call, Response<RumusKMK> response) {
-                batasAtas.setText(response.body().range_atas);
-                batasBawah.setText(response.body().range_bawah);
-                getImage(response.body().data.getRumus_param());
+            public void onResponse(Call<ResponseKMK> call, Response<ResponseKMK> response) {
+                batasAtas.setText(String.valueOf(response.body().data.range_atas));
+                batasBawah.setText(String.valueOf(response.body().data.range_bawah));
+
+
+                getImage(response.body().data.data.getRumus_param());
                 if (KATEGORI.equals("non fnb")){
-                    nonfood(param.toUpperCase(),response.body().data.getPenjelasan_param(),response.body().data.getPenjelasan2_param());
+                    nonfood(param.toUpperCase(),response.body().data.data.getPenjelasan_param(),response.body().data.data.getPenjelasan2_param());
                 }else if(KATEGORI.equals("fnb")){
-                    nonfood(param.toUpperCase(),response.body().data.getPenjelasan_param(),response.body().data.getPenjelasan2_param());
+                    nonfood(param.toUpperCase(),response.body().data.data.getPenjelasan_param(),response.body().data.data.getPenjelasan2_param());
                 }else{
-                    nonfood(param.toUpperCase(),response.body().data.getPenjelasan_param(),response.body().data.getPenjelasan2_param());
+                    nonfood(param.toUpperCase(),response.body().data.data.getPenjelasan_param(),response.body().data.data.getPenjelasan2_param());
                 }
             }
 
             @Override
-            public void onFailure(Call<RumusKMK> call, Throwable t) {
-                Toast.makeText(FMCGCreditWorthinessHitunganActivity.this, "Koneksi Gagal", Toast.LENGTH_SHORT).show();
+            public void onFailure(Call<ResponseKMK> call, Throwable t) {
+
             }
         });
     }

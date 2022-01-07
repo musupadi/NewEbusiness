@@ -135,7 +135,7 @@ public class FMCGRequirementAnalysisActivity extends AppCompatActivity {
                 View.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://fabakonsultan.com/uploads/fmcg/kredit_investasi/ki-makanan-gula.pdf"));
+                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://mandiri-ebusinessraw.the-urbandev.com/uploads/fmcg/kredit_investasi/ki-makanan-gula.pdf"));
                         startActivity(browserIntent);
                     }
                 });
@@ -147,7 +147,7 @@ public class FMCGRequirementAnalysisActivity extends AppCompatActivity {
                                 .setCancelable(false)
                                 .setPositiveButton("Iya", new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int id) {
-                                        method.DownloadPDF("https://fabakonsultan.com/uploads/fmcg/kredit_investasi/ki-makanan-gula.pdf","Makanan Gula",FMCGRequirementAnalysisActivity.this);
+                                        method.DownloadPDF("http://mandiri-ebusinessraw.the-urbandev.com/uploads/fmcg/kredit_investasi/ki-makanan-gula.pdf","Makanan Gula",FMCGRequirementAnalysisActivity.this);
                                     }
                                 })
                                 .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
@@ -171,7 +171,7 @@ public class FMCGRequirementAnalysisActivity extends AppCompatActivity {
                 View.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://fabakonsultan.com/uploads/fmcg/kredit_investasi/ki-minuman-teh.pdf"));
+                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://mandiri-ebusinessraw.the-urbandev.com/uploads/fmcg/kredit_investasi/ki-minuman-teh.pdf"));
                         startActivity(browserIntent);
                     }
                 });
@@ -183,7 +183,7 @@ public class FMCGRequirementAnalysisActivity extends AppCompatActivity {
                                 .setCancelable(false)
                                 .setPositiveButton("Iya", new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int id) {
-                                        method.DownloadPDF("https://fabakonsultan.com/uploads/fmcg/kredit_investasi/ki-minuman-teh.pdf","Minuman Teh",FMCGRequirementAnalysisActivity.this);
+                                        method.DownloadPDF("http://mandiri-ebusinessraw.the-urbandev.com/uploads/fmcg/kredit_investasi/ki-minuman-teh.pdf","Minuman Teh",FMCGRequirementAnalysisActivity.this);
                                     }
                                 })
                                 .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
@@ -207,7 +207,7 @@ public class FMCGRequirementAnalysisActivity extends AppCompatActivity {
                 View.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://fabakonsultan.com/uploads/fmcg/kredit_investasi/ki-non-fnb.pdf"));
+                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://mandiri-ebusinessraw.the-urbandev.com/uploads/fmcg/kredit_investasi/ki-non-fnb.pdf"));
                         startActivity(browserIntent);
                     }
                 });
@@ -219,7 +219,7 @@ public class FMCGRequirementAnalysisActivity extends AppCompatActivity {
                                 .setCancelable(false)
                                 .setPositiveButton("Iya", new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int id) {
-                                        method.DownloadPDF("https://fabakonsultan.com/uploads/fmcg/kredit_investasi/ki-non-fnb.pdf","Non Food",FMCGRequirementAnalysisActivity.this);
+                                        method.DownloadPDF("http://mandiri-ebusinessraw.the-urbandev.com/uploads/fmcg/kredit_investasi/ki-non-fnb.pdf","Non Food",FMCGRequirementAnalysisActivity.this);
                                     }
                                 })
                                 .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
@@ -243,7 +243,7 @@ public class FMCGRequirementAnalysisActivity extends AppCompatActivity {
                 View.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://fabakonsultan.com/uploads/fmcg/kredit_investasi/ki-tobacco.pdf"));
+                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://mandiri-ebusinessraw.the-urbandev.com/uploads/fmcg/kredit_investasi/ki-tobacco.pdf"));
                         startActivity(browserIntent);
                     }
                 });
@@ -255,7 +255,7 @@ public class FMCGRequirementAnalysisActivity extends AppCompatActivity {
                                 .setCancelable(false)
                                 .setPositiveButton("Iya", new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int id) {
-                                        method.DownloadPDF("https://fabakonsultan.com/uploads/fmcg/kredit_investasi/ki-tobacco.pdf","Rokok",FMCGRequirementAnalysisActivity.this);
+                                        method.DownloadPDF("http://mandiri-ebusinessraw.the-urbandev.com/uploads/fmcg/kredit_investasi/ki-tobacco.pdf","Rokok",FMCGRequirementAnalysisActivity.this);
                                     }
                                 })
                                 .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {

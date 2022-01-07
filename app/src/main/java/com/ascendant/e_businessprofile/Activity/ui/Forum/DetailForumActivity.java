@@ -3,47 +3,42 @@ package com.ascendant.e_businessprofile.Activity.ui.Forum;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
-import androidx.core.content.FileProvider;
 import androidx.core.widget.NestedScrollView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
-import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.ascendant.e_businessprofile.Activity.API.ApiRequest;
-import com.ascendant.e_businessprofile.Activity.API.RetroServer;
+import com.ascendant.e_businessprofile.API.ApiRequest;
+import com.ascendant.e_businessprofile.API.RetroServer;
 import com.ascendant.e_businessprofile.Activity.HomeActivity;
 import com.ascendant.e_businessprofile.Activity.Method.Ascendant;
 import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
-import com.ascendant.e_businessprofile.Adapter.AdapterEBook;
 import com.ascendant.e_businessprofile.Adapter.AdapterGambarForum;
 import com.ascendant.e_businessprofile.Adapter.AdapterKomen;
 import com.ascendant.e_businessprofile.Adapter.Static.AdapterNavigator;
-import com.ascendant.e_businessprofile.BuildConfig;
 import com.ascendant.e_businessprofile.Model.DataModel;
 import com.ascendant.e_businessprofile.Model.ResponseArrayObject;
 import com.ascendant.e_businessprofile.Model.ResponseObject;
 import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.CreditWorthiness.CreditWorthinessModel;
 import com.ascendant.e_businessprofile.R;
-import com.bumptech.glide.Glide;
 
 import java.io.File;
 import java.io.IOException;
@@ -109,10 +104,14 @@ public class DetailForumActivity extends AppCompatActivity {
     String postFoto1= "";
     //ONCLICK
     Boolean Gambar1 = false;
+
+    LinearLayout Delete,Report;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_forum);
+        Delete = findViewById(R.id.linearDelete);
+        Report = findViewById(R.id.linearReport);
         rv = findViewById(R.id.recyclerNav);
         Available = findViewById(R.id.linearAvailable);
         Navigator = findViewById(R.id.linearNavigator);
@@ -183,7 +182,7 @@ public class DetailForumActivity extends AppCompatActivity {
         REPLY_NAME = intent.getExtras().getString("REPLY_NAME");
         REPLY = intent.getExtras().getString("REPLY");
         Header.setText(JUDUL);
-        Logic();
+        GetData();
         if (REPLY_NAME==null || REPLY_NAME.equals("")){
             cardKomen.setVisibility(View.GONE);
             ReplyName.setVisibility(View.GONE);
@@ -229,6 +228,31 @@ public class DetailForumActivity extends AppCompatActivity {
                 }else{
                     SubKomen();
                 }
+            }
+        });
+    }
+    private void GetData(){
+        ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
+        final Call<ResponseObject> data =api.Profil(Token);
+        data.enqueue(new Callback<ResponseObject>() {
+            @Override
+            public void onResponse(Call<ResponseObject> call, Response<ResponseObject> response) {
+                try {
+                    if (response.body().getKode().equals(200)){
+                        Logic(response.body().getData().getNama_user());
+
+                    }else{
+                        response.body().getMessage();
+                    }
+                }catch (Exception e){
+                    Log.d("ZYARGA : ",e.toString());
+                    Toast.makeText(DetailForumActivity.this, "Koneksi Gagal", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseObject> call, Throwable t) {
+                Toast.makeText(DetailForumActivity.this, "Koneksi Gagal", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -331,7 +355,7 @@ public class DetailForumActivity extends AppCompatActivity {
             }
         });
     }
-    private void Logic(){
+    private void Logic(String NamaUser){
         mManager = new LinearLayoutManager(DetailForumActivity.this, LinearLayoutManager.HORIZONTAL,false);
         recyclerViewGambar.setLayoutManager(mManager);
         mManager2 = new LinearLayoutManager(DetailForumActivity.this, LinearLayoutManager.VERTICAL,false);
@@ -344,6 +368,13 @@ public class DetailForumActivity extends AppCompatActivity {
             public void onResponse(Call<ResponseObject> call, Response<ResponseObject> response) {
                 try {
                     if (response.body().getKode().equals(200)){
+                        if (NamaUser.equals(response.body().getData().getDetail().getNama_user())){
+                            Report.setVisibility(View.GONE);
+                            Delete.setVisibility(View.VISIBLE);
+                        }else{
+                            Report.setVisibility(View.VISIBLE);
+                            Delete.setVisibility(View.GONE);
+                        }
                         Nama.setText(response.body().getData().getDetail().getNama_user());
                         web.setText(response.body().getData().getDetail().getIsi_post());
                         mItemsGambar=response.body().getData().getImage();
@@ -352,9 +383,43 @@ public class DetailForumActivity extends AppCompatActivity {
                         mAdapter = new AdapterGambarForum(DetailForumActivity.this,mItemsGambar);
                         recyclerViewGambar.setAdapter(mAdapter);
                         mAdapter.notifyDataSetChanged();
-                        mAdapter2 = new AdapterKomen(DetailForumActivity.this,mItemsKomen,ID,CATEGORY,JUDUL);
+                        mAdapter2 = new AdapterKomen(DetailForumActivity.this,mItemsKomen,ID,CATEGORY,JUDUL,NamaUser);
                         recyclerKomen.setAdapter(mAdapter2);
                         mAdapter2.notifyDataSetChanged();
+                        Delete.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                AlertDialog.Builder builder = new AlertDialog.Builder(DetailForumActivity.this);
+
+                                // Set a title for alert dialog
+                                builder.setTitle("Pemberitahuan");
+
+                                // Ask the final question
+                                builder.setMessage("Apakah Anda Yakin Ingin Menghapus Komen ? ");
+
+                                // Set the alert dialog yes button click listener
+                                builder.setPositiveButton("Iya", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        // Do something when user clicked the Yes button
+                                        // Set the TextView visibility GONE
+                                        DeleteKomen();
+                                    }
+                                });
+
+                                // Set the alert dialog no button click listener
+                                builder.setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        // Do something when No button clicked
+                                    }
+                                });
+
+                                AlertDialog dialog = builder.create();
+                                // Display the alert dialog on interface
+                                dialog.show();
+                            }
+                        });
                         if (REPLY_NAME==null || REPLY_NAME.equals("")){
                             cardKomen.setVisibility(View.GONE);
                             ReplyName.setVisibility(View.GONE);
@@ -380,7 +445,28 @@ public class DetailForumActivity extends AppCompatActivity {
             }
         });
     }
+    private void DeleteKomen(){
+        ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
+        Call<ResponseArrayObject> data =api.DeletePosting(Token,ID,"post");
+        data.enqueue(new Callback<ResponseArrayObject>() {
+            @Override
+            public void onResponse(Call<ResponseArrayObject> call, Response<ResponseArrayObject> response) {
+                Toast.makeText(DetailForumActivity.this, "Post berhasil Terhapus", Toast.LENGTH_SHORT).show();
+                Intent goInput = new Intent(DetailForumActivity.this, HomeActivity.class);
+//                goInput.putExtra("ID",ID);
+//                goInput.putExtra("CATEGORY",CATEGORY);
+//                goInput.putExtra("JUDUL",JUDUL);
+//                goInput.putExtra("REPLY_NAME","");
+//                goInput.putExtra("REPLY","");
+                startActivities(new Intent[]{goInput});
+            }
 
+            @Override
+            public void onFailure(Call<ResponseArrayObject> call, Throwable t) {
+
+            }
+        });
+    }
     //Dellaroy Logic
     public Uri getOutputMediaFileUri(int type) {
         return Uri.fromFile(getOutputMediaFile(type));

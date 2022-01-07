@@ -102,7 +102,7 @@ public class InvestmentCreditActivity extends AppCompatActivity {
         parameter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://fabakonsultan.com/uploads/hospital/param/Perhitungan_Investasi.pdf"));
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://mandiri-ebusinessraw.the-urbandev.com/uploads/hospital/param/Perhitungan_Investasi.pdf"));
                 startActivity(browserIntent);
             }
         });

@@ -1,14 +1,14 @@
 package com.ascendant.e_businessprofile.Adapter;
 
-import android.Manifest;
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
@@ -18,22 +18,22 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
-import androidx.core.content.FileProvider;
-import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.ascendant.e_businessprofile.API.ApiRequest;
+import com.ascendant.e_businessprofile.API.RetroServer;
 import com.ascendant.e_businessprofile.Activity.Method.Ascendant;
+import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
 import com.ascendant.e_businessprofile.Activity.ui.Forum.DetailForumActivity;
-import com.ascendant.e_businessprofile.BuildConfig;
 import com.ascendant.e_businessprofile.Model.DataModel;
+import com.ascendant.e_businessprofile.Model.ResponseArrayObject;
 import com.ascendant.e_businessprofile.R;
 import com.bumptech.glide.Glide;
 
@@ -45,6 +45,10 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.logging.Logger;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class AdapterKomen extends RecyclerView.Adapter<AdapterKomen.HolderData> {
     private List<DataModel> mList;
@@ -79,12 +83,16 @@ public class AdapterKomen extends RecyclerView.Adapter<AdapterKomen.HolderData> 
     //ONCLICK
     Boolean Gambar1 = false;
 
-    public AdapterKomen(Context ctx, List<DataModel> mList,String ID,String CATEGORY,String JUDUL){
+    DB_Helper dbHelper;
+    String Token;
+    String NamaUser;
+    public AdapterKomen(Context ctx, List<DataModel> mList,String ID,String CATEGORY,String JUDUL,String NamaUser){
         this.ctx = ctx;
         this.mList = mList;
         this.ID = ID;
         this.CATEGORY = CATEGORY;
         this.JUDUL = JUDUL;
+        this.NamaUser = NamaUser;
     }
 
     @NonNull
@@ -102,6 +110,13 @@ public class AdapterKomen extends RecyclerView.Adapter<AdapterKomen.HolderData> 
         holderData.Komen.setText(dm.getIsi_komen());
         holderData.Nama.setText(dm.getNama_user());
         holderData.Jam.setText(dm.getTgl_komen());
+        if (dm.getNama_user().equals(NamaUser)){
+            holderData.Report.setVisibility(View.GONE);
+            holderData.Delete.setVisibility(View.VISIBLE);
+        }else{
+            holderData.Report.setVisibility(View.VISIBLE);
+            holderData.Delete.setVisibility(View.GONE);
+        }
         if (dm.getImg_komen().equals("")){
             holderData.Gambar.setVisibility(View.GONE);
         }else{
@@ -109,9 +124,50 @@ public class AdapterKomen extends RecyclerView.Adapter<AdapterKomen.HolderData> 
                     .load(ascendant.BASE_URL()+dm.getImg_komen())
                     .into(holderData.Gambar);
         }
+        dbHelper = new DB_Helper(ctx);
+        Cursor cursor = dbHelper.checkUser();
+        if (cursor.getCount()>0){
+            while (cursor.moveToNext()){
+                Token = cursor.getString(0);
+            }
+        }
+        holderData.Delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(ctx);
+
+                // Set a title for alert dialog
+                builder.setTitle("Pemberitahuan");
+
+                // Ask the final question
+                builder.setMessage("Apakah Anda Yakin Ingin Menghapus Komen ? ");
+
+                // Set the alert dialog yes button click listener
+                builder.setPositiveButton("Iya", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Do something when user clicked the Yes button
+                        // Set the TextView visibility GONE
+                        DeleteKomen();
+                    }
+                });
+
+                // Set the alert dialog no button click listener
+                builder.setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Do something when No button clicked
+                    }
+                });
+
+                AlertDialog dialog = builder.create();
+                // Display the alert dialog on interface
+                dialog.show();
+            }
+        });
         mManager = new LinearLayoutManager(ctx, LinearLayoutManager.VERTICAL,false);
         holderData.recyclerView.setLayoutManager(mManager);
-        mAdapter = new AdapterSubKomen(ctx,dm.getSub_komen());
+        mAdapter = new AdapterSubKomen(ctx,dm.getSub_komen(),NamaUser,ID,CATEGORY,JUDUL);
         holderData.recyclerView.setAdapter(mAdapter);
         mAdapter.notifyDataSetChanged();
         holderData.cardKomen.setVisibility(View.GONE);
@@ -137,7 +193,28 @@ public class AdapterKomen extends RecyclerView.Adapter<AdapterKomen.HolderData> 
 //            }
 //        });
     }
+    private void DeleteKomen(){
+        ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
+        Call<ResponseArrayObject> data =api.DeletePosting(Token,ID,"komen");
+        data.enqueue(new Callback<ResponseArrayObject>() {
+            @Override
+            public void onResponse(Call<ResponseArrayObject> call, Response<ResponseArrayObject> response) {
+                Toast.makeText(ctx, "Komen berhasil Terhapus", Toast.LENGTH_SHORT).show();
+                Intent goInput = new Intent(ctx, DetailForumActivity.class);
+                goInput.putExtra("ID",ID);
+                goInput.putExtra("CATEGORY",CATEGORY);
+                goInput.putExtra("JUDUL",JUDUL);
+                goInput.putExtra("REPLY_NAME","");
+                goInput.putExtra("REPLY","");
+                ctx.startActivities(new Intent[]{goInput});
+            }
 
+            @Override
+            public void onFailure(Call<ResponseArrayObject> call, Throwable t) {
+
+            }
+        });
+    }
     private void ImageLogic(Intent data, int requestPickPhoto, ImageView gambar) {
         if (data != null) {
             Toast.makeText(ctx, "Clicked", Toast.LENGTH_SHORT).show();
@@ -174,6 +251,7 @@ public class AdapterKomen extends RecyclerView.Adapter<AdapterKomen.HolderData> 
         RecyclerView recyclerView;
         CardView cardKomen;
         EditText etKomen;
+        LinearLayout Delete,Report;
         HolderData(View v){
             super(v);
             Nama = v.findViewById(R.id.tvNama);
@@ -185,6 +263,8 @@ public class AdapterKomen extends RecyclerView.Adapter<AdapterKomen.HolderData> 
             cardKomen = v.findViewById(R.id.cardKomen);
             etKomen = v.findViewById(R.id.etKomen);
             Upload = v.findViewById(R.id.ivUpload);
+            Delete = v.findViewById(R.id.linearDelete);
+            Report = v.findViewById(R.id.linearReport);
         }
     }
 

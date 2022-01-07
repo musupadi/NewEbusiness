@@ -60,315 +60,321 @@
                     </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
-            <ScrollView
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:id="@+id/linearAvailable">
                 <ScrollView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
-                    <LinearLayout
+                    <ScrollView
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
-                        <TextView
-                            android:layout_marginTop="5dp"
+                        android:layout_height="match_parent">
+                        <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="PELUANG BISNIS BAGI PERBANKAN"
-                            android:textColor="@color/colorPrimary"
-                            android:fontFamily="@font/inter"
-                            android:gravity="center"
-                            android:textSize="@dimen/text_medium"/>
-                        <TextView
-                            android:textSize="@dimen/text_medium"
-                            android:layout_marginBottom="10dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="DALAM EKOSISTEM INDUSTRI BATUBARA amp; PERDAGANGAN EKSPOR BATUBARA"
-                            android:textColor="@color/colorPrimary"
-                            android:fontFamily="@font/inter"
-                            android:gravity="center"/>
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            app:cardCornerRadius="10dp"
-                            app:cardElevation="10dp"
-                            android:layout_margin="10dp">
-                            <LinearLayout
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_marginTop="5dp"
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:orientation="vertical">
+                                android:layout_height="wrap_content"
+                                android:text="PELUANG BISNIS BAGI PERBANKAN"
+                                android:textColor="@color/colorPrimary"
+                                android:fontFamily="@font/inter"
+                                android:gravity="center"
+                                android:textSize="@dimen/text_medium"/>
+                            <TextView
+                                android:textSize="@dimen/text_medium"
+                                android:layout_marginBottom="10dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="DALAM EKOSISTEM INDUSTRI BATUBARA amp; PERDAGANGAN EKSPOR BATUBARA"
+                                android:textColor="@color/colorPrimary"
+                                android:fontFamily="@font/inter"
+                                android:gravity="center"/>
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                app:cardCornerRadius="10dp"
+                                app:cardElevation="10dp"
+                                android:layout_margin="10dp">
                                 <LinearLayout
                                     android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="horizontal"
-                                    android:background="@color/colorBlack">
-                                    <TextView
-                                        android:layout_margin="5dp"
-                                        android:textColor="@color/colorWhite"
-                                        android:fontFamily="@font/inter"
-                                        android:gravity="center"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:text="STAKEHOLDER"
-                                        android:layout_weight="2"/>
+                                    android:layout_height="match_parent"
+                                    android:orientation="vertical">
                                     <LinearLayout
                                         android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:layout_weight="2.99"
-                                        android:background="@color/colorPrimary"/>
-                                    <TextView
-                                        android:layout_margin="5dp"
-                                        android:textColor="@color/colorWhite"
-                                        android:fontFamily="@font/inter"
-                                        android:gravity="center"
-                                        android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:text="BENTUK PELUANG"
-                                        android:layout_weight="1"/>
-                                </LinearLayout>
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="horizontal"
-                                    android:background="@color/colorClouds">
-                                    <TextView
-                                        android:gravity="center"
-                                        android:layout_margin="5dp"
-                                        android:textColor="@color/colorBlack"
-                                        android:fontFamily="@font/inter"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:text="Pemegang Konsensi Tambang"
-                                        android:layout_weight="2"/>
+                                        android:orientation="horizontal"
+                                        android:background="@color/colorBlack">
+                                        <TextView
+                                            android:layout_margin="5dp"
+                                            android:textColor="@color/colorWhite"
+                                            android:fontFamily="@font/inter"
+                                            android:gravity="center"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:text="STAKEHOLDER"
+                                            android:layout_weight="2"/>
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="2.99"
+                                            android:background="@color/colorPrimary"/>
+                                        <TextView
+                                            android:layout_margin="5dp"
+                                            android:textColor="@color/colorWhite"
+                                            android:fontFamily="@font/inter"
+                                            android:gravity="center"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:text="BENTUK PELUANG"
+                                            android:layout_weight="1"/>
+                                    </LinearLayout>
                                     <LinearLayout
                                         android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:layout_weight="2.99"
-                                        android:background="@color/colorPrimary"/>
-                                    <TextView
-                                        android:gravity="center"
-                                        android:layout_margin="5dp"
-                                        android:textColor="@color/colorBlack"
-                                        android:fontFamily="@font/inter"
-                                        android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:text="Pandangan Infrastruktur Tambang (CAPEX) , Fasilitas LC, Pre shipment financing"
-                                        android:layout_weight="1"/>
-                                </LinearLayout>
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="horizontal"
-                                    android:background="@color/colorWhite">
-                                    <TextView
-                                        android:gravity="center"
-                                        android:layout_margin="5dp"
-                                        android:textColor="@color/colorBlack"
-                                        android:fontFamily="@font/inter"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:text="Kontraktor Eksplorasi"
-                                        android:layout_weight="2"/>
+                                        android:orientation="horizontal"
+                                        android:background="@color/colorClouds">
+                                        <TextView
+                                            android:gravity="center"
+                                            android:layout_margin="5dp"
+                                            android:textColor="@color/colorBlack"
+                                            android:fontFamily="@font/inter"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:text="Pemegang Konsensi Tambang"
+                                            android:layout_weight="2"/>
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="2.99"
+                                            android:background="@color/colorPrimary"/>
+                                        <TextView
+                                            android:gravity="center"
+                                            android:layout_margin="5dp"
+                                            android:textColor="@color/colorBlack"
+                                            android:fontFamily="@font/inter"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:text="Pandangan Infrastruktur Tambang (CAPEX) , Fasilitas LC, Pre shipment financing"
+                                            android:layout_weight="1"/>
+                                    </LinearLayout>
                                     <LinearLayout
                                         android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:layout_weight="2.99"
-                                        android:background="@color/colorPrimary"/>
-                                    <TextView
-                                        android:gravity="center"
-                                        android:layout_margin="5dp"
-                                        android:textColor="@color/colorBlack"
-                                        android:fontFamily="@font/inter"
-                                        android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:text="Pendanaan Pembelian atau pembuatan peralatan driling"
-                                        android:layout_weight="1"/>
-                                </LinearLayout>
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="horizontal"
-                                    android:background="@color/colorClouds">
-                                    <TextView
-                                        android:gravity="center"
-                                        android:layout_margin="5dp"
-                                        android:textColor="@color/colorBlack"
-                                        android:fontFamily="@font/inter"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:text="Kontraktor Tambang"
-                                        android:layout_weight="2"/>
+                                        android:orientation="horizontal"
+                                        android:background="@color/colorWhite">
+                                        <TextView
+                                            android:gravity="center"
+                                            android:layout_margin="5dp"
+                                            android:textColor="@color/colorBlack"
+                                            android:fontFamily="@font/inter"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:text="Kontraktor Eksplorasi"
+                                            android:layout_weight="2"/>
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="2.99"
+                                            android:background="@color/colorPrimary"/>
+                                        <TextView
+                                            android:gravity="center"
+                                            android:layout_margin="5dp"
+                                            android:textColor="@color/colorBlack"
+                                            android:fontFamily="@font/inter"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:text="Pendanaan Pembelian atau pembuatan peralatan driling"
+                                            android:layout_weight="1"/>
+                                    </LinearLayout>
                                     <LinearLayout
                                         android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:layout_weight="2.99"
-                                        android:background="@color/colorPrimary"/>
-                                    <TextView
-                                        android:gravity="center"
-                                        android:layout_margin="5dp"
-                                        android:textColor="@color/colorBlack"
-                                        android:fontFamily="@font/inter"
-                                        android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:text="Pendanaan alat berat, Pendaanan Operating Expense, Factoring invoice pembayaran"
-                                        android:layout_weight="1"/>
-                                </LinearLayout>
+                                        android:orientation="horizontal"
+                                        android:background="@color/colorClouds">
+                                        <TextView
+                                            android:gravity="center"
+                                            android:layout_margin="5dp"
+                                            android:textColor="@color/colorBlack"
+                                            android:fontFamily="@font/inter"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:text="Kontraktor Tambang"
+                                            android:layout_weight="2"/>
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="2.99"
+                                            android:background="@color/colorPrimary"/>
+                                        <TextView
+                                            android:gravity="center"
+                                            android:layout_margin="5dp"
+                                            android:textColor="@color/colorBlack"
+                                            android:fontFamily="@font/inter"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:text="Pendanaan alat berat, Pendaanan Operating Expense, Factoring invoice pembayaran"
+                                            android:layout_weight="1"/>
+                                    </LinearLayout>
 
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="horizontal"
-                                    android:background="@color/colorWhite">
-                                    <TextView
-                                        android:gravity="center"
-                                        android:layout_margin="5dp"
-                                        android:textColor="@color/colorBlack"
-                                        android:fontFamily="@font/inter"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:text="Kontraktor Truck Angkutan"
-                                        android:layout_weight="2"/>
                                     <LinearLayout
                                         android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:layout_weight="2.99"
-                                        android:background="@color/colorPrimary"/>
-                                    <TextView
-                                        android:gravity="center"
-                                        android:layout_margin="5dp"
-                                        android:textColor="@color/colorBlack"
-                                        android:fontFamily="@font/inter"
-                                        android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:text="Pendanaan Truck"
-                                        android:layout_weight="1"/>
-                                </LinearLayout>
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="horizontal"
-                                    android:background="@color/colorClouds">
-                                    <TextView
-                                        android:gravity="center"
-                                        android:layout_margin="5dp"
-                                        android:textColor="@color/colorBlack"
-                                        android:fontFamily="@font/inter"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:text="Penyedia Bahan Bakar Solar"
-                                        android:layout_weight="2"/>
+                                        android:orientation="horizontal"
+                                        android:background="@color/colorWhite">
+                                        <TextView
+                                            android:gravity="center"
+                                            android:layout_margin="5dp"
+                                            android:textColor="@color/colorBlack"
+                                            android:fontFamily="@font/inter"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:text="Kontraktor Truck Angkutan"
+                                            android:layout_weight="2"/>
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="2.99"
+                                            android:background="@color/colorPrimary"/>
+                                        <TextView
+                                            android:gravity="center"
+                                            android:layout_margin="5dp"
+                                            android:textColor="@color/colorBlack"
+                                            android:fontFamily="@font/inter"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:text="Pendanaan Truck"
+                                            android:layout_weight="1"/>
+                                    </LinearLayout>
                                     <LinearLayout
                                         android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:layout_weight="2.99"
-                                        android:background="@color/colorPrimary"/>
-                                    <TextView
-                                        android:gravity="center"
-                                        android:layout_margin="5dp"
-                                        android:textColor="@color/colorBlack"
-                                        android:fontFamily="@font/inter"
-                                        android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:text="Supply chain financing"
-                                        android:layout_weight="1"/>
-                                </LinearLayout>
+                                        android:orientation="horizontal"
+                                        android:background="@color/colorClouds">
+                                        <TextView
+                                            android:gravity="center"
+                                            android:layout_margin="5dp"
+                                            android:textColor="@color/colorBlack"
+                                            android:fontFamily="@font/inter"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:text="Penyedia Bahan Bakar Solar"
+                                            android:layout_weight="2"/>
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="2.99"
+                                            android:background="@color/colorPrimary"/>
+                                        <TextView
+                                            android:gravity="center"
+                                            android:layout_margin="5dp"
+                                            android:textColor="@color/colorBlack"
+                                            android:fontFamily="@font/inter"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:text="Supply chain financing"
+                                            android:layout_weight="1"/>
+                                    </LinearLayout>
 
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="horizontal"
-                                    android:background="@color/colorWhite">
-                                    <TextView
-                                        android:gravity="center"
-                                        android:layout_margin="5dp"
-                                        android:textColor="@color/colorBlack"
-                                        android:fontFamily="@font/inter"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:text="Perusahaan Trading"
-                                        android:layout_weight="2"/>
                                     <LinearLayout
                                         android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:layout_weight="2.99"
-                                        android:background="@color/colorPrimary"/>
-                                    <TextView
-                                        android:gravity="center"
-                                        android:layout_margin="5dp"
-                                        android:textColor="@color/colorBlack"
-                                        android:fontFamily="@font/inter"
-                                        android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:text="Fasilitas LC, Pre shipment financing"
-                                        android:layout_weight="1"/>
-                                </LinearLayout>
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="horizontal"
-                                    android:background="@color/colorClouds">
-                                    <TextView
-                                        android:gravity="center"
-                                        android:layout_margin="5dp"
-                                        android:textColor="@color/colorBlack"
-                                        android:fontFamily="@font/inter"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:text="Pemilik Angkutan kapal &amp; Floating Crane"
-                                        android:layout_weight="2"/>
+                                        android:orientation="horizontal"
+                                        android:background="@color/colorWhite">
+                                        <TextView
+                                            android:gravity="center"
+                                            android:layout_margin="5dp"
+                                            android:textColor="@color/colorBlack"
+                                            android:fontFamily="@font/inter"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:text="Perusahaan Trading"
+                                            android:layout_weight="2"/>
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="2.99"
+                                            android:background="@color/colorPrimary"/>
+                                        <TextView
+                                            android:gravity="center"
+                                            android:layout_margin="5dp"
+                                            android:textColor="@color/colorBlack"
+                                            android:fontFamily="@font/inter"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:text="Fasilitas LC, Pre shipment financing"
+                                            android:layout_weight="1"/>
+                                    </LinearLayout>
                                     <LinearLayout
                                         android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:layout_weight="2.99"
-                                        android:background="@color/colorPrimary"/>
-                                    <TextView
-                                        android:gravity="center"
-                                        android:layout_margin="5dp"
-                                        android:textColor="@color/colorBlack"
-                                        android:fontFamily="@font/inter"
-                                        android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:text="Pendanaan Shipbuilding, Pendanaan operating expense, factoring invoice pembayaran"
-                                        android:layout_weight="1"/>
-                                </LinearLayout>
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="horizontal"
-                                    android:background="@color/colorWhite">
-                                    <TextView
-                                        android:gravity="center"
-                                        android:layout_margin="5dp"
-                                        android:textColor="@color/colorBlack"
-                                        android:fontFamily="@font/inter"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:text="End user"
-                                        android:layout_weight="2"/>
+                                        android:orientation="horizontal"
+                                        android:background="@color/colorClouds">
+                                        <TextView
+                                            android:gravity="center"
+                                            android:layout_margin="5dp"
+                                            android:textColor="@color/colorBlack"
+                                            android:fontFamily="@font/inter"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:text="Pemilik Angkutan kapal &amp; Floating Crane"
+                                            android:layout_weight="2"/>
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="2.99"
+                                            android:background="@color/colorPrimary"/>
+                                        <TextView
+                                            android:gravity="center"
+                                            android:layout_margin="5dp"
+                                            android:textColor="@color/colorBlack"
+                                            android:fontFamily="@font/inter"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:text="Pendanaan Shipbuilding, Pendanaan operating expense, factoring invoice pembayaran"
+                                            android:layout_weight="1"/>
+                                    </LinearLayout>
                                     <LinearLayout
                                         android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:layout_weight="2.99"
-                                        android:background="@color/colorPrimary"/>
-                                    <TextView
-                                        android:gravity="center"
-                                        android:layout_margin="5dp"
-                                        android:textColor="@color/colorBlack"
-                                        android:fontFamily="@font/inter"
-                                        android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:text="Fasilitas LC, Supply Chain Financing"
-                                        android:layout_weight="1"/>
-                                </LinearLayout>
+                                        android:orientation="horizontal"
+                                        android:background="@color/colorWhite">
+                                        <TextView
+                                            android:gravity="center"
+                                            android:layout_margin="5dp"
+                                            android:textColor="@color/colorBlack"
+                                            android:fontFamily="@font/inter"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:text="End user"
+                                            android:layout_weight="2"/>
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="2.99"
+                                            android:background="@color/colorPrimary"/>
+                                        <TextView
+                                            android:gravity="center"
+                                            android:layout_margin="5dp"
+                                            android:textColor="@color/colorBlack"
+                                            android:fontFamily="@font/inter"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:text="Fasilitas LC, Supply Chain Financing"
+                                            android:layout_weight="1"/>
+                                    </LinearLayout>
 
 
 
-                            </LinearLayout>
-                        </androidx.cardview.widget.CardView>
-                    </LinearLayout>
+                                </LinearLayout>
+                            </androidx.cardview.widget.CardView>
+                        </LinearLayout>
+                    </ScrollView>
                 </ScrollView>
-            </ScrollView>
+            </LinearLayout>
             <LinearLayout
                 android:visibility="gone"
                 android:layout_width="match_parent"

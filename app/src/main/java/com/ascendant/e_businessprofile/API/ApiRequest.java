@@ -1,4 +1,4 @@
-package com.ascendant.e_businessprofile.Activity.API;
+package com.ascendant.e_businessprofile.API;
 
 import com.ascendant.e_businessprofile.Model.DataModel;
 import com.ascendant.e_businessprofile.Model.ResponseArrayObject;
@@ -7,6 +7,7 @@ import com.ascendant.e_businessprofile.Model.ResponseObject;
 import com.ascendant.e_businessprofile.Model.ResponseQuiz;
 import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Perusahaan.Perusahaan;
 import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Rumus.Probing;
+import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Rumus.ResponseKMK;
 import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Rumus.RumusKMK;
 
 import okhttp3.MultipartBody;
@@ -115,6 +116,19 @@ public interface ApiRequest {
                                                            @Field("tipe") String tipe);
 
     //Forum
+    @FormUrlEncoded
+    @POST("delete_posting")
+    Call<ResponseArrayObject> DeletePosting(@Field("token") String token,
+                                            @Field("id_post") String id_post,
+                                            @Field("tipe_post") String tipe_post);
+
+    @FormUrlEncoded
+    @POST("report_post")
+    Call<ResponseArrayObject> ReportPosting(@Field("token") String token,
+                                            @Field("id_post") String id_post,
+                                            @Field("tipe_post") String tipe_post,
+                                            @Field("note") String note);
+
     @FormUrlEncoded
     @POST("daftar_posting")
     Call<ResponseArrayObject> Daftar_Postingan(@Field("token") String token,
@@ -288,9 +302,9 @@ public interface ApiRequest {
                                   @Field("kuncifaba") String kuncifaba);
 
     @FormUrlEncoded
-    @POST("kos/fmcg")
+    @POST("fmcg/key_of_success")
     Call<Probing> KosFMCG(@Header("Authorization") String authHeader,
-                          @Field("kuncifaba") String kuncifaba,
+                          @Field("token") String token,
                           @Field("industri") String industri);
 
     @FormUrlEncoded
@@ -299,6 +313,13 @@ public interface ApiRequest {
                        @Field("kuncifaba") String kuncifaba,
                        @Field("nama_param") String nama_param,
                        @Field("kategori") String kategori);
+
+    @FormUrlEncoded
+    @POST("fmcg/param")
+    Call<ResponseKMK> KMKV2(@Header("Authorization") String authHeader,
+                            @Field("token") String token,
+                            @Field("nama_param") String nama_param,
+                            @Field("kategori") String kategori);
 
     @FormUrlEncoded
     @POST("fmcg/permintaan/potensial_market")

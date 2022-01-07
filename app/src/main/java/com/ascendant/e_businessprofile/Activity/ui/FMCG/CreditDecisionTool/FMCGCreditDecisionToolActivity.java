@@ -133,7 +133,7 @@ public class FMCGCreditDecisionToolActivity extends AppCompatActivity {
                     View.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://fabakonsultan.com/uploads/fmcg/kredit_investasi/ki-tobacco.pdf"));
+                            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://mandiri-ebusinessraw.the-urbandev.com/uploads/fmcg/kredit_investasi/ki-tobacco.pdf"));
                             startActivity(browserIntent);
                         }
                     });
@@ -145,7 +145,7 @@ public class FMCGCreditDecisionToolActivity extends AppCompatActivity {
                                     .setCancelable(false)
                                     .setPositiveButton("Iya", new DialogInterface.OnClickListener() {
                                         public void onClick(DialogInterface dialog, int id) {
-                                            method.DownloadPDF("https://fabakonsultan.com/uploads/fmcg/kredit_investasi/ki-tobacco.pdf","Rokok",FMCGCreditDecisionToolActivity.this);
+                                            method.DownloadPDF("http://mandiri-ebusinessraw.the-urbandev.com/uploads/fmcg/kredit_investasi/ki-tobacco.pdf","Rokok",FMCGCreditDecisionToolActivity.this);
                                         }
                                     })
                                     .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
@@ -173,7 +173,7 @@ public class FMCGCreditDecisionToolActivity extends AppCompatActivity {
                     View.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://fabakonsultan.com/uploads/fmcg/kredit_investasi/ki-non-fnb.pdf"));
+                            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://mandiri-ebusinessraw.the-urbandev.com/uploads/fmcg/kredit_investasi/ki-non-fnb.pdf"));
                             startActivity(browserIntent);
                         }
                     });
@@ -185,7 +185,7 @@ public class FMCGCreditDecisionToolActivity extends AppCompatActivity {
                                     .setCancelable(false)
                                     .setPositiveButton("Iya", new DialogInterface.OnClickListener() {
                                         public void onClick(DialogInterface dialog, int id) {
-                                            method.DownloadPDF("https://fabakonsultan.com/uploads/fmcg/kredit_investasi/ki-non-fnb.pdf","Non Food",FMCGCreditDecisionToolActivity.this);
+                                            method.DownloadPDF("http://mandiri-ebusinessraw.the-urbandev.com/uploads/fmcg/kredit_investasi/ki-non-fnb.pdf","Non Food",FMCGCreditDecisionToolActivity.this);
                                         }
                                     })
                                     .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {

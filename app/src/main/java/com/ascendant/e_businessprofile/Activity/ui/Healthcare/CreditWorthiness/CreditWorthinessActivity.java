@@ -106,7 +106,7 @@ public class CreditWorthinessActivity extends AppCompatActivity {
         BusinessOppurtinityForBank.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://fabakonsultan.com/uploads/hospital/credit_worthiness/peluang_bank_di_ekosistem_rumah_sakit.pdf"));
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://mandiri-ebusinessraw.the-urbandev.com/uploads/hospital/credit_worthiness/peluang_bank_di_ekosistem_rumah_sakit.pdf"));
                 startActivity(browserIntent);
             }
         });
@@ -120,7 +120,7 @@ public class CreditWorthinessActivity extends AppCompatActivity {
         RiskAndMitigation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://fabakonsultan.com/uploads/hospital/credit_worthiness/risk-and-mitigation.pdf"));
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://mandiri-ebusinessraw.the-urbandev.com/uploads/hospital/credit_worthiness/risk-and-mitigation.pdf"));
                 startActivity(browserIntent);
             }
         });

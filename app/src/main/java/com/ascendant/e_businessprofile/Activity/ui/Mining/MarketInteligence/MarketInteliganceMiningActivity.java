@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -32,7 +33,7 @@ public class MarketInteliganceMiningActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_market_inteligance_mining);
-
+        Benchmark = findViewById(R.id.relativeBenchmarking);
         MarketPotential = findViewById(R.id.relativeMarketPotential);
 
         //Cut Here
@@ -77,7 +78,13 @@ public class MarketInteliganceMiningActivity extends AppCompatActivity {
         });
 
         //Cut Here
-
+        Benchmark.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://ebuss-raw.the-urbandev.com/uploads/mining/benchmark.pdf"));
+                startActivity(browserIntent);
+            }
+        });
         MarketPotential.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
