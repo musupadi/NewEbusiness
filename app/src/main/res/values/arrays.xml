@@ -105,5 +105,32 @@
         <item>Farm</item>
     </string-array>
 
+    <string-array name="PlayersFarmer">
+        <item>Semua</item>
+        <item>Peternakan Sapi</item>
+        <item>Perusahaan Unggas</item>
+        <item>Perusahaan Pakan Ternak</item>
+        <item>Pengholahan Susu</item>
+        <item>Pengholahan Daging</item>
+        <item>Obat</item>
+        <item>Media Informasi Peternakan</item>
+    </string-array>
+
+    <string-array name="Beef">
+        <item>Peternakan Sapi</item>
+        <item>Pengholahan Susu</item>
+        <item>Pengholahan Daging</item>
+    </string-array>
+
+    <string-array name="Polutry">
+        <item>Perusahaan Unggas</item>
+    </string-array>
+
+    <string-array name="SupportingIndustriesr">
+        <item>Perusahaan Pakan Ternak</item>
+        <item>Obat</item>
+        <item>Media Informasi Peternakan</item>
+    </string-array>
+
 
 </resources>

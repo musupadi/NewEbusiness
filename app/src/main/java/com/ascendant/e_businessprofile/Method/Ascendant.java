@@ -1,4 +1,4 @@
-package com.ascendant.e_businessprofile.Activity.Method;
+package com.ascendant.e_businessprofile.Method;
 
 import android.app.AlertDialog;
 import android.app.DownloadManager;
@@ -270,7 +270,7 @@ public class Ascendant {
         return authHeader;
     }
     public String BASE_URL(){
-        String URL = "https://ebuss.the-urbandev.com/";
+        String URL = "https://mandiri-ebuss.com/";
         return URL;
     }
     public void Download(final Context ctx, final String file, final String link, final String nama){
@@ -279,13 +279,17 @@ public class Ascendant {
                 .setCancelable(false)
                 .setPositiveButton("Iya", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        if (file.equals("pdf")){
-                            DownloadPDF(link,nama,ctx);
-                        }else if(file.equals("jpg")){
-                            Downloadjpg(link,nama,ctx);
-                        }else{
-                            DownloadPPT(link,nama,ctx);
-                        }
+                       try {
+                           if (file.equals("pdf")){
+                               DownloadPDF(link,nama,ctx);
+                           }else if(file.equals("jpg")){
+                               Downloadjpg(link,nama,ctx);
+                           }else{
+                               DownloadPPT(link,nama,ctx);
+                           }
+                       }catch (Exception e){
+                           Toast.makeText(ctx, "Terjadi Kesalahan pada Data", Toast.LENGTH_SHORT).show();
+                       }
                     }
                 })
                 .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
@@ -372,6 +376,10 @@ public class Ascendant {
         String replace17 = replace16.replace("<p style=\\\"text-align: left;\\\">","");
         String replace18 = replace17.replace("<em>","");
         return replace18;
+    }
+    public String Changer(String text){
+        String replace = text.replace("<br>","\n");
+        return replace;
     }
     public void DownloadPDF(String url, String judul, Context ctx){
         DownloadManager.Request request = new DownloadManager.Request(Uri.parse(BASE_URL()+url));

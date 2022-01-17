@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.ascendant.e_businessprofile.Activity.Method.Ascendant;
+import com.ascendant.e_businessprofile.Method.Ascendant;
 import com.ascendant.e_businessprofile.R;
 
 import java.text.DecimalFormat;

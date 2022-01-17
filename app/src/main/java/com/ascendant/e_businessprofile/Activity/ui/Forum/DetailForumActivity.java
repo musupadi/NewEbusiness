@@ -29,7 +29,7 @@ import android.widget.Toast;
 import com.ascendant.e_businessprofile.API.ApiRequest;
 import com.ascendant.e_businessprofile.API.RetroServer;
 import com.ascendant.e_businessprofile.Activity.HomeActivity;
-import com.ascendant.e_businessprofile.Activity.Method.Ascendant;
+import com.ascendant.e_businessprofile.Method.Ascendant;
 import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
 import com.ascendant.e_businessprofile.Adapter.AdapterGambarForum;
 import com.ascendant.e_businessprofile.Adapter.AdapterKomen;
@@ -105,13 +105,14 @@ public class DetailForumActivity extends AppCompatActivity {
     //ONCLICK
     Boolean Gambar1 = false;
 
-    LinearLayout Delete,Report;
+    LinearLayout Delete,Report,Edit;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_forum);
         Delete = findViewById(R.id.linearDelete);
         Report = findViewById(R.id.linearReport);
+        Edit = findViewById(R.id.linearEdit);
         rv = findViewById(R.id.recyclerNav);
         Available = findViewById(R.id.linearAvailable);
         Navigator = findViewById(R.id.linearNavigator);
@@ -371,9 +372,11 @@ public class DetailForumActivity extends AppCompatActivity {
                         if (NamaUser.equals(response.body().getData().getDetail().getNama_user())){
                             Report.setVisibility(View.GONE);
                             Delete.setVisibility(View.VISIBLE);
+                            Edit.setVisibility(View.VISIBLE);
                         }else{
                             Report.setVisibility(View.VISIBLE);
                             Delete.setVisibility(View.GONE);
+                            Edit.setVisibility(View.GONE);
                         }
                         Nama.setText(response.body().getData().getDetail().getNama_user());
                         web.setText(response.body().getData().getDetail().getIsi_post());

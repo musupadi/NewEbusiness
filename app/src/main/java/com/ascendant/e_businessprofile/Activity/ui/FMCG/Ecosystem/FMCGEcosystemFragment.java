@@ -18,10 +18,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.ascendant.e_businessprofile.Activity.Method.Ascendant;
+import com.ascendant.e_businessprofile.Method.Ascendant;
 import com.ascendant.e_businessprofile.Activity.ui.FMCG.Ecosystem.Association.FMCGAssociationActivity;
 import com.ascendant.e_businessprofile.Activity.ui.FMCG.Ecosystem.Players.FMCGEcosystemPlayersActivity;
-import com.ascendant.e_businessprofile.Activity.ui.Healthcare.Ecosystem.EcosystemFragment;
 import com.ascendant.e_businessprofile.R;
 import com.github.barteksc.pdfviewer.PDFView;
 

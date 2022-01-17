@@ -26,6 +26,10 @@ public class ResponseArrayObject {
     @Expose
     List<DataModel> data;
 
+    @SerializedName("list")
+    @Expose
+    List<DataModel> list;
+
     //Old Logic
     String dor_bawah,dor_atas,doi_bawah,doi_atas,dop_bawah,dop_atas;
     String range_bawah,range_atas;
@@ -2821,5 +2825,13 @@ public class ResponseArrayObject {
 
     public void setTotal(String total) {
         this.total = total;
+    }
+
+    public List<DataModel> getList() {
+        return list;
+    }
+
+    public void setList(List<DataModel> list) {
+        this.list = list;
     }
 }

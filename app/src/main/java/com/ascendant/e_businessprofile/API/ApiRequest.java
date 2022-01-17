@@ -363,4 +363,29 @@ public interface ApiRequest {
     @FormUrlEncoded
     @POST("mining/list_of_probing")
     Call<ResponseArrayObject> Mining_List_of_Probing(@Field("token") String token);
+
+    @FormUrlEncoded
+    @POST("mining/outlook")
+    Call<ResponseArrayObject> MiningOutlook(@Field("token") String token,
+                                             @Field("jenis_outlook") String jenis_outlook);
+
+    @FormUrlEncoded
+    @POST("farming/perusahaan")
+    Call<ResponseArrayObject> FarmingPerusahaan(@Field("token") String token,
+                                            @Field("kategori_perusahaan") String kategori_perusahaan);
+
+    @FormUrlEncoded
+    @POST("hospital/detail")
+    Call<ResponseArrayObject> detailHospital(@Header("Authorization") String authHeader,
+                                       @Field("kode_rs") String kode_rs,
+                                       @Field("kuncifaba") String kuncifaba);
+
+    @FormUrlEncoded
+    @POST("hospital/list")
+    Call<ResponseArrayObject> listHospital(@Header("Authorization") String authHeader,
+                                     @Field("kab_kota_rs") String kab_kota_rs,
+                                     @Field("provinsi_rs") String provinsi_rs,
+                                     @Field("nama_rs") String nama_rs,
+                                     @Field("kelas_rs") String kelas_rs,
+                                     @Field("kuncifaba") String kuncifaba);
 }

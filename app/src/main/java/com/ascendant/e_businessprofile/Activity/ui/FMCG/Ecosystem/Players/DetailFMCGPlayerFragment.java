@@ -22,7 +22,7 @@ import android.widget.Toast;
 
 import com.ascendant.e_businessprofile.API.ApiRequest;
 import com.ascendant.e_businessprofile.API.OldRetroServer;
-import com.ascendant.e_businessprofile.Activity.Method.Ascendant;
+import com.ascendant.e_businessprofile.Method.Ascendant;
 import com.ascendant.e_businessprofile.Adapter.AdapterAnakPerusahaan;
 import com.ascendant.e_businessprofile.Adapter.AdapterPemegangSaham;
 import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Perusahaan.AnakPerusahaan;

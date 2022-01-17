@@ -20,7 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.ascendant.e_businessprofile.API.ApiRequest;
 import com.ascendant.e_businessprofile.API.RetroServer;
-import com.ascendant.e_businessprofile.Activity.Method.Ascendant;
+import com.ascendant.e_businessprofile.Method.Ascendant;
 import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
 import com.ascendant.e_businessprofile.Activity.ui.Forum.DetailForumActivity;
 import com.ascendant.e_businessprofile.Model.DataModel;
@@ -76,9 +76,11 @@ public class AdapterSubKomen extends RecyclerView.Adapter<AdapterSubKomen.Holder
         if (dm.getNama_user().equals(NamaUser)){
             holderData.Report.setVisibility(View.GONE);
             holderData.Delete.setVisibility(View.VISIBLE);
+            holderData.Edit.setVisibility(View.VISIBLE);
         }else{
             holderData.Report.setVisibility(View.VISIBLE);
             holderData.Delete.setVisibility(View.GONE);
+            holderData.Edit.setVisibility(View.GONE);
         }
         if (dm.getImg_komen().equals("")){
             holderData.Gambar.setVisibility(View.GONE);
@@ -156,7 +158,7 @@ public class AdapterSubKomen extends RecyclerView.Adapter<AdapterSubKomen.Holder
         ImageView Reply,Gambar;
         RecyclerView recyclerView;
         CardView cardKomen;
-        LinearLayout Delete,Report;
+        LinearLayout Delete,Report,Edit;
         HolderData(View v){
             super(v);
             Nama = v.findViewById(R.id.tvNama);
@@ -167,6 +169,7 @@ public class AdapterSubKomen extends RecyclerView.Adapter<AdapterSubKomen.Holder
             cardKomen = v.findViewById(R.id.cardKomen);
             Delete = v.findViewById(R.id.linearDelete);
             Report = v.findViewById(R.id.linearReport);
+            Edit = v.findViewById(R.id.linearEdit);
         }
     }
 }

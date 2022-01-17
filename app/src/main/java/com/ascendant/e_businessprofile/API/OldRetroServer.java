@@ -7,7 +7,7 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class OldRetroServer {
-    private static final String base_url = "http://mandiri-ebusinessraw.the-urbandev.com/api/";
+    private static final String base_url = "https://mandiri-ebusiness.fabakonsultan.com/api/";
     private static Retrofit retrofit;
 
     public static Retrofit getClient(){

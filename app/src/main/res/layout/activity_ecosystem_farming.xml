@@ -68,6 +68,7 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
                     <LinearLayout
+                        android:id="@+id/linearBeef"
                         android:layout_margin="10dp"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/box_long"
@@ -116,6 +117,7 @@
                         </RelativeLayout>
                     </LinearLayout>
                     <LinearLayout
+                        android:id="@+id/linearPolutry"
                         android:layout_margin="10dp"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/box_long"
@@ -164,6 +166,7 @@
                         </RelativeLayout>
                     </LinearLayout>
                     <LinearLayout
+                        android:id="@+id/linearSupportingIndustries"
                         android:layout_margin="10dp"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/box_long"

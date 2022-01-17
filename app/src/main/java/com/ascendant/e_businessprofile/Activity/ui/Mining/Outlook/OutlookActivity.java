@@ -12,20 +12,15 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
-import com.ascendant.e_businessprofile.Activity.Method.Ascendant;
 import com.ascendant.e_businessprofile.Adapter.Static.AdapterNavigator;
 import com.ascendant.e_businessprofile.Model.DataModel;
-import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.CreditWorthiness.FMCGCreditWorthinessFNBModel;
-import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.CreditWorthiness.FMCGCreditWorthinessModel;
-import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.CreditWorthiness.FMCGCreditWorthinessNFNBModel;
-import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.CreditWorthiness.FMCGCreditWorthinessTobaccoModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.Mining.MiningOutlookModel;
 import com.ascendant.e_businessprofile.R;
 
 import java.util.ArrayList;
 
 public class OutlookActivity extends AppCompatActivity {
-    RelativeLayout BusinesStatus,BusinessProcess,RiskAndMitigation,Regulation;
+    RelativeLayout BusinesStatus,BusinessProcess,RiskAndMitigation,Regulation,Newsletter;
     LinearLayout Available,Navigator;
     RecyclerView rv,recyclerView;
     ImageView ivMore;
@@ -40,6 +35,7 @@ public class OutlookActivity extends AppCompatActivity {
         BusinessProcess = findViewById(R.id.relativeBusinessProcess);
         RiskAndMitigation = findViewById(R.id.relativeRiskAndMitigation);
         Regulation = findViewById(R.id.relativeRegulations);
+        Newsletter = findViewById(R.id.relativeNewsletter);
 
         //Cut Here
         rv = findViewById(R.id.recyclerNav);
@@ -110,6 +106,15 @@ public class OutlookActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://ebuss-raw.the-urbandev.com/uploads/mining/outlook/regulations.pdf"));
                 startActivity(browserIntent);
+            }
+        });
+        Newsletter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(OutlookActivity.this,MiningNewsletterActivity.class);
+                startActivity(intent
+
+                );
             }
         });
     }

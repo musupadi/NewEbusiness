@@ -19,21 +19,24 @@
                 android:layout_height="match_parent"
                 android:src="@drawable/mandiri_logo"/>
             <LinearLayout
+                android:visibility="gone"
                 android:alpha="0.4"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:background="@color/colorBlack"
                 android:layout_alignParentBottom="true"/>
+
             <TextView
+                android:visibility="gone"
+                android:id="@+id/tvCaption"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:layout_alignParentBottom="true"
-                android:text="-"
-                android:textSize="@dimen/text_extra_large"
-                android:gravity="center"
                 android:fontFamily="@font/inter"
+                android:gravity="center"
+                android:text="-"
                 android:textColor="@color/colorWhite"
-                android:id="@+id/tvCaption"/>
+                android:textSize="@dimen/text_extra_large" />
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 </LinearLayout>

@@ -77,330 +77,327 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
-                    <androidx.core.widget.NestedScrollView
-                        android:layout_weight="1"
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-                        <LinearLayout
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/card"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginBottom="10dp"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical">
-                            <androidx.cardview.widget.CardView
-                                android:layout_marginTop="20dp"
-                                android:layout_marginBottom="10dp"
+                            android:layout_height="wrap_content">
+                            <LinearLayout
+                                android:padding="10dp"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content">
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
                                 <LinearLayout
-                                    android:padding="10dp"
                                     android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:orientation="vertical">
+                                    android:layout_height="wrap_content"
+                                    android:padding="1dp"
+                                    android:background="@color/colorConcrete"
+                                    android:layout_margin="10dp">
                                     <LinearLayout
+                                        android:paddingTop="7dp"
+                                        android:paddingBottom="7dp"
                                         android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:padding="1dp"
-                                        android:background="@color/colorConcrete"
-                                        android:layout_margin="10dp">
-                                        <LinearLayout
-                                            android:paddingTop="7dp"
-                                            android:paddingBottom="7dp"
+                                        android:layout_height="match_parent"
+                                        android:orientation="horizontal"
+                                        android:background="@color/colorWhite">
+                                        <ImageView
+                                            android:layout_width="30dp"
+                                            android:layout_height="30dp"
+                                            android:src="@drawable/search"
+                                            android:layout_margin="10dp"/>
+                                        <EditText
+                                            android:layout_marginLeft="10dp"
                                             android:layout_width="match_parent"
                                             android:layout_height="match_parent"
-                                            android:orientation="horizontal"
-                                            android:background="@color/colorWhite">
-                                            <ImageView
-                                                android:layout_width="30dp"
-                                                android:layout_height="30dp"
-                                                android:src="@drawable/search"
-                                                android:layout_margin="10dp"/>
-                                            <EditText
-                                                android:layout_marginLeft="10dp"
-                                                android:layout_width="match_parent"
-                                                android:layout_height="match_parent"
-                                                android:gravity="center|left"
-                                                android:id="@+id/etSearchHospital"
-                                                android:hint="Search Hospital"/>
-                                        </LinearLayout>
+                                            android:gravity="center|left"
+                                            android:id="@+id/etSearchHospital"
+                                            android:hint="Search Hospital"/>
                                     </LinearLayout>
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
                                     <LinearLayout
+                                        android:layout_weight="1"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:orientation="horizontal">
-                                        <LinearLayout
-                                            android:layout_weight="1"
+                                        android:orientation="vertical">
+                                        <androidx.cardview.widget.CardView
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
-                                            android:orientation="vertical">
-                                            <androidx.cardview.widget.CardView
+                                            app:cardCornerRadius="10dp">
+                                            <LinearLayout
                                                 android:layout_width="match_parent"
                                                 android:layout_height="wrap_content"
-                                                app:cardCornerRadius="10dp">
+                                                android:padding="1dp"
+                                                android:background="@color/colorConcrete"
+                                                android:layout_margin="10dp">
                                                 <LinearLayout
+                                                    android:background="@color/colorWhite"
+                                                    android:padding="10dp"
                                                     android:layout_width="match_parent"
                                                     android:layout_height="wrap_content"
-                                                    android:padding="1dp"
-                                                    android:background="@color/colorConcrete"
-                                                    android:layout_margin="10dp">
-                                                    <LinearLayout
+                                                    android:orientation="horizontal">
+                                                    <Spinner
+                                                        android:layout_weight="1"
+                                                        android:entries="@array/Loading"
                                                         android:background="@color/colorWhite"
-                                                        android:padding="10dp"
                                                         android:layout_width="match_parent"
                                                         android:layout_height="wrap_content"
-                                                        android:orientation="horizontal">
-                                                        <Spinner
-                                                            android:layout_weight="1"
-                                                            android:entries="@array/Loading"
-                                                            android:background="@color/colorWhite"
-                                                            android:layout_width="match_parent"
-                                                            android:layout_height="wrap_content"
-                                                            android:id="@+id/spinnerProvinsi"/>
-                                                        <LinearLayout
-                                                            android:layout_width="match_parent"
-                                                            android:layout_height="match_parent"
-                                                            android:layout_weight="10"
-                                                            android:gravity="center"
-                                                            android:background="@color/colorWhite">
-                                                            <ImageView
-                                                                android:layout_width="@dimen/text_medium"
-                                                                android:layout_height="match_parent"
-                                                                android:src="@drawable/arrow_down"/>
-                                                        </LinearLayout>
-                                                    </LinearLayout>
-
-                                                </LinearLayout>
-                                            </androidx.cardview.widget.CardView>
-                                        </LinearLayout>
-                                        <LinearLayout
-                                            android:layout_weight="1"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:orientation="vertical">
-                                            <androidx.cardview.widget.CardView
-                                                android:layout_width="match_parent"
-                                                android:layout_height="wrap_content">
-                                                <LinearLayout
-                                                    android:layout_width="match_parent"
-                                                    android:layout_height="wrap_content"
-                                                    android:padding="1dp"
-                                                    android:layout_weight="1"
-                                                    android:background="@color/colorConcrete"
-                                                    android:layout_margin="10dp">
+                                                        android:id="@+id/spinnerProvinsi"/>
                                                     <LinearLayout
-                                                        android:background="@color/colorWhite"
-                                                        android:padding="10dp"
                                                         android:layout_width="match_parent"
-                                                        android:layout_height="wrap_content"
-                                                        android:orientation="horizontal">
-                                                        <Spinner
-                                                            android:layout_weight="1"
-                                                            android:entries="@array/Loading"
-                                                            android:background="@color/colorWhite"
-                                                            android:layout_width="match_parent"
-                                                            android:layout_height="wrap_content"
-                                                            android:id="@+id/spinnerKota"/>
-                                                        <LinearLayout
-                                                            android:layout_width="match_parent"
+                                                        android:layout_height="match_parent"
+                                                        android:layout_weight="10"
+                                                        android:gravity="center"
+                                                        android:background="@color/colorWhite">
+                                                        <ImageView
+                                                            android:layout_width="@dimen/text_medium"
                                                             android:layout_height="match_parent"
-                                                            android:layout_weight="10"
-                                                            android:gravity="center"
-                                                            android:background="@color/colorWhite">
-                                                            <ImageView
-                                                                android:layout_width="@dimen/text_medium"
-                                                                android:layout_height="match_parent"
-                                                                android:src="@drawable/arrow_down"/>
-                                                        </LinearLayout>
+                                                            android:src="@drawable/arrow_down"/>
                                                     </LinearLayout>
-
                                                 </LinearLayout>
-                                            </androidx.cardview.widget.CardView>
-                                        </LinearLayout>
+
+                                            </LinearLayout>
+                                        </androidx.cardview.widget.CardView>
                                     </LinearLayout>
                                     <LinearLayout
+                                        android:layout_weight="1"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:padding="1dp"
-                                        android:background="@color/colorConcrete"
-                                        android:layout_margin="10dp">
-                                        <LinearLayout
+                                        android:orientation="vertical">
+                                        <androidx.cardview.widget.CardView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content">
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:padding="1dp"
+                                                android:layout_weight="1"
+                                                android:background="@color/colorConcrete"
+                                                android:layout_margin="10dp">
+                                                <LinearLayout
+                                                    android:background="@color/colorWhite"
+                                                    android:padding="10dp"
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="wrap_content"
+                                                    android:orientation="horizontal">
+                                                    <Spinner
+                                                        android:layout_weight="1"
+                                                        android:entries="@array/Loading"
+                                                        android:background="@color/colorWhite"
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="wrap_content"
+                                                        android:id="@+id/spinnerKota"/>
+                                                    <LinearLayout
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="match_parent"
+                                                        android:layout_weight="10"
+                                                        android:gravity="center"
+                                                        android:background="@color/colorWhite">
+                                                        <ImageView
+                                                            android:layout_width="@dimen/text_medium"
+                                                            android:layout_height="match_parent"
+                                                            android:src="@drawable/arrow_down"/>
+                                                    </LinearLayout>
+                                                </LinearLayout>
+
+                                            </LinearLayout>
+                                        </androidx.cardview.widget.CardView>
+                                    </LinearLayout>
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:padding="1dp"
+                                    android:background="@color/colorConcrete"
+                                    android:layout_margin="10dp">
+                                    <LinearLayout
+                                        android:background="@color/colorWhite"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal"
+                                        android:paddingRight="10dp"
+                                        android:paddingLeft="10dp"
+                                        android:paddingTop="18dp"
+                                        android:paddingBottom="18dp">
+                                        <Spinner
+                                            android:layout_weight="1"
+                                            android:entries="@array/Kelas"
                                             android:background="@color/colorWhite"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
-                                            android:orientation="horizontal"
-                                            android:paddingRight="10dp"
-                                            android:paddingLeft="10dp"
-                                            android:paddingTop="18dp"
-                                            android:paddingBottom="18dp">
-                                            <Spinner
-                                                android:layout_weight="1"
-                                                android:entries="@array/Kelas"
-                                                android:background="@color/colorWhite"
-                                                android:layout_width="match_parent"
-                                                android:layout_height="wrap_content"
-                                                android:id="@+id/spinnerKelas"/>
-                                            <LinearLayout
-                                                android:layout_width="match_parent"
-                                                android:layout_height="match_parent"
-                                                android:layout_weight="10"
-                                                android:gravity="center">
-                                                <ImageView
-                                                    android:layout_width="@dimen/text_medium"
-                                                    android:layout_height="match_parent"
-                                                    android:src="@drawable/arrow_down"/>
-                                            </LinearLayout>
-                                        </LinearLayout>
-
-                                    </LinearLayout>
-                                </LinearLayout>
-                            </androidx.cardview.widget.CardView>
-                            <androidx.cardview.widget.CardView
-                                android:layout_width="match_parent"
-                                android:layout_height="50dp"
-                                android:layout_marginTop="20dp"
-                                android:layout_marginBottom="20dp"
-                                android:layout_marginLeft="20dp"
-                                android:layout_marginRight="20dp">
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:orientation="horizontal">
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:gravity="center"
-                                        android:layout_weight="1"
-                                        android:background="@color/colorPrimary">
+                                            android:id="@+id/spinnerKelas"/>
                                         <LinearLayout
-                                            android:id="@+id/linearList"
-                                            android:layout_margin="1dp"
                                             android:layout_width="match_parent"
                                             android:layout_height="match_parent"
-                                            android:background="@color/colorPrimary">
-                                            <TextView
-                                                android:id="@+id/tvList"
-                                                android:layout_width="match_parent"
+                                            android:layout_weight="10"
+                                            android:gravity="center">
+                                            <ImageView
+                                                android:layout_width="@dimen/text_medium"
                                                 android:layout_height="match_parent"
-                                                android:text="List"
-                                                android:gravity="center"
-                                                android:textSize="@dimen/header_text_small"
-                                                android:textColor="@color/colorWhite"/>
+                                                android:src="@drawable/arrow_down"/>
                                         </LinearLayout>
                                     </LinearLayout>
+
+                                </LinearLayout>
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginBottom="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal">
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center"
+                                    android:layout_weight="1"
+                                    android:background="@color/colorPrimary">
                                     <LinearLayout
+                                        android:id="@+id/linearList"
+                                        android:layout_margin="1dp"
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
-                                        android:gravity="center"
-                                        android:layout_weight="1"
                                         android:background="@color/colorPrimary">
-                                        <LinearLayout
-                                            android:id="@+id/linearMap"
-                                            android:layout_margin="1dp"
+                                        <TextView
+                                            android:id="@+id/tvList"
                                             android:layout_width="match_parent"
                                             android:layout_height="match_parent"
-                                            android:background="@color/colorBackground">
-                                            <TextView
-                                                android:id="@+id/tvMap"
-                                                android:layout_width="match_parent"
-                                                android:layout_height="match_parent"
-                                                android:text="Map"
-                                                android:gravity="center"
-                                                android:textSize="@dimen/header_text_small"
-                                                android:textColor="@color/colorPrimary"/>
-                                        </LinearLayout>
+                                            android:text="List"
+                                            android:gravity="center"
+                                            android:textSize="@dimen/header_text_small"
+                                            android:textColor="@color/colorWhite"/>
                                     </LinearLayout>
                                 </LinearLayout>
-                            </androidx.cardview.widget.CardView>
-                            <androidx.cardview.widget.CardView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content">
                                 <LinearLayout
                                     android:layout_width="match_parent"
-                                    android:layout_height="100dp"
-                                    android:orientation="horizontal">
+                                    android:layout_height="match_parent"
+                                    android:gravity="center"
+                                    android:layout_weight="1"
+                                    android:background="@color/colorPrimary">
                                     <LinearLayout
+                                        android:id="@+id/linearMap"
+                                        android:layout_margin="1dp"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/colorBackground">
+                                        <TextView
+                                            android:id="@+id/tvMap"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:text="Map"
+                                            android:gravity="center"
+                                            android:textSize="@dimen/header_text_small"
+                                            android:textColor="@color/colorPrimary"/>
+                                    </LinearLayout>
+                                </LinearLayout>
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="100dp"
+                                android:orientation="horizontal">
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical"
+                                    android:padding="10dp">
+                                    <TextView
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
                                         android:layout_weight="1"
-                                        android:orientation="vertical"
-                                        android:padding="10dp">
-                                        <TextView
-                                            android:layout_width="match_parent"
-                                            android:layout_height="match_parent"
-                                            android:layout_weight="1"
-                                            android:id="@+id/tvJumlahRS"
-                                            android:textSize="@dimen/header_text_small"
-                                            android:text="400"
-                                            android:textColor="@color/colorBlack"
-                                            android:fontFamily="@font/inter_extra_bold"
-                                            android:gravity="center|left"/>
-                                        <TextView
-                                            android:layout_width="match_parent"
-                                            android:layout_height="match_parent"
-                                            android:layout_weight="2"
-                                            android:textSize="@dimen/text_medium"
-                                            android:text="@string/total_hospital"
-                                            android:fontFamily="@font/inter"
-                                            android:gravity="center|left"/>
+                                        android:id="@+id/tvJumlahRS"
+                                        android:textSize="@dimen/header_text_small"
+                                        android:text="400"
+                                        android:textColor="@color/colorBlack"
+                                        android:fontFamily="@font/inter_extra_bold"
+                                        android:gravity="center|left"/>
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="2"
+                                        android:textSize="@dimen/text_medium"
+                                        android:text="@string/total_hospital"
+                                        android:fontFamily="@font/inter"
+                                        android:gravity="center|left"/>
 
-                                    </LinearLayout>
-                                    <LinearLayout
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical"
+                                    android:padding="10dp">
+                                    <TextView
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
                                         android:layout_weight="1"
-                                        android:orientation="vertical"
-                                        android:padding="10dp">
-                                        <TextView
-                                            android:layout_width="match_parent"
-                                            android:layout_height="match_parent"
-                                            android:layout_weight="1"
-                                            android:id="@+id/tvJumlahBed"
-                                            android:textSize="@dimen/header_text_small"
-                                            android:text="400"
-                                            android:textColor="@color/colorBlack"
-                                            android:fontFamily="@font/inter_extra_bold"
-                                            android:gravity="center|left"/>
-                                        <TextView
-                                            android:layout_width="match_parent"
-                                            android:layout_height="match_parent"
-                                            android:layout_weight="2"
-                                            android:textSize="@dimen/text_medium"
-                                            android:text="@string/total_bed"
-
-                                            android:fontFamily="@font/inter"
-                                            android:gravity="center|left"/>
-
-                                    </LinearLayout>
-                                </LinearLayout>
-                            </androidx.cardview.widget.CardView>
-                            <RelativeLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content">
-                                <LinearLayout
-                                    android:visibility="visible"
-                                    android:id="@+id/linearAvailableListMaps"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:orientation="vertical">
-                                    <fragment
-                                        android:id="@+id/map"
-                                        android:name="com.google.android.gms.maps.SupportMapFragment"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="400dp"/>
-                                </LinearLayout>
-                                <LinearLayout
-                                    android:visibility="gone"
-                                    android:id="@+id/linearAvailableList"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:orientation="vertical">
-                                    <androidx.recyclerview.widget.RecyclerView
+                                        android:id="@+id/tvJumlahBed"
+                                        android:textSize="@dimen/header_text_small"
+                                        android:text="400"
+                                        android:textColor="@color/colorBlack"
+                                        android:fontFamily="@font/inter_extra_bold"
+                                        android:gravity="center|left"/>
+                                    <TextView
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
-                                        android:id="@+id/recycler"/>
-                                </LinearLayout>
+                                        android:layout_weight="2"
+                                        android:textSize="@dimen/text_medium"
+                                        android:text="@string/total_bed"
 
-                            </RelativeLayout>
-                        </LinearLayout>
-                    </androidx.core.widget.NestedScrollView>
+                                        android:fontFamily="@font/inter"
+                                        android:gravity="center|left"/>
+
+                                </LinearLayout>
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <LinearLayout
+                                android:visibility="visible"
+                                android:id="@+id/linearAvailableListMaps"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <fragment
+                                    android:id="@+id/map"
+                                    android:name="com.google.android.gms.maps.SupportMapFragment"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent" />
+                            </LinearLayout>
+                            <LinearLayout
+                                android:visibility="gone"
+                                android:id="@+id/linearAvailableList"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+                                <androidx.recyclerview.widget.RecyclerView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:id="@+id/recycler"/>
+                            </LinearLayout>
+
+                        </RelativeLayout>
+                    </LinearLayout>
 
                 </LinearLayout>
             </LinearLayout>

@@ -4,7 +4,6 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -17,7 +16,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.ascendant.e_businessprofile.Activity.Method.Ascendant;
+import com.ascendant.e_businessprofile.Method.Ascendant;
+import com.ascendant.e_businessprofile.Activity.LandscapeWebViewEbookActivity;
+import com.ascendant.e_businessprofile.Activity.PortraitWebViewEbookActivity;
 import com.ascendant.e_businessprofile.R;
 
 
@@ -69,8 +70,9 @@ public class SupportingIndustriesFragment extends Fragment {
                 View.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://mandiri-ebusinessraw.the-urbandev.com/uploads/hospital/ekosistem/Ekosistem_RS_Farmasi_PBF.pdf"));
-                        startActivity(browserIntent);
+                        Intent i = new Intent(getActivity(), PortraitWebViewEbookActivity.class);
+                        i.putExtra("LINK", "https://ebuss-book.the-urbandev.com/healthcare/page/ekosistem/Farmasi_PBF.php");
+                        startActivity(i);
                     }
                 });
                 Download.setOnClickListener(new View.OnClickListener() {
@@ -105,8 +107,9 @@ public class SupportingIndustriesFragment extends Fragment {
                 View.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://mandiri-ebusinessraw.the-urbandev.com/uploads/hospital/ekosistem/Ekosistem_RS_Asuransi.pdf"));
-                        startActivity(browserIntent);
+                        Intent i = new Intent(getActivity(), PortraitWebViewEbookActivity.class);
+                        i.putExtra("LINK", "          ");
+                        startActivity(i);
                     }
                 });
                 Download.setOnClickListener(new View.OnClickListener() {
@@ -137,70 +140,112 @@ public class SupportingIndustriesFragment extends Fragment {
         ClinicalLab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(android.view.View view) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                builder.setMessage("Download File ?")
-                        .setCancelable(false)
-                        .setPositiveButton("Iya", new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                ascendant.DownloadPDF("http://mandiri-ebusinessraw.the-urbandev.com/uploads/ekosistem/hospital/Ekosistem_RS_Alkes.pdf","Clinical Labolatory",getActivity());
-                            }
-                        })
-                        .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                dialog.cancel();
-                            }
-                        })
-                        //Set your icon here
-                        .setTitle("Perhatian !!!")
-                        .setIcon(R.drawable.ic_baseline_print_24);
-                AlertDialog alert = builder.create();
-                alert.show();
+                myDialog.show();
+                View.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent i = new Intent(getActivity(), LandscapeWebViewEbookActivity.class);
+                        i.putExtra("LINK", "https://ebuss-book.the-urbandev.com/healthcare/page/ekosistem/Laboratorium_Klinik.php");
+                        startActivity(i);
+                    }
+                });
+                Download.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                        builder.setMessage("Download File ?")
+                                .setCancelable(false)
+                                .setPositiveButton("Iya", new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        ascendant.DownloadPDF("http://mandiri-ebusinessraw.the-urbandev.com/uploads/ekosistem/hospital/Ekosistem_RS_Alkes.pdf","Clinical Labolatory",getActivity());
+                                    }
+                                })
+                                .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        dialog.cancel();
+                                    }
+                                })
+                                //Set your icon here
+                                .setTitle("Perhatian !!!")
+                                .setIcon(R.drawable.ic_baseline_print_24);
+                        AlertDialog alert = builder.create();
+                        alert.show();
+                    }
+                });
             }
         });
         MedicalWasteManagement.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(android.view.View view) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                builder.setMessage("Download File ?")
-                        .setCancelable(false)
-                        .setPositiveButton("Iya", new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                ascendant.DownloadPDF("http://mandiri-ebusinessraw.the-urbandev.com/uploads/hospital/ekosistem/Ekosistem_RS_Jasa_Pengelola_Limbah_Medis.pdf","Medical Waste Management Service",getActivity());
-                            }
-                        })
-                        .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                dialog.cancel();
-                            }
-                        })
-                        //Set your icon here
-                        .setTitle("Perhatian !!!")
-                        .setIcon(R.drawable.ic_baseline_print_24);
-                AlertDialog alert = builder.create();
-                alert.show();
+                myDialog.show();
+                View.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent i = new Intent(getActivity(), LandscapeWebViewEbookActivity.class);
+                        i.putExtra("LINK", "https://ebuss-book.the-urbandev.com/healthcare/page/ekosistem/Jasa_Pengelola_Limbah_Medis.php");
+                        startActivity(i);
+                    }
+                });
+                Download.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                        builder.setMessage("Download File ?")
+                                .setCancelable(false)
+                                .setPositiveButton("Iya", new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        ascendant.DownloadPDF("http://mandiri-ebusinessraw.the-urbandev.com/uploads/hospital/ekosistem/Ekosistem_RS_Jasa_Pengelola_Limbah_Medis.pdf","Medical Waste Management Service",getActivity());
+                                    }
+                                })
+                                .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        dialog.cancel();
+                                    }
+                                })
+                                //Set your icon here
+                                .setTitle("Perhatian !!!")
+                                .setIcon(R.drawable.ic_baseline_print_24);
+                        AlertDialog alert = builder.create();
+                        alert.show();
+                    }
+                });
             }
         });
         ThirdPartyAdmin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(android.view.View view) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                builder.setMessage("Download File ?")
-                        .setCancelable(false)
-                        .setPositiveButton("Iya", new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                ascendant.DownloadPDF("http://mandiri-ebusinessraw.the-urbandev.com/uploads/hospital/ekosistem/Ekosistem_RS_Klinik.pdf","Third Party Administrator",getActivity());
-                            }
-                        })
-                        .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                dialog.cancel();
-                            }
-                        })
-                        //Set your icon here
-                        .setTitle("Perhatian !!!")
-                        .setIcon(R.drawable.ic_baseline_print_24);
-                AlertDialog alert = builder.create();
-                alert.show();
+                myDialog.show();
+                View.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent i = new Intent(getActivity(), LandscapeWebViewEbookActivity.class);
+                        i.putExtra("LINK", "https://ebuss-book.the-urbandev.com/healthcare/page/ekosistem/Third_Party_Administrator.php");
+                        startActivity(i);
+                    }
+                });
+                Download.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                        builder.setMessage("Download File ?")
+                                .setCancelable(false)
+                                .setPositiveButton("Iya", new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        ascendant.DownloadPDF("http://mandiri-ebusinessraw.the-urbandev.com/uploads/hospital/ekosistem/Ekosistem_RS_Klinik.pdf","Third Party Administrator",getActivity());
+                                    }
+                                })
+                                .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        dialog.cancel();
+                                    }
+                                })
+                                //Set your icon here
+                                .setTitle("Perhatian !!!")
+                                .setIcon(R.drawable.ic_baseline_print_24);
+                        AlertDialog alert = builder.create();
+                        alert.show();
+                    }
+                });
             }
         });
         MedicalDevicesSupplies.setOnClickListener(new View.OnClickListener() {
@@ -229,47 +274,77 @@ public class SupportingIndustriesFragment extends Fragment {
         Clinic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(android.view.View view) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                builder.setMessage("Download File ?")
-                        .setCancelable(false)
-                        .setPositiveButton("Iya", new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                ascendant.DownloadPDF("http://mandiri-ebusinessraw.the-urbandev.com/uploads/hospital/ekosistem/Ekosistem_RS_Klinik.pdf","Clinic",getActivity());
-                            }
-                        })
-                        .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                dialog.cancel();
-                            }
-                        })
-                        //Set your icon here
-                        .setTitle("Perhatian !!!")
-                        .setIcon(R.drawable.ic_baseline_print_24);
-                AlertDialog alert = builder.create();
-                alert.show();
+                myDialog.show();
+                View.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent i = new Intent(getActivity(), LandscapeWebViewEbookActivity.class);
+                        i.putExtra("LINK", "https://ebuss-book.the-urbandev.com/healthcare/page/ekosistem/Klinik.php");
+                        startActivity(i);
+                    }
+                });
+                Download.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                        builder.setMessage("Download File ?")
+                                .setCancelable(false)
+                                .setPositiveButton("Iya", new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        ascendant.DownloadPDF("http://mandiri-ebusinessraw.the-urbandev.com/uploads/hospital/ekosistem/Ekosistem_RS_Klinik.pdf","Clinic",getActivity());
+                                    }
+                                })
+                                .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        dialog.cancel();
+                                    }
+                                })
+                                //Set your icon here
+                                .setTitle("Perhatian !!!")
+                                .setIcon(R.drawable.ic_baseline_print_24);
+                        AlertDialog alert = builder.create();
+                        alert.show();
+                    }
+                });
+
+
             }
         });
         BPJS.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(android.view.View view) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                builder.setMessage("Download File ?")
-                        .setCancelable(false)
-                        .setPositiveButton("Iya", new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                ascendant.DownloadPDF("http://mandiri-ebusinessraw.the-urbandev.com/uploads/hospital/ekosistem/Ekosistem_RS_BPJS.pdf","BPJS",getActivity());
-                            }
-                        })
-                        .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                dialog.cancel();
-                            }
-                        })
-                        //Set your icon here
-                        .setTitle("Perhatian !!!")
-                        .setIcon(R.drawable.ic_baseline_print_24);
-                AlertDialog alert = builder.create();
-                alert.show();
+                myDialog.show();
+                View.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent i = new Intent(getActivity(), LandscapeWebViewEbookActivity.class);
+                        i.putExtra("LINK", "https://ebuss-book.the-urbandev.com/healthcare/page/ekosistem/BPJS.php");
+                        startActivity(i);
+                    }
+                });
+                Download.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                        builder.setMessage("Download File ?")
+                                .setCancelable(false)
+                                .setPositiveButton("Iya", new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        ascendant.DownloadPDF("http://mandiri-ebusinessraw.the-urbandev.com/uploads/hospital/ekosistem/Ekosistem_RS_BPJS.pdf","BPJS",getActivity());
+                                    }
+                                })
+                                .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        dialog.cancel();
+                                    }
+                                })
+                                //Set your icon here
+                                .setTitle("Perhatian !!!")
+                                .setIcon(R.drawable.ic_baseline_print_24);
+                        AlertDialog alert = builder.create();
+                        alert.show();
+                    }
+                });
             }
         });
         HospitalEquipment.setOnClickListener(new View.OnClickListener() {

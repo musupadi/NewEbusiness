@@ -145,6 +145,29 @@
                                     android:orientation="horizontal"
                                     android:layout_marginTop="5dp">
                                     <LinearLayout
+                                        android:layout_marginLeft="10dp"
+                                        android:layout_marginRight="10dp"
+                                        android:id="@+id/linearEdit"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical">
+                                        <ImageView
+                                            android:layout_gravity="center"
+                                            android:layout_width="30dp"
+                                            android:layout_height="30dp"
+                                            android:src="@drawable/edit"/>
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Edit"
+                                            android:gravity="center"
+                                            android:textColor="@color/colorPrimary"
+                                            android:fontFamily="@font/inter"
+                                            android:textSize="@dimen/text_medium"/>
+                                    </LinearLayout>
+                                    <LinearLayout
+                                        android:layout_marginLeft="10dp"
+                                        android:layout_marginRight="10dp"
                                         android:id="@+id/linearReport"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
