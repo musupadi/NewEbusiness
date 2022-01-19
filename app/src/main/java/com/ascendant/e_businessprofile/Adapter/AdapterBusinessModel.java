@@ -43,7 +43,7 @@ public class AdapterBusinessModel extends RecyclerView.Adapter<AdapterBusinessMo
 
     @Override
     public void onBindViewHolder(@NonNull HolderData holderData, int posistion) {
-        final DataPerusahaan dm = mList.get(posistion);
+        DataPerusahaan dm = mList.get(posistion);
         holderData.nama.setText(dm.getNama_perusahaan());
         holderData.alamat.setText(dm.getAlamat_perusahaan());
         String distributor="FMCG";

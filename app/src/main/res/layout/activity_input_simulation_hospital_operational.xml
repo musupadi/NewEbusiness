@@ -474,6 +474,7 @@
                                         android:layout_weight="1"
                                         android:fontFamily="@font/inter"/>
                                     <EditText
+                                        android:inputType="number"
                                         android:hint="0"
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
@@ -517,6 +518,7 @@
                                         android:fontFamily="@font/inter"/>
                                     <EditText
                                         android:hint="0"
+                                        android:inputType="number"
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
                                         android:layout_weight="1.5"
@@ -563,6 +565,7 @@
                                         android:layout_weight="1"
                                         android:fontFamily="@font/inter"/>
                                     <EditText
+                                        android:inputType="number"
                                         android:hint="0"
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
@@ -605,6 +608,7 @@
                                         android:layout_weight="1"
                                         android:fontFamily="@font/inter"/>
                                     <EditText
+                                        android:inputType="number"
                                         android:hint="0"
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"

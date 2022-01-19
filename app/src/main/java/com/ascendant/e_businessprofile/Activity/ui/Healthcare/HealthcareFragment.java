@@ -17,10 +17,12 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ascendant.e_businessprofile.API.ApiRequest;
 import com.ascendant.e_businessprofile.API.RetroServer;
+import com.ascendant.e_businessprofile.Activity.DetailBeritaActivity;
 import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.BusinessRefrence.BusinessRefrenceActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.Compliance.ComplianceActivity;
@@ -51,6 +53,7 @@ public class HealthcareFragment extends Fragment {
     LinearLayout Back;
     RelativeLayout BusinessRefrence,ListOfProbing,Compliance,Ecosystem,CreditWorthiness,CreditDecisionTool;
     ScrollView scroll;
+    TextView View;
     public HealthcareFragment() {
         // Required empty public constructor
     }
@@ -77,6 +80,7 @@ public class HealthcareFragment extends Fragment {
                 Token = cursor.getString(0);
             }
         }
+        View = view.findViewById(R.id.tvView);
         scroll = view.findViewById(R.id.scroll);
         rv = view.findViewById(R.id.recycler);
         Back = view.findViewById(R.id.linearBack);
@@ -136,6 +140,14 @@ public class HealthcareFragment extends Fragment {
             }
         });
         scroll.fullScroll(View.FOCUS_UP);
+        View.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(android.view.View view) {
+                Intent goInput = new Intent(getActivity(), DetailBeritaActivity.class);
+                goInput.putExtra("KATEGORI","HEALTHCARE");
+                startActivity(goInput);
+            }
+        });
     }
     private void Logic(){
         mManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL,false);

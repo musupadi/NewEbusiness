@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.ascendant.e_businessprofile.API.ApiRequest;
 import com.ascendant.e_businessprofile.API.RetroServer;
 import com.ascendant.e_businessprofile.Adapter.Spinner.SpinnerDivisi;
+import com.ascendant.e_businessprofile.Adapter.Spinner.SpinnerWilayah;
 import com.ascendant.e_businessprofile.Model.DataModel;
 import com.ascendant.e_businessprofile.Model.ResponseArrayObject;
 import com.ascendant.e_businessprofile.R;
@@ -30,8 +31,8 @@ import retrofit2.Response;
 
 public class RegisterActivity extends AppCompatActivity {
     private List<DataModel> mItems = new ArrayList<>();
-    Spinner Divisi;
-    TextView idDivisi;
+    Spinner Divisi,Wilayah;
+    TextView idDivisi,idWIlayah;
     EditText Name,Email,NIP,NoTelp,Password,Confirmassword;
     LinearLayout Confirm;
     @Override
@@ -40,7 +41,9 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
         Divisi = findViewById(R.id.spinnerDivisi);
+        Wilayah = findViewById(R.id.spinnerWilayah);
         idDivisi = findViewById(R.id.tvidDivisi);
+        idWIlayah = findViewById(R.id.tvidWilayah);
         Name = findViewById(R.id.etName);
         Email = findViewById(R.id.etUsername);
         NIP = findViewById(R.id.etNIP);
@@ -49,11 +52,28 @@ public class RegisterActivity extends AppCompatActivity {
         Confirmassword = findViewById(R.id.etConfirmPassword);
         Confirm = findViewById(R.id.linearConfirm);
         DataDivisi();
-
+        GetWilayah();
         Confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Register();
+            }
+        });
+        Wilayah.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                try {
+                    DataModel clickedItem = (DataModel) adapterView.getItemAtPosition(i);
+                    int clickedItems = Integer.parseInt(clickedItem.getId_wilayah_mandiri());
+                    idWIlayah.setText(String.valueOf(clickedItems));
+                }catch (Exception e){
+                    Log.d("ZYARGA : ",e.toString());
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
             }
         });
         Divisi.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -71,6 +91,29 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
 
+            }
+        });
+    }
+    private void GetWilayah(){
+        ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
+        final Call<ResponseArrayObject> Data =api.Wilayah();
+        Data.enqueue(new Callback<ResponseArrayObject>() {
+            @Override
+            public void onResponse(Call<ResponseArrayObject> call, Response<ResponseArrayObject> response) {
+                try {
+                    if (response.body().getKode().equals(200)){
+                        mItems=response.body().getData();
+                        SpinnerWilayah adapter = new SpinnerWilayah(RegisterActivity.this,mItems);
+                        Wilayah.setAdapter(adapter);
+                    }
+                }catch (Exception e){
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseArrayObject> call, Throwable t) {
+//                Toast.makeText(getActivity(), "Koneksi Gagal", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -113,7 +156,8 @@ public class RegisterActivity extends AppCompatActivity {
                     NIP.getText().toString(),
                     "+62 "+NoTelp.getText().toString(),
                     idDivisi.getText().toString(),
-                    Password.getText().toString());
+                    Password.getText().toString(),
+                    "1");
             data.enqueue(new Callback<ResponseArrayObject>() {
                 @Override
                 public void onResponse(Call<ResponseArrayObject> call, Response<ResponseArrayObject> response) {
@@ -151,7 +195,6 @@ public class RegisterActivity extends AppCompatActivity {
                     mItems=response.body().getData();
                     SpinnerDivisi adapter = new SpinnerDivisi(RegisterActivity.this,mItems);
                     Divisi.setAdapter(adapter);
-                    Toast.makeText(RegisterActivity.this, mItems.get(0).getNama_divisi_mandiri(), Toast.LENGTH_SHORT).show();
                 }else{
 
                 }

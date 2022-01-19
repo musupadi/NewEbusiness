@@ -20,11 +20,12 @@ import com.ascendant.e_businessprofile.Activity.ui.Healthcare.HealthcareFragment
 import com.ascendant.e_businessprofile.Activity.ui.HomeFragment;
 import com.ascendant.e_businessprofile.Activity.ui.Mining.MiningFragment;
 import com.ascendant.e_businessprofile.Activity.ui.OilAndGas.OilAndGasFragment;
+import com.ascendant.e_businessprofile.Activity.ui.ProfileFragment;
 import com.ascendant.e_businessprofile.R;
 
 public class ModuleActivity extends AppCompatActivity {
-    LinearLayout LHome, LForum, LChat, LProfile;
-    ImageView Home, Forum, Chat, Profile;
+    LinearLayout LHome, LForum,LProfile;
+    ImageView Home, Forum, Profile;
     Fragment fragment;
     String MODULE;
     @Override
@@ -73,12 +74,6 @@ public class ModuleActivity extends AppCompatActivity {
                 Forum();
             }
         });
-        LChat.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Chat();
-            }
-        });
         LProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -90,19 +85,16 @@ public class ModuleActivity extends AppCompatActivity {
     private void Declaration() {
         LHome = findViewById(R.id.linearHome);
         LForum = findViewById(R.id.linearForum);
-        LChat = findViewById(R.id.linearChat);
         LProfile = findViewById(R.id.linearProfile);
 
         Home = findViewById(R.id.ivHome);
         Forum = findViewById(R.id.ivForum);
-        Chat = findViewById(R.id.ivChat);
         Profile = findViewById(R.id.ivProfile);
     }
 
     private void Default() {
         Home.setImageResource(R.drawable.home_inactive);
         Forum.setImageResource(R.drawable.forum_inactive);
-        Chat.setImageResource(R.drawable.chat_inactive);
         Profile.setImageResource(R.drawable.profile_inactive);
     }
 
@@ -118,16 +110,10 @@ public class ModuleActivity extends AppCompatActivity {
         fragment = new ForumFragment();
         ChangeFragment(fragment);
     }
-    private void Chat() {
-        Default();
-        Chat.setImageResource(R.drawable.chat_active);
-        fragment = new ChatFragment();
-        ChangeFragment(fragment);
-    }
     private void Profile() {
         Default();
         Profile.setImageResource(R.drawable.profile_active);
-        fragment = new ChatFragment();
+        fragment = new ProfileFragment();
         ChangeFragment(fragment);
     }
     private void ChangeFragment(Fragment fragment){
@@ -143,6 +129,7 @@ public class ModuleActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
+        Intent intent = new Intent(ModuleActivity.this,HomeActivity.class);
+        startActivity(intent);
     }
 }

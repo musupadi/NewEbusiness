@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.ascendant.e_businessprofile.Activity.ModuleActivity;
 import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.CreditDecisionTool.FinancialStatementAnalysis.FinancialStatementAnalysisActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.CreditDecisionTool.FiveC.FiveCActivity;
@@ -104,5 +105,12 @@ public class CrreditDecisionToolActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent i = new Intent(CrreditDecisionToolActivity.this, ModuleActivity.class);
+        i.putExtra("MODULE", "HEALTHCARE");
+        startActivity(i);
     }
 }

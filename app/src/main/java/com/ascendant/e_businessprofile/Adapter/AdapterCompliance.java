@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -39,7 +40,7 @@ public class AdapterCompliance extends RecyclerView.Adapter<AdapterCompliance.Ho
 
     @Override
     public void onBindViewHolder(@NonNull final HolderData holderData, int posistion) {
-        final DataModel dm = mList.get(posistion);
+        DataModel dm = mList.get(posistion);
         ascendant = new Ascendant();
         holderData.Tanggal.setText(ascendant.MagicDateChange(dm.getTgl_upload_video()));
         holderData.Nama.setText(ascendant.SmallText(dm.getJudul_video()));
@@ -50,10 +51,14 @@ public class AdapterCompliance extends RecyclerView.Adapter<AdapterCompliance.Ho
             holderData.card.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent goInput = new Intent(ctx, DetailComplianceActivity.class);
-                    goInput.putExtra("VIDEO_URL",dm.getLink_video());
-                    goInput.putExtra("SOURCE_VIDEO",dm.getSource_video());
-                    ctx.startActivity(goInput);
+                    if (dm.getLink_video().equals("") || dm.getLink_video().isEmpty()){
+                        Toast.makeText(ctx, "Video Belum Siap", Toast.LENGTH_SHORT).show();
+                    }else{
+                        Intent goInput = new Intent(ctx, DetailComplianceActivity.class);
+                        goInput.putExtra("VIDEO_URL",dm.getLink_video());
+                        goInput.putExtra("SOURCE_VIDEO",dm.getSource_video());
+                        ctx.startActivity(goInput);
+                    }
                 }
             });
         }else{
@@ -63,10 +68,14 @@ public class AdapterCompliance extends RecyclerView.Adapter<AdapterCompliance.Ho
             holderData.card.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent goInput = new Intent(ctx, DetailComplianceActivity.class);
-                    goInput.putExtra("VIDEO_URL",dm.getLink_video());
-                    goInput.putExtra("SOURCE_VIDEO",dm.getSource_video());
-                    ctx.startActivity(goInput);
+                    if (dm.getLink_video().equals("") || dm.getLink_video().isEmpty()){
+                        Toast.makeText(ctx, "Video Belum Siap", Toast.LENGTH_SHORT).show();
+                    }else{
+                        Intent goInput = new Intent(ctx, DetailComplianceActivity.class);
+                        goInput.putExtra("VIDEO_URL",dm.getLink_video());
+                        goInput.putExtra("SOURCE_VIDEO",dm.getSource_video());
+                        ctx.startActivity(goInput);
+                    }
                 }
             });
         }

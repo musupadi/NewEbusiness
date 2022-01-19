@@ -61,7 +61,7 @@ public class AdapterSubKomen extends RecyclerView.Adapter<AdapterSubKomen.Holder
 
     @Override
     public void onBindViewHolder(@NonNull AdapterSubKomen.HolderData holderData, int posistion) {
-        final DataModel dm = mList.get(posistion);
+        DataModel dm = mList.get(posistion);
         final Ascendant ascendant = new Ascendant();
         holderData.Komen.setText(dm.getIsi_komen());
         holderData.Nama.setText(dm.getNama_user());

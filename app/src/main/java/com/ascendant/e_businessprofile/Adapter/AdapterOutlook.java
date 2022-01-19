@@ -43,7 +43,7 @@ public class AdapterOutlook extends RecyclerView.Adapter<AdapterOutlook.HolderDa
 
     @Override
     public void onBindViewHolder(@NonNull final HolderData holderData, int posistion) {
-        final DataModel dm = mList.get(posistion);
+        DataModel dm = mList.get(posistion);
         ascendant = new Ascendant();
 
         myDialog = new Dialog(ctx);
@@ -55,37 +55,38 @@ public class AdapterOutlook extends RecyclerView.Adapter<AdapterOutlook.HolderDa
             @Override
             public void onClick(View view) {
                 myDialog.show();
-            }
-        });
-
-
-        Download = myDialog.findViewById(R.id.btnDownload);
-        View = myDialog.findViewById(R.id.btnView);
-        Download.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(android.view.View view) {
-                ascendant.Download(ctx,"pdf",dm.getLink_file_outlook(),dm.getNama_outlook());
-            }
-        });
-        View.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(android.view.View view) {
-                if (dm.getLink_ebook().equals("") || dm.getLink_ebook().isEmpty()){
-                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(ascendant.BASE_URL()+dm.getLink_file_outlook()));
-                    ctx.startActivity(browserIntent);
-                }else{
-                    if (dm.getMode_ebook().equals("P")){
-                        Intent i = new Intent(ctx, PortraitWebViewEbookActivity.class);
-                        i.putExtra("LINK", dm.getLink_ebook());
-                        ctx.startActivity(i);
-                    }else{
-                        Intent i = new Intent(ctx, LandscapeWebViewEbookActivity.class);
-                        i.putExtra("LINK", dm.getLink_ebook());
-                        ctx.startActivity(i);
+                Download = myDialog.findViewById(R.id.btnDownload);
+                View = myDialog.findViewById(R.id.btnView);
+                Download.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(android.view.View view) {
+                        ascendant.Download(ctx,"pdf",dm.getLink_file_outlook(),dm.getNama_outlook());
                     }
-                }
+                });
+                View.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(android.view.View view) {
+                        if (dm.getLink_ebook().equals("") || dm.getLink_ebook().isEmpty()){
+                            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(ascendant.BASE_URL()+dm.getLink_file_outlook()));
+                            ctx.startActivity(browserIntent);
+                        }else{
+                            if (dm.getMode_ebook().equals("P")){
+                                Intent i = new Intent(ctx, PortraitWebViewEbookActivity.class);
+                                i.putExtra("LINK", dm.getLink_ebook());
+                                ctx.startActivity(i);
+                            }else{
+                                Intent i = new Intent(ctx, LandscapeWebViewEbookActivity.class);
+                                i.putExtra("LINK", dm.getLink_ebook());
+                                ctx.startActivity(i);
+                            }
+                        }
+                    }
+                });
             }
         });
+
+
+
     }
 
     @Override

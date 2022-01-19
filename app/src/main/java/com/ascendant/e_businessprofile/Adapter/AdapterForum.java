@@ -37,7 +37,7 @@ public class AdapterForum extends RecyclerView.Adapter<AdapterForum.HolderData> 
 
     @Override
     public void onBindViewHolder(@NonNull final HolderData holderData, int posistion) {
-        final DataModel dm = mList.get(posistion);
+        DataModel dm = mList.get(posistion);
         ascendant = new Ascendant();
         holderData.Tanggal.setText(ascendant.MagicDateChange(dm.getCreated_at_post()));
         holderData.Nama.setText(ascendant.SmallText(dm.judul_post));

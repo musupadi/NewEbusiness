@@ -288,7 +288,7 @@ public class Ascendant {
                                DownloadPPT(link,nama,ctx);
                            }
                        }catch (Exception e){
-                           Toast.makeText(ctx, "Terjadi Kesalahan pada Data", Toast.LENGTH_SHORT).show();
+                           Toast.makeText(ctx, e.toString(), Toast.LENGTH_SHORT).show();
                        }
                     }
                 })
@@ -375,7 +375,9 @@ public class Ascendant {
         String replace16 = replace15.replace("<p>1.","");
         String replace17 = replace16.replace("<p style=\\\"text-align: left;\\\">","");
         String replace18 = replace17.replace("<em>","");
-        return replace18;
+        String replace19 = replace18.replace("</em>","");
+        String replace20 = replace19.replace("&nbsp","");
+        return replace20;
     }
     public String Changer(String text){
         String replace = text.replace("<br>","\n");
@@ -383,6 +385,17 @@ public class Ascendant {
     }
     public void DownloadPDF(String url, String judul, Context ctx){
         DownloadManager.Request request = new DownloadManager.Request(Uri.parse(BASE_URL()+url));
+        request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI | DownloadManager.Request.NETWORK_MOBILE);
+        request.setTitle(judul);
+        request.setDescription("Downloading "+judul);
+        request.allowScanningByMediaScanner();
+        request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+        request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS,"/eBusiness/"+judul+".pdf");
+        DownloadManager manager = (DownloadManager)ctx.getSystemService(Context.DOWNLOAD_SERVICE);
+        manager.enqueue(request);
+    }
+    public void DownloadPDFSimulation(String url, String judul, Context ctx){
+        DownloadManager.Request request = new DownloadManager.Request(Uri.parse(url));
         request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI | DownloadManager.Request.NETWORK_MOBILE);
         request.setTitle(judul);
         request.setDescription("Downloading "+judul);

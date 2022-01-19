@@ -51,7 +51,7 @@ public class AdapterAssosiation extends RecyclerView.Adapter<AdapterAssosiation.
 
     @Override
     public void onBindViewHolder(@NonNull AdapterAssosiation.HolderData holderData, int posistion) {
-        final DataModel dm = mList.get(posistion);
+        DataModel dm = mList.get(posistion);
         holderData.id.setText(dm.getId_asosiasi());
         holderData.nama.setText(dm.getNama());
         holderData.alamat.setText(dm.getAlamat());

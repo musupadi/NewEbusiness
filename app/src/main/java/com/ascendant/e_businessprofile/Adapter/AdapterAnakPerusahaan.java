@@ -40,7 +40,7 @@ public class AdapterAnakPerusahaan extends RecyclerView.Adapter<AdapterAnakPerus
 
     @Override
     public void onBindViewHolder(@NonNull AdapterAnakPerusahaan.HolderData holderData, int posistion) {
-        final AnakPerusahaan dm = mList.get(posistion);
+        AnakPerusahaan dm = mList.get(posistion);
         holderData.nama.setText(dm.nama_anak_perusahaan);
         holderData.jenis.setText(dm.jenis_anak_perusahaan);
         holderData.asset.setText(dm.asset_total_perusahaan);

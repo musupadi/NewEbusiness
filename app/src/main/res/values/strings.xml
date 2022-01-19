@@ -5,6 +5,7 @@
     <string name="username_login">Email atau NIP</string>
     <string name="type_here">Type here...</string>
     <string name="title">Title</string>
+    <string name="wilayah">Wilayah</string>
     <string name="caption">Caption</string>
     <!--    <string name="type_here">Type here...</string>-->
     <string name="search">Search</string>
@@ -103,7 +104,7 @@
     <string name="market_potetial">Market Potential</string>
     <string name="business_status">Business Status &amp; Prospects</string>
     <string name="business_proccess">Business Process</string>
-    <string name="key_succes_factor">Risk &amp; Mitigation</string>
+    <string name="key_succes_factor">Key Succes Factor</string>
     <string name="newsletter">Newsletter</string>
     <string name="business_review">Business Review</string>
     <string name="players_in_coal_mining">Players In Coal Mining</string>
@@ -123,9 +124,30 @@
     <string name="players_in_construction">Players In Construction</string>
     <string name="players_supply_material">Players In Supply Material</string>
     <string name="supporting_players">Supporting Players</string>
+    <string name="list_contract">List of Contract Companies</string>
+    <string name="kks_eksplorasi">KKKS Exploration</string>
+    <string name="kks_produksi">KKKS Productrion</string>
+    <string name="kks_cbm">KKKS CBM</string>
+    <string name="downstream_business_entity">Downstream Business Entity</string>
+    <string name="processing_business">Processing Business Entity</string>
+    <string name="storage_business_entitty">Storage Business Entity status Fourth Quarter 2021</string>
+
+
+
     <string name="players_in_beef_cattle">Players In Beef Cattle Industry</string>
-    <string name="players_in_polutry">Players In Polutry Business</string>
+    <string name="players_in_polutry">Players In Poultry Business</string>
     <string name="players_in_supporting_business">Players In Supporting Business</string>
+    <string name="ecosystem_industry">Ecosystem Industry</string>
+    <string name="link_association_farmer">Link Member Associatio Farming</string>
+
+
+    <string name="directory_farming_company">Directory Farming Company</string>
+    <string name="link_member_poultry">Link Member Poultry Company</string>
+    <string name="link_member_poultry_feed">Link Member Poultry Feed Company</string>
+    <string name="link_member_beef">Link Member Meat Processing Industry</string>
+    <string name="link_member_milk">Link Member Dairy Company</string>
+    <string name="link_member_fnb">Link Member Food and Beverage Entrepreneurs Throughout Indonesia</string>
+
     <!-- Credit Decision Tool   -->
     <string name="five_c_analysis">5C Analysis</string>
     <string name="requirement_analysis">Requirement Analysis</string>

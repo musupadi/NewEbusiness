@@ -40,7 +40,7 @@ public class AdapterPemegangSaham extends RecyclerView.Adapter<AdapterPemegangSa
 
     @Override
     public void onBindViewHolder(@NonNull AdapterPemegangSaham.HolderData holderData, int posistion) {
-        final PemegangSaham dm = mList.get(posistion);
+        PemegangSaham dm = mList.get(posistion);
         holderData.pemegangsaham.setText(dm.nama_pemegang_saham);
         holderData.jumlahsaham.setText(dm.jumlah_saham);
         holderData.presentase.setText(dm.persentase);

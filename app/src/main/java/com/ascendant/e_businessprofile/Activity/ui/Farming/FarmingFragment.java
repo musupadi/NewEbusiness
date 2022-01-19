@@ -17,10 +17,12 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ascendant.e_businessprofile.API.ApiRequest;
 import com.ascendant.e_businessprofile.API.RetroServer;
+import com.ascendant.e_businessprofile.Activity.DetailBeritaActivity;
 import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
 import com.ascendant.e_businessprofile.Activity.ui.Farming.Compliance.ComplianceFarmingActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Farming.Ecosystem.EcosystemFarmingActivity;
@@ -50,7 +52,7 @@ public class FarmingFragment extends Fragment {
     LinearLayout Back;
     RelativeLayout Outlook,ListOfProbing,Compliance,Ecosystem,MarketInteligence;
     ScrollView scroll;
-
+    TextView View;
     public FarmingFragment() {
         // Required empty public constructor
     }
@@ -78,6 +80,7 @@ public class FarmingFragment extends Fragment {
                 Token = cursor.getString(0);
             }
         }
+        View = view.findViewById(R.id.tvView);
         scroll = view.findViewById(R.id.scroll);
         rv = view.findViewById(R.id.recycler);
         Back = view.findViewById(R.id.linearBack);
@@ -87,6 +90,14 @@ public class FarmingFragment extends Fragment {
         Ecosystem = view.findViewById(R.id.relativeEcosystem);
         MarketInteligence = view.findViewById(R.id.relativeMarketInteligence);
         Logic();
+        View.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(android.view.View view) {
+                Intent goInput = new Intent(getActivity(), DetailBeritaActivity.class);
+                goInput.putExtra("KATEGORI","FARMING");
+                startActivity(goInput);
+            }
+        });
         Outlook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -134,7 +145,7 @@ public class FarmingFragment extends Fragment {
         mManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL,false);
         rv.setLayoutManager(mManager);
         ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
-        final Call<ResponseArrayObject> data =api.Berita(Token,"HEALTHCARE","1");
+        final Call<ResponseArrayObject> data =api.Berita(Token,"FARMING","1");
         data.enqueue(new Callback<ResponseArrayObject>() {
             @Override
             public void onResponse(Call<ResponseArrayObject> call, Response<ResponseArrayObject> response) {

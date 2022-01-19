@@ -39,7 +39,7 @@ public class AdapterBerita extends RecyclerView.Adapter<AdapterBerita.HolderData
 
     @Override
     public void onBindViewHolder(@NonNull final HolderData holderData, int posistion) {
-        final DataModel dm = mList.get(posistion);
+        DataModel dm = mList.get(posistion);
         ascendant = new Ascendant();
         Glide.with(ctx)
                 .load(ascendant.BASE_URL()+dm.getCover_berita())

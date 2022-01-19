@@ -34,7 +34,7 @@ public class AdapterHospitalAssociation extends RecyclerView.Adapter<AdapterHosp
 
     @Override
     public void onBindViewHolder(@NonNull final HolderData holderData, int posistion) {
-        final DataModel dm = mList.get(posistion);
+        DataModel dm = mList.get(posistion);
         ascendant = new Ascendant();
         holderData.id.setText(dm.getId_persi());
         holderData.nama.setText(dm.getNama_persi());

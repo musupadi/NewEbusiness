@@ -154,8 +154,8 @@
                             <androidx.cardview.widget.CardView
                                 android:layout_width="match_parent"
                                 android:layout_height="1dp"
-                                android:elevation="10dp"
-                                android:alpha="0.2"/>
+                                android:alpha="0.2"
+                                android:elevation="10dp" />
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -192,13 +192,14 @@
                                         android:layout_height="match_parent"
                                         android:layout_weight="1"
                                         android:orientation="horizontal">
+
                                         <LinearLayout
                                             android:layout_width="match_parent"
                                             android:layout_height="match_parent"
                                             android:layout_weight="1"
+                                            android:gravity="center"
                                             android:orientation="vertical"
-                                            android:padding="10dp"
-                                            android:gravity="center">
+                                            android:padding="10dp">
 
                                             <TextView
                                                 android:layout_width="match_parent"
@@ -217,11 +218,12 @@
                                                 android:textColor="@color/colorPrimary"
                                                 android:textSize="@dimen/header_text_large" />
                                         </LinearLayout>
+
                                         <ImageView
-                                            android:visibility="gone"
                                             android:layout_width="match_parent"
                                             android:layout_height="match_parent"
-                                            android:layout_weight="1"/>
+                                            android:layout_weight="1"
+                                            android:visibility="gone" />
                                     </LinearLayout>
                                 </LinearLayout>
 
@@ -234,8 +236,8 @@
                                     <androidx.cardview.widget.CardView
                                         android:layout_width="match_parent"
                                         android:layout_height="1dp"
-                                        android:elevation="10dp"
-                                        android:alpha="0.2"/>
+                                        android:alpha="0.2"
+                                        android:elevation="10dp" />
 
                                     <LinearLayout
                                         android:id="@+id/linearQuiz"
@@ -330,7 +332,7 @@
                                     android:layout_marginTop="15dp"
                                     android:layout_marginEnd="15dp"
                                     android:layout_marginBottom="15dp"
-                                        android:src="@drawable/fmcg" />
+                                    android:src="@drawable/fmcg" />
 
                                 <TextView
                                     android:layout_width="match_parent"
@@ -474,6 +476,7 @@
                             android:textSize="@dimen/text_extra_large" />
 
                         <TextView
+                            android:id="@+id/tvView"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1"

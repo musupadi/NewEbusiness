@@ -39,7 +39,7 @@ public class AdapterMandiriUpdate extends RecyclerView.Adapter<AdapterMandiriUpd
 
     @Override
     public void onBindViewHolder(@NonNull final HolderData holderData, int posistion) {
-        final DataModel dm = mList.get(posistion);
+        DataModel dm = mList.get(posistion);
         ascendant = new Ascendant();
         holderData.Tanggal.setText(ascendant.MagicDateChange(dm.getCreated_at()));
         holderData.Nama.setText(dm.getJudul_mandiri_update());

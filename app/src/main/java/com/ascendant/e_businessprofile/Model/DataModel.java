@@ -509,6 +509,10 @@ public class DataModel {
     @Expose
     public String bidang;
 
+    @SerializedName("link_simulator")
+    @Expose
+    public String link_simulator;
+
 
     //Old EBusiness
     String id_fmcg_param,nama_param,rumus_param,kategori_param,rata_rata_param,penjelasan_param,penjelasan2_param;
@@ -3856,5 +3860,13 @@ public class DataModel {
 
     public void setI_g_dbank(String i_g_dbank) {
         this.i_g_dbank = i_g_dbank;
+    }
+
+    public String getLink_simulator() {
+        return link_simulator;
+    }
+
+    public void setLink_simulator(String link_simulator) {
+        this.link_simulator = link_simulator;
     }
 }

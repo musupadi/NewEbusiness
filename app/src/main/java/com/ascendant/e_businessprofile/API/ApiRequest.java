@@ -23,6 +23,43 @@ import retrofit2.http.Part;
 
 public interface ApiRequest {
     @FormUrlEncoded
+    @POST("suratapi/simulator")
+    Call<ResponseObject> SimulasiAnalisisKinerjaRS(@Header("Authorization") String authHeader,
+                                                  @Field("type") String type,
+                                                  @Field("1") String one,
+                                                  @Field("2") String two,
+                                                  @Field("3") String three,
+                                                  @Field("4") String four,
+                                                  @Field("5") String five,
+                                                  @Field("6") String six,
+                                                  @Field("7") String seven,
+                                                  @Field("8") String eight,
+                                                  @Field("9") String nine,
+                                                  @Field("10") String ten,
+                                                  @Field("11") String eleven,
+                                                  @Field("12") String twelve,
+                                                  @Field("kuncifaba") String kuncifaba);
+
+    @FormUrlEncoded
+    @POST("healthcare/surat/simulator")
+    Call<ResponseObject> SimulasiAnalisisKinerjaRSv2(@Header("Authorization") String authHeader,
+                                                     @Field("token") String token,
+                                                     @Field("type") String type,
+                                                     @Field("1") String one,
+                                                     @Field("2") String two,
+                                                     @Field("3") String three,
+                                                     @Field("4") String four,
+                                                     @Field("5") String five,
+                                                     @Field("6") String six,
+                                                     @Field("7") String seven,
+                                                     @Field("8") String eight,
+                                                     @Field("9") String nine,
+                                                     @Field("10") String ten,
+                                                     @Field("11") String eleven,
+                                                     @Field("12") String twelve,
+                                                     @Field("kuncifaba") String kuncifaba);
+
+    @FormUrlEncoded
     @POST("login")
     Call<ResponseArrayObject> login(@Field("email") String email,
                                     @Field("password") String password);
@@ -106,7 +143,8 @@ public interface ApiRequest {
                                        @Field("nip") String nip,
                                        @Field("no_telp") String no_telp,
                                        @Field("divisi") String divisi,
-                                       @Field("password") String password);
+                                       @Field("password") String password,
+                                       @Field("id_wilayah_mandiri") String id_wilayah_mandiri);
 
     @FormUrlEncoded
     @POST("fmcg/business_refrence")
@@ -388,4 +426,21 @@ public interface ApiRequest {
                                      @Field("nama_rs") String nama_rs,
                                      @Field("kelas_rs") String kelas_rs,
                                      @Field("kuncifaba") String kuncifaba);
+
+    @FormUrlEncoded
+    @POST("farming/video")
+    Call<ResponseArrayObject> Farming_Complpiance(@Field("token") String token);
+
+    @FormUrlEncoded
+    @POST("farming/outlook")
+    Call<ResponseArrayObject> FarmingOutlook(@Field("token") String token,
+                                            @Field("jenis_outlook") String jenis_outlook);
+
+    @FormUrlEncoded
+    @POST("oil_and_gas/video")
+    Call<ResponseArrayObject> OilAndGas_Complpiance(@Field("token") String token);
+
+    @FormUrlEncoded
+    @POST("oil_and_gas/list_of_probing")
+    Call<ResponseArrayObject> OilAndGas_List_of_Probing(@Field("token") String token);
 }

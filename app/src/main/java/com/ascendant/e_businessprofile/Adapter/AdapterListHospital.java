@@ -52,7 +52,7 @@ public class AdapterListHospital extends RecyclerView.Adapter<AdapterListHospita
 
     @Override
     public void onBindViewHolder(@NonNull final HolderData holderData, int posistion) {
-        final DataModel dm = mList.get(posistion);
+        DataModel dm = mList.get(posistion);
         ascendant = new Ascendant();
         holderData.Name.setText(dm.getNama_rs());
         holderData.Kelas.setText("Class "+dm.getKelas_rs());

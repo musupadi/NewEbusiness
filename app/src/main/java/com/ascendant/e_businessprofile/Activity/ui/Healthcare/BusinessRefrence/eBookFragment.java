@@ -76,6 +76,9 @@ public class eBookFragment extends Fragment {
     private void Logic(){
         mManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL,false);
         rv.setLayoutManager(mManager);
+        rv.setItemViewCacheSize(10000);
+        rv.setDrawingCacheEnabled(true);
+        rv.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
         ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
         Call<ResponseArrayObject> data =api.HealthCare_Business_refrence(Token,MODULE);
         if (MODULE.equals("uu") || MODULE.equals("pp") || MODULE.equals("pmk") || MODULE.equals("perpres")){

@@ -17,10 +17,12 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ascendant.e_businessprofile.API.ApiRequest;
 import com.ascendant.e_businessprofile.API.RetroServer;
+import com.ascendant.e_businessprofile.Activity.DetailBeritaActivity;
 import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
 import com.ascendant.e_businessprofile.Activity.ui.FMCG.BusinessRefrence.FMCGBusinessRefrenceActivity;
 import com.ascendant.e_businessprofile.Activity.ui.FMCG.Compliance.FMCGComplianceActivity;
@@ -50,7 +52,7 @@ public class FMCGFragment extends Fragment {
     LinearLayout Back;
     RelativeLayout BusinessRefrence,ListOfProbing,Compliance,Ecosystem,CreditWorthiness,CreditDecisionTool;
     ScrollView scroll;
-
+    TextView View;
 
     public FMCGFragment() {
         // Required empty public constructor
@@ -79,6 +81,7 @@ public class FMCGFragment extends Fragment {
                 Token = cursor.getString(0);
             }
         }
+        View = view.findViewById(R.id.tvView);
         scroll = view.findViewById(R.id.scroll);
         rv = view.findViewById(R.id.recycler);
         Back = view.findViewById(R.id.linearBack);
@@ -89,6 +92,14 @@ public class FMCGFragment extends Fragment {
         CreditWorthiness = view.findViewById(R.id.relativeCreditWorthiness);
         CreditDecisionTool = view.findViewById(R.id.relativeCreditDecisionTool);
         Logic();
+        View.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(android.view.View view) {
+                Intent goInput = new Intent(getActivity(), DetailBeritaActivity.class);
+                goInput.putExtra("KATEGORI","FMCG");
+                startActivity(goInput);
+            }
+        });
         BusinessRefrence.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

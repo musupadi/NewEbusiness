@@ -43,7 +43,7 @@ public class AdaptereBook2 extends RecyclerView.Adapter<AdaptereBook2.HolderData
 
     @Override
     public void onBindViewHolder(@NonNull AdaptereBook2.HolderData holderData, int posistion) {
-        final DataModel dm = mList.get(posistion);
+        DataModel dm = mList.get(posistion);
         final Ascendant method = new Ascendant();
         myDialog = new Dialog(ctx);
         myDialog.setContentView(R.layout.dialog_view_download);
@@ -52,44 +52,44 @@ public class AdaptereBook2 extends RecyclerView.Adapter<AdaptereBook2.HolderData
         holderData.judul.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(dm.getLink_file_ebook()));
-                ctx.startActivity(browserIntent);
+                myDialog.show();
+                Download = myDialog.findViewById(R.id.btnDownload);
+                View = myDialog.findViewById(R.id.btnView);
+                holderData.download.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        myDialog.show();
+                    }
+                });
+                Download.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(android.view.View view) {
+                        method.Download(ctx,dm.getExt_file(),dm.getLink_file_ebook(),dm.getNama_ebook());
+                    }
+                });
+                View.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(android.view.View view) {
+                        if (dm.getLink_ebook().equals("") || dm.getLink_ebook().isEmpty()){
+                            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(dm.getLink_file_ebook()));
+                            ctx.startActivity(browserIntent);
+                        }else{
+                            if (dm.getMode_ebook().equals("P")){
+                                Intent i = new Intent(ctx, PortraitWebViewEbookActivity.class);
+                                i.putExtra("LINK", dm.getLink_ebook());
+                                ctx.startActivity(i);
+                            }else{
+                                Intent i = new Intent(ctx, LandscapeWebViewEbookActivity.class);
+                                i.putExtra("LINK", dm.getLink_ebook());
+                                ctx.startActivity(i);
+                            }
+                        }
+                    }
+                });
             }
         });
 
-        Download = myDialog.findViewById(R.id.btnDownload);
-        View = myDialog.findViewById(R.id.btnView);
-        holderData.download.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                myDialog.show();
-            }
-        });
-        Download.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(android.view.View view) {
-                method.Download(ctx,dm.getExt_file(),dm.getLink_file_ebook(),dm.getNama_ebook());
-            }
-        });
-        View.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(android.view.View view) {
-                if (dm.getLink_ebook().equals("") || dm.getLink_ebook().isEmpty()){
-                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(dm.getLink_file_ebook()));
-                    ctx.startActivity(browserIntent);
-                }else{
-                    if (dm.getMode_ebook().equals("P")){
-                        Intent i = new Intent(ctx, PortraitWebViewEbookActivity.class);
-                        i.putExtra("LINK", dm.getLink_ebook());
-                        ctx.startActivity(i);
-                    }else{
-                        Intent i = new Intent(ctx, LandscapeWebViewEbookActivity.class);
-                        i.putExtra("LINK", dm.getLink_ebook());
-                        ctx.startActivity(i);
-                    }
-                }
-            }
-        });
+
     }
 
     @Override

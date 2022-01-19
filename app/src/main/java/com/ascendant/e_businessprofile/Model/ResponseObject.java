@@ -34,6 +34,10 @@ public class ResponseObject {
     @Expose
     public String token;
 
+    @SerializedName("link")
+    @Expose
+    public String link;
+
     @SerializedName("daftar_rs")
     @Expose
     List<DataModel> daftar_rs;
@@ -103,5 +107,13 @@ public class ResponseObject {
 
     public void setToken(String token) {
         this.token = token;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
     }
 }

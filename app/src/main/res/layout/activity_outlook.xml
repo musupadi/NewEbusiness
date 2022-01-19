@@ -214,7 +214,7 @@
                                             <TextView
                                                 android:layout_width="match_parent"
                                                 android:layout_height="match_parent"
-                                                android:text="@string/key_succes_factor"
+                                                android:text="@string/risk_and_mitigation"
                                                 android:textStyle="bold"
                                                 android:textSize="@dimen/text_extra_large" />
                                             <TextView

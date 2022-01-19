@@ -35,7 +35,7 @@ public class AdapterPerusahaanFarming extends RecyclerView.Adapter<AdapterPerusa
 
     @Override
     public void onBindViewHolder(@NonNull final HolderData holderData, int posistion) {
-        final DataModel dm = mList.get(posistion);
+        DataModel dm = mList.get(posistion);
         ascendant = new Ascendant();
         holderData.Nama.setText(dm.getNama_perusahaan());
         holderData.Bidang.setText(dm.getBidang());

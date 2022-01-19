@@ -12,7 +12,9 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import com.ascendant.e_businessprofile.Activity.FullScreenActivity;
 import com.ascendant.e_businessprofile.Method.Ascendant;
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.Ecosystem.HospitalAssociation.HospitalAssociationActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.Ecosystem.ListOfHospital.HospitalListActivity;
@@ -31,6 +33,7 @@ public class EcosystemFragment extends Fragment {
     PDFView photoView;
     CardView ListOfHospital,SupportingIndustries,HospitalAssociation;
     Ascendant ascendant = new Ascendant();
+    TextView lihat;
     public EcosystemFragment() {
         // Required empty public constructor
     }
@@ -56,7 +59,16 @@ public class EcosystemFragment extends Fragment {
         SupportingIndustries = view.findViewById(R.id.cardSupportingINdustries);
         HospitalAssociation = view.findViewById(R.id.cardHospitalAssociation);
         photoView =view.findViewById(R.id.ivEcosystem);
+        lihat = view.findViewById(R.id.tvView);
 
+        lihat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goInput = new Intent(getActivity(), FullScreenActivity.class);
+                goInput.putExtra("IMAGE","https://fabakonsultan.com/uploads/hospital/ekosistem/map_ekosistem.jpg");
+                startActivity(goInput);
+            }
+        });
         new RetreivePDFStreamsss().execute(ascendant.BASE_URL()+"files/healthcare/ekosistem/map_ekosistem.pdf");
         ListOfHospital.setOnClickListener(new View.OnClickListener() {
             @Override

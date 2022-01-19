@@ -37,7 +37,7 @@ public class AdapterFile extends RecyclerView.Adapter<AdapterFile.HolderData> {
 
     @Override
     public void onBindViewHolder(@NonNull final HolderData holderData, int posistion) {
-        final DataModel dm = mList.get(posistion);
+        DataModel dm = mList.get(posistion);
         ascendant = new Ascendant();
         holderData.Tanggal.setText(ascendant.MagicDateChange(Tanggal));
         holderData.Nama.setText(ascendant.SmallText(dm.getLink_file_mandiri_update()));

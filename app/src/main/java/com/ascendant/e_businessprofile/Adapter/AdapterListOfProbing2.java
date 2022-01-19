@@ -38,7 +38,7 @@ public class AdapterListOfProbing2 extends RecyclerView.Adapter<AdapterListOfPro
 
     @Override
     public void onBindViewHolder(@NonNull final HolderData holderData, int posistion) {
-        final DataModel dm = mList.get(posistion);
+        DataModel dm = mList.get(posistion);
         ascendant = new Ascendant();
         holderData.Judul.setText(ascendant.SmallText(dm.getNama_probing()));
         holderData.web.loadData(dm.getIsi_probing(),"text/html","UTF-8");

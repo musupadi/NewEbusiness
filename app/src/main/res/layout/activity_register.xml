@@ -13,6 +13,10 @@
         android:layout_width="0.00001dp"
         android:layout_height="0.000001dp"
         android:id="@+id/tvidDivisi"/>
+    <TextView
+        android:layout_width="0.00001dp"
+        android:layout_height="0.000001dp"
+        android:id="@+id/tvidWilayah"/>
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -118,6 +122,49 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:id="@+id/spinnerDivisi"/>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="10"
+                            android:gravity="center">
+                            <ImageView
+                                android:layout_width="@dimen/text_medium"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/arrow_down"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="10dp"
+                android:layout_margin="10dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@color/colorWhite">
+                    <TextView
+                        android:layout_marginRight="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/wilayah"
+                        android:textSize="@dimen/text_medium"
+                        android:textColor="@color/colorConcrete"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <Spinner
+                            android:layout_weight="1"
+                            android:background="@color/colorWhite"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/spinnerWilayah"/>
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
@@ -285,7 +332,7 @@
                         <ImageView
                             android:layout_width="50dp"
                             android:layout_height="match_parent"
-                            android:src="@drawable/mandiri_logo"
+                            android:src="@drawable/indonesia"
                             android:layout_margin="5dp"/>
                         <com.google.android.material.textfield.TextInputLayout
                             android:layout_margin="5dp"
@@ -297,6 +344,7 @@
                             android:textColorHint="@color/colorConcrete"
                             android:focusableInTouchMode="true">
                             <EditText
+                                android:enabled="false"
                                 android:fontFamily="@font/inter"
                                 android:textColorHighlight="@color/colorPrimary"
                                 android:textColorHint="@color/colorConcrete"

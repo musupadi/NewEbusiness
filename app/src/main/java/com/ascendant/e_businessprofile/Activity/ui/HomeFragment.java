@@ -27,9 +27,11 @@ import android.widget.Toast;
 import com.airbnb.lottie.LottieAnimationView;
 import com.ascendant.e_businessprofile.API.ApiRequest;
 import com.ascendant.e_businessprofile.API.RetroServer;
+import com.ascendant.e_businessprofile.Activity.DetailBeritaActivity;
 import com.ascendant.e_businessprofile.Activity.HomeActivity;
 import com.ascendant.e_businessprofile.Activity.ModuleActivity;
 import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
+import com.ascendant.e_businessprofile.Activity.ui.Mining.MandiriUpdate.DetailMandiriUpdate;
 import com.ascendant.e_businessprofile.Adapter.AdapterBerita;
 import com.ascendant.e_businessprofile.Adapter.Spinner.SpinnerDivisi;
 import com.ascendant.e_businessprofile.Adapter.Spinner.SpinnerWilayah;
@@ -67,7 +69,7 @@ public class HomeFragment extends Fragment {
     LinearLayout linearQuiz;
     String JawabQuiz="";
     TextView idQuiz,jawabQuiz;
-    TextView Pesan;
+    TextView Pesan,View;
     Button KonfirmasiPesan;
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -97,6 +99,7 @@ public class HomeFragment extends Fragment {
         myDialog.setContentView(R.layout.dialog_divisi);
         quizDialog = new Dialog(getActivity());
         quizDialog.setContentView(R.layout.dialog_quiz_harian);
+        View = view.findViewById(R.id.tvView);
         Pesan = dialogPesan.findViewById(R.id.tvPesan);
         KonfirmasiPesan = dialogPesan.findViewById(R.id.btnKonfirmasi);
         KategoriSoal = quizDialog.findViewById(R.id.tvKategori);
@@ -521,6 +524,14 @@ public class HomeFragment extends Fragment {
             @Override
             public void onFailure(Call<ResponseObject> call, Throwable t) {
                 Toast.makeText(getActivity(), "Koneksi Gagal", Toast.LENGTH_SHORT).show();
+            }
+        });
+        View.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(android.view.View view) {
+                Intent goInput = new Intent(getActivity(), DetailBeritaActivity.class);
+                goInput.putExtra("KATEGORI","all");
+                startActivity(goInput);
             }
         });
     }

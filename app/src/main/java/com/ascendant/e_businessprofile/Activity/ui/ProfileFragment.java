@@ -3,6 +3,7 @@ package com.ascendant.e_businessprofile.Activity.ui;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -21,7 +22,7 @@ import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
 import com.ascendant.e_businessprofile.R;
 
 public class ProfileFragment extends Fragment {
-    RelativeLayout Logout;
+    RelativeLayout Logout,Privacy;
     public ProfileFragment() {
         // Required empty public constructor
     }
@@ -43,6 +44,15 @@ public class ProfileFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         Logout = view.findViewById(R.id.relativeLogout);
+        Privacy = view.findViewById(R.id.relativePrivacy);
+        Privacy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://ebuss-raw.mandiri-ebuss.com/uploads/policy/m/syarat-dan-ketentuan-penggunaan.pdf"));
+                startActivity(browserIntent);
+
+            }
+        });
         Logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

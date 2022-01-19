@@ -7,16 +7,25 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.ascendant.e_businessprofile.API.ApiRequest;
+import com.ascendant.e_businessprofile.API.OldRetroServer;
+import com.ascendant.e_businessprofile.API.RetroServer;
+import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
 import com.ascendant.e_businessprofile.Method.Ascendant;
 import com.ascendant.e_businessprofile.Adapter.Static.AdapterNavigator;
 import com.ascendant.e_businessprofile.Model.DataModel;
+import com.ascendant.e_businessprofile.Model.ResponseArrayObject;
+import com.ascendant.e_businessprofile.Model.ResponseObject;
 import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.CreditWorthiness.GraphLineModel;
 import com.ascendant.e_businessprofile.R;
 import com.github.mikephil.charting.charts.LineChart;
@@ -32,6 +41,10 @@ import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 
 import java.util.ArrayList;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class GraphLineActivity extends AppCompatActivity {
     LinearLayout Available,Navigator;
     RecyclerView rv;
@@ -44,6 +57,8 @@ public class GraphLineActivity extends AppCompatActivity {
     TextView staticText,skor,link;
     ImageView back,home,print;
     Ascendant ascendant = new Ascendant();
+    DB_Helper dbHelper;
+    String Token;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,7 +70,13 @@ public class GraphLineActivity extends AppCompatActivity {
         ivMore = findViewById(R.id.ivMore);
         More = findViewById(R.id.linearMore);
         Back = findViewById(R.id.linearBack);
-
+        dbHelper = new DB_Helper(this);
+        Cursor cursor = dbHelper.checkUser();
+        if (cursor.getCount()>0){
+            while (cursor.moveToNext()){
+                Token = cursor.getString(0);
+            }
+        }
 
         Available.setVisibility(View.VISIBLE);
         pList.addAll(GraphLineModel.getListData());
@@ -146,8 +167,8 @@ public class GraphLineActivity extends AppCompatActivity {
                         .setCancelable(false)
                         .setPositiveButton("Iya", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-
-                                ascendant.DownloadPDF(link.getText().toString(),TITTLE,GraphLineActivity.this);
+                                ascendant.DownloadPDFSimulation(link.getText().toString(),TITTLE,GraphLineActivity.this);
+                                Log.d("Zyarga : ",link.getText().toString());
                             }
                         })
                         .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
@@ -165,19 +186,20 @@ public class GraphLineActivity extends AppCompatActivity {
     }
 
     private void Print(final String type, String jan, String feb, String mar, String apr, String mei, String jun, String jul, String ags, String sep, String okt, String nov, String des){
-//        ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
-//        Call<ResponseArrayObject> getData = api.SimulasiAnalisisKinerjaRS(method.AUTH(),type,jan,feb,mar,apr,mei,jun,jul,ags,sep,okt,nov,des,"FABAJakartaIndonesia2019kunci");
-//        getData.enqueue(new Callback<ResponseModel>() {
-//            @Override
-//            public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response) {
-//                link.setText(response.body().getLink());
-//            }
-//
-//            @Override
-//            public void onFailure(Call<ResponseModel> call, Throwable t) {
-//                Toast.makeText(GraphLineActivity.this, "Koneksi Gagal", Toast.LENGTH_SHORT).show();
-//            }
-//        });
+        ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
+        Call<ResponseObject> getData = api.SimulasiAnalisisKinerjaRSv2(ascendant.AUTH(),Token,type,jan,feb,mar,apr,mei,jun,jul,ags,sep,okt,nov,des,"FABAJakartaIndonesia2019kunci");
+        getData.enqueue(new Callback<ResponseObject>() {
+            @Override
+            public void onResponse(Call<ResponseObject> call, Response<ResponseObject> response) {
+                link.setText(response.body().getData().getLink_simulator());
+//                Toast.makeText(GraphLineActivity.this, link.getText().toString(), Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailure(Call<ResponseObject> call, Throwable t) {
+                Toast.makeText(GraphLineActivity.this, "Koneksi Gagal", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
     public class MyXAxisValueFormater extends ValueFormatter implements IAxisValueFormatter {
         private String[] mValues;

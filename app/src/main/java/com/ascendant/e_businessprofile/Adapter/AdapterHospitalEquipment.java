@@ -38,7 +38,7 @@ public class AdapterHospitalEquipment extends RecyclerView.Adapter<AdapterHospit
 
     @Override
     public void onBindViewHolder(@NonNull final HolderData holderData, int posistion) {
-        final DataModel dm = mList.get(posistion);
+        DataModel dm = mList.get(posistion);
         ascendant = new Ascendant();
         holderData.Judul.setText(ascendant.SmallText(dm.getNama_provinsi()));
         holderData.web.setVisibility(View.VISIBLE);
@@ -46,7 +46,7 @@ public class AdapterHospitalEquipment extends RecyclerView.Adapter<AdapterHospit
         holderData.card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ascendant.Download(ctx,"pdf",dm.getLink_alkes(),"Hospital Equipment "+dm.getNama_provinsi());
+                ascendant.DownloadPDFSimulation(dm.getLink_alkes(),"Hospital Equipment "+dm.getNama_provinsi(),ctx);
             }
         });
     }

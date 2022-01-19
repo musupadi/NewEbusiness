@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -28,6 +29,7 @@ public class AdapterEBook extends RecyclerView.Adapter<AdapterEBook.HolderData> 
     Ascendant ascendant;
     Dialog myDialog;
     Button View,Download;
+    int positions=0;
     public AdapterEBook(Context ctx, List<DataModel> mList){
         this.ctx = ctx;
         this.mList = mList;
@@ -43,9 +45,8 @@ public class AdapterEBook extends RecyclerView.Adapter<AdapterEBook.HolderData> 
 
     @Override
     public void onBindViewHolder(@NonNull final HolderData holderData, int posistion) {
-        final DataModel dm = mList.get(posistion);
+        DataModel dm = mList.get(posistion);
         ascendant = new Ascendant();
-
         myDialog = new Dialog(ctx);
         myDialog.setContentView(R.layout.dialog_view_download);
         holderData.Tanggal.setText(ascendant.MagicDateChange(dm.getTgl_upload_business_refrence()));
@@ -55,37 +56,38 @@ public class AdapterEBook extends RecyclerView.Adapter<AdapterEBook.HolderData> 
             @Override
             public void onClick(View view) {
                 myDialog.show();
-            }
-        });
-
-
-        Download = myDialog.findViewById(R.id.btnDownload);
-        View = myDialog.findViewById(R.id.btnView);
-        Download.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(android.view.View view) {
-                ascendant.Download(ctx,dm.getExt_file(),dm.getLink_file_ebook(),dm.getNama_ebook());
-            }
-        });
-        View.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(android.view.View view) {
-                if (dm.getLink_ebook().equals("") || dm.getLink_ebook().isEmpty()){
-                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(ascendant.BASE_URL()+dm.getLink_file_ebook()));
-                    ctx.startActivity(browserIntent);
-                }else{
-                    if (dm.getMode_ebook().equals("P")){
-                        Intent i = new Intent(ctx, PortraitWebViewEbookActivity.class);
-                        i.putExtra("LINK", dm.getLink_ebook());
-                        ctx.startActivity(i);
-                    }else{
-                        Intent i = new Intent(ctx, LandscapeWebViewEbookActivity.class);
-                        i.putExtra("LINK", dm.getLink_ebook());
-                        ctx.startActivity(i);
+                Download = myDialog.findViewById(R.id.btnDownload);
+                View = myDialog.findViewById(R.id.btnView);
+                Download.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(android.view.View view) {
+                        ascendant.Download(ctx,"pdf",dm.getLink_file_business_refrence(),dm.getNama_business_refrence());
                     }
-                }
+                });
+                View.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(android.view.View view) {
+                        if (dm.getLink_ebook().equals("") || dm.getLink_ebook().isEmpty()){
+                            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(ascendant.BASE_URL()+dm.getLink_file_business_refrence()));
+                            ctx.startActivity(browserIntent);
+                        }else{
+                            if (dm.getMode_ebook().equals("P")){
+                                Intent i = new Intent(ctx, PortraitWebViewEbookActivity.class);
+                                i.putExtra("LINK", dm.getLink_ebook());
+                                ctx.startActivity(i);
+                            }else{
+                                Intent i = new Intent(ctx, LandscapeWebViewEbookActivity.class);
+                                i.putExtra("LINK", dm.getLink_ebook());
+                                ctx.startActivity(i);
+                            }
+                        }
+                    }
+                });
             }
         });
+
+
+
     }
 
     @Override

@@ -38,7 +38,7 @@ public class AdapterKeyOfSuccess extends RecyclerView.Adapter<AdapterKeyOfSucces
 
     @Override
     public void onBindViewHolder(@NonNull final HolderData holderData, int posistion) {
-        final DataModel dm = mList.get(posistion);
+        DataModel dm = mList.get(posistion);
         ascendant = new Ascendant();
         holderData.Judul.setText(ascendant.SmallText(dm.getJudul_kos()));
         if (dm.getFile_kos().equals("-")){

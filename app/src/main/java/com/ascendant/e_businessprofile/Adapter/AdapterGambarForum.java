@@ -37,7 +37,7 @@ public class AdapterGambarForum extends RecyclerView.Adapter<AdapterGambarForum.
 
     @Override
     public void onBindViewHolder(@NonNull AdapterGambarForum.HolderData holderData, int posistion) {
-        final DataModel dm = mList.get(posistion);
+        DataModel dm = mList.get(posistion);
         final Ascendant ascendant = new Ascendant();
         Glide.with(ctx)
                 .load(ascendant.BASE_URL()+dm.getFile_img_post())
