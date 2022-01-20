@@ -131,7 +131,21 @@
     <string name="downstream_business_entity">Downstream Business Entity</string>
     <string name="processing_business">Processing Business Entity</string>
     <string name="storage_business_entitty">Storage Business Entity status Fourth Quarter 2021</string>
+    <string name="list_company">List of Supporting Companies</string>
+    <string name="industrial_business">Industrial Business In 2018</string>
+    <string name="non_construction_business">Non-Construction Business In 2018</string>
+    <string name="construction_business">Construction Business in 2018</string>
+    <string name="list_bbm">List of BBM and LPG Distributors</string>
+    <string name="oil_and_gas_commercial">Oil and Gas Commercial Business Entity</string>
+    <string name="oil_and_gas_transportation">Oil and Gas Transportation Business Entity</string>
+    <string name="list_oil_and_gas_business_entities">List of Oil and Gas Business Entities for Petroleum/Fuel/Refined Products Trading Activities November 2021</string>
+    <string name="list_oil_and_gas_business_entities_trading">List of Oil and Gas Business Entities for Gas Trading Activities April 2021</string>
 
+
+    <string name="bbm_and_lpg">List of BBM and LPG Distributors</string>
+    <string name="pertamina_fuel">List of Pertamina Fuel Distributors</string>
+    <string name="pertamina_lpg">List of Pertamina LPG Distributors</string>
+    <string name="lpg_non_pertamina">List of Non Pertamina LPG Distributors</string>
 
 
     <string name="players_in_beef_cattle">Players In Beef Cattle Industry</string>

@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -24,7 +25,7 @@ import com.ascendant.e_businessprofile.R;
 import java.util.ArrayList;
 
 public class EcosystemOilAndGasActivity extends AppCompatActivity {
-    LinearLayout DaftarPerusahaan,EcosystemIndustry,DownstreamBusinessEntity;
+    LinearLayout DaftarPerusahaan,EcosystemIndustry,DownstreamBusinessEntity,ListCompany,Commercial,BBM,OilAndGas;
     LinearLayout Available,Navigator;
     RecyclerView rv,recyclerView;
     ImageView ivMore;
@@ -43,6 +44,10 @@ public class EcosystemOilAndGasActivity extends AppCompatActivity {
         DaftarPerusahaan = findViewById(R.id.linearDaftarPerusahaan);
         EcosystemIndustry = findViewById(R.id.linearEcosystemIndustry);
         DownstreamBusinessEntity = findViewById(R.id.linearDownstreamBusinessEntitty);
+        ListCompany = findViewById(R.id.linearListCompany);
+        Commercial = findViewById(R.id.linearCommercial);
+        BBM= findViewById(R.id.linearListBBM);
+        OilAndGas = findViewById(R.id.linearOilAndGasTransportation);
         //Cut Here
         rv = findViewById(R.id.recyclerNav);
         Available = findViewById(R.id.linearAvailable);
@@ -93,7 +98,7 @@ public class EcosystemOilAndGasActivity extends AppCompatActivity {
                 Download.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(android.view.View view) {
-                        ascendant.Download(EcosystemOilAndGasActivity.this,"pdf","files/oil_and_gas/outlook/regulations.pdf","Oil And Gas Regulation Outlook");
+                        ascendant.Download(EcosystemOilAndGasActivity.this,"pdf","files/oil_and_gas/ekosistem/daftar_perusahaan_migas.pdf","Oil And Gas Regulation Outlook");
                     }
                 });
                 View.setOnClickListener(new View.OnClickListener() {
@@ -133,6 +138,34 @@ public class EcosystemOilAndGasActivity extends AppCompatActivity {
             public void onClick(android.view.View view) {
                 Intent intent = new Intent(EcosystemOilAndGasActivity.this,DownstreamBusinessEntityOilAndGasActivity.class);
                 startActivity(intent);
+            }
+        });
+        ListCompany.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(android.view.View view) {
+                Intent intent = new Intent(EcosystemOilAndGasActivity.this,ListCompanyOilAndGasActivity.class);
+                startActivity(intent);
+            }
+        });
+        Commercial.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(android.view.View view) {
+                Intent intent = new Intent(EcosystemOilAndGasActivity.this,OilAndGasCommercialActivity.class);
+                startActivity(intent);
+            }
+        });
+        BBM.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(android.view.View view) {
+                Intent intent = new Intent(EcosystemOilAndGasActivity.this,ListBBMOilAndGasActivity.class);
+                startActivity(intent);
+            }
+        });
+        OilAndGas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(android.view.View view) {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://mandiri-ebuss.com/files/oil_and_gas/ekosistem/daftar-bu-status-izin-pengangkutan-aktif-2020.pdf"));
+                startActivity(browserIntent);
             }
         });
     }
