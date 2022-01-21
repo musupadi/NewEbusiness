@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ascendant.e_businessprofile">
+
+
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
@@ -25,6 +27,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppThemeNoAction"
         android:usesCleartextTraffic="true">
+        <activity
+            android:name=".Activity.ui.Contractor.Ecosystem.ConsultantEcosystemContractorActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.ui.Contractor.Ecosystem.ExecutiveEcosystemContractorActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.ui.Contractor.MarketInteligence.MainMarketIntelianceContractorActivity"
+            android:exported="true" />
         <activity
             android:name=".Activity.ui.OilAndGas.Ecossytem.OilAndGasCommercialActivity"
             android:exported="true" />
@@ -430,6 +441,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <service
+            android:name=".MyFirebaseMessagingService"
+            android:stopWithTask="false"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

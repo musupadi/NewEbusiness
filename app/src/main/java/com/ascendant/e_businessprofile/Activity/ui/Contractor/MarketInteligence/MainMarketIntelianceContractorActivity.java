@@ -1,4 +1,4 @@
-package com.ascendant.e_businessprofile.Activity.ui.Farming.MarketingInteligence;
+package com.ascendant.e_businessprofile.Activity.ui.Contractor.MarketInteligence;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -6,7 +6,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Dialog;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,8 +13,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.ascendant.e_businessprofile.Activity.LandscapeWebViewEbookActivity;
-import com.ascendant.e_businessprofile.Activity.ui.Contractor.MarketInteligence.MarketInteliganceContractorActivity;
-import com.ascendant.e_businessprofile.Activity.ui.Mining.MarketInteligence.MarketPotential.MarketPotentialActivity;
+import com.ascendant.e_businessprofile.Activity.NewsActivity;
 import com.ascendant.e_businessprofile.Adapter.Static.AdapterNavigator;
 import com.ascendant.e_businessprofile.Method.Ascendant;
 import com.ascendant.e_businessprofile.Model.DataModel;
@@ -24,8 +22,7 @@ import com.ascendant.e_businessprofile.R;
 
 import java.util.ArrayList;
 
-public class MarketingIntelienceFarmingActivity extends AppCompatActivity {
-    LinearLayout Benchmarking,MarketPotential;
+public class MainMarketIntelianceContractorActivity extends AppCompatActivity {
     LinearLayout Available,Navigator;
     RecyclerView rv,recyclerView;
     ImageView ivMore;
@@ -35,12 +32,11 @@ public class MarketingIntelienceFarmingActivity extends AppCompatActivity {
     Button View,Download;
     Ascendant ascendant = new Ascendant();
     Dialog myDialog;
+    LinearLayout Procurment,Service;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_marketing_intelience_farming);
-        Benchmarking = findViewById(R.id.linearBenchmarking);
-        MarketPotential = findViewById(R.id.linearMarketingPotential);
+        setContentView(R.layout.activity_main_market_inteliance_contractor);
         myDialog = new Dialog(this);
         myDialog.setContentView(R.layout.dialog_view_download);
         //Cut Here
@@ -110,33 +106,23 @@ public class MarketingIntelienceFarmingActivity extends AppCompatActivity {
             }
         });
 
-        Benchmarking.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://mandiri-ebuss.com/files/farming/market_intelligence/benchmark/LAPORAN_LABA_RUGI_DAN_NERACA_PETERNAKAN_AYAM.pdf"));
-                startActivity(browserIntent);
-            }
-        });
-        MarketPotential.setOnClickListener(new View.OnClickListener() {
+        Procurment = findViewById(R.id.linearProcurment);
+        Service = findViewById(R.id.linearSerice);
+
+        Procurment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(android.view.View view) {
-                myDialog.show();
-                Download = myDialog.findViewById(R.id.btnDownload);
-                View = myDialog.findViewById(R.id.btnView);
-                Download.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(android.view.View view) {
-                        ascendant.Download(MarketingIntelienceFarmingActivity.this,"pdf","files/farming/market_intelligence/market_potential.pdf","Ecosystem Industry");
-                    }
-                });
-                View.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(android.view.View view) {
-                        Intent i = new Intent(MarketingIntelienceFarmingActivity.this, LandscapeWebViewEbookActivity.class);
-                        i.putExtra("LINK", "https://ebuss-book.mandiri-ebuss.com/farming/page/market_potential/market_potential.php");
-                        startActivity(i);
-                    }
-                });
+                Intent goInput = new Intent(MainMarketIntelianceContractorActivity.this, MarketInteliganceContractorActivity.class);
+                goInput.putExtra("JUDUL","Procurement of Goods and Services");
+                startActivities(new Intent[]{goInput});
+            }
+        });
+        Service.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(android.view.View view) {
+                Intent goInput = new Intent(MainMarketIntelianceContractorActivity.this, MarketInteliganceContractorActivity.class);
+                goInput.putExtra("JUDUL","Construction Services");
+                startActivities(new Intent[]{goInput});
             }
         });
     }

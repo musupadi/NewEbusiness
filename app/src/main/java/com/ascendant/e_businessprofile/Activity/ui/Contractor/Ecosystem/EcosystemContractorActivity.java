@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.ascendant.e_businessprofile.Activity.LandscapeWebViewEbookActivity;
+import com.ascendant.e_businessprofile.Activity.ui.Contractor.Outlook.OtulookActivity;
 import com.ascendant.e_businessprofile.Adapter.Static.AdapterNavigator;
 import com.ascendant.e_businessprofile.Method.Ascendant;
 import com.ascendant.e_businessprofile.Model.DataModel;
@@ -31,7 +33,7 @@ public class EcosystemContractorActivity extends AppCompatActivity {
     Ascendant ascendant = new Ascendant();
     Dialog myDialog;
 
-    LinearLayout PlayersInConstruction,PlayersInSupplyMaterial,SupportingPlayers,ListContract;
+    LinearLayout PlayersInConstruction,PlayersInSupplyMaterial,SupportingPlayers,EcosystemIndustry,Executive,Consultant;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +43,9 @@ public class EcosystemContractorActivity extends AppCompatActivity {
         PlayersInConstruction = findViewById(R.id.linearPlayersInConstruction);
         PlayersInSupplyMaterial = findViewById(R.id.linearPlayersInSupplyingMaterials);
         SupportingPlayers = findViewById(R.id.linearSupportingPlayers);
-        ListContract = findViewById(R.id.linearListContract);
+        EcosystemIndustry = findViewById(R.id.linearEcosystemIndustry);
+        Executive = findViewById(R.id.linearExecutive);
+        Consultant = findViewById(R.id.linearConsultant);
         //Cut Here
         rv = findViewById(R.id.recyclerNav);
         Available = findViewById(R.id.linearAvailable);
@@ -81,50 +85,41 @@ public class EcosystemContractorActivity extends AppCompatActivity {
                 }
 
             }
-        });//Cut Here
-        rv = findViewById(R.id.recyclerNav);
-        Available = findViewById(R.id.linearAvailable);
-        Navigator = findViewById(R.id.linearNavigator);
-        ivMore = findViewById(R.id.ivMore);
-        More = findViewById(R.id.linearMore);
-        Back = findViewById(R.id.linearBack);
-        Available.setVisibility(View.VISIBLE);
-        pList.addAll(MiningOutlookModel.getListData());
-        rv.setLayoutManager(new LinearLayoutManager(this));
-        AdapterNavigator adapterss = new AdapterNavigator(this, pList);
-        rv.setAdapter(adapterss);
-
-        Back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onBackPressed();
-            }
         });
-        More.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                try {
-                    if (more) {
-                        more = false;
-                        ivMore.setImageResource(R.drawable.close_concerate);
-                        Available.setVisibility(View.GONE);
-                        Navigator.setVisibility(View.VISIBLE);
-                    } else {
-                        more = true;
-                        ivMore.setImageResource(R.drawable.more_vertical_concerate);
-                        Available.setVisibility(View.VISIBLE);
-                        Navigator.setVisibility(View.GONE);
-                    }
-                } catch (Exception e) {
-
-                }
-
-            }
-        });
-        ListContract.setOnClickListener(new View.OnClickListener() {
+        //Cut Here
+        EcosystemIndustry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(android.view.View view) {
-                Intent intent = new Intent(EcosystemContractorActivity.this,ListContractContractorActivity.class);
+                myDialog.show();
+                Download = myDialog.findViewById(R.id.btnDownload);
+                View = myDialog.findViewById(R.id.btnView);
+                Download.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(android.view.View view) {
+                        ascendant.Download(EcosystemContractorActivity.this,"pdf","files/contractor/ekosistem/ekosistem_pengadaan.pdf","Ecosystem Industry");
+                    }
+                });
+                View.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(android.view.View view) {
+                        Intent i = new Intent(EcosystemContractorActivity.this, LandscapeWebViewEbookActivity.class);
+                        i.putExtra("LINK", "https://ebuss-book.mandiri-ebuss.com/contractor/page/ekosistem/proses_bisnis_pengadaan_barang_dan_jasa.php");
+                        startActivity(i);
+                    }
+                });
+            }
+        });
+        Executive.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(android.view.View view) {
+                Intent intent = new Intent(EcosystemContractorActivity.this,ExecutiveEcosystemContractorActivity.class);
+                startActivity(intent);
+            }
+        });
+        Consultant.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(android.view.View view) {
+                Intent intent = new Intent(EcosystemContractorActivity.this,ConsultantEcosystemContractorActivity.class);
                 startActivity(intent);
             }
         });

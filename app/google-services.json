@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "690210276067",
+    "project_id": "ebuss-60545",
+    "storage_bucket": "ebuss-60545.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:690210276067:android:dd8a5bbeb4cebe3088bbd6",
+        "android_client_info": {
+          "package_name": "com.ascendant.e_businessprofile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "690210276067-1mbs7s66dhvltbs6pbp4morg0rabs58g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDa85qnYrdtEYRcTbLVxFQGchyKkWAyBGc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "690210276067-1mbs7s66dhvltbs6pbp4morg0rabs58g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

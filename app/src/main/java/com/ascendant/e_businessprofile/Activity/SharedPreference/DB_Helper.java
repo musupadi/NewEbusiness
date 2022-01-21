@@ -17,7 +17,7 @@ import java.util.List;
 
 public class DB_Helper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "ebusinessprofile.db";
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 3;
 
 
     //Account
@@ -27,6 +27,7 @@ public class DB_Helper extends SQLiteOpenHelper {
     //Account
     public static final String TABLE_NAME_ACCOUNT = "account";
     public static final String COLUMN_TOKEN = "token";
+    public static final String NOTIF_ID = "notif_id";
 
     //Analisis
     public static final String TABLE_ANALISIS = "tableanalis";
@@ -63,7 +64,8 @@ public class DB_Helper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE "+TABLE_NAME_ACCOUNT+" (" +
-                COLUMN_TOKEN+" TEXT NOT NULL);"
+                COLUMN_TOKEN+" TEXT NOT NULL," +
+                NOTIF_ID+" TEXT NOT NULL);"
         );
         db.execSQL("CREATE TABLE "+TABLE_ANALISIS+" (" +
                 COLUMN_KE+" TEXT NOT NULL, "+
@@ -160,10 +162,11 @@ public class DB_Helper extends SQLiteOpenHelper {
     }
 
 
-    public void SaveUser(String token){
+    public void SaveUser(String token,String notif){
         SQLiteDatabase db =this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(COLUMN_TOKEN, token);
+        values.put(NOTIF_ID,notif);
         db.insert(TABLE_NAME_ACCOUNT,null,values);
         db.close();
     }

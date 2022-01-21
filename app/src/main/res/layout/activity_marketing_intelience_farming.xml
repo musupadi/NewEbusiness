@@ -51,7 +51,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:text="@string/market_inteligence"
+                            android:text="Market Potential"
                             android:gravity="center|left"
                             android:fontFamily="@font/inter"
                             android:textStyle="bold"
@@ -64,6 +64,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <LinearLayout
+                    android:id="@+id/linearAvailable"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
@@ -118,6 +119,7 @@
                         </RelativeLayout>
                     </LinearLayout>
                     <LinearLayout
+                        android:id="@+id/linearMarketingPotential"
                         android:layout_margin="10dp"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/box_long"

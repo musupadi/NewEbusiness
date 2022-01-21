@@ -28,6 +28,7 @@
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/activity_compliance_farming.xml" value="0.1933876811594203" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/activity_compliance_mining.xml" value="0.19010416666666666" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/activity_compliance_oil_and_gas.xml" value="0.1933876811594203" />
+        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/activity_consultant_ecosystem_contractor.xml" value="0.12" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/activity_credit_decision_tool.xml" value="0.2" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/activity_credit_worthiness.xml" value="0.18" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/activity_crredit_decision_tool.xml" value="0.25" />
@@ -46,6 +47,7 @@
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/activity_ecosystem_farming.xml" value="0.18" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/activity_ecosystem_mining.xml" value="0.22" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/activity_ecosystem_oil_and_gas.xml" value="0.16" />
+        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/activity_executive_ecosystem_contractor.xml" value="0.1" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/activity_farming_business_proccess.xml" value="0.1" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/activity_farming_business_status_and_prospect.xml" value="0.1" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/activity_farming_link_association.xml" value="0.17" />
@@ -100,6 +102,7 @@
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/activity_login.xml" value="0.16" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/activity_lquidity_ratio.xml" value="0.15" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/activity_main.xml" value="0.11503623188405797" />
+        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/activity_main_market_inteliance_contractor.xml" value="0.12" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/activity_maps.xml" value="0.1" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/activity_market_inteligance_contractor.xml" value="0.1933876811594203" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/activity_market_inteligance_mining.xml" value="0.2" />
@@ -151,7 +154,7 @@
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/fragment_business_refrence.xml" value="0.18" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/fragment_chat.xml" value="0.1171875" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/fragment_compliance.xml" value="0.16757246376811594" />
-        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/fragment_contractor.xml" value="0.12" />
+        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/fragment_contractor.xml" value="0.22" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/fragment_detail_assosiation.xml" value="0.2" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/fragment_detail_f_m_c_g_player.xml" value="0.18" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/fragment_e_book.xml" value="0.13134057971014493" />
@@ -189,7 +192,7 @@
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/fragment_tobacco.xml" value="0.1" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/list_5c.xml" value="0.12047101449275362" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/list_anak_perusahaan.xml" value="0.1" />
-        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/list_association.xml" value="0.16" />
+        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/list_association.xml" value="0.22" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/list_berita.xml" value="0.2" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/list_book.xml" value="0.1" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/list_compliance.xml" value="0.16757246376811594" />
@@ -204,6 +207,7 @@
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/list_pemegang_saham.xml" value="0.1308876811594203" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/list_persi.xml" value="0.1484375" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/list_perusahaan.xml" value="0.22" />
+        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/list_perusahaan_contractor.xml" value="0.25" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/list_perusahaan_farmers.xml" value="0.22" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/list_spinner.xml" value="0.18614130434782608" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/list_sub_komen.xml" value="0.1308876811594203" />

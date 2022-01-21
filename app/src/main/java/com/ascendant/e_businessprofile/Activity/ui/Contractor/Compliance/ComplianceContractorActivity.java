@@ -104,7 +104,7 @@ public class ComplianceContractorActivity extends AppCompatActivity {
         mManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false);
         rv.setLayoutManager(mManager);
         ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
-        Call<ResponseArrayObject> data =api.Mining_compliance(Token);
+        Call<ResponseArrayObject> data =api.Contractor_compliance(Token);
         data.enqueue(new Callback<ResponseArrayObject>() {
             @Override
             public void onResponse(Call<ResponseArrayObject> call, Response<ResponseArrayObject> response) {

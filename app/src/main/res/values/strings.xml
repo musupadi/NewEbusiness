@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">e-Business Profile</string>
+    <string name="app_name">Mandiri e-Buss</string>
     <string name="login">Login</string>
     <string name="register">Register</string>
     <string name="username_login">Email atau NIP</string>
@@ -47,6 +47,9 @@
     <string name="food_and_beverage">Food &amp; Beverage</string>
     <string name="non_food_and_beverage">Non Food &amp; Beverage</string>
     <string name="tobacco">Tobacco</string>
+
+    <string name="executive">Executive</string>
+    <string name="consultant">Consultant</string>
 
 
     <!-- Business Refrence    -->
@@ -141,6 +144,8 @@
     <string name="list_oil_and_gas_business_entities">List of Oil and Gas Business Entities for Petroleum/Fuel/Refined Products Trading Activities November 2021</string>
     <string name="list_oil_and_gas_business_entities_trading">List of Oil and Gas Business Entities for Gas Trading Activities April 2021</string>
 
+    <string name="procurment_of_good">Procurement of Goods and Services</string>
+    <string name="construction_service">Construction Services</string>
 
     <string name="bbm_and_lpg">List of BBM and LPG Distributors</string>
     <string name="pertamina_fuel">List of Pertamina Fuel Distributors</string>
@@ -221,4 +226,6 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_maps">MapsActivity</string>
+
+    <string name="app_id_on_signal">f7221318-7c72-4c22-809c-c1a9b3636ca9</string>
 </resources>

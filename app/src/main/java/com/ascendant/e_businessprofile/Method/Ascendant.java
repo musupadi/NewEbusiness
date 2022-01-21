@@ -22,6 +22,10 @@ import java.util.Date;
 import java.util.Locale;
 
 public class Ascendant {
+    public String OneSignalAppId(){
+        String OneSignal = "f7221318-7c72-4c22-809c-c1a9b3636ca9";
+        return OneSignal;
+    }
     public String GetIDYoutube(String link){
         String replace1 = link.replace("https://www.youtube.com/watch?v=","");
         return replace1;

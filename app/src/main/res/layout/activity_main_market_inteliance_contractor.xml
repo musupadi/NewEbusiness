@@ -51,7 +51,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:text="@string/outlook"
+                            android:text="Market Inteligence"
                             android:gravity="center|left"
                             android:fontFamily="@font/inter"
                             android:textStyle="bold"
@@ -70,10 +70,7 @@
                     android:orientation="vertical">
                     <LinearLayout
                         android:id="@+id/linearProcurment"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginBottom="10dp"
+                        android:layout_margin="10dp"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/box_long"
                         android:orientation="horizontal">
@@ -97,7 +94,7 @@
                                     <ImageView
                                         android:layout_width="80dp"
                                         android:layout_height="80dp"
-                                        android:src="@drawable/presidential_decree"
+                                        android:src="@drawable/regulations"
                                         android:layout_margin="10dp"/>
                                     <LinearLayout
                                         android:layout_width="match_parent"
@@ -122,14 +119,12 @@
                         </RelativeLayout>
                     </LinearLayout>
                     <LinearLayout
-                        android:id="@+id/linearConstruction"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginBottom="10dp"
+                        android:id="@+id/linearSerice"
+                        android:layout_margin="10dp"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/box_long"
                         android:orientation="horizontal">
+
                         <RelativeLayout
                             android:id="@+id/relativeRegulations"
                             android:layout_width="match_parent"
@@ -150,7 +145,7 @@
                                     <ImageView
                                         android:layout_width="80dp"
                                         android:layout_height="80dp"
-                                        android:src="@drawable/third_party_administrator"
+                                        android:src="@drawable/business_review"
                                         android:layout_margin="10dp"/>
                                     <LinearLayout
                                         android:layout_width="match_parent"

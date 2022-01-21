@@ -89,7 +89,7 @@ public class OilAndGasCommercialActivity extends AppCompatActivity {
         Trading.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(android.view.View view) {
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("(https://mandiri-ebuss.com/files/oil_and_gas/ekosistem/daftar-bu-niaga-gas-untuk-website-migas.pdf"));
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://mandiri-ebuss.com/files/oil_and_gas/ekosistem/daftar-bu-niaga-gas-untuk-website-migas.pdf"));
                 startActivity(browserIntent);
             }
         });

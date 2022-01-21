@@ -49,9 +49,10 @@
                             android:src="@drawable/chevron_left_concerate"
                             android:layout_margin="10dp"/>
                         <TextView
+                            android:id="@+id/tvJudul"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:text="@string/market_inteligence"
+                            android:text="Market Inteligence"
                             android:gravity="center|left"
                             android:fontFamily="@font/inter"
                             android:textStyle="bold"
@@ -64,10 +65,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <LinearLayout
+                    android:id="@+id/linearAvailable"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
                     <LinearLayout
+                        android:id="@+id/linearBenchmarking"
                         android:layout_margin="10dp"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/box_long"
@@ -117,6 +120,7 @@
                         </RelativeLayout>
                     </LinearLayout>
                     <LinearLayout
+                        android:id="@+id/linearMarketingPotential"
                         android:layout_margin="10dp"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/box_long"

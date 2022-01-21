@@ -103,6 +103,7 @@ public class FMCGFragment extends Fragment {
         BusinessRefrence.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log("7");
                 Intent intent = new Intent(getActivity(), FMCGBusinessRefrenceActivity.class);
                 startActivity(intent);
             }
@@ -110,6 +111,7 @@ public class FMCGFragment extends Fragment {
         ListOfProbing.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log("11");
                 Intent intent = new Intent(getActivity(), FMCGListOfProbingActivity.class);
                 startActivity(intent);
             }
@@ -117,6 +119,7 @@ public class FMCGFragment extends Fragment {
         Compliance.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log("12");
                 Intent intent = new Intent(getActivity(), FMCGComplianceActivity.class);
                 startActivity(intent);
             }
@@ -124,6 +127,7 @@ public class FMCGFragment extends Fragment {
         Ecosystem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log("8");
                 Intent intent = new Intent(getActivity(), FMCGEcosystemActivity.class);
                 startActivity(intent);
             }
@@ -131,6 +135,7 @@ public class FMCGFragment extends Fragment {
         CreditWorthiness.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log("9");
                 Intent intent = new Intent(getActivity(), FMCGMainCreditWorthinessActivity.class);
                 startActivity(intent);
             }
@@ -171,6 +176,23 @@ public class FMCGFragment extends Fragment {
                     Log.d("ZYARGA : ",e.toString());
                     Toast.makeText(getActivity(), "Terjadi Kesaqlahan", Toast.LENGTH_SHORT).show();
                 }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseArrayObject> call, Throwable t) {
+                Toast.makeText(getActivity(), "Koneksi Gagal", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+    private void Log(String id){
+        mManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL,false);
+        rv.setLayoutManager(mManager);
+        ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
+        final Call<ResponseArrayObject> data =api.Log(Token,id);
+        data.enqueue(new Callback<ResponseArrayObject>() {
+            @Override
+            public void onResponse(Call<ResponseArrayObject> call, Response<ResponseArrayObject> response) {
+
             }
 
             @Override

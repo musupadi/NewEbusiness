@@ -1,30 +1,22 @@
-package com.ascendant.e_businessprofile.Activity.ui.Farming.Ecosystem;
+package com.ascendant.e_businessprofile.Activity.ui.Contractor.Ecosystem;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
 import android.database.Cursor;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ProgressBar;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.ascendant.e_businessprofile.API.ApiRequest;
 import com.ascendant.e_businessprofile.API.RetroServer;
-import com.ascendant.e_businessprofile.Activity.PortraitWebViewEbookActivity;
 import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
-import com.ascendant.e_businessprofile.Activity.ui.Farming.Ecosystem.Players.BeefFarmingActivity;
-import com.ascendant.e_businessprofile.Activity.ui.Farming.Ecosystem.Players.PolutryFarmingActivity;
-import com.ascendant.e_businessprofile.Activity.ui.Farming.Ecosystem.Players.SuportingIndustryFarmingActivity;
-import com.ascendant.e_businessprofile.Adapter.AdapterPerusahaanFarming;
+import com.ascendant.e_businessprofile.Adapter.AdapterConstructionCompany;
+import com.ascendant.e_businessprofile.Adapter.AdapterListOfProbing2;
 import com.ascendant.e_businessprofile.Adapter.Static.AdapterNavigator;
 import com.ascendant.e_businessprofile.Model.DataModel;
 import com.ascendant.e_businessprofile.Model.ResponseArrayObject;
@@ -38,13 +30,12 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class EcosystemFarmingActivity extends AppCompatActivity {
-    Spinner Kategori;
+public class ExecutiveEcosystemContractorActivity extends AppCompatActivity {
     RecyclerView rv;
     private List<DataModel> mItems = new ArrayList<>();
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mManager;
-    ProgressBar progressBar;
+
     DB_Helper dbHelper;
     String Token;
 
@@ -54,53 +45,10 @@ public class EcosystemFarmingActivity extends AppCompatActivity {
     LinearLayout More,Back;
     Boolean more=true;
     private ArrayList<DataModel> pList = new ArrayList<>();
-
-    LinearLayout Beef,Polutry,Supporting,AssociationFarmer,DirectoryFarmingCompany;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ecosystem_farming);
-        Beef = findViewById(R.id.linearBeef);
-        Polutry = findViewById(R.id.linearPolutry);
-        Supporting = findViewById(R.id.linearSupportingIndustries);
-        AssociationFarmer = findViewById(R.id.linearLinkMemberAssociatioFarming);
-        DirectoryFarmingCompany = findViewById(R.id.linearLDirectoryFarmingCompany);
-        AssociationFarmer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(EcosystemFarmingActivity.this,FarmingLinkAssociationActivity.class);
-                startActivity(intent);
-            }
-        });
-        Beef.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(EcosystemFarmingActivity.this, BeefFarmingActivity.class);
-                startActivity(intent);
-            }
-        });
-        Polutry.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(EcosystemFarmingActivity.this, PolutryFarmingActivity.class);
-                startActivity(intent);
-            }
-        });
-        Supporting.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(EcosystemFarmingActivity.this, SuportingIndustryFarmingActivity.class);
-                startActivity(intent);
-            }
-        });
-        DirectoryFarmingCompany.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(EcosystemFarmingActivity.this, PortraitWebViewEbookActivity.class);
-                i.putExtra("LINK", "https://ebuss-book.mandiri-ebuss.com/farming/page/ekosistem/direktori_perusahaan_pertanian_peternakan_2021.php");
-                startActivity(i);
-            }
-        });
+        setContentView(R.layout.activity_executive_ecosystem_contractor);
         dbHelper = new DB_Helper(this);
         Cursor cursor = dbHelper.checkUser();
         if (cursor.getCount()>0){
@@ -109,10 +57,9 @@ public class EcosystemFarmingActivity extends AppCompatActivity {
             }
         }
         rv = findViewById(R.id.recycler);
-
+        Logic();
 
         //Cut Here
-        progressBar = findViewById(R.id.progressBar);
         rv2 = findViewById(R.id.recyclerNav);
         Available = findViewById(R.id.linearAvailable);
         Navigator = findViewById(R.id.linearNavigator);
@@ -124,6 +71,7 @@ public class EcosystemFarmingActivity extends AppCompatActivity {
         rv2.setLayoutManager(new LinearLayoutManager(this));
         AdapterNavigator adapters = new AdapterNavigator(this,pList);
         rv2.setAdapter(adapters);
+
         Back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -153,5 +101,34 @@ public class EcosystemFarmingActivity extends AppCompatActivity {
         });
 
         //Cut Here
+    }
+    private void Logic(){
+        mManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false);
+        rv.setLayoutManager(mManager);
+        ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
+        Call<ResponseArrayObject> data =api.PerusahaanContractor(Token,"PELAKSANA");
+        data.enqueue(new Callback<ResponseArrayObject>() {
+            @Override
+            public void onResponse(Call<ResponseArrayObject> call, Response<ResponseArrayObject> response) {
+                try {
+                    if (response.body().getKode().equals(200)){
+                        mItems=response.body().getData();
+                        mAdapter = new AdapterConstructionCompany(ExecutiveEcosystemContractorActivity.this,mItems);
+                        rv.setAdapter(mAdapter);
+                        mAdapter.notifyDataSetChanged();
+                    }else{
+                        Toast.makeText(ExecutiveEcosystemContractorActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                }catch (Exception e){
+                    Log.d("ZYARGA : ",e.toString());
+                    Toast.makeText(ExecutiveEcosystemContractorActivity.this, "Terjadi Kesaqlahan", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseArrayObject> call, Throwable t) {
+                Toast.makeText(ExecutiveEcosystemContractorActivity.this, "Koneksi Gagal", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

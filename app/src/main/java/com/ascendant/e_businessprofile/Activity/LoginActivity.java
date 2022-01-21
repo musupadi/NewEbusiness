@@ -1,10 +1,12 @@
 package com.ascendant.e_businessprofile.Activity;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -15,7 +17,12 @@ import com.ascendant.e_businessprofile.API.ApiRequest;
 import com.ascendant.e_businessprofile.API.RetroServer;
 import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
 import com.ascendant.e_businessprofile.Model.ResponseArrayObject;
+import com.ascendant.e_businessprofile.MyFirebaseMessagingService;
 import com.ascendant.e_businessprofile.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -26,7 +33,7 @@ public class LoginActivity extends AppCompatActivity {
     LinearLayout login;
     EditText username,password;
     DB_Helper dbHelper;
-
+    String token;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,16 +64,33 @@ public class LoginActivity extends AppCompatActivity {
         pd.setMessage("Sedang Mencoba Login");
         pd.show();
         pd.setCancelable(false);
+        FirebaseApp.initializeApp(LoginActivity.this);
+        FirebaseMessaging.getInstance().getToken().addOnCompleteListener(new OnCompleteListener<String>() {
+            @Override
+            public void onComplete(@NonNull Task<String> task) {
+                if(!task.isSuccessful()){
+                    Log.d("Zyarga","Fetching FCM Failed",task.getException());
+                    return;
+                }
+
+
+                // Get new FCM registration token
+                token = task.getResult();
+//                Toast.makeText(LoginActivity.this, token, Toast.LENGTH_SHORT).show();
+                // Log and toast
+                Log.e("TAGSOO",token);
+            }
+        });
         dbHelper = new DB_Helper(LoginActivity.this);
         ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
-        final Call<ResponseArrayObject> data =api.login(username.getText().toString(),password.getText().toString());
+        final Call<ResponseArrayObject> data =api.login(username.getText().toString(),password.getText().toString(),token);
         data.enqueue(new Callback<ResponseArrayObject>() {
             @Override
             public void onResponse(Call<ResponseArrayObject> call, Response<ResponseArrayObject> response) {
                 pd.hide();
                 try {
                     if (response.body().getKode().equals(200)){
-                        dbHelper.SaveUser(response.body().getToken_user());
+                        dbHelper.SaveUser(response.body().getToken_user(),response.body().getNotif_id());
                         Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
                         startActivity(intent);
                     }else{

@@ -513,6 +513,14 @@ public class DataModel {
     @Expose
     public String link_simulator;
 
+    @SerializedName("kelompok")
+    @Expose
+    public String kelompok;
+
+    @SerializedName("sektor")
+    @Expose
+    public String sektor;
+
 
     //Old EBusiness
     String id_fmcg_param,nama_param,rumus_param,kategori_param,rata_rata_param,penjelasan_param,penjelasan2_param;
@@ -3868,5 +3876,21 @@ public class DataModel {
 
     public void setLink_simulator(String link_simulator) {
         this.link_simulator = link_simulator;
+    }
+
+    public String getKelompok() {
+        return kelompok;
+    }
+
+    public void setKelompok(String kelompok) {
+        this.kelompok = kelompok;
+    }
+
+    public String getSektor() {
+        return sektor;
+    }
+
+    public void setSektor(String sektor) {
+        this.sektor = sektor;
     }
 }

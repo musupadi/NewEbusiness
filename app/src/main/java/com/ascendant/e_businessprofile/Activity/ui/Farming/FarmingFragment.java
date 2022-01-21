@@ -29,6 +29,7 @@ import com.ascendant.e_businessprofile.Activity.ui.Farming.Ecosystem.EcosystemFa
 import com.ascendant.e_businessprofile.Activity.ui.Farming.ListOfProbing.ListOfProbingFarmingActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Farming.MarketingInteligence.MarketingIntelienceFarmingActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Farming.Outlook.OutlookFarmingActivity;
+import com.ascendant.e_businessprofile.Activity.ui.Mining.MandiriUpdate.MiningMandiriUpdateActivity;
 import com.ascendant.e_businessprofile.Adapter.AdapterBerita;
 import com.ascendant.e_businessprofile.Model.DataModel;
 import com.ascendant.e_businessprofile.Model.ResponseArrayObject;
@@ -50,7 +51,7 @@ public class FarmingFragment extends Fragment {
     DB_Helper dbHelper;
     String Token;
     LinearLayout Back;
-    RelativeLayout Outlook,ListOfProbing,Compliance,Ecosystem,MarketInteligence;
+    RelativeLayout Outlook,ListOfProbing,Compliance,Ecosystem,MarketInteligence,MandiriUpdate;
     ScrollView scroll;
     TextView View;
     public FarmingFragment() {
@@ -89,6 +90,7 @@ public class FarmingFragment extends Fragment {
         Compliance = view.findViewById(R.id.relativeCompliance);
         Ecosystem = view.findViewById(R.id.relativeEcosystem);
         MarketInteligence = view.findViewById(R.id.relativeMarketInteligence);
+        MandiriUpdate = view.findViewById(R.id.relativeMandiriUpdate);
         Logic();
         View.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,6 +103,7 @@ public class FarmingFragment extends Fragment {
         Outlook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log("31");
                 Intent intent = new Intent(getActivity(), OutlookFarmingActivity.class);
                 startActivity(intent);
             }
@@ -108,6 +111,7 @@ public class FarmingFragment extends Fragment {
         ListOfProbing.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log("34");
                 Intent intent = new Intent(getActivity(), ListOfProbingFarmingActivity.class);
                 startActivity(intent);
             }
@@ -115,6 +119,7 @@ public class FarmingFragment extends Fragment {
         Compliance.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log("35");
                 Intent intent = new Intent(getActivity(), ComplianceFarmingActivity.class);
                 startActivity(intent);
             }
@@ -122,6 +127,7 @@ public class FarmingFragment extends Fragment {
         Ecosystem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log("32");
                 Intent intent = new Intent(getActivity(), EcosystemFarmingActivity.class);
                 startActivity(intent);
             }
@@ -129,7 +135,16 @@ public class FarmingFragment extends Fragment {
         MarketInteligence.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log("33");
                 Intent intent = new Intent(getActivity(), MarketingIntelienceFarmingActivity.class);
+                startActivity(intent);
+            }
+        });
+        MandiriUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(android.view.View view) {
+                Log("36");
+                Intent intent = new Intent(getActivity(), MiningMandiriUpdateActivity.class);
                 startActivity(intent);
             }
         });
@@ -162,6 +177,23 @@ public class FarmingFragment extends Fragment {
                     Log.d("ZYARGA : ",e.toString());
                     Toast.makeText(getActivity(), "Terjadi Kesaqlahan", Toast.LENGTH_SHORT).show();
                 }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseArrayObject> call, Throwable t) {
+                Toast.makeText(getActivity(), "Koneksi Gagal", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+    private void Log(String id){
+        mManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL,false);
+        rv.setLayoutManager(mManager);
+        ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
+        final Call<ResponseArrayObject> data =api.Log(Token,id);
+        data.enqueue(new Callback<ResponseArrayObject>() {
+            @Override
+            public void onResponse(Call<ResponseArrayObject> call, Response<ResponseArrayObject> response) {
+
             }
 
             @Override

@@ -15,6 +15,8 @@ import android.widget.LinearLayout;
 
 import com.ascendant.e_businessprofile.Activity.LandscapeWebViewEbookActivity;
 import com.ascendant.e_businessprofile.Activity.PortraitWebViewEbookActivity;
+import com.ascendant.e_businessprofile.Activity.ui.Contractor.Ecosystem.EcosystemContractorActivity;
+import com.ascendant.e_businessprofile.Activity.ui.Contractor.Ecosystem.ListContractContractorActivity;
 import com.ascendant.e_businessprofile.Activity.ui.OilAndGas.Outlook.OutlookOilAndGasActivity;
 import com.ascendant.e_businessprofile.Adapter.Static.AdapterNavigator;
 import com.ascendant.e_businessprofile.Method.Ascendant;
@@ -25,7 +27,7 @@ import com.ascendant.e_businessprofile.R;
 import java.util.ArrayList;
 
 public class EcosystemOilAndGasActivity extends AppCompatActivity {
-    LinearLayout DaftarPerusahaan,EcosystemIndustry,DownstreamBusinessEntity,ListCompany,Commercial,BBM,OilAndGas;
+    LinearLayout DaftarPerusahaan,EcosystemIndustry,DownstreamBusinessEntity,ListCompany,Commercial,BBM,OilAndGas,ListContract;
     LinearLayout Available,Navigator;
     RecyclerView rv,recyclerView;
     ImageView ivMore;
@@ -41,6 +43,7 @@ public class EcosystemOilAndGasActivity extends AppCompatActivity {
         setContentView(R.layout.activity_ecosystem_oil_and_gas);
         myDialog = new Dialog(this);
         myDialog.setContentView(R.layout.dialog_view_download);
+        ListContract = findViewById(R.id.linearListContract);
         DaftarPerusahaan = findViewById(R.id.linearDaftarPerusahaan);
         EcosystemIndustry = findViewById(R.id.linearEcosystemIndustry);
         DownstreamBusinessEntity = findViewById(R.id.linearDownstreamBusinessEntitty);
@@ -166,6 +169,13 @@ public class EcosystemOilAndGasActivity extends AppCompatActivity {
             public void onClick(android.view.View view) {
                 Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://mandiri-ebuss.com/files/oil_and_gas/ekosistem/daftar-bu-status-izin-pengangkutan-aktif-2020.pdf"));
                 startActivity(browserIntent);
+            }
+        });
+        ListContract.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(android.view.View view) {
+                Intent intent = new Intent(EcosystemOilAndGasActivity.this, ListContractContractorActivity.class);
+                startActivity(intent);
             }
         });
     }

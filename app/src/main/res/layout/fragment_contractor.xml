@@ -14,52 +14,66 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="220dp"
-                android:orientation="vertical"
-                android:background="@drawable/contractor_header">
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="220dp"
+                    android:src="@drawable/contractor_header"
+                    android:scaleType="fitXY"/>
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_margin="20dp"
-                    android:gravity="center"
-                    android:id="@+id/linearBack">
-                    <ImageView
-                        android:layout_gravity="center"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_marginRight="10dp"
-                        android:src="@drawable/chevron_left"/>
+                    android:layout_height="220dp"
+                    android:background="@color/colorWhite"
+                    android:alpha="0.3"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="220dp"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_margin="20dp"
+                        android:gravity="center"
+                        android:id="@+id/linearBack">
+                        <ImageView
+                            android:layout_gravity="center"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginRight="10dp"
+                            android:src="@drawable/chevron_left"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorPrimary"
+                            android:fontFamily="@font/inter_extra_bold"
+                            android:text="@string/back"
+                            android:textSize="@dimen/text_extra_large"/>
+                    </LinearLayout>
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/colorPrimary"
+                        android:layout_marginLeft="20dp"
                         android:fontFamily="@font/inter_extra_bold"
-                        android:text="@string/back"
-                        android:textSize="@dimen/text_extra_large"/>
+                        android:text="@string/contractor"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/header_text_small" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/detail_healthcare"
+                        android:textSize="@dimen/text_extra_large"
+                        android:fontFamily="@font/inter"
+                        android:textColor="@color/colorPrimary"
+                        android:layout_marginLeft="20dp"/>
+
                 </LinearLayout>
+            </RelativeLayout>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:fontFamily="@font/inter_extra_bold"
-                    android:text="@string/contractor"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="@dimen/header_text_small" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/detail_healthcare"
-                    android:textSize="@dimen/text_extra_large"
-                    android:fontFamily="@font/inter"
-                    android:textColor="@color/colorPrimary"
-                    android:layout_marginLeft="20dp"/>
-
-            </LinearLayout>
             <LinearLayout
                 android:layout_marginTop="20dp"
                 android:layout_width="match_parent"

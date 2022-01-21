@@ -1,5 +1,6 @@
 package com.ascendant.e_businessprofile.Activity.ui.Contractor;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
@@ -23,13 +25,18 @@ import android.widget.Toast;
 import com.ascendant.e_businessprofile.API.ApiRequest;
 import com.ascendant.e_businessprofile.API.RetroServer;
 import com.ascendant.e_businessprofile.Activity.DetailBeritaActivity;
+import com.ascendant.e_businessprofile.Activity.LandscapeWebViewEbookActivity;
 import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
 import com.ascendant.e_businessprofile.Activity.ui.Contractor.Compliance.ComplianceContractorActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Contractor.Ecosystem.EcosystemContractorActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Contractor.ListOfProbing.ListOfProbingContractorActivity;
+import com.ascendant.e_businessprofile.Activity.ui.Contractor.MarketInteligence.MainMarketIntelianceContractorActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Contractor.MarketInteligence.MarketInteliganceContractorActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Contractor.Outlook.OtulookActivity;
+import com.ascendant.e_businessprofile.Activity.ui.Mining.Ecosystem.EcosystemMiningActivity;
+import com.ascendant.e_businessprofile.Activity.ui.Mining.MandiriUpdate.MiningMandiriUpdateActivity;
 import com.ascendant.e_businessprofile.Adapter.AdapterBerita;
+import com.ascendant.e_businessprofile.Method.Ascendant;
 import com.ascendant.e_businessprofile.Model.DataModel;
 import com.ascendant.e_businessprofile.Model.ResponseArrayObject;
 import com.ascendant.e_businessprofile.R;
@@ -50,9 +57,12 @@ public class ContractorFragment extends Fragment {
     DB_Helper dbHelper;
     String Token;
     LinearLayout Back;
-    RelativeLayout Outlook,ListOfProbing,Compliance,Ecosystem,MarketInteligence;
+    RelativeLayout Outlook,ListOfProbing,Compliance,Ecosystem,MarketInteligence,MandiriUpdate;
     ScrollView scroll;
     TextView View;
+    Button Views,Download;
+    Ascendant ascendant = new Ascendant();
+    Dialog myDialog;
     public ContractorFragment() {
         // Required empty public constructor
     }
@@ -79,6 +89,8 @@ public class ContractorFragment extends Fragment {
                 Token = cursor.getString(0);
             }
         }
+        myDialog = new Dialog(getActivity());
+        myDialog.setContentView(R.layout.dialog_view_download);
         View = view.findViewById(R.id.tvView);
         scroll = view.findViewById(R.id.scroll);
         rv = view.findViewById(R.id.recycler);
@@ -88,6 +100,7 @@ public class ContractorFragment extends Fragment {
         Compliance = view.findViewById(R.id.relativeCompliance);
         Ecosystem = view.findViewById(R.id.relativeEcosystem);
         MarketInteligence = view.findViewById(R.id.relativeMarketInteligence);
+        MandiriUpdate = view.findViewById(R.id.relativeMandiriUpdate);
         Logic();
 
         View.setOnClickListener(new View.OnClickListener() {
@@ -101,20 +114,15 @@ public class ContractorFragment extends Fragment {
         Outlook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log("25");
                 Intent intent = new Intent(getActivity(), OtulookActivity.class);
-                startActivity(intent);
-            }
-        });
-        ListOfProbing.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), ListOfProbingContractorActivity.class);
                 startActivity(intent);
             }
         });
         Compliance.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log("29");
                 Intent intent = new Intent(getActivity(), ComplianceContractorActivity.class);
                 startActivity(intent);
             }
@@ -122,6 +130,7 @@ public class ContractorFragment extends Fragment {
         Ecosystem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log("26");
                 Intent intent = new Intent(getActivity(), EcosystemContractorActivity.class);
                 startActivity(intent);
             }
@@ -129,7 +138,39 @@ public class ContractorFragment extends Fragment {
         MarketInteligence.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), MarketInteliganceContractorActivity.class);
+                Log("27");
+                Intent intent = new Intent(getActivity(), MainMarketIntelianceContractorActivity.class);
+                startActivity(intent);
+            }
+        });
+        ListOfProbing.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(android.view.View view) {
+                Log("28");
+                myDialog.show();
+                Download = myDialog.findViewById(R.id.btnDownload);
+                Views = myDialog.findViewById(R.id.btnView);
+                Download.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(android.view.View view) {
+                        ascendant.Download(getActivity(),"pdf","files/contractor/contractor_list_of_probing.pdf","List Of Probing Contrractor");
+                    }
+                });
+                Views.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(android.view.View view) {
+                        Intent i = new Intent(getActivity(), LandscapeWebViewEbookActivity.class);
+                        i.putExtra("LINK", "https://ebuss-book.mandiri-ebuss.com/contractor/page/list_of_probing/list_of_probing.php");
+                        startActivity(i);
+                    }
+                });
+            }
+        });
+        MandiriUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(android.view.View view) {
+                Log("30");
+                Intent intent = new Intent(getActivity(), MiningMandiriUpdateActivity.class);
                 startActivity(intent);
             }
         });
@@ -162,6 +203,23 @@ public class ContractorFragment extends Fragment {
                     Log.d("ZYARGA : ",e.toString());
                     Toast.makeText(getActivity(), "Terjadi Kesaqlahan", Toast.LENGTH_SHORT).show();
                 }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseArrayObject> call, Throwable t) {
+                Toast.makeText(getActivity(), "Koneksi Gagal", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+    private void Log(String id){
+        mManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL,false);
+        rv.setLayoutManager(mManager);
+        ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
+        final Call<ResponseArrayObject> data =api.Log(Token,id);
+        data.enqueue(new Callback<ResponseArrayObject>() {
+            @Override
+            public void onResponse(Call<ResponseArrayObject> call, Response<ResponseArrayObject> response) {
+
             }
 
             @Override

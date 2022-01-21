@@ -104,6 +104,7 @@ public class MiningFragment extends Fragment {
         Outlook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log("13");
                 Intent intent = new Intent(getActivity(), OutlookActivity.class);
                 startActivity(intent);
             }
@@ -111,6 +112,7 @@ public class MiningFragment extends Fragment {
         ListOfProbing.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log("16");
                 Intent intent = new Intent(getActivity(), ListOfProbingMiningActivity.class);
                 startActivity(intent);
             }
@@ -118,6 +120,7 @@ public class MiningFragment extends Fragment {
         Compliance.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log("17");
                 Intent intent = new Intent(getActivity(), ComplianceMiningActivity.class);
                 startActivity(intent);
             }
@@ -125,6 +128,7 @@ public class MiningFragment extends Fragment {
         Ecosystem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log("14");
                 Intent intent = new Intent(getActivity(), EcosystemMiningActivity.class);
                 startActivity(intent);
             }
@@ -132,6 +136,7 @@ public class MiningFragment extends Fragment {
         MarketInteligence.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log("15");
                 Intent intent = new Intent(getActivity(), MarketInteliganceMiningActivity.class);
                 startActivity(intent);
             }
@@ -139,6 +144,7 @@ public class MiningFragment extends Fragment {
         MandiriUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log("18");
                 Intent intent = new Intent(getActivity(), MiningMandiriUpdateActivity.class);
                 startActivity(intent);
             }
@@ -172,6 +178,23 @@ public class MiningFragment extends Fragment {
                     Log.d("ZYARGA : ",e.toString());
                     Toast.makeText(getActivity(), "Terjadi Kesaqlahan", Toast.LENGTH_SHORT).show();
                 }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseArrayObject> call, Throwable t) {
+                Toast.makeText(getActivity(), "Koneksi Gagal", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+    private void Log(String id){
+        mManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL,false);
+        rv.setLayoutManager(mManager);
+        ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
+        final Call<ResponseArrayObject> data =api.Log(Token,id);
+        data.enqueue(new Callback<ResponseArrayObject>() {
+            @Override
+            public void onResponse(Call<ResponseArrayObject> call, Response<ResponseArrayObject> response) {
+
             }
 
             @Override

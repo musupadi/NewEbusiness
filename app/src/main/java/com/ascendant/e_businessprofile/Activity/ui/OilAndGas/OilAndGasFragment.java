@@ -24,6 +24,7 @@ import com.ascendant.e_businessprofile.API.ApiRequest;
 import com.ascendant.e_businessprofile.API.RetroServer;
 import com.ascendant.e_businessprofile.Activity.DetailBeritaActivity;
 import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
+import com.ascendant.e_businessprofile.Activity.ui.Mining.MandiriUpdate.MiningMandiriUpdateActivity;
 import com.ascendant.e_businessprofile.Activity.ui.OilAndGas.Compliance.ComplianceOilAndGasActivity;
 import com.ascendant.e_businessprofile.Activity.ui.OilAndGas.Ecossytem.EcosystemOilAndGasActivity;
 import com.ascendant.e_businessprofile.Activity.ui.OilAndGas.ListOfProbing.ListOfProbingOilAndGasActivity;
@@ -50,7 +51,7 @@ public class OilAndGasFragment extends Fragment {
     DB_Helper dbHelper;
     String Token;
     LinearLayout Back;
-    RelativeLayout Outlook,ListOfProbing,Compliance,Ecosystem,MarketInteligence;
+    RelativeLayout Outlook,ListOfProbing,Compliance,Ecosystem,MarketInteligence,MandiriUpdate;
     ScrollView scroll;
     TextView View;
     public OilAndGasFragment() {
@@ -91,6 +92,7 @@ public class OilAndGasFragment extends Fragment {
         Compliance = view.findViewById(R.id.relativeCompliance);
         Ecosystem = view.findViewById(R.id.relativeEcosystem);
         MarketInteligence = view.findViewById(R.id.relativeMarketInteligence);
+        MandiriUpdate = view.findViewById(R.id.relativeMandiriUpdate);
         Logic();
         View.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,6 +105,7 @@ public class OilAndGasFragment extends Fragment {
         Outlook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log("19");
                 Intent intent = new Intent(getActivity(), OutlookOilAndGasActivity.class);
                 startActivity(intent);
             }
@@ -110,6 +113,7 @@ public class OilAndGasFragment extends Fragment {
         ListOfProbing.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log("22");
                 Intent intent = new Intent(getActivity(), ListOfProbingOilAndGasActivity.class);
                 startActivity(intent);
             }
@@ -117,6 +121,7 @@ public class OilAndGasFragment extends Fragment {
         Compliance.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log("23");
                 Intent intent = new Intent(getActivity(), ComplianceOilAndGasActivity.class);
                 startActivity(intent);
             }
@@ -124,6 +129,7 @@ public class OilAndGasFragment extends Fragment {
         Ecosystem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log("20");
                 Intent intent = new Intent(getActivity(), EcosystemOilAndGasActivity.class);
                 startActivity(intent);
             }
@@ -131,7 +137,16 @@ public class OilAndGasFragment extends Fragment {
         MarketInteligence.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log("21");
                 Intent intent = new Intent(getActivity(), MarketInteligenceOilAndGasActivity.class);
+                startActivity(intent);
+            }
+        });
+        MandiriUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(android.view.View view) {
+                Log("24");
+                Intent intent = new Intent(getActivity(), MiningMandiriUpdateActivity.class);
                 startActivity(intent);
             }
         });
@@ -164,6 +179,23 @@ public class OilAndGasFragment extends Fragment {
                     Log.d("ZYARGA : ",e.toString());
                     Toast.makeText(getActivity(), "Terjadi Kesaqlahan", Toast.LENGTH_SHORT).show();
                 }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseArrayObject> call, Throwable t) {
+                Toast.makeText(getActivity(), "Koneksi Gagal", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+    private void Log(String id){
+        mManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL,false);
+        rv.setLayoutManager(mManager);
+        ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
+        final Call<ResponseArrayObject> data =api.Log(Token,id);
+        data.enqueue(new Callback<ResponseArrayObject>() {
+            @Override
+            public void onResponse(Call<ResponseArrayObject> call, Response<ResponseArrayObject> response) {
+
             }
 
             @Override

@@ -1,5 +1,6 @@
 package com.ascendant.e_businessprofile.Activity;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -9,7 +10,10 @@ import android.Manifest;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -21,7 +25,17 @@ import com.ascendant.e_businessprofile.Activity.ui.ForumFragment;
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.HealthcareFragment;
 import com.ascendant.e_businessprofile.Activity.ui.HomeFragment;
 import com.ascendant.e_businessprofile.Activity.ui.ProfileFragment;
+import com.ascendant.e_businessprofile.Method.Ascendant;
+import com.ascendant.e_businessprofile.MyFirebaseMessagingService;
 import com.ascendant.e_businessprofile.R;
+import com.google.android.gms.gcm.GoogleCloudMessaging;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.messaging.FirebaseMessaging;
+import com.onesignal.OneSignal;
+
+import java.io.IOException;
 
 import pub.devrel.easypermissions.EasyPermissions;
 
@@ -32,10 +46,14 @@ public class HomeActivity extends AppCompatActivity {
     private String[] galleryPermissions =
             {Manifest.permission.READ_EXTERNAL_STORAGE,
                     Manifest.permission.WRITE_EXTERNAL_STORAGE};
+    Ascendant ascendant= new Ascendant();
+    DB_Helper dbHelper;
+    String Token,NotifID;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
         if(EasyPermissions.hasPermissions(HomeActivity.this, galleryPermissions)) {
 
         }else{
@@ -45,6 +63,19 @@ public class HomeActivity extends AppCompatActivity {
         Declaration();
         Home();
         OnClick();
+        dbHelper = new DB_Helper(HomeActivity.this);
+        Cursor cursor = dbHelper.checkUser();
+        if (cursor.getCount()>0){
+            while (cursor.moveToNext()){
+                Token = cursor.getString(0);
+                NotifID = cursor.getString(1);
+            }
+        }
+
+        OneSignal.setLogLevel(OneSignal.LOG_LEVEL.VERBOSE, OneSignal.LOG_LEVEL.NONE);
+        // OneSignal Initialization
+        OneSignal.initWithContext(this);
+        OneSignal.setAppId(ascendant.OneSignalAppId());
     }
 
     private void OnClick() {
@@ -66,6 +97,7 @@ public class HomeActivity extends AppCompatActivity {
                 Profile();
             }
         });
+
     }
 
     private void Declaration() {
@@ -82,7 +114,27 @@ public class HomeActivity extends AppCompatActivity {
         Forum.setImageResource(R.drawable.forum_inactive);
         Profile.setImageResource(R.drawable.profile_inactive);
     }
-
+//    void getDeviceToken() {
+//        new AsyncTask() {
+//            @Override
+//            protected Object doInBackground(Object[] objects) {
+//                return null;
+//            }
+//
+//            @Override
+//            protected String doInBackground(Void... params) throws IOException {
+//
+//                GoogleCloudMessaging gcm = GoogleCloudMessaging.getInstance(getApplicationContext());
+//
+//                String deviceToken = gcm.register("632113338862");
+//                Log.i("GCM", "Device token : " + deviceToken);
+//
+//                // update user profile document
+//
+//                return null;
+//            }
+//        }.execute(null, null, null);
+//    }
     private void Home() {
         Default();
         Home.setImageResource(R.drawable.home_active);

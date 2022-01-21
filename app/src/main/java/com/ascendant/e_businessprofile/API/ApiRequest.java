@@ -62,7 +62,8 @@ public interface ApiRequest {
     @FormUrlEncoded
     @POST("login")
     Call<ResponseArrayObject> login(@Field("email") String email,
-                                    @Field("password") String password);
+                                    @Field("password") String password,
+                                    @Field("andro_token") String andro_token);
 
     @FormUrlEncoded
     @POST("berita")
@@ -443,4 +444,18 @@ public interface ApiRequest {
     @FormUrlEncoded
     @POST("oil_and_gas/list_of_probing")
     Call<ResponseArrayObject> OilAndGas_List_of_Probing(@Field("token") String token);
+
+    @FormUrlEncoded
+    @POST("contractor/video")
+    Call<ResponseArrayObject> Contractor_compliance(@Field("token") String token);
+
+    @FormUrlEncoded
+    @POST("contractor/perusahaan")
+    Call<ResponseArrayObject> PerusahaanContractor(@Field("token") String token,
+                                             @Field("jenis") String jenis);
+
+    @FormUrlEncoded
+    @POST("log")
+    Call<ResponseArrayObject> Log(@Field("token") String token,
+                                                   @Field("id_log_menu") String id_log_menu);
 }

@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -27,7 +28,7 @@ import com.ascendant.e_businessprofile.R;
 import java.util.ArrayList;
 
 public class OutlookOilAndGasActivity extends AppCompatActivity {
-    LinearLayout Regulation,BusinessStatus,BusinessProcess,RiskAndMitigation;
+    LinearLayout Regulation,BusinessStatus,BusinessProcess,RiskAndMitigation,KeySucces;
     LinearLayout Available,Navigator;
     RecyclerView rv,recyclerView;
     ImageView ivMore;
@@ -47,7 +48,7 @@ public class OutlookOilAndGasActivity extends AppCompatActivity {
         BusinessStatus = findViewById(R.id.linearBusinessStatus);
         BusinessProcess = findViewById(R.id.linearBusinessProcess);
         RiskAndMitigation = findViewById(R.id.linearRiskAndMitigation);
-
+        KeySucces = findViewById(R.id.linearKeySucces);
 
         //Cut Here
         rv = findViewById(R.id.recyclerNav);
@@ -177,6 +178,13 @@ public class OutlookOilAndGasActivity extends AppCompatActivity {
                         startActivity(i);
                     }
                 });
+            }
+        });
+        KeySucces.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(android.view.View view) {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://mandiri-ebuss.com/files/oil_and_gas/outlook/key_success_factor.pdf"));
+                startActivity(browserIntent);
             }
         });
     }

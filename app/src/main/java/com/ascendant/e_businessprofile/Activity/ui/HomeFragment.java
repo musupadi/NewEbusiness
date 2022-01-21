@@ -49,6 +49,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class HomeFragment extends Fragment {
+    String QuizResponse;
     private List<DataModel> mItems = new ArrayList<>();
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mManager;
@@ -233,7 +234,7 @@ public class HomeFragment extends Fragment {
                     if (Quiz){
                         quizDialog.show();
                     }else{
-                        Toast.makeText(getActivity(), "Quiz Sudah Dikerjakan", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), QuizResponse, Toast.LENGTH_SHORT).show();
                     }
                 }catch (Exception e){
                     Log.d("AscNet : ",e.toString());
@@ -385,9 +386,11 @@ public class HomeFragment extends Fragment {
                     if (response.body().getMessage().equals("Quiz tersedia")){
                         lottie.setVisibility(View.VISIBLE);
                         Quiz=true;
+                        QuizResponse = response.body().getMessage();
                     }else{
                         lottie.setVisibility(View.GONE);
                         Quiz=false;
+                        QuizResponse = response.body().getMessage();
                     }
                 }catch (Exception e){
                     //Toast.makeText(getActivity(), "Kesalahan pada : "+e.toString(), Toast.LENGTH_SHORT).show();

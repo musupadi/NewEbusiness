@@ -94,34 +94,31 @@ public class HealthcareFragment extends Fragment {
         BusinessRefrence.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log("1");
                 Intent intent = new Intent(getActivity(), BusinessRefrenceActivity.class);
-                startActivity(intent);
-            }
-        });
-        ListOfProbing.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), ListOfProbingActivity.class);
-                startActivity(intent);
-            }
-        });
-        Compliance.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), ComplianceActivity.class);
                 startActivity(intent);
             }
         });
         Ecosystem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log("2");
                 Intent intent = new Intent(getActivity(), EcosystemActivity.class);
+                startActivity(intent);
+            }
+        });
+        ListOfProbing.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log("5");
+                Intent intent = new Intent(getActivity(), ListOfProbingActivity.class);
                 startActivity(intent);
             }
         });
         CreditWorthiness.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log("3");
                 Intent intent = new Intent(getActivity(), CreditWorthinessActivity.class);
                 startActivity(intent);
             }
@@ -129,7 +126,16 @@ public class HealthcareFragment extends Fragment {
         CreditDecisionTool.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log("4");
                 Intent intent = new Intent(getActivity(), CrreditDecisionToolActivity.class);
+                startActivity(intent);
+            }
+        });
+        Compliance.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log("3");
+                Intent intent = new Intent(getActivity(), ComplianceActivity.class);
                 startActivity(intent);
             }
         });
@@ -170,6 +176,23 @@ public class HealthcareFragment extends Fragment {
                     Log.d("ZYARGA : ",e.toString());
                     Toast.makeText(getActivity(), "Terjadi Kesaqlahan", Toast.LENGTH_SHORT).show();
                 }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseArrayObject> call, Throwable t) {
+                Toast.makeText(getActivity(), "Koneksi Gagal", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+    private void Log(String id){
+        mManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL,false);
+        rv.setLayoutManager(mManager);
+        ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
+        final Call<ResponseArrayObject> data =api.Log(Token,id);
+        data.enqueue(new Callback<ResponseArrayObject>() {
+            @Override
+            public void onResponse(Call<ResponseArrayObject> call, Response<ResponseArrayObject> response) {
+
             }
 
             @Override

@@ -22,6 +22,10 @@ public class ResponseArrayObject {
     @Expose
     public String token_user;
 
+    @SerializedName("notif_id")
+    @Expose
+    public String notif_id;
+
     @SerializedName("data")
     @Expose
     List<DataModel> data;
@@ -2833,5 +2837,13 @@ public class ResponseArrayObject {
 
     public void setList(List<DataModel> list) {
         this.list = list;
+    }
+
+    public String getNotif_id() {
+        return notif_id;
+    }
+
+    public void setNotif_id(String notif_id) {
+        this.notif_id = notif_id;
     }
 }
