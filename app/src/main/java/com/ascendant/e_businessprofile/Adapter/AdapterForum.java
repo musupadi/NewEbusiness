@@ -52,6 +52,8 @@ public class AdapterForum extends RecyclerView.Adapter<AdapterForum.HolderData> 
                 goInput.putExtra("JUDUL",dm.getJudul_post());
                 goInput.putExtra("REPLY_NAME","");
                 goInput.putExtra("REPLY","");
+                goInput.putExtra("EDIT","NO");
+                goInput.putExtra("ISI_KOMEN","");
                 ctx.startActivities(new Intent[]{goInput});
             }
         });

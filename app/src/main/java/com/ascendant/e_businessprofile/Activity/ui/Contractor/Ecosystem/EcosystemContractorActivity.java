@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -87,6 +88,27 @@ public class EcosystemContractorActivity extends AppCompatActivity {
             }
         });
         //Cut Here
+        PlayersInConstruction.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(android.view.View view) {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://mandiri-ebuss.com/files/contractor/ekosistem/players_in_construction.pdf"));
+                startActivity(browserIntent);
+            }
+        });
+        PlayersInSupplyMaterial.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(android.view.View view) {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://mandiri-ebuss.com/files/contractor/ekosistem/players_in_supply_material.pdf"));
+                startActivity(browserIntent);
+            }
+        });
+        SupportingPlayers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(android.view.View view) {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://mandiri-ebuss.com/files/contractor/ekosistem/supporting_players.pdf"));
+                startActivity(browserIntent);
+            }
+        });
         EcosystemIndustry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(android.view.View view) {

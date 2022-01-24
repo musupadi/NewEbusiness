@@ -4,12 +4,16 @@ import android.app.AlertDialog;
 import android.app.DownloadManager;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Environment;
 import android.util.Base64;
 import android.widget.Toast;
 
+import com.ascendant.e_businessprofile.API.ApiRequest;
+import com.ascendant.e_businessprofile.API.RetroServer;
 import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
+import com.ascendant.e_businessprofile.Model.ResponseArrayObject;
 import com.ascendant.e_businessprofile.Model.StaticModel.Quis;
 import com.ascendant.e_businessprofile.R;
 
@@ -21,6 +25,10 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class Ascendant {
     public String OneSignalAppId(){
         String OneSignal = "f7221318-7c72-4c22-809c-c1a9b3636ca9";
@@ -30,6 +38,7 @@ public class Ascendant {
         String replace1 = link.replace("https://www.youtube.com/watch?v=","");
         return replace1;
     }
+
     public String PembulatanHari(String hari){
         Double hari1 = Double.parseDouble(BatasanDouble(Double.parseDouble(hari)));
         Double total = Double.parseDouble(hari)-hari1;

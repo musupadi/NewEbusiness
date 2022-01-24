@@ -157,7 +157,7 @@ public class RegisterActivity extends AppCompatActivity {
                     "+62 "+NoTelp.getText().toString(),
                     idDivisi.getText().toString(),
                     Password.getText().toString(),
-                    "1");
+                    idWIlayah.getText().toString());
             data.enqueue(new Callback<ResponseArrayObject>() {
                 @Override
                 public void onResponse(Call<ResponseArrayObject> call, Response<ResponseArrayObject> response) {

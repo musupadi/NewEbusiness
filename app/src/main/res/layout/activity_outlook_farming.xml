@@ -181,9 +181,9 @@
                         android:layout_marginBottom="10dp"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/box_long"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:id="@+id/linearBusinessReview">
                         <RelativeLayout
-                            android:id="@+id/relativeBusinessReview"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1">
@@ -233,9 +233,9 @@
                         android:layout_marginBottom="10dp"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/box_long"
+                        android:id="@+id/linearKeySucces"
                         android:orientation="horizontal">
                         <RelativeLayout
-                            android:id="@+id/relativeKeySuccessFactor"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1">

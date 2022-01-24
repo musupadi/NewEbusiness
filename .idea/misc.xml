@@ -47,6 +47,7 @@
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/activity_ecosystem_farming.xml" value="0.18" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/activity_ecosystem_mining.xml" value="0.22" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/activity_ecosystem_oil_and_gas.xml" value="0.16" />
+        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/activity_edit_forum.xml" value="0.14" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/activity_executive_ecosystem_contractor.xml" value="0.1" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/activity_farming_business_proccess.xml" value="0.1" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/activity_farming_business_status_and_prospect.xml" value="0.1" />
@@ -88,6 +89,7 @@
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/activity_hospital_list.xml" value="0.2" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/activity_hospital_operational_perfomance.xml" value="0.16" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/activity_hospital_requirement_ratio.xml" value="0.18" />
+        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/activity_input_gambar.xml" value="0.10555555555555556" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/activity_input_simulation_hospital_operational.xml" value="0.14" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/activity_investment_credit.xml" value="0.18" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/activity_list_bbmoil_and_gas.xml" value="0.22" />
@@ -120,6 +122,7 @@
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/activity_otulook.xml" value="0.1933876811594203" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/activity_outlook.xml" value="0.16" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/activity_outlook_farming.xml" value="0.17" />
+        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/activity_outlook_farming2.xml" value="0.1" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/activity_outlook_oil_and_gas.xml" value="0.16" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/activity_parameter_hospital_operational.xml" value="0.1" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/activity_parameters_hospital_finance_indicator.xml" value="0.14" />
@@ -141,8 +144,10 @@
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/activity_suporting_industry_farming.xml" value="0.21" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/activity_supporting_induestries.xml" value="0.14" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/activity_tobacco_probing.xml" value="0.1" />
+        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/activity_web.xml" value="0.1" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/activity_web_view_ebook.xml" value="0.10326086956521739" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/activity_working_capital_credit.xml" value="0.1" />
+        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/dialog_change_password.xml" value="0.25" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/dialog_data_rs.xml" value="0.14175724637681159" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/dialog_divisi.xml" value="0.2" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/dialog_message.xml" value="0.25" />
@@ -199,7 +204,7 @@
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/list_ebook.xml" value="0.18" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/list_fiull_berita.xml" value="0.13768115942028986" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/list_forum.xml" value="0.25" />
-        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/list_gambar.xml" value="0.1" />
+        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/list_gambar.xml" value="0.33" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/list_hospital.xml" value="0.1" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/list_komen.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/eBusinessProfile2/app/src/main/res/layout/list_list_of_probing.xml" value="0.25" />

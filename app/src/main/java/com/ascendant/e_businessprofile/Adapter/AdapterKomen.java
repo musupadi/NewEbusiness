@@ -150,7 +150,7 @@ public class AdapterKomen extends RecyclerView.Adapter<AdapterKomen.HolderData> 
                     public void onClick(DialogInterface dialog, int which) {
                         // Do something when user clicked the Yes button
                         // Set the TextView visibility GONE
-                        DeleteKomen();
+                        DeleteKomen(dm.getId_post_komen());
                     }
                 });
 
@@ -182,6 +182,25 @@ public class AdapterKomen extends RecyclerView.Adapter<AdapterKomen.HolderData> 
                 goInput.putExtra("JUDUL",JUDUL);
                 goInput.putExtra("REPLY_NAME",dm.getNama_user());
                 goInput.putExtra("REPLY",dm.getId_post_komen());
+                goInput.putExtra("EDIT","NO");
+                goInput.putExtra("ISI_KOMEN","");
+                goInput.putExtra("SUB_KOMEN","NO");
+                ctx.startActivities(new Intent[]{goInput});
+            }
+        });
+        holderData.Edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent goInput = new Intent(ctx, DetailForumActivity.class);
+                goInput.putExtra("ID",ID);
+                goInput.putExtra("CATEGORY",CATEGORY);
+                goInput.putExtra("JUDUL",JUDUL);
+                goInput.putExtra("REPLY_NAME",dm.getNama_user());
+                goInput.putExtra("REPLY",dm.getId_post_komen());
+                goInput.putExtra("EDIT","YES");
+                goInput.putExtra("IDS",dm.getId_post_komen());
+                goInput.putExtra("ISI_KOMEN",dm.getIsi_komen());
+                goInput.putExtra("SUB_KOMEN","NO");
                 ctx.startActivities(new Intent[]{goInput});
             }
         });
@@ -195,9 +214,9 @@ public class AdapterKomen extends RecyclerView.Adapter<AdapterKomen.HolderData> 
 //            }
 //        });
     }
-    private void DeleteKomen(){
+    private void DeleteKomen(String IDS){
         ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
-        Call<ResponseArrayObject> data =api.DeletePosting(Token,ID,"komen");
+        Call<ResponseArrayObject> data =api.DeletePosting(Token,IDS,"komen");
         data.enqueue(new Callback<ResponseArrayObject>() {
             @Override
             public void onResponse(Call<ResponseArrayObject> call, Response<ResponseArrayObject> response) {
@@ -208,6 +227,8 @@ public class AdapterKomen extends RecyclerView.Adapter<AdapterKomen.HolderData> 
                 goInput.putExtra("JUDUL",JUDUL);
                 goInput.putExtra("REPLY_NAME","");
                 goInput.putExtra("REPLY","");
+                goInput.putExtra("EDIT","NO");
+                goInput.putExtra("ISI_KOMEN","");
                 ctx.startActivities(new Intent[]{goInput});
             }
 

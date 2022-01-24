@@ -2,7 +2,7 @@
     <string name="app_name">Mandiri e-Buss</string>
     <string name="login">Login</string>
     <string name="register">Register</string>
-    <string name="username_login">Email atau NIP</string>
+    <string name="username_login">Email</string>
     <string name="type_here">Type here...</string>
     <string name="title">Title</string>
     <string name="wilayah">Wilayah</string>
@@ -12,8 +12,11 @@
     <string name="email">Email</string>
     <string name="nip">NIP</string>
     <string name="divisi">Divisi</string>
-    <string name="password_login">Kata sandi</string>
-    <string name="confirm_password_login">Konfirmasi kata sandi</string>
+    <string name="password_login">Password</string>
+    <string name="old_password">Old Passwword</string>
+    <string name="new_password">New Passwword</string>
+    <string name="conf_password">Confirm Passwword</string>
+    <string name="confirm_password_login">Confirm Passwword</string>
     <string name="name">Nama</string>
     <string name="number_phone">Nomor Telepon</string>
     <string name="code_phone">Kode</string>
@@ -44,6 +47,8 @@
     <string name="mandiri_updatge">Mandiri Update</string>
     <string name="credit_decisive_tool">Credit Decision Tool</string>
     <string name="input_forum">Input Forum</string>
+    <string name="input_gambar">Input Gambar</string>
+    <string name="edit_forum">Edit Forum</string>
     <string name="food_and_beverage">Food &amp; Beverage</string>
     <string name="non_food_and_beverage">Non Food &amp; Beverage</string>
     <string name="tobacco">Tobacco</string>

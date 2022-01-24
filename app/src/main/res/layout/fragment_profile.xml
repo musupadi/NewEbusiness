@@ -52,17 +52,18 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/button_white_rounded">
+
                         <TextView
-                            android:textStyle="bold"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
-                            android:layout_marginTop="20dp"
-                            android:gravity="center"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Change Password"
                             android:layout_centerInParent="true"
-                            android:textColor="@color/colorPrimaryDark"/>
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginRight="10dp"
+                            android:gravity="center"
+                            android:text="Change Password"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textStyle="bold" />
                     </RelativeLayout>
                     <RelativeLayout
                         android:id="@+id/relativeContactUs"
@@ -72,17 +73,18 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/button_white_rounded">
+
                         <TextView
-                            android:textStyle="bold"
-                            android:gravity="center"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
-                            android:layout_marginTop="20dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Contact Us"
                             android:layout_centerInParent="true"
-                            android:textColor="@color/colorPrimaryDark"/>
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginRight="10dp"
+                            android:gravity="center"
+                            android:text="Contact Us"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textStyle="bold" />
                     </RelativeLayout>
                     <RelativeLayout
                         android:visibility="gone"

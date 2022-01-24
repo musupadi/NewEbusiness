@@ -42,6 +42,7 @@ public class AdapterSubKomen extends RecyclerView.Adapter<AdapterSubKomen.Holder
     String ID,CATEGORY,JUDUL;
     DB_Helper dbHelper;
     String Token;
+    String IDSUB;
     public AdapterSubKomen(Context ctx, List<DataModel> mList,String NamaUser,String ID,String CATEGORY,String JUIDUL){
         this.ctx = ctx;
         this.mList = mList;
@@ -66,6 +67,7 @@ public class AdapterSubKomen extends RecyclerView.Adapter<AdapterSubKomen.Holder
         holderData.Komen.setText(dm.getIsi_komen());
         holderData.Nama.setText(dm.getNama_user());
         holderData.Jam.setText(dm.getTgl_komen());
+        IDSUB=dm.getId_post_komen_sub();
         dbHelper = new DB_Helper(ctx);
         Cursor cursor = dbHelper.checkUser();
         if (cursor.getCount()>0){
@@ -106,7 +108,7 @@ public class AdapterSubKomen extends RecyclerView.Adapter<AdapterSubKomen.Holder
                     public void onClick(DialogInterface dialog, int which) {
                         // Do something when user clicked the Yes button
                         // Set the TextView visibility GONE
-                        DeleteKomen();
+                        DeleteKomen(IDSUB);
                     }
                 });
 
@@ -123,12 +125,28 @@ public class AdapterSubKomen extends RecyclerView.Adapter<AdapterSubKomen.Holder
                 dialog.show();
             }
         });
+        holderData.Edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent goInput = new Intent(ctx, DetailForumActivity.class);
+                goInput.putExtra("ID",ID);
+                goInput.putExtra("CATEGORY",CATEGORY);
+                goInput.putExtra("JUDUL",JUDUL);
+                goInput.putExtra("REPLY_NAME",dm.getNama_user());
+                goInput.putExtra("REPLY",dm.getId_post_komen_sub());
+                goInput.putExtra("EDIT","YES");
+                goInput.putExtra("IDS",dm.getId_post_komen_sub());
+                goInput.putExtra("ISI_KOMEN",dm.getIsi_komen());
+                goInput.putExtra("SUB_KOMEN","YES");
+                ctx.startActivities(new Intent[]{goInput});
+            }
+        });
         holderData.cardKomen.setVisibility(View.GONE);
     }
 
-    private void DeleteKomen(){
+    private void DeleteKomen(String IDSUB){
         ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
-        Call<ResponseArrayObject> data =api.DeletePosting(Token,ID,"sub_komen");
+        Call<ResponseArrayObject> data =api.DeletePosting(Token,IDSUB,"sub_komen");
         data.enqueue(new Callback<ResponseArrayObject>() {
             @Override
             public void onResponse(Call<ResponseArrayObject> call, Response<ResponseArrayObject> response) {
@@ -139,6 +157,8 @@ public class AdapterSubKomen extends RecyclerView.Adapter<AdapterSubKomen.Holder
                 goInput.putExtra("JUDUL",JUDUL);
                 goInput.putExtra("REPLY_NAME","");
                 goInput.putExtra("REPLY","");
+                goInput.putExtra("EDIT","NO");
+                goInput.putExtra("ISI_KOMEN","");
                 ctx.startActivities(new Intent[]{goInput});
             }
 

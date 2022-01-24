@@ -26,62 +26,59 @@
         android:fontFamily="@font/inter"
         android:textSize="@dimen/text_extra_large" />
 
-    <LinearLayout
-        android:layout_margin="5dp"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:orientation="horizontal">
-        <Button
-            android:padding="5dp"
+        android:layout_height="500dp">
+        <LinearLayout
+
             android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:textStyle="bold"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/btnA"
-            android:text="A. Test A"
-            android:textColor="@color/colorWhite"
-            android:background="@drawable/button_blue_rounded" />
-        <Button
-            android:padding="5dp"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:textStyle="bold"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/btnB"
-            android:text="B. Test B"
-            android:textColor="@color/colorWhite"
-            android:background="@drawable/button_blue_rounded" />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_margin="5dp"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:orientation="horizontal">
-        <Button
-            android:padding="5dp"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:textStyle="bold"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/btnC"
-            android:text="C. Test C"
-            android:textColor="@color/colorWhite"
-            android:background="@drawable/button_blue_rounded" />
-        <Button
-            android:padding="5dp"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:textStyle="bold"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/btnD"
-            android:text="D. Test D"
-            android:textColor="@color/colorWhite"
-            android:background="@drawable/button_blue_rounded" />
-    </LinearLayout>
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <Button
+                android:padding="5dp"
+                android:layout_margin="5dp"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnA"
+                android:text="A. Test A"
+                android:textColor="@color/colorWhite"
+                android:background="@drawable/button_blue_rounded" />
+            <Button
+                android:padding="5dp"
+                android:layout_margin="5dp"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnB"
+                android:text="B. Test B"
+                android:textColor="@color/colorWhite"
+                android:background="@drawable/button_blue_rounded" />
+            <Button
+                android:padding="5dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/btnC"
+                android:text="C. Test C"
+                android:textColor="@color/colorWhite"
+                android:background="@drawable/button_blue_rounded" />
+            <Button
+                android:padding="5dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/btnD"
+                android:text="D. Test D"
+                android:textColor="@color/colorWhite"
+                android:background="@drawable/button_blue_rounded" />
+        </LinearLayout>
+    </ScrollView>
     <Button
         android:layout_margin="10dp"
         android:layout_weight="1"

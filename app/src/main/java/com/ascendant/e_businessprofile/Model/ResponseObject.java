@@ -38,6 +38,10 @@ public class ResponseObject {
     @Expose
     public String link;
 
+    @SerializedName("ver")
+    @Expose
+    public String ver;
+
     @SerializedName("daftar_rs")
     @Expose
     List<DataModel> daftar_rs;
@@ -115,5 +119,13 @@ public class ResponseObject {
 
     public void setLink(String link) {
         this.link = link;
+    }
+
+    public String getVer() {
+        return ver;
+    }
+
+    public void setVer(String ver) {
+        this.ver = ver;
     }
 }

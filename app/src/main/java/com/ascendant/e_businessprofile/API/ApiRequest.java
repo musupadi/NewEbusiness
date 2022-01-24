@@ -66,6 +66,10 @@ public interface ApiRequest {
                                     @Field("andro_token") String andro_token);
 
     @FormUrlEncoded
+    @POST("validasi_regist")
+    Call<ResponseArrayObject> validasi_regist(@Field("token") String token);
+
+    @FormUrlEncoded
     @POST("berita")
     Call<ResponseArrayObject> Berita(@Field("token") String token,
                                      @Field("kategori") String kategori,
@@ -145,7 +149,7 @@ public interface ApiRequest {
                                        @Field("no_telp") String no_telp,
                                        @Field("divisi") String divisi,
                                        @Field("password") String password,
-                                       @Field("id_wilayah_mandiri") String id_wilayah_mandiri);
+                                       @Field("wilayah") String wilayah);
 
     @FormUrlEncoded
     @POST("fmcg/business_refrence")
@@ -207,6 +211,10 @@ public interface ApiRequest {
                                          @Field("id_quiz") String id_quiz,
                                          @Field("jawaban") String jawaban);
 
+    @FormUrlEncoded
+    @POST("hapus_img_post")
+    Call<ResponseObject> DeleteGambarPost(@Field("token") String token,
+                                       @Field("id_post_img") String id_post_img);
 
     @Multipart
     @POST("post_komen")
@@ -216,10 +224,38 @@ public interface ApiRequest {
                                    @Part MultipartBody.Part img_komen);
 
     @Multipart
+    @POST("edit_komen")
+    Call<ResponseObject> EditKomen(@Part("token") RequestBody token,
+                                   @Part("id_post_komen") RequestBody id_post_komen,
+                                   @Part("isi_komen") RequestBody isi_komen);
+
+    @Multipart
+    @POST("edit_komen")
+    Call<ResponseObject> EditKomen(@Part("token") RequestBody token,
+                                   @Part("id_post_komen") RequestBody id_post_komen,
+                                   @Part("isi_komen") RequestBody isi_komen,
+                                   @Part MultipartBody.Part img_komen);
+
+    @Multipart
     @POST("post_komen")
     Call<ResponseObject> PostKomen(@Part("token") RequestBody token,
                                    @Part("id_post") RequestBody id_post,
                                    @Part("isi_komen") RequestBody isi_komen);
+
+    @Multipart
+    @POST("edit_komen_sub")
+    Call<ResponseObject> EditSubKomen(@Part("token") RequestBody token,
+                                      @Part("id_post_komen_sub") RequestBody id_post_komen_sub,
+                                      @Part("isi_komen") RequestBody isi_komen,
+                                      @Part MultipartBody.Part img_komen);
+
+    @Multipart
+    @POST("edit_komen_sub")
+    Call<ResponseObject> EditSubKomen(@Part("token") RequestBody token,
+                                      @Part("id_post_komen_sub") RequestBody id_post_komen_sub,
+                                      @Part("isi_komen") RequestBody isi_komen);
+
+
 
     @Multipart
     @POST("post_komen_sub")
@@ -239,6 +275,13 @@ public interface ApiRequest {
 
     //No Image
     @Multipart
+    @POST("edit_post")
+    Call<ResponseObject> EditForum(@Part("token") RequestBody token,
+                                      @Part("id_post") RequestBody id_post,
+                                      @Part("judul_post") RequestBody judul_post,
+                                      @Part("isi_post") RequestBody id_komen);
+
+    @Multipart
     @POST("posting")
     Call<ResponseObject> PostingForum(@Part("token") RequestBody token,
                                       @Part("kategori_post") RequestBody kategori_post,
@@ -246,6 +289,13 @@ public interface ApiRequest {
                                       @Part("isi_post") RequestBody id_komen);
 
     //1
+    @Multipart
+    @POST("tambah_img_post")
+    Call<ResponseObject> TambahImagePost(@Part("token") RequestBody token,
+                                      @Part("id_post") RequestBody id_post,
+                                      @Part MultipartBody.Part img_post1);
+
+
     @Multipart
     @POST("posting")
     Call<ResponseObject> PostingForum(@Part("token") RequestBody token,
@@ -458,4 +508,15 @@ public interface ApiRequest {
     @POST("log")
     Call<ResponseArrayObject> Log(@Field("token") String token,
                                                    @Field("id_log_menu") String id_log_menu);
+
+    @FormUrlEncoded
+    @POST("change_pass")
+    Call<ResponseArrayObject> ChangePassword(@Field("token") String token,
+                                             @Field("pass_lama") String pass_lama,
+                                             @Field("pass_baru") String pass_baru,
+                                             @Field("pass_conf") String pass_conf);
+
+
+    @POST("version")
+    Call<ResponseObject> Version();
 }

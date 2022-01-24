@@ -22,7 +22,7 @@ import com.ascendant.e_businessprofile.R;
 import java.util.ArrayList;
 
 public class OutlookFarmingActivity extends AppCompatActivity {
-    LinearLayout Regulation,BusinessStatus,BusinessProcess;
+    LinearLayout Regulation,BusinessStatus,BusinessProcess,BusinessReview,KeySuccess,RiskAndMitigation;
     LinearLayout Available,Navigator;
     RecyclerView rv,recyclerView;
     ImageView ivMore;
@@ -36,7 +36,9 @@ public class OutlookFarmingActivity extends AppCompatActivity {
         Regulation = findViewById(R.id.linearRegulations);
         BusinessStatus = findViewById(R.id.linearBusinessStatus);
         BusinessProcess = findViewById(R.id.linearBusinessProcess);
-
+        BusinessReview = findViewById(R.id.linearBusinessReview);
+        KeySuccess = findViewById(R.id.linearKeySucces);
+        RiskAndMitigation = findViewById(R.id.linearRiskAndMitigation);
         //Cut Here
         rv = findViewById(R.id.recyclerNav);
         Available = findViewById(R.id.linearAvailable);
@@ -79,6 +81,27 @@ public class OutlookFarmingActivity extends AppCompatActivity {
         });
 
         //Cut Here
+        BusinessReview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://mandiri-ebuss.com/files/farming/outlook/business_review.pdf"));
+                startActivity(browserIntent);
+            }
+        });
+        KeySuccess.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://mandiri-ebuss.com/files/farming/outlook/key_success_factor.pdf"));
+                startActivity(browserIntent);
+            }
+        });
+        RiskAndMitigation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://mandiri-ebuss.com/files/farming/outlook/business_review.pdf"));
+                startActivity(browserIntent);
+            }
+        });
         Regulation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

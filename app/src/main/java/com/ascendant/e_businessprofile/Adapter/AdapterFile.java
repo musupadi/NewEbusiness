@@ -39,14 +39,14 @@ public class AdapterFile extends RecyclerView.Adapter<AdapterFile.HolderData> {
     public void onBindViewHolder(@NonNull final HolderData holderData, int posistion) {
         DataModel dm = mList.get(posistion);
         ascendant = new Ascendant();
-        holderData.Tanggal.setText(ascendant.MagicDateChange(Tanggal));
-        holderData.Nama.setText(ascendant.SmallText(dm.getLink_file_mandiri_update()));
+        holderData.Tanggal.setText(ascendant.MagicDateChange(dm.getCreated_at()));
+        holderData.Nama.setText(ascendant.SmallText(dm.getJudul_mandiri_update()));
         holderData.ID.setText(String.valueOf(posistion+1));
-        holderData.DocumentName.setText("JPG");
+        holderData.DocumentName.setText("PDF");
         holderData.card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ascendant.Download(ctx,"jpg",dm.getLink_file_mandiri_update(),dm.getLink_file_mandiri_update());
+                ascendant.Download(ctx,"pdf",dm.getLink_file_mandiri_update(),dm.getJudul_mandiri_update());
             }
         });
     }

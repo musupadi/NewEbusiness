@@ -26,6 +26,11 @@ public class ResponseArrayObject {
     @Expose
     public String notif_id;
 
+
+    @SerializedName("ver")
+    @Expose
+    public String ver;
+
     @SerializedName("data")
     @Expose
     List<DataModel> data;
@@ -2845,5 +2850,13 @@ public class ResponseArrayObject {
 
     public void setNotif_id(String notif_id) {
         this.notif_id = notif_id;
+    }
+
+    public String getVer() {
+        return ver;
+    }
+
+    public void setVer(String ver) {
+        this.ver = ver;
     }
 }

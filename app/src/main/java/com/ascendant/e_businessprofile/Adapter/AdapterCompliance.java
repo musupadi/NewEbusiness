@@ -51,8 +51,8 @@ public class AdapterCompliance extends RecyclerView.Adapter<AdapterCompliance.Ho
             holderData.card.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (dm.getLink_video().equals("") || dm.getLink_video().isEmpty()){
-                        Toast.makeText(ctx, "Video Belum Siap", Toast.LENGTH_SHORT).show();
+                    if (dm.getComing_soon().equals("1")){
+                        Toast.makeText(ctx, "Coming Soon", Toast.LENGTH_SHORT).show();
                     }else{
                         Intent goInput = new Intent(ctx, DetailComplianceActivity.class);
                         goInput.putExtra("VIDEO_URL",dm.getLink_video());
@@ -68,7 +68,7 @@ public class AdapterCompliance extends RecyclerView.Adapter<AdapterCompliance.Ho
             holderData.card.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (dm.getLink_video().equals("") || dm.getLink_video().isEmpty()){
+                    if (dm.getComing_soon().equals("1")){
                         Toast.makeText(ctx, "Coming Soon", Toast.LENGTH_SHORT).show();
                     }else{
                         Intent goInput = new Intent(ctx, DetailComplianceActivity.class);

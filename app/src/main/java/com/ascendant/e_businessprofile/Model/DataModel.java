@@ -521,6 +521,18 @@ public class DataModel {
     @Expose
     public String sektor;
 
+    @SerializedName("coming_soon")
+    @Expose
+    public String coming_soon;
+
+    @SerializedName("id_app_update")
+    @Expose
+    public String id_app_update;
+
+    @SerializedName("ver")
+    @Expose
+    public String ver;
+
 
     //Old EBusiness
     String id_fmcg_param,nama_param,rumus_param,kategori_param,rata_rata_param,penjelasan_param,penjelasan2_param;
@@ -3892,5 +3904,30 @@ public class DataModel {
 
     public void setSektor(String sektor) {
         this.sektor = sektor;
+    }
+
+    public String getComing_soon() {
+        return coming_soon;
+    }
+
+    public void setComing_soon(String coming_soon) {
+        this.coming_soon = coming_soon;
+    }
+
+
+    public String getId_app_update() {
+        return id_app_update;
+    }
+
+    public void setId_app_update(String id_app_update) {
+        this.id_app_update = id_app_update;
+    }
+
+    public String getVer() {
+        return ver;
+    }
+
+    public void setVer(String ver) {
+        this.ver = ver;
     }
 }

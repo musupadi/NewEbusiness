@@ -29,6 +29,7 @@ import android.widget.Toast;
 import com.ascendant.e_businessprofile.API.ApiRequest;
 import com.ascendant.e_businessprofile.API.RetroServer;
 import com.ascendant.e_businessprofile.Activity.HomeActivity;
+import com.ascendant.e_businessprofile.Activity.ui.Healthcare.Compliance.DetailComplianceActivity;
 import com.ascendant.e_businessprofile.Method.Ascendant;
 import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
 import com.ascendant.e_businessprofile.Adapter.AdapterGambarForum;
@@ -65,7 +66,7 @@ public class DetailForumActivity extends AppCompatActivity {
     private ArrayList<DataModel> pListt = new ArrayList<>();
     DB_Helper dbHelper;
     String Token;
-    String ID,CATEGORY,JUDUL,REPLY_NAME,REPLY;
+    String ID,CATEGORY,JUDUL,REPLY_NAME,REPLY,EDIT,KOMEN,SUBKOMEN;
     TextView Header,Nama,Jam;
     private List<DataModel> mItemsGambar = new ArrayList<>();
     private List<DataModel> mItemsKomen = new ArrayList<>();
@@ -182,6 +183,11 @@ public class DetailForumActivity extends AppCompatActivity {
         JUDUL = intent.getExtras().getString("JUDUL");
         REPLY_NAME = intent.getExtras().getString("REPLY_NAME");
         REPLY = intent.getExtras().getString("REPLY");
+        EDIT = intent.getExtras().getString("EDIT");
+        KOMEN = intent.getExtras().getString("ISI_KOMEN");
+        SUBKOMEN = intent.getExtras().getString("SUB_KOMEN");
+
+        etKomen.setText(KOMEN);
         Header.setText(JUDUL);
         GetData();
         if (REPLY_NAME==null || REPLY_NAME.equals("")){
@@ -192,7 +198,12 @@ public class DetailForumActivity extends AppCompatActivity {
             scrollView.fullScroll(View.FOCUS_DOWN);
             cardKomen.setVisibility(View.VISIBLE);
             etKomen.requestFocus();
-            ReplyName.setText("Repllying To "+REPLY_NAME);
+            if (EDIT.equals("NO")){
+                ReplyName.setText("Repllying To "+REPLY_NAME);
+            }else{
+                ReplyName.setText("Editing Comment "+REPLY_NAME);
+            }
+
         }
         cancelReply.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -224,10 +235,20 @@ public class DetailForumActivity extends AppCompatActivity {
         Send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (REPLY.equals("")){
-                    Komen();
+                if (EDIT.equals("NO")){
+                    if (REPLY.equals("")){
+                        Komen();
+                    }else{
+                        SubKomen();
+                    }
                 }else{
-                    SubKomen();
+                    String IDS = intent.getExtras().getString("IDS");
+                    if (SUBKOMEN.equals("NO")){
+//                        Toast.makeText(DetailForumActivity.this, etKomen.getText().toString(), Toast.LENGTH_SHORT).show();
+                        EditKomen(IDS);
+                    }else{
+                        EditSubKomen(IDS);
+                    }
                 }
             }
         });
@@ -292,6 +313,58 @@ public class DetailForumActivity extends AppCompatActivity {
                     goInput.putExtra("JUDUL",JUDUL);
                     goInput.putExtra("REPLY_NAME","");
                     goInput.putExtra("REPLY","");
+                    goInput.putExtra("EDIT","NO");
+                    goInput.putExtra("ISI_KOMEN","");
+                    startActivities(new Intent[]{goInput});
+                }catch (Exception e){
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseObject> call, Throwable t) {
+                pd.hide();
+                Toast.makeText(DetailForumActivity.this, "Koneksi Gagal", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+    private void EditKomen(String IDS){
+        final ProgressDialog pd = new ProgressDialog(DetailForumActivity.this);
+        pd.setMessage("Sedang Mengisi Komen");
+        pd.show();
+        pd.setCancelable(false);
+
+        File file4 = new File(postFoto1);
+        RequestBody fileReqBody4 = RequestBody.create(MediaType.parse("image/*"), file4);
+        MultipartBody.Part Foto = MultipartBody.Part.createFormData("img_komen", file4.getName(), fileReqBody4);
+        Call<ResponseObject> data;
+        if (Gambar1){
+            ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
+            data =api.EditKomen(
+                    RequestBody.create(MediaType.parse("text/plain"),Token),
+                    RequestBody.create(MediaType.parse("text/plain"),IDS),
+                    RequestBody.create(MediaType.parse("text/plain"),etKomen.getText().toString()),
+                    Foto);
+        }else{
+            ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
+            data =api.EditKomen(
+                    RequestBody.create(MediaType.parse("text/plain"),Token),
+                    RequestBody.create(MediaType.parse("text/plain"),IDS),
+                    RequestBody.create(MediaType.parse("text/plain"),etKomen.getText().toString()));
+        }
+        data.enqueue(new Callback<ResponseObject>() {
+            @Override
+            public void onResponse(Call<ResponseObject> call, Response<ResponseObject> response) {
+                pd.hide();
+                try {
+                    Intent goInput = new Intent(DetailForumActivity.this, DetailForumActivity.class);
+                    goInput.putExtra("ID",ID);
+                    goInput.putExtra("CATEGORY",CATEGORY);
+                    goInput.putExtra("JUDUL",JUDUL);
+                    goInput.putExtra("REPLY_NAME","");
+                    goInput.putExtra("REPLY","");
+                    goInput.putExtra("EDIT","NO");
+                    goInput.putExtra("ISI_KOMEN","");
                     startActivities(new Intent[]{goInput});
                 }catch (Exception e){
 
@@ -305,6 +378,56 @@ public class DetailForumActivity extends AppCompatActivity {
             }
         });
 
+    }
+    private void EditSubKomen(String IDS){
+        final ProgressDialog pd = new ProgressDialog(DetailForumActivity.this);
+        pd.setMessage("Sedang Mengisi Komen");
+        pd.show();
+        pd.setCancelable(false);
+
+        File file4 = new File(postFoto1);
+        RequestBody fileReqBody4 = RequestBody.create(MediaType.parse("image/*"), file4);
+        MultipartBody.Part Foto = MultipartBody.Part.createFormData("img_komen", file4.getName(), fileReqBody4);
+        Call<ResponseObject> data;
+        if (Gambar1){
+            ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
+            data =api.EditSubKomen(
+                    RequestBody.create(MediaType.parse("text/plain"),Token),
+                    RequestBody.create(MediaType.parse("text/plain"),IDS),
+                    RequestBody.create(MediaType.parse("text/plain"),etKomen.getText().toString()),
+                    Foto);
+        }else{
+            ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
+            data =api.EditSubKomen(
+                    RequestBody.create(MediaType.parse("text/plain"),Token),
+                    RequestBody.create(MediaType.parse("text/plain"),IDS),
+                    RequestBody.create(MediaType.parse("text/plain"),etKomen.getText().toString()));
+        }
+        data.enqueue(new Callback<ResponseObject>() {
+            @Override
+            public void onResponse(Call<ResponseObject> call, Response<ResponseObject> response) {
+                pd.hide();
+                try {
+                    Intent goInput = new Intent(DetailForumActivity.this, DetailForumActivity.class);
+                    goInput.putExtra("ID",ID);
+                    goInput.putExtra("CATEGORY",CATEGORY);
+                    goInput.putExtra("JUDUL",JUDUL);
+                    goInput.putExtra("REPLY_NAME","");
+                    goInput.putExtra("REPLY","");
+                    goInput.putExtra("EDIT","NO");
+                    goInput.putExtra("ISI_KOMEN","");
+                    startActivities(new Intent[]{goInput});
+                }catch (Exception e){
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseObject> call, Throwable t) {
+                pd.hide();
+                Toast.makeText(DetailForumActivity.this, "Koneksi Gagal", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
     private void SubKomen(){
         final ProgressDialog pd = new ProgressDialog(DetailForumActivity.this);
@@ -343,6 +466,8 @@ public class DetailForumActivity extends AppCompatActivity {
                     goInput.putExtra("JUDUL",JUDUL);
                     goInput.putExtra("REPLY_NAME","");
                     goInput.putExtra("REPLY","");
+                    goInput.putExtra("EDIT","NO");
+                    goInput.putExtra("ISI_KOMEN","");
                     startActivities(new Intent[]{goInput});
                 }catch (Exception e){
 
@@ -373,6 +498,17 @@ public class DetailForumActivity extends AppCompatActivity {
                             Report.setVisibility(View.GONE);
                             Delete.setVisibility(View.VISIBLE);
                             Edit.setVisibility(View.VISIBLE);
+                            Edit.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    Intent goInput = new Intent(DetailForumActivity.this, EditForumActivity.class);
+                                    goInput.putExtra("ID",response.body().getData().getDetail().getId_post());
+                                    goInput.putExtra("ISI",response.body().getData().getDetail().getIsi_post());
+                                    goInput.putExtra("JUDUL",response.body().getData().getDetail().getJudul_post());
+                                    goInput.putExtra("CATEGORY",response.body().getData().getDetail().getKategori_post());
+                                    startActivity(goInput);
+                                }
+                            });
                         }else{
                             Report.setVisibility(View.VISIBLE);
                             Delete.setVisibility(View.GONE);
@@ -383,7 +519,11 @@ public class DetailForumActivity extends AppCompatActivity {
                         mItemsGambar=response.body().getData().getImage();
                         mItemsKomen=response.body().getData().getKomen();
                         Jam.setText(response.body().getData().getTgl_post());
-                        mAdapter = new AdapterGambarForum(DetailForumActivity.this,mItemsGambar);
+                        mAdapter = new AdapterGambarForum(DetailForumActivity.this,mItemsGambar,
+                                response.body().getData().getDetail().getId_post(),
+                                response.body().getData().getDetail().getId_post(),
+                                response.body().getData().getDetail().getKategori_post(),
+                                response.body().getData().getDetail().getJudul_post());
                         recyclerViewGambar.setAdapter(mAdapter);
                         mAdapter.notifyDataSetChanged();
                         mAdapter2 = new AdapterKomen(DetailForumActivity.this,mItemsKomen,ID,CATEGORY,JUDUL,NamaUser);
@@ -455,12 +595,14 @@ public class DetailForumActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<ResponseArrayObject> call, Response<ResponseArrayObject> response) {
                 Toast.makeText(DetailForumActivity.this, "Post berhasil Terhapus", Toast.LENGTH_SHORT).show();
-                Intent goInput = new Intent(DetailForumActivity.this, HomeActivity.class);
-//                goInput.putExtra("ID",ID);
-//                goInput.putExtra("CATEGORY",CATEGORY);
-//                goInput.putExtra("JUDUL",JUDUL);
-//                goInput.putExtra("REPLY_NAME","");
-//                goInput.putExtra("REPLY","");
+                Intent goInput = new Intent(DetailForumActivity.this, DetailForumActivity.class);
+                goInput.putExtra("ID",ID);
+                goInput.putExtra("CATEGORY",CATEGORY);
+                goInput.putExtra("JUDUL",JUDUL);
+                goInput.putExtra("REPLY_NAME","");
+                goInput.putExtra("REPLY","");
+                goInput.putExtra("EDIT","NO");
+                goInput.putExtra("ISI_KOMEN","");
                 startActivities(new Intent[]{goInput});
             }
 

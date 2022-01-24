@@ -281,6 +281,8 @@ public class HomeFragment extends Fragment {
                 myDialog.hide();
                 try {
                     Toast.makeText(getActivity(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getActivity(),HomeActivity.class);
+                    startActivity(intent);
                 }catch (Exception e){
                     Toast.makeText(getActivity(), "Terjadi Kesalahan : "+e.toString(), Toast.LENGTH_SHORT).show();
                 }
