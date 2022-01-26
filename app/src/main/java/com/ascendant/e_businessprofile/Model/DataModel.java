@@ -467,6 +467,9 @@ public class DataModel {
     @Expose
     public String link_file_mandiri_update;
 
+    @SerializedName("caption_file")
+    @Expose
+    public String caption_file;
     //Outlook
 
     @SerializedName("id_outlook")
@@ -3929,5 +3932,13 @@ public class DataModel {
 
     public void setVer(String ver) {
         this.ver = ver;
+    }
+
+    public String getCaption_file() {
+        return caption_file;
+    }
+
+    public void setCaption_file(String caption_file) {
+        this.caption_file = caption_file;
     }
 }

@@ -29,6 +29,7 @@ import android.widget.Toast;
 import com.ascendant.e_businessprofile.API.ApiRequest;
 import com.ascendant.e_businessprofile.API.RetroServer;
 import com.ascendant.e_businessprofile.Activity.HomeActivity;
+import com.ascendant.e_businessprofile.Activity.MainActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.Compliance.DetailComplianceActivity;
 import com.ascendant.e_businessprofile.Method.Ascendant;
 import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
@@ -595,15 +596,17 @@ public class DetailForumActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<ResponseArrayObject> call, Response<ResponseArrayObject> response) {
                 Toast.makeText(DetailForumActivity.this, "Post berhasil Terhapus", Toast.LENGTH_SHORT).show();
-                Intent goInput = new Intent(DetailForumActivity.this, DetailForumActivity.class);
-                goInput.putExtra("ID",ID);
-                goInput.putExtra("CATEGORY",CATEGORY);
-                goInput.putExtra("JUDUL",JUDUL);
-                goInput.putExtra("REPLY_NAME","");
-                goInput.putExtra("REPLY","");
-                goInput.putExtra("EDIT","NO");
-                goInput.putExtra("ISI_KOMEN","");
-                startActivities(new Intent[]{goInput});
+//                Intent goInput = new Intent(DetailForumActivity.this, DetailForumActivity.class);
+//                goInput.putExtra("ID",ID);
+//                goInput.putExtra("CATEGORY",CATEGORY);
+//                goInput.putExtra("JUDUL",JUDUL);
+//                goInput.putExtra("REPLY_NAME","");
+//                goInput.putExtra("REPLY","");
+//                goInput.putExtra("EDIT","NO");
+//                goInput.putExtra("ISI_KOMEN","");
+//                startActivities(new Intent[]{goInput});
+                Intent intent = new Intent(DetailForumActivity.this, HomeActivity.class);
+                startActivity(intent);
             }
 
             @Override

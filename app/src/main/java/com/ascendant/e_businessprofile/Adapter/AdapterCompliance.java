@@ -68,13 +68,24 @@ public class AdapterCompliance extends RecyclerView.Adapter<AdapterCompliance.Ho
             holderData.card.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (dm.getComing_soon().equals("1")){
-                        Toast.makeText(ctx, "Coming Soon", Toast.LENGTH_SHORT).show();
-                    }else{
-                        Intent goInput = new Intent(ctx, DetailComplianceActivity.class);
-                        goInput.putExtra("VIDEO_URL",dm.getLink_video());
-                        goInput.putExtra("SOURCE_VIDEO",dm.getSource_video());
-                        ctx.startActivity(goInput);
+                    try {
+                        if (dm.getComing_soon().equals("1")){
+                            Toast.makeText(ctx, "Coming Soon", Toast.LENGTH_SHORT).show();
+                        }else{
+                            Intent goInput = new Intent(ctx, DetailComplianceActivity.class);
+                            goInput.putExtra("VIDEO_URL",dm.getLink_video());
+                            goInput.putExtra("SOURCE_VIDEO",dm.getSource_video());
+                            ctx.startActivity(goInput);
+                        }
+                    }catch (Exception e){
+                        if (dm.getLink_video().equals("") || dm.getLink_video().isEmpty()){
+                            Toast.makeText(ctx, "Coming Soon", Toast.LENGTH_SHORT).show();
+                        }else{
+                            Intent goInput = new Intent(ctx, DetailComplianceActivity.class);
+                            goInput.putExtra("VIDEO_URL",dm.getLink_video());
+                            goInput.putExtra("SOURCE_VIDEO",dm.getSource_video());
+                            ctx.startActivity(goInput);
+                        }
                     }
                 }
             });
