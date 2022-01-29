@@ -66,6 +66,10 @@ public interface ApiRequest {
                                     @Field("andro_token") String andro_token);
 
     @FormUrlEncoded
+    @POST("forget_pass")
+    Call<ResponseArrayObject> ForgetPassword(@Field("email") String email);
+
+    @FormUrlEncoded
     @POST("validasi_regist")
     Call<ResponseArrayObject> validasi_regist(@Field("token") String token);
 
@@ -172,6 +176,12 @@ public interface ApiRequest {
                                             @Field("tipe_post") String tipe_post,
                                             @Field("note") String note);
 
+
+    @FormUrlEncoded
+    @POST("berita_detail")
+    Call<ResponseObject> BeritaDetail(@Field("token") String token,
+                                            @Field("id_berita") String id_berita);
+
     @FormUrlEncoded
     @POST("daftar_posting")
     Call<ResponseArrayObject> Daftar_Postingan(@Field("token") String token,
@@ -180,7 +190,8 @@ public interface ApiRequest {
                                                @Field("judul") String judul);
     @FormUrlEncoded
     @POST("profil")
-    Call<ResponseObject> Profil(@Field("token") String token);
+    Call<ResponseObject> Profil(@Field("token") String token,
+                                @Field("andro_token") String andro_token);
 
     @FormUrlEncoded
     @POST("poin")
@@ -519,4 +530,34 @@ public interface ApiRequest {
 
     @POST("version")
     Call<ResponseObject> Version();
+
+    @FormUrlEncoded
+    @POST("hadiah")
+    Call<ResponseArrayObject> DaftarHadiah(@Field("token") String token);
+
+    @FormUrlEncoded
+    @POST("penukaran")
+    Call<ResponseArrayObject> PenukaranHadiah(@Field("token") String token,
+                                              @Field("id_poin_hadiah") String id_poin_hadiah);
+
+    @FormUrlEncoded
+    @POST("history_poin")
+    Call<ResponseArrayObject> HistoryPoin(@Field("token") String token);
+
+    @FormUrlEncoded
+    @POST("history_penukaran")
+    Call<ResponseArrayObject> HistoryPenukaran(@Field("token") String token);
+
+    @FormUrlEncoded
+    @POST("notif_baru")
+    Call<ResponseObject> NotifBaru(@Field("token") String token);
+
+    @FormUrlEncoded
+    @POST("notif")
+    Call<ResponseArrayObject> DaftarNotif(@Field("token") String token);
+
+
+    @FormUrlEncoded
+    @POST("lihat_notif")
+    Call<ResponseArrayObject> LihatNotif(@Field("token") String token);
 }

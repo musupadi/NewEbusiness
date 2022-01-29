@@ -1,5 +1,6 @@
 package com.ascendant.e_businessprofile.Activity.ui.Forum;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
@@ -29,6 +30,7 @@ import android.widget.Toast;
 import com.ascendant.e_businessprofile.API.ApiRequest;
 import com.ascendant.e_businessprofile.API.RetroServer;
 import com.ascendant.e_businessprofile.Activity.HomeActivity;
+import com.ascendant.e_businessprofile.Activity.LoginActivity;
 import com.ascendant.e_businessprofile.Activity.MainActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.Compliance.DetailComplianceActivity;
 import com.ascendant.e_businessprofile.Method.Ascendant;
@@ -41,6 +43,10 @@ import com.ascendant.e_businessprofile.Model.ResponseArrayObject;
 import com.ascendant.e_businessprofile.Model.ResponseObject;
 import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.CreditWorthiness.CreditWorthinessModel;
 import com.ascendant.e_businessprofile.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.io.File;
 import java.io.IOException;
@@ -108,6 +114,7 @@ public class DetailForumActivity extends AppCompatActivity {
     Boolean Gambar1 = false;
 
     LinearLayout Delete,Report,Edit;
+    String token;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -177,20 +184,33 @@ public class DetailForumActivity extends AppCompatActivity {
 
             }
         });
-
         Intent intent = getIntent();
-        ID = intent.getExtras().getString("ID");
-        CATEGORY = intent.getExtras().getString("CATEGORY");
-        JUDUL = intent.getExtras().getString("JUDUL");
-        REPLY_NAME = intent.getExtras().getString("REPLY_NAME");
-        REPLY = intent.getExtras().getString("REPLY");
-        EDIT = intent.getExtras().getString("EDIT");
-        KOMEN = intent.getExtras().getString("ISI_KOMEN");
-        SUBKOMEN = intent.getExtras().getString("SUB_KOMEN");
+        Uri datas = this.getIntent().getData();
+        if (datas != null && datas.isHierarchical()) {
+            String uri = this.getIntent().getDataString();
+            Log.i("MyApp", "Deep link clicked " + uri);
+            List<String> params = datas.getPathSegments();
+            String IDV2 = params.get(0); // "status"
+            GetDetailPost(IDV2);
+//            String mail = params.get(1);
+//            Validasi(mail,fury);
+        }else{
+            ID = intent.getExtras().getString("ID");
+            CATEGORY = intent.getExtras().getString("CATEGORY");
+            JUDUL = intent.getExtras().getString("JUDUL");
+            REPLY_NAME = intent.getExtras().getString("REPLY_NAME");
+            REPLY = intent.getExtras().getString("REPLY");
+            EDIT = intent.getExtras().getString("EDIT");
+            KOMEN = intent.getExtras().getString("ISI_KOMEN");
+            SUBKOMEN = intent.getExtras().getString("SUB_KOMEN");
+            etKomen.setText(KOMEN);
+            Header.setText(JUDUL);
+            GetData();
+        }
 
-        etKomen.setText(KOMEN);
-        Header.setText(JUDUL);
-        GetData();
+
+
+
         if (REPLY_NAME==null || REPLY_NAME.equals("")){
             cardKomen.setVisibility(View.GONE);
             ReplyName.setVisibility(View.GONE);
@@ -254,22 +274,26 @@ public class DetailForumActivity extends AppCompatActivity {
             }
         });
     }
-    private void GetData(){
+    private void GetDetailPost(String IDV2){
         ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
-        final Call<ResponseObject> data =api.Profil(Token);
+        Call<ResponseObject> data =api.DetailPosting(Token,IDV2);
         data.enqueue(new Callback<ResponseObject>() {
             @Override
             public void onResponse(Call<ResponseObject> call, Response<ResponseObject> response) {
                 try {
-                    if (response.body().getKode().equals(200)){
-                        Logic(response.body().getData().getNama_user());
-
-                    }else{
-                        response.body().getMessage();
-                    }
+                    ID = IDV2;
+                    CATEGORY = response.body().getData().getKategori_post();
+                    JUDUL = response.body().getData().getJudul_post();
+                    REPLY_NAME = "";
+                    REPLY = "";
+                    EDIT = "NO";
+                    KOMEN = "NO";
+                    SUBKOMEN = "";
+                    etKomen.setText(KOMEN);
+                    Header.setText(JUDUL);
+                    GetData();
                 }catch (Exception e){
-                    Log.d("ZYARGA : ",e.toString());
-                    Toast.makeText(DetailForumActivity.this, "Koneksi Gagal", Toast.LENGTH_SHORT).show();
+
                 }
             }
 
@@ -278,6 +302,45 @@ public class DetailForumActivity extends AppCompatActivity {
                 Toast.makeText(DetailForumActivity.this, "Koneksi Gagal", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+    private void GetData(){
+        FirebaseApp.initializeApp(DetailForumActivity.this);
+        FirebaseMessaging.getInstance().getToken().addOnCompleteListener(new OnCompleteListener<String>() {
+            @Override
+            public void onComplete(@NonNull Task<String> task) {
+                if(!task.isSuccessful()){
+                    Log.d("Zyarga","Fetching FCM Failed",task.getException());
+                    return;
+                }
+                // Get new FCM registration token
+                token = task.getResult();
+                Log.e("TAGSOO",token);
+                ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
+                final Call<ResponseObject> data =api.Profil(Token,token);
+                data.enqueue(new Callback<ResponseObject>() {
+                    @Override
+                    public void onResponse(Call<ResponseObject> call, Response<ResponseObject> response) {
+                        try {
+                            if (response.body().getKode().equals(200)){
+                                Logic(response.body().getData().getNama_user());
+
+                            }else{
+                                response.body().getMessage();
+                            }
+                        }catch (Exception e){
+                            Log.d("ZYARGA : ",e.toString());
+                            Toast.makeText(DetailForumActivity.this, "Koneksi Gagal", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<ResponseObject> call, Throwable t) {
+                        Toast.makeText(DetailForumActivity.this, "Koneksi Gagal", Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        });
+
     }
     private void Komen(){
         final ProgressDialog pd = new ProgressDialog(DetailForumActivity.this);

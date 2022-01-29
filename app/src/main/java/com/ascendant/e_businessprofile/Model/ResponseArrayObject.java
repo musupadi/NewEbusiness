@@ -31,6 +31,12 @@ public class ResponseArrayObject {
     @Expose
     public String ver;
 
+
+    @SerializedName("max_page")
+    @Expose
+    public String max_page;
+
+
     @SerializedName("data")
     @Expose
     List<DataModel> data;
@@ -2858,5 +2864,13 @@ public class ResponseArrayObject {
 
     public void setVer(String ver) {
         this.ver = ver;
+    }
+
+    public String getMax_page() {
+        return max_page;
+    }
+
+    public void setMax_page(String max_page) {
+        this.max_page = max_page;
     }
 }

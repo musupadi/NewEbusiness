@@ -4,22 +4,23 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.ascendant.e_businessprofile.API.ApiRequest;
 import com.ascendant.e_businessprofile.API.RetroServer;
 import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
-import com.ascendant.e_businessprofile.Adapter.AdapterBerita;
-import com.ascendant.e_businessprofile.Adapter.AdapterFullBerita;
-import com.ascendant.e_businessprofile.Adapter.AdapterOutlook;
+import com.ascendant.e_businessprofile.Adapter.AdapterHistoryHadiah;
+import com.ascendant.e_businessprofile.Adapter.AdapterHistoryPenukaran;
 import com.ascendant.e_businessprofile.Adapter.Static.AdapterNavigator;
 import com.ascendant.e_businessprofile.Method.Ascendant;
 import com.ascendant.e_businessprofile.Model.DataModel;
@@ -34,48 +35,40 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class DetailBeritaActivity extends AppCompatActivity {
-    RecyclerView rv;
+public class RiwayatPenukaranActivity extends AppCompatActivity {
     private List<DataModel> mItems = new ArrayList<>();
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mManager;
-    ImageView Left,Right;
-    TextView Paging;
-    DB_Helper dbHelper;
-    String Token;
-
+    RelativeLayout BusinesStatus,BusinessProcess,RiskAndMitigation,Regulation,Newsletter;
     LinearLayout Available,Navigator;
-    RecyclerView rv2,recyclerView;
+    RecyclerView rv,recyclerView;
     ImageView ivMore;
     LinearLayout More,Back;
     Boolean more=true;
     private ArrayList<DataModel> pList = new ArrayList<>();
-    String Kategori;
+    Dialog myDialog;
+    Button View,Download;
     Ascendant ascendant = new Ascendant();
-    TextView Nama;
-    String Names;
-    String Page = "1";
+    String Token,NotifID;
+    DB_Helper dbHelper;
+    String POIN;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail_berita);
+        setContentView(R.layout.activity_riwayat_penukaran);
         dbHelper = new DB_Helper(this);
         Cursor cursor = dbHelper.checkUser();
         if (cursor.getCount()>0){
             while (cursor.moveToNext()){
                 Token = cursor.getString(0);
+                NotifID = cursor.getString(1);
             }
         }
-        rv = findViewById(R.id.recycler);
-        Left = findViewById(R.id.ivLeft);
-        Right = findViewById(R.id.ivRight);
-        Paging = findViewById(R.id.tvPaging);
-
-        Intent data = getIntent();
-        Kategori = data.getStringExtra("KATEGORI");
+        Intent intent = getIntent();
+        POIN = intent.getExtras().getString("POIN");
         //Cut Here
-        rv2 = findViewById(R.id.recyclerNav);
-        Nama = findViewById(R.id.tvNama);
+        recyclerView = findViewById(R.id.recycler);
+        rv = findViewById(R.id.recyclerNav);
         Available = findViewById(R.id.linearAvailable);
         Navigator = findViewById(R.id.linearNavigator);
         ivMore = findViewById(R.id.ivMore);
@@ -83,16 +76,17 @@ public class DetailBeritaActivity extends AppCompatActivity {
         Back = findViewById(R.id.linearBack);
         Available.setVisibility(View.VISIBLE);
         pList.addAll(MiningOutlookModel.getListData());
-        rv2.setLayoutManager(new LinearLayoutManager(this));
+        rv.setLayoutManager(new LinearLayoutManager(this));
         AdapterNavigator adapters = new AdapterNavigator(this,pList);
-        rv2.setAdapter(adapters);
-        Back.setOnClickListener(new View.OnClickListener() {
+        rv.setAdapter(adapters);
+
+        Back.setOnClickListener(new android.view.View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(android.view.View view) {
                 onBackPressed();
             }
         });
-        More.setOnClickListener(new View.OnClickListener() {
+        More.setOnClickListener(new android.view.View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 try {
@@ -115,78 +109,34 @@ public class DetailBeritaActivity extends AppCompatActivity {
         });
 
         //Cut Here
-        if (Kategori.equals("all")){
-            Names = "All";
-        }else if (Kategori.equals("HEALTHCARE")){
-            Names = "Healthcare";
-        }else if(Kategori.equals("FMCG")){
-            Names = "FMCG";
-        }else if(Kategori.equals("MINING")){
-            Names = "Mining";
-        }else if(Kategori.equals("CONTRACTOR")){
-            Names = "Contractor";
-        }else if(Kategori.equals("OIL AND GAS")){
-            Names = "Oil & Gas";
-        }else if(Kategori.equals("FARMING")){
-            Names = "Farming";
-        }
-        Nama.setText("News "+Names+" Industry");
         Logic();
-
-        Right.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Page=String.valueOf(Integer.parseInt(Page)+1);
-                Logic();
-                Paging.setText(Page);
-            }
-        });
-        Left.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Page=String.valueOf(Integer.parseInt(Page)-1);
-                Logic();
-                Paging.setText(Page);
-            }
-        });
     }
     private void Logic(){
-        mManager = new LinearLayoutManager(DetailBeritaActivity.this, LinearLayoutManager.VERTICAL,false);
-        rv.setLayoutManager(mManager);
+        mManager = new LinearLayoutManager(RiwayatPenukaranActivity.this, LinearLayoutManager.VERTICAL,false);
+        recyclerView.setLayoutManager(mManager);
         ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
-        final Call<ResponseArrayObject> data =api.Berita(Token,Kategori,Page);
+        final Call<ResponseArrayObject> data =api.HistoryPenukaran(Token);
         data.enqueue(new Callback<ResponseArrayObject>() {
             @Override
             public void onResponse(Call<ResponseArrayObject> call, Response<ResponseArrayObject> response) {
                 try {
                     if (response.body().getKode().equals(200)){
                         mItems=response.body().getData();
-                        mAdapter = new AdapterFullBerita(DetailBeritaActivity.this,mItems);
-                        rv.setAdapter(mAdapter);
+                        mAdapter = new AdapterHistoryPenukaran(RiwayatPenukaranActivity.this,mItems,POIN);
+                        recyclerView.setAdapter(mAdapter);
                         mAdapter.notifyDataSetChanged();
-                        if (Integer.parseInt(Page)>Integer.parseInt(response.body().getMax_page())){
-                            Right.setVisibility(View.INVISIBLE);
-                        }else{
-                            Right.setVisibility(View.VISIBLE);
-                        }
-                        if (Integer.parseInt(Page)==1){
-                            Left.setVisibility(View.INVISIBLE);
-                        }else{
-                            Left.setVisibility(View.VISIBLE);
-                        }
                     }else{
-                        Toast.makeText(DetailBeritaActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(RiwayatPenukaranActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 }catch (Exception e){
                     Log.d("ZYARGA : ",e.toString());
-                    Toast.makeText(DetailBeritaActivity.this, "Terjadi Kesaqlahan", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RiwayatPenukaranActivity.this, "Terjadi Kesaqlahan", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<ResponseArrayObject> call, Throwable t) {
-                Toast.makeText(DetailBeritaActivity.this, "Koneksi Gagal", Toast.LENGTH_SHORT).show();
+                Toast.makeText(RiwayatPenukaranActivity.this, "Koneksi Gagal", Toast.LENGTH_SHORT).show();
             }
         });
     }

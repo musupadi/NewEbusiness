@@ -94,6 +94,7 @@
                         android:layout_height="30dp"
                         android:src="@drawable/edit"/>
                     <TextView
+                        android:visibility="gone"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Edit"
@@ -115,6 +116,7 @@
                         android:layout_height="30dp"
                         android:src="@drawable/report"/>
                     <TextView
+                        android:visibility="gone"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Report"
@@ -135,6 +137,7 @@
                         android:layout_height="30dp"
                         android:src="@drawable/delete"/>
                     <TextView
+                        android:visibility="gone"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Delete"

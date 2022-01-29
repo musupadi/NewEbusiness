@@ -92,7 +92,7 @@
         <item>Mining</item>
         <item>Contractor</item>
         <item>Oil And Gas</item>
-        <item>Farm</item>
+        <item>Farming</item>
     </string-array>
 
     <string-array name="ChoseCategory">
@@ -102,7 +102,7 @@
         <item>Mining</item>
         <item>Contractor</item>
         <item>Oil And Gas</item>
-        <item>Farm</item>
+        <item>Farming</item>
     </string-array>
 
     <string-array name="PlayersFarmer">

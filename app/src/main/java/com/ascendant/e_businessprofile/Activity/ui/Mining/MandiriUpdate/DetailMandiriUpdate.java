@@ -2,6 +2,7 @@ package com.ascendant.e_businessprofile.Activity.ui.Mining.MandiriUpdate;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -50,7 +51,7 @@ public class DetailMandiriUpdate extends AppCompatActivity {
     private List<DataModel> mItems = new ArrayList<>();
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mManager;
-
+    CardView cardYoutube;
     LinearLayout Available,Navigator;
     RecyclerView rv2,recyclerView;
     ImageView ivMore;
@@ -72,7 +73,9 @@ public class DetailMandiriUpdate extends AppCompatActivity {
         Judul = findViewById(R.id.tvJudul);
         Tanggal = findViewById(R.id.tvTanggal);
         youtube = findViewById(R.id.youtube);
+        web = findViewById(R.id.web);
         rv = findViewById(R.id.recycler);
+        cardYoutube = findViewById(R.id.cardYoutube);
         ID = intent.getExtras().getString("ID");
         //Cut Here
         rv2 = findViewById(R.id.recyclerNav);
@@ -127,14 +130,20 @@ public class DetailMandiriUpdate extends AppCompatActivity {
             @Override
             public void onResponse(Call<ResponseDataModel> call, Response<ResponseDataModel> response) {
                 Judul.setText(response.body().getData().getDetail().getJudul_mandiri_update());
+                web.loadData(response.body().getData().getDetail().getIsi_mandiri_update(),"text/html","UTF-8");
                 Tanggal.setText(response.body().getData().getDetail().getCreated_at());
-                youtube.addYouTubePlayerListener(new AbstractYouTubePlayerListener() {
-                    @Override
-                    public void onReady(@NonNull YouTubePlayer youTubePlayer) {
-                        String videoId = ascendant.GetIDYoutube(response.body().getData().getDetail().getLink_youtube());
-                        youTubePlayer.loadVideo(videoId, 0);
-                    }
-                });
+                if (!response.body().getData().getDetail().getLink_youtube().equals("")){
+                    cardYoutube.setVisibility(View.VISIBLE);
+                    youtube.addYouTubePlayerListener(new AbstractYouTubePlayerListener() {
+                        @Override
+                        public void onReady(@NonNull YouTubePlayer youTubePlayer) {
+                            String videoId = ascendant.GetIDYoutube(response.body().getData().getDetail().getLink_youtube());
+                            youTubePlayer.loadVideo(videoId, 0);
+                        }
+                    });
+                }else{
+                    cardYoutube.setVisibility(View.GONE);
+                }
                 mManager = new LinearLayoutManager(DetailMandiriUpdate.this, LinearLayoutManager.VERTICAL,false);
                 rv.setLayoutManager(mManager);
                 mItems=response.body().getData().getFiles();

@@ -59,6 +59,12 @@ public class Ascendant {
         BigDecimal bd1 = new BigDecimal(nilai).setScale(0, RoundingMode.HALF_UP);
         return formatRupiah.format(bd1);
     }
+    public String RPEraser(String magic){
+        String MAGIC1 = magic.replace("Rp","");
+        String MAGIC2 = MAGIC1.replace("Rp.","");
+        String MAGIC3 = MAGIC2.replace(",00","");
+        return MAGIC3;
+    }
     public void LOGICHOSPITAL5C(Context ctx,String category,int score){
         String totalscore = "0";
         if (category.equals("CHARACTER")){

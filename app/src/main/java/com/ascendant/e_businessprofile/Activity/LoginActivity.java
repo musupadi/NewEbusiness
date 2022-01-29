@@ -3,12 +3,14 @@ package com.ascendant.e_businessprofile.Activity;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -32,19 +34,29 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
-    TextView register;
+    TextView register,forgotPassword;
     LinearLayout login;
     EditText username,password;
     DB_Helper dbHelper;
     String token;
+    Dialog myDialog;
+    Button Konfrimasi,Tutup,confirm;
+    EditText email;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        myDialog = new Dialog(this);
+        myDialog.setContentView(R.layout.dialog_forgot_password);
+        confirm = myDialog.findViewById(R.id.btnKonfirmasi);
+        Tutup = myDialog.findViewById(R.id.btnClose);
+        email = myDialog.findViewById(R.id.etEmail);
         Uri data = this.getIntent().getData();
         register = findViewById(R.id.tvRegister);
+        forgotPassword = findViewById(R.id.tvForgotPassword);
         login = findViewById(R.id.linearLogin);
         username = findViewById(R.id.etUsername);
+
         password = findViewById(R.id.etPassword);
         if (data != null && data.isHierarchical()) {
             String uri = this.getIntent().getDataString();
@@ -70,6 +82,52 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(LoginActivity.this,RegisterActivity.class);
                 startActivity(intent);
+            }
+        });
+        forgotPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                myDialog.show();
+            }
+        });
+        confirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        Tutup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                myDialog.hide();
+            }
+        });
+    }
+    private void ForgotPassword(){
+        final ProgressDialog pd = new ProgressDialog(LoginActivity.this);
+        pd.setMessage("Mohon Menunggu");
+        pd.show();
+        pd.setCancelable(false);
+        ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
+        final Call<ResponseArrayObject> data =api.ForgetPassword(email.getText().toString());
+        data.enqueue(new Callback<ResponseArrayObject>() {
+            @Override
+            public void onResponse(Call<ResponseArrayObject> call, Response<ResponseArrayObject> response) {
+                pd.hide();
+                try {
+                    Toast.makeText(LoginActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                    if (response.body().getStatus().equals("status")==true){
+                        myDialog.hide();
+                    }
+                }catch (Exception e){
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseArrayObject> call, Throwable t) {
+                pd.hide();
+                Toast.makeText(LoginActivity.this, "Mohon Konfirmasi kembali", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -112,40 +170,37 @@ public class LoginActivity extends AppCompatActivity {
                     Log.d("Zyarga","Fetching FCM Failed",task.getException());
                     return;
                 }
-
-
                 // Get new FCM registration token
                 token = task.getResult();
-//                Toast.makeText(LoginActivity.this, token, Toast.LENGTH_SHORT).show();
-                // Log and toast
                 Log.e("TAGSOO",token);
-            }
-        });
-        dbHelper = new DB_Helper(LoginActivity.this);
-        ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
-        final Call<ResponseArrayObject> data =api.login(username.getText().toString(),password.getText().toString(),token);
-        data.enqueue(new Callback<ResponseArrayObject>() {
-            @Override
-            public void onResponse(Call<ResponseArrayObject> call, Response<ResponseArrayObject> response) {
-                pd.hide();
-                try {
-                    if (response.body().getKode().equals(200)){
-                        dbHelper.SaveUser(response.body().getToken_user(),response.body().getNotif_id());
-                        Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
-                        startActivity(intent);
-                    }else{
-                        Toast.makeText(LoginActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                dbHelper = new DB_Helper(LoginActivity.this);
+                ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
+                final Call<ResponseArrayObject> data =api.login(username.getText().toString(),password.getText().toString(),token);
+                data.enqueue(new Callback<ResponseArrayObject>() {
+                    @Override
+                    public void onResponse(Call<ResponseArrayObject> call, Response<ResponseArrayObject> response) {
+                        pd.hide();
+                        try {
+                            if (response.body().getKode().equals(200)){
+                                dbHelper.SaveUser(response.body().getToken_user(),response.body().getNotif_id());
+                                Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
+                                startActivity(intent);
+                            }else{
+                                Toast.makeText(LoginActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                            }
+                        }catch (Exception e){
+                            Toast.makeText(LoginActivity.this, "Username atau Password Anda Salah", Toast.LENGTH_SHORT).show();
+                        }
                     }
-                }catch (Exception e){
-                    Toast.makeText(LoginActivity.this, "Username atau Password Anda Salah", Toast.LENGTH_SHORT).show();
-                }
-            }
 
-            @Override
-            public void onFailure(Call<ResponseArrayObject> call, Throwable t) {
-                pd.hide();
-                Toast.makeText(LoginActivity.this, "Koneksi Gagal", Toast.LENGTH_SHORT).show();
+                    @Override
+                    public void onFailure(Call<ResponseArrayObject> call, Throwable t) {
+                        pd.hide();
+                        Toast.makeText(LoginActivity.this, "Koneksi Gagal", Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
         });
+
     }
 }

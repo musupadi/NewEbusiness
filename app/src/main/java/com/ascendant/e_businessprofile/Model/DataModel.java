@@ -536,6 +536,75 @@ public class DataModel {
     @Expose
     public String ver;
 
+    @SerializedName("total")
+    @Expose
+    public String total;
+
+    @SerializedName("dilihat")
+    @Expose
+    public String dilihat;
+
+    @SerializedName("deskripsi_notif")
+    @Expose
+    public String deskripsi_notif;
+
+    @SerializedName("link_notif")
+    @Expose
+    public String link_notif;
+
+    //Poin
+    @SerializedName("id_poin_hadiah")
+    @Expose
+    public String id_poin_hadiah;
+
+    @SerializedName("nama_hadiah")
+    @Expose
+    public String nama_hadiah;
+
+    @SerializedName("poin_dibutuhkan")
+    @Expose
+    public String poin_dibutuhkan;
+
+    @SerializedName("tgl_poin_didapatkan")
+    @Expose
+    public String tgl_poin_didapatkan;
+
+    @SerializedName("deskripsi_poin")
+    @Expose
+    public String deskripsi_poin;
+
+    @SerializedName("nilai_poin")
+    @Expose
+    public String nilai_poin;
+
+    @SerializedName("status_plus")
+    @Expose
+    public String status_plus;
+
+    @SerializedName("status_hadiah")
+    @Expose
+    public String status_hadiah;
+
+    @SerializedName("status_penukaran")
+    @Expose
+    public String status_penukaran;
+
+    @SerializedName("tgl_pengajuan")
+    @Expose
+    public String tgl_pengajuan;
+
+    @SerializedName("tgl_diterima")
+    @Expose
+    public String tgl_diterima;
+
+    @SerializedName("tgl_ditolak")
+    @Expose
+    public String tgl_ditolak;
+
+    @SerializedName("alasan_ditolak")
+    @Expose
+    public String alasan_ditolak;
+
 
     //Old EBusiness
     String id_fmcg_param,nama_param,rumus_param,kategori_param,rata_rata_param,penjelasan_param,penjelasan2_param;
@@ -3940,5 +4009,142 @@ public class DataModel {
 
     public void setCaption_file(String caption_file) {
         this.caption_file = caption_file;
+    }
+
+
+    public String getId_poin_hadiah() {
+        return id_poin_hadiah;
+    }
+
+    public void setId_poin_hadiah(String id_poin_hadiah) {
+        this.id_poin_hadiah = id_poin_hadiah;
+    }
+
+    public String getNama_hadiah() {
+        return nama_hadiah;
+    }
+
+    public void setNama_hadiah(String nama_hadiah) {
+        this.nama_hadiah = nama_hadiah;
+    }
+
+    public String getPoin_dibutuhkan() {
+        return poin_dibutuhkan;
+    }
+
+    public void setPoin_dibutuhkan(String poin_dibutuhkan) {
+        this.poin_dibutuhkan = poin_dibutuhkan;
+    }
+
+    public String getStatus_hadiah() {
+        return status_hadiah;
+    }
+
+    public void setStatus_hadiah(String status_hadiah) {
+        this.status_hadiah = status_hadiah;
+    }
+
+    public String getTgl_poin_didapatkan() {
+        return tgl_poin_didapatkan;
+    }
+
+    public void setTgl_poin_didapatkan(String tgl_poin_didapatkan) {
+        this.tgl_poin_didapatkan = tgl_poin_didapatkan;
+    }
+
+    public String getDeskripsi_poin() {
+        return deskripsi_poin;
+    }
+
+    public void setDeskripsi_poin(String deskripsi_poin) {
+        this.deskripsi_poin = deskripsi_poin;
+    }
+
+    public String getNilai_poin() {
+        return nilai_poin;
+    }
+
+    public void setNilai_poin(String nilai_poin) {
+        this.nilai_poin = nilai_poin;
+    }
+
+    public String getStatus_plus() {
+        return status_plus;
+    }
+
+    public void setStatus_plus(String status_plus) {
+        this.status_plus = status_plus;
+    }
+
+    public String getStatus_penukaran() {
+        return status_penukaran;
+    }
+
+    public void setStatus_penukaran(String status_penukaran) {
+        this.status_penukaran = status_penukaran;
+    }
+
+    public String getTgl_pengajuan() {
+        return tgl_pengajuan;
+    }
+
+    public void setTgl_pengajuan(String tgl_pengajuan) {
+        this.tgl_pengajuan = tgl_pengajuan;
+    }
+
+    public String getTgl_diterima() {
+        return tgl_diterima;
+    }
+
+    public void setTgl_diterima(String tgl_diterima) {
+        this.tgl_diterima = tgl_diterima;
+    }
+
+    public String getTgl_ditolak() {
+        return tgl_ditolak;
+    }
+
+    public void setTgl_ditolak(String tgl_ditolak) {
+        this.tgl_ditolak = tgl_ditolak;
+    }
+
+    public String getAlasan_ditolak() {
+        return alasan_ditolak;
+    }
+
+    public void setAlasan_ditolak(String alasan_ditolak) {
+        this.alasan_ditolak = alasan_ditolak;
+    }
+
+    public String getTotal() {
+        return total;
+    }
+
+    public void setTotal(String total) {
+        this.total = total;
+    }
+
+    public String getDilihat() {
+        return dilihat;
+    }
+
+    public void setDilihat(String dilihat) {
+        this.dilihat = dilihat;
+    }
+
+    public String getDeskripsi_notif() {
+        return deskripsi_notif;
+    }
+
+    public void setDeskripsi_notif(String deskripsi_notif) {
+        this.deskripsi_notif = deskripsi_notif;
+    }
+
+    public String getLink_notif() {
+        return link_notif;
+    }
+
+    public void setLink_notif(String link_notif) {
+        this.link_notif = link_notif;
     }
 }

@@ -28,9 +28,13 @@ import com.airbnb.lottie.LottieAnimationView;
 import com.ascendant.e_businessprofile.API.ApiRequest;
 import com.ascendant.e_businessprofile.API.RetroServer;
 import com.ascendant.e_businessprofile.Activity.DetailBeritaActivity;
+import com.ascendant.e_businessprofile.Activity.HistoryPoinActivity;
 import com.ascendant.e_businessprofile.Activity.HomeActivity;
+import com.ascendant.e_businessprofile.Activity.LoginActivity;
 import com.ascendant.e_businessprofile.Activity.ModuleActivity;
+import com.ascendant.e_businessprofile.Activity.NotifActivity;
 import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
+import com.ascendant.e_businessprofile.Activity.TukarPoinAtivity;
 import com.ascendant.e_businessprofile.Activity.ui.Mining.MandiriUpdate.DetailMandiriUpdate;
 import com.ascendant.e_businessprofile.Adapter.AdapterBerita;
 import com.ascendant.e_businessprofile.Adapter.Spinner.SpinnerDivisi;
@@ -40,6 +44,10 @@ import com.ascendant.e_businessprofile.Model.ResponseArrayObject;
 import com.ascendant.e_businessprofile.Model.ResponseObject;
 import com.ascendant.e_businessprofile.Model.ResponseQuiz;
 import com.ascendant.e_businessprofile.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -72,6 +80,11 @@ public class HomeFragment extends Fragment {
     TextView idQuiz,jawabQuiz;
     TextView Pesan,View;
     Button KonfirmasiPesan;
+    String token;
+    RelativeLayout History;
+    LinearLayout Tukar,linearNotif;
+    TextView tvNotif;
+    RelativeLayout Notification;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -94,6 +107,9 @@ public class HomeFragment extends Fragment {
                 Token = cursor.getString(0);
             }
         }
+        linearNotif = view.findViewById(R.id.linearNotif);
+        tvNotif = view.findViewById(R.id.tvNotif);
+        Notification = view.findViewById(R.id.relativeNotif);
         dialogPesan = new Dialog(getActivity());
         dialogPesan.setContentView(R.layout.dialog_message);
         myDialog = new Dialog(getActivity());
@@ -113,9 +129,12 @@ public class HomeFragment extends Fragment {
         spDivisi = myDialog.findViewById(R.id.spDivisi);
         spWilayah = myDialog.findViewById(R.id.spWilayah);
         PilihDivisi = myDialog.findViewById(R.id.btnPilih);
+        History = view.findViewById(R.id.relativeHistoryPoin);
         linearQuiz = view.findViewById(R.id.linearQuiz);
         scroll = view.findViewById(R.id.scroll);
         rv = view.findViewById(R.id.recycler);
+        History = view.findViewById(R.id.relativeHistoryPoin);
+        Tukar = view.findViewById(R.id.linearTukarPoin);
         Healtcare = view.findViewById(R.id.relativeHealthcare);
         FMCG = view.findViewById(R.id.relativeFMCG);
         Mining = view.findViewById(R.id.relativeMining);
@@ -139,6 +158,7 @@ public class HomeFragment extends Fragment {
         GetWilayah();
         CheckQuiz();
         IsiQuiz();
+        GetJumlahNotif();
         Healtcare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -184,6 +204,22 @@ public class HomeFragment extends Fragment {
             public void onClick(View view) {
                 Intent i = new Intent(getActivity(), ModuleActivity.class);
                 i.putExtra("MODULE", "Farming");
+                startActivity(i);
+            }
+        });
+        Tukar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(android.view.View view) {
+                Intent i = new Intent(getActivity(), TukarPoinAtivity.class);
+                i.putExtra("POIN", poin.getText().toString());
+                startActivity(i);
+            }
+        });
+        History.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(android.view.View view) {
+                Intent i = new Intent(getActivity(), HistoryPoinActivity.class);
+                i.putExtra("POIN", poin.getText().toString());
                 startActivity(i);
             }
         });
@@ -241,6 +277,13 @@ public class HomeFragment extends Fragment {
                 }
             }
         });
+        Notification.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(android.view.View view) {
+                Intent intent = new Intent(getActivity(),NotifActivity.class);
+                startActivity(intent);
+            }
+        });
         A.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -271,6 +314,7 @@ public class HomeFragment extends Fragment {
                 JawabQuiz();
             }
         });
+
     }
     private void UpdateDivisi(){
         ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
@@ -285,6 +329,33 @@ public class HomeFragment extends Fragment {
                     startActivity(intent);
                 }catch (Exception e){
                     Toast.makeText(getActivity(), "Terjadi Kesalahan : "+e.toString(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseObject> call, Throwable t) {
+                Toast.makeText(getActivity(),"Koneksi Gagal ",Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+    private void GetJumlahNotif(){
+        ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
+        final Call<ResponseObject> data =api.NotifBaru(Token);
+        data.enqueue(new Callback<ResponseObject>() {
+            @Override
+            public void onResponse(Call<ResponseObject> call, Response<ResponseObject> response) {
+                try {
+                    if (Integer.parseInt(response.body().getData().getTotal())==0){
+                        linearNotif.setVisibility(android.view.View.GONE);
+                    }else if (Integer.parseInt(response.body().getData().getTotal())>=100){
+                        linearNotif.setVisibility(android.view.View.VISIBLE);
+                        tvNotif.setText("99+");
+                    }else{
+                        linearNotif.setVisibility(android.view.View.VISIBLE);
+                        tvNotif.setText(response.body().getData().getTotal());
+                    }
+                }catch (Exception e){
+
                 }
             }
 
@@ -505,32 +576,48 @@ public class HomeFragment extends Fragment {
         });
     }
     private void GetData(){
-        ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
-        final Call<ResponseObject> data =api.Profil(Token);
-        data.enqueue(new Callback<ResponseObject>() {
+        FirebaseApp.initializeApp(getActivity());
+        FirebaseMessaging.getInstance().getToken().addOnCompleteListener(new OnCompleteListener<String>() {
             @Override
-            public void onResponse(Call<ResponseObject> call, Response<ResponseObject> response) {
-                try {
-                    if (response.body().getKode().equals(200)){
-                        nama.setText(response.body().getData().getNama_user());
-                        divisi.setText(response.body().getData().getDivisi()+" ("+response.body().getData().getWilayah()+")");
-                        if (response.body().getData().getDivisi().equals("")){
-                            myDialog.show();
-                        }
-                    }else{
-                        response.body().getMessage();
-                    }
-                }catch (Exception e){
-                    Log.d("ZYARGA : ",e.toString());
-                    Toast.makeText(getActivity(), "Koneksi Gagal", Toast.LENGTH_SHORT).show();
+            public void onComplete(@NonNull Task<String> task) {
+                if(!task.isSuccessful()){
+                    Log.d("Zyarga","Fetching FCM Failed",task.getException());
+                    return;
                 }
-            }
+                // Get new FCM registration token
+                token = task.getResult().toString();
+                Log.e("TAGSOO",token);
+                ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
+                final Call<ResponseObject> data =api.Profil(Token,token);
+                data.enqueue(new Callback<ResponseObject>() {
+                    @Override
+                    public void onResponse(Call<ResponseObject> call, Response<ResponseObject> response) {
+                        try {
+                            if (response.body().getKode().equals(200)){
+                                nama.setText(response.body().getData().getNama_user());
+                                divisi.setText(response.body().getData().getDivisi()+" ("+response.body().getData().getWilayah()+")");
+                                if (response.body().getData().getDivisi().equals("")){
+                                    myDialog.show();
+                                }
+                            }else{
+                                response.body().getMessage();
+                            }
+                        }catch (Exception e){
+                            Log.d("ZYARGA : ",e.toString());
+                            Toast.makeText(getActivity(), "Koneksi Gagal", Toast.LENGTH_SHORT).show();
+                        }
+                    }
 
-            @Override
-            public void onFailure(Call<ResponseObject> call, Throwable t) {
-                Toast.makeText(getActivity(), "Koneksi Gagal", Toast.LENGTH_SHORT).show();
+                    @Override
+                    public void onFailure(Call<ResponseObject> call, Throwable t) {
+                        Intent intent = new Intent(getActivity(),LoginActivity.class);
+                        startActivity(intent);
+                        Toast.makeText(getActivity(), "Waktu Sesi habis harap coba Login Lagfi", Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
         });
+
         View.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(android.view.View view) {
