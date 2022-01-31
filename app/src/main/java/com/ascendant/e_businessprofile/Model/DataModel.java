@@ -544,6 +544,10 @@ public class DataModel {
     @Expose
     public String dilihat;
 
+    @SerializedName("judul_notif")
+    @Expose
+    public String judul_notif;
+
     @SerializedName("deskripsi_notif")
     @Expose
     public String deskripsi_notif;
@@ -568,6 +572,10 @@ public class DataModel {
     @SerializedName("tgl_poin_didapatkan")
     @Expose
     public String tgl_poin_didapatkan;
+
+    @SerializedName("jenis_riwayat")
+    @Expose
+    public String jenis_riwayat;
 
     @SerializedName("deskripsi_poin")
     @Expose
@@ -604,6 +612,32 @@ public class DataModel {
     @SerializedName("alasan_ditolak")
     @Expose
     public String alasan_ditolak;
+
+    //Ask Expert
+    @SerializedName("id_ask_expert")
+    @Expose
+    public String id_ask_expert;
+
+    @SerializedName("id_expert")
+    @Expose
+    public String id_expert;
+
+    @SerializedName("topik_pertanyaan")
+    @Expose
+    public String topik_pertanyaan;
+
+    @SerializedName("kategori_ask")
+    @Expose
+    public String kategori_ask;
+
+    @SerializedName("status_ask")
+    @Expose
+    public String status_ask;
+
+    @SerializedName("total_balasan")
+    @Expose
+    public String total_balasan;
+
 
 
     //Old EBusiness
@@ -4146,5 +4180,69 @@ public class DataModel {
 
     public void setLink_notif(String link_notif) {
         this.link_notif = link_notif;
+    }
+
+    public String getId_ask_expert() {
+        return id_ask_expert;
+    }
+
+    public void setId_ask_expert(String id_ask_expert) {
+        this.id_ask_expert = id_ask_expert;
+    }
+
+    public String getId_expert() {
+        return id_expert;
+    }
+
+    public void setId_expert(String id_expert) {
+        this.id_expert = id_expert;
+    }
+
+    public String getTopik_pertanyaan() {
+        return topik_pertanyaan;
+    }
+
+    public void setTopik_pertanyaan(String topik_pertanyaan) {
+        this.topik_pertanyaan = topik_pertanyaan;
+    }
+
+    public String getKategori_ask() {
+        return kategori_ask;
+    }
+
+    public void setKategori_ask(String kategori_ask) {
+        this.kategori_ask = kategori_ask;
+    }
+
+    public String getStatus_ask() {
+        return status_ask;
+    }
+
+    public void setStatus_ask(String status_ask) {
+        this.status_ask = status_ask;
+    }
+
+    public String getTotal_balasan() {
+        return total_balasan;
+    }
+
+    public void setTotal_balasan(String total_balasan) {
+        this.total_balasan = total_balasan;
+    }
+
+    public String getJudul_notif() {
+        return judul_notif;
+    }
+
+    public void setJudul_notif(String judul_notif) {
+        this.judul_notif = judul_notif;
+    }
+
+    public String getJenis_riwayat() {
+        return jenis_riwayat;
+    }
+
+    public void setJenis_riwayat(String jenis_riwayat) {
+        this.jenis_riwayat = jenis_riwayat;
     }
 }

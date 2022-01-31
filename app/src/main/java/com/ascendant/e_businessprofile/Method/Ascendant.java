@@ -344,6 +344,17 @@ public class Ascendant {
         DownloadManager manager = (DownloadManager)ctx.getSystemService(Context.DOWNLOAD_SERVICE);
         manager.enqueue(request);
     }
+    public void DownloadUniversal(String url,String judul,Context ctx,String extension){
+        DownloadManager.Request request = new DownloadManager.Request(Uri.parse(BASE_URL()+url));
+        request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI | DownloadManager.Request.NETWORK_MOBILE);
+        request.setTitle(judul);
+        request.setDescription("Downloading "+judul);
+        request.allowScanningByMediaScanner();
+        request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+        request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS,"/eBusiness/"+judul+extension);
+        DownloadManager manager = (DownloadManager)ctx.getSystemService(Context.DOWNLOAD_SERVICE);
+        manager.enqueue(request);
+    }
     public String SmallDescription(String description){
         String Des = description;
         if (description.length() >= 100){

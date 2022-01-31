@@ -64,11 +64,13 @@ public class AdapterNotif extends RecyclerView.Adapter<AdapterNotif.HolderData> 
                 NotifID = cursor.getString(1);
             }
         }
-        holderData.balasan.setText(dm.getDeskripsi_notif());
+        holderData.title.setText(dm.getJudul_notif());
+        holderData.tanggal.setText(ascendant.MagicDateChange(dm.getCreated_at()));
+        holderData.balasan.setText(ascendant.SmallText(dm.getDeskripsi_notif()));
         if (dm.getDilihat().equals("0")){
             holderData.read.setAlpha(0.8f);
         }else{
-            holderData.read.setAlpha(0.2f);
+            holderData.read.setAlpha(0f);
         }
 
         holderData.card.setOnClickListener(new View.OnClickListener() {
@@ -76,7 +78,6 @@ public class AdapterNotif extends RecyclerView.Adapter<AdapterNotif.HolderData> 
             public void onClick(View view) {
                 Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(dm.getLink_notif()));
                 ctx.startActivity(browserIntent);
-
             }
         });
     }
@@ -87,12 +88,14 @@ public class AdapterNotif extends RecyclerView.Adapter<AdapterNotif.HolderData> 
     }
 
     class HolderData extends RecyclerView.ViewHolder{
-        TextView balasan;
+        TextView balasan,title,tanggal;
         LinearLayout read;
         CardView card;
         HolderData(View v){
             super(v);
             balasan = v.findViewById(R.id.tvBalasan);
+            title = v.findViewById(R.id.tvTitle);
+            tanggal = v.findViewById(R.id.tvTanggal);
             card = v.findViewById(R.id.linearNotif);
             read = v.findViewById(R.id.linearRead);
         }

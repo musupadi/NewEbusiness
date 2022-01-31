@@ -170,6 +170,18 @@ public interface ApiRequest {
                                             @Field("tipe_post") String tipe_post);
 
     @FormUrlEncoded
+    @POST("buat_percakapan_expert")
+    Call<ResponseObject> BuatPercakapanExpert(@Field("token") String token,
+                                               @Field("kategori") String kategori,
+                                               @Field("isi") String isi,
+                                               @Field("topik_percakapan") String topik_percakapan);
+
+    @FormUrlEncoded
+    @POST("daftar_percakapan_expert")
+    Call<ResponseArrayObject> DaftarPercakapanExpert(@Field("token") String token,
+                                          @Field("kategori") String kategori);
+
+    @FormUrlEncoded
     @POST("report_post")
     Call<ResponseArrayObject> ReportPosting(@Field("token") String token,
                                             @Field("id_post") String id_post,
@@ -463,6 +475,10 @@ public interface ApiRequest {
     @FormUrlEncoded
     @POST("mining/list_of_probing")
     Call<ResponseArrayObject> Mining_List_of_Probing(@Field("token") String token);
+
+    @FormUrlEncoded
+    @POST("farming/list_of_probing")
+    Call<ResponseArrayObject> Farming_List_of_Probing(@Field("token") String token);
 
     @FormUrlEncoded
     @POST("mining/outlook")

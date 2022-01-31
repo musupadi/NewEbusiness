@@ -8,7 +8,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.ImageView;
@@ -69,14 +71,26 @@ public class DetailMandiriUpdate extends AppCompatActivity {
                 Token = cursor.getString(0);
             }
         }
-        Intent intent = getIntent();
+        Uri datas = this.getIntent().getData();
+        if (datas != null && datas.isHierarchical()) {
+            String uri = this.getIntent().getDataString();
+            Log.i("MyApp", "Deep link clicked " + uri);
+            List<String> params = datas.getPathSegments();
+            String IDS = params.get(0); // "status"
+            ID = IDS;
+//            String mail = params.get(1);
+//            Validasi(mail,fury);
+        }else{
+            Intent intent = getIntent();
+            ID = intent.getExtras().getString("ID");
+        }
+
         Judul = findViewById(R.id.tvJudul);
         Tanggal = findViewById(R.id.tvTanggal);
         youtube = findViewById(R.id.youtube);
         web = findViewById(R.id.web);
         rv = findViewById(R.id.recycler);
         cardYoutube = findViewById(R.id.cardYoutube);
-        ID = intent.getExtras().getString("ID");
         //Cut Here
         rv2 = findViewById(R.id.recyclerNav);
         Available = findViewById(R.id.linearAvailable);

@@ -64,8 +64,6 @@ public class RiwayatPenukaranActivity extends AppCompatActivity {
                 NotifID = cursor.getString(1);
             }
         }
-        Intent intent = getIntent();
-        POIN = intent.getExtras().getString("POIN");
         //Cut Here
         recyclerView = findViewById(R.id.recycler);
         rv = findViewById(R.id.recyclerNav);

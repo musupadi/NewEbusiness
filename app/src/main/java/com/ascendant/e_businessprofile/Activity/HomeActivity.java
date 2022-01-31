@@ -49,11 +49,11 @@ public class HomeActivity extends AppCompatActivity {
     Ascendant ascendant= new Ascendant();
     DB_Helper dbHelper;
     String Token,NotifID;
+    String FORUM;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
         if(EasyPermissions.hasPermissions(HomeActivity.this, galleryPermissions)) {
 
         }else{
@@ -61,7 +61,7 @@ public class HomeActivity extends AppCompatActivity {
                     101, galleryPermissions);
         }
         Declaration();
-        Home();
+
         OnClick();
         dbHelper = new DB_Helper(HomeActivity.this);
         Cursor cursor = dbHelper.checkUser();
@@ -76,6 +76,15 @@ public class HomeActivity extends AppCompatActivity {
         // OneSignal Initialization
         OneSignal.initWithContext(this);
         OneSignal.setAppId(ascendant.OneSignalAppId());
+        try {
+            Intent intent = getIntent();
+            FORUM = intent.getExtras().getString("FORUM");
+            Forum();
+        }catch (Exception e){
+            Home();
+        }
+
+
     }
 
     private void OnClick() {

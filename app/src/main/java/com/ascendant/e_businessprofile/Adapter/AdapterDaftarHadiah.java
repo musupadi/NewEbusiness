@@ -1,6 +1,9 @@
 package com.ascendant.e_businessprofile.Adapter;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.Cursor;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,7 +17,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.ascendant.e_businessprofile.API.ApiRequest;
 import com.ascendant.e_businessprofile.API.RetroServer;
+import com.ascendant.e_businessprofile.Activity.HomeActivity;
+import com.ascendant.e_businessprofile.Activity.LoginActivity;
 import com.ascendant.e_businessprofile.Activity.NewsActivity;
+import com.ascendant.e_businessprofile.Activity.RiwayatPenukaranActivity;
 import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
 import com.ascendant.e_businessprofile.Method.Ascendant;
 import com.ascendant.e_businessprofile.Method.NumberTextWatcher;
@@ -67,11 +73,40 @@ public class AdapterDaftarHadiah extends RecyclerView.Adapter<AdapterDaftarHadia
         holderData.card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (Integer.parseInt(POIN)<Integer.parseInt(dm.getPoin_dibutuhkan())){
-                    Toast.makeText(ctx, "Poin Anda Belum Cukup", Toast.LENGTH_SHORT).show();
-                }else{
-                    tukar(dm.getId_poin_hadiah());
-                }
+                AlertDialog.Builder builder = new AlertDialog.Builder(ctx);
+
+                // Set a title for alert dialog
+                builder.setTitle("Pemberitahuan");
+
+                // Ask the final question
+                builder.setMessage("Apakah Anda Yakin Ingin Membeli Hadiah ini ? ");
+
+                // Set the alert dialog yes button click listener
+                builder.setPositiveButton("Iya", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Do something when user clicked the Yes button
+                        // Set the TextView visibility GONE
+                        if (Integer.parseInt(POIN)<Integer.parseInt(dm.getPoin_dibutuhkan())){
+                            Toast.makeText(ctx, "Poin Anda Belum Cukup", Toast.LENGTH_SHORT).show();
+                        }else{
+                            tukar(dm.getId_poin_hadiah());
+                        }
+                    }
+                });
+
+                // Set the alert dialog no button click listener
+                builder.setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Do something when No button clicked
+                    }
+                });
+
+                AlertDialog dialog = builder.create();
+                // Display the alert dialog on interface
+                dialog.show();
+
             }
         });
     }
@@ -99,6 +134,8 @@ public class AdapterDaftarHadiah extends RecyclerView.Adapter<AdapterDaftarHadia
             @Override
             public void onResponse(Call<ResponseArrayObject> call, Response<ResponseArrayObject> response) {
                 try {
+                    Intent intent = new Intent(ctx, RiwayatPenukaranActivity.class);
+                    ctx.startActivity(intent);
                     Toast.makeText(ctx, response.body().getMessage(), Toast.LENGTH_SHORT).show();
                 }catch (Exception e){
                     Toast.makeText(ctx, "Terjadi Kesalahan pada : "+e.toString(), Toast.LENGTH_SHORT).show();

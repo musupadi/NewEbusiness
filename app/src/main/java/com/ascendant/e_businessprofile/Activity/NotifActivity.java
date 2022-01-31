@@ -106,8 +106,9 @@ public class NotifActivity extends AppCompatActivity {
         });
 
         //Cut Here
-        CheckNotif();
         Logic();
+
+
     }
     private void CheckNotif(){
         mManager = new LinearLayoutManager(NotifActivity.this, LinearLayoutManager.VERTICAL,false);
@@ -145,6 +146,7 @@ public class NotifActivity extends AppCompatActivity {
                         mAdapter = new AdapterNotif(NotifActivity.this,mItems);
                         recyclerView.setAdapter(mAdapter);
                         mAdapter.notifyDataSetChanged();
+                        CheckNotif();
                     }else{
                         Toast.makeText(NotifActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
                     }

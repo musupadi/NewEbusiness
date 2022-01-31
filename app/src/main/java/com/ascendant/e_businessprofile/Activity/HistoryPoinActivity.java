@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.app.Dialog;
 import android.content.Intent;
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -64,8 +65,15 @@ public class HistoryPoinActivity extends AppCompatActivity {
                 NotifID = cursor.getString(1);
             }
         }
-        Intent intent = getIntent();
-        POIN = intent.getExtras().getString("POIN");
+        Uri datas = this.getIntent().getData();
+        if (datas != null && datas.isHierarchical()) {
+            String uri = this.getIntent().getDataString();
+            Log.i("MyApp", "Deep link clicked " + uri);
+            List<String> params = datas.getPathSegments();
+//            String mail = params.get(1);
+//            Validasi(mail,fury);
+        }
+
         //Cut Here
         recyclerView = findViewById(R.id.recycler);
         rv = findViewById(R.id.recyclerNav);

@@ -59,10 +59,18 @@ public class AdapterHistoryHadiah extends RecyclerView.Adapter<AdapterHistoryHad
                 NotifID = cursor.getString(1);
             }
         }
-        if (dm.getStatus_plus().equals("1")){
+        if (dm.getJenis_riwayat().equals("quiz")){
             holderData.card.setBackgroundResource(R.drawable.btn_rounded_accent_2);
-        }else{
+            holderData.titledeskripsi.setText("Deskripsi Poin");
+        }else if (dm.getJenis_riwayat().equals("pengajuan")){
             holderData.card.setBackgroundResource(R.drawable.btn_rounded_primary2);
+            holderData.titledeskripsi.setText("Deskripsi");
+        }else if (dm.getJenis_riwayat().equals("ditolak")) {
+            holderData.card.setBackgroundResource(R.drawable.btn_rounded_red);
+            holderData.titledeskripsi.setText("Deskripsi");
+        }else{
+            holderData.card.setBackgroundResource(R.drawable.btn_rounded_orange);
+            holderData.titledeskripsi.setText("Deskripsi");
         }
         holderData.id.setText(String.valueOf(posistion+1));
         holderData.tanggal.setText(ascendant.MagicDateChange(dm.getTgl_poin_didapatkan()));
@@ -76,7 +84,7 @@ public class AdapterHistoryHadiah extends RecyclerView.Adapter<AdapterHistoryHad
     }
 
     class HolderData extends RecyclerView.ViewHolder{
-        TextView id,poin,tanggal,deskripsi;
+        TextView id,poin,tanggal,deskripsi,titledeskripsi;
         LinearLayout card;
         HolderData(View v){
             super(v);
@@ -84,6 +92,7 @@ public class AdapterHistoryHadiah extends RecyclerView.Adapter<AdapterHistoryHad
             poin = v.findViewById(R.id.tvPoin);
             tanggal = v.findViewById(R.id.tvTglPoin);
             deskripsi = v.findViewById(R.id.tvDeskripsi);
+            titledeskripsi = v.findViewById(R.id.tvDeskripsiTitle);
             card = v.findViewById(R.id.linearHadiah);
         }
     }

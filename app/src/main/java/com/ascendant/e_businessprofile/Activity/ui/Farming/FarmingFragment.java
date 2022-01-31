@@ -112,11 +112,11 @@ public class FarmingFragment extends Fragment {
         ListOfProbing.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log("34");
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://mandiri-ebuss.com/files/farming/list_of_probing/list_of_probing.pdf"));
-                startActivity(browserIntent);
-//                Intent intent = new Intent(getActivity(), ListOfProbingFarmingActivity.class);
-//                startActivity(intent);
+//                Log("34");
+//                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://mandiri-ebuss.com/files/farming/list_of_probing/list_of_probing.pdf"));
+//                startActivity(browserIntent);
+                Intent intent = new Intent(getActivity(), ListOfProbingFarmingActivity.class);
+                startActivity(intent);
             }
         });
         Compliance.setOnClickListener(new View.OnClickListener() {

@@ -91,8 +91,10 @@ public class EcosystemContractorActivity extends AppCompatActivity {
         PlayersInConstruction.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(android.view.View view) {
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://mandiri-ebuss.com/files/contractor/ekosistem/players_in_construction.pdf"));
-                startActivity(browserIntent);
+//                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://mandiri-ebuss.com/files/contractor/ekosistem/players_in_construction.pdf"));
+//                startActivity(browserIntent);
+                Intent intent = new Intent(EcosystemContractorActivity.this,PlayersInConstructionActivity.class);
+                startActivity(intent);
             }
         });
         PlayersInSupplyMaterial.setOnClickListener(new View.OnClickListener() {

@@ -159,8 +159,9 @@ public class DetailForumActivity extends AppCompatActivity {
         Back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(DetailForumActivity.this, HomeActivity.class);
-                startActivity(intent);
+                Intent goInput = new Intent(DetailForumActivity.this, HomeActivity.class);
+                goInput.putExtra("FORUM","FORUM");
+                startActivities(new Intent[]{goInput});
             }
         });
         More.setOnClickListener(new View.OnClickListener() {
@@ -220,7 +221,7 @@ public class DetailForumActivity extends AppCompatActivity {
             cardKomen.setVisibility(View.VISIBLE);
             etKomen.requestFocus();
             if (EDIT.equals("NO")){
-                ReplyName.setText("Repllying To "+REPLY_NAME);
+                ReplyName.setText("Replying To "+REPLY_NAME);
             }else{
                 ReplyName.setText("Editing Comment "+REPLY_NAME);
             }
@@ -562,6 +563,7 @@ public class DetailForumActivity extends AppCompatActivity {
                             Report.setVisibility(View.GONE);
                             Delete.setVisibility(View.VISIBLE);
                             Edit.setVisibility(View.VISIBLE);
+                            recyclerViewGambar.setVisibility(View.VISIBLE);
                             Edit.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
@@ -574,6 +576,7 @@ public class DetailForumActivity extends AppCompatActivity {
                                 }
                             });
                         }else{
+                            recyclerViewGambar.setVisibility(View.GONE);
                             Report.setVisibility(View.VISIBLE);
                             Delete.setVisibility(View.GONE);
                             Edit.setVisibility(View.GONE);
@@ -590,6 +593,7 @@ public class DetailForumActivity extends AppCompatActivity {
                                 response.body().getData().getDetail().getJudul_post());
                         recyclerViewGambar.setAdapter(mAdapter);
                         mAdapter.notifyDataSetChanged();
+
                         mAdapter2 = new AdapterKomen(DetailForumActivity.this,mItemsKomen,ID,CATEGORY,JUDUL,NamaUser);
                         recyclerKomen.setAdapter(mAdapter2);
                         mAdapter2.notifyDataSetChanged();
@@ -668,8 +672,9 @@ public class DetailForumActivity extends AppCompatActivity {
 //                goInput.putExtra("EDIT","NO");
 //                goInput.putExtra("ISI_KOMEN","");
 //                startActivities(new Intent[]{goInput});
-                Intent intent = new Intent(DetailForumActivity.this, HomeActivity.class);
-                startActivity(intent);
+                Intent goInput = new Intent(DetailForumActivity.this, HomeActivity.class);
+                goInput.putExtra("FORUM","FORUM");
+                startActivities(new Intent[]{goInput});
             }
 
             @Override
@@ -773,7 +778,8 @@ public class DetailForumActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(DetailForumActivity.this, HomeActivity.class);
-        startActivity(intent);
+        Intent goInput = new Intent(DetailForumActivity.this, HomeActivity.class);
+        goInput.putExtra("FORUM","FORUM");
+        startActivities(new Intent[]{goInput});
     }
 }
