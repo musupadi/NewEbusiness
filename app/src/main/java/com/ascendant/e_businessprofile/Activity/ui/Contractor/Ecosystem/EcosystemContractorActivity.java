@@ -34,7 +34,7 @@ public class EcosystemContractorActivity extends AppCompatActivity {
     Ascendant ascendant = new Ascendant();
     Dialog myDialog;
 
-    LinearLayout PlayersInConstruction,PlayersInSupplyMaterial,SupportingPlayers,EcosystemIndustry,Executive,Consultant;
+    LinearLayout PlayersInConstruction,PlayersInSupplyMaterial,SupportingPlayers,EcosystemIndustry,Executive,Consultant,DataBadanUsaha;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +47,7 @@ public class EcosystemContractorActivity extends AppCompatActivity {
         EcosystemIndustry = findViewById(R.id.linearEcosystemIndustry);
         Executive = findViewById(R.id.linearExecutive);
         Consultant = findViewById(R.id.linearConsultant);
+        DataBadanUsaha = findViewById(R.id.linearBinakonstruksi);
         //Cut Here
         rv = findViewById(R.id.recyclerNav);
         Available = findViewById(R.id.linearAvailable);
@@ -88,6 +89,13 @@ public class EcosystemContractorActivity extends AppCompatActivity {
             }
         });
         //Cut Here
+        DataBadanUsaha.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(android.view.View view) {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://binakonstruksi.pu.go.id/data-badan-usaha-jasa-konstruksi/"));
+                startActivity(browserIntent);
+            }
+        });
         PlayersInConstruction.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(android.view.View view) {

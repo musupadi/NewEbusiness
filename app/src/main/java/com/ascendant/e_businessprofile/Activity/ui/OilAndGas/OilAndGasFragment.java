@@ -146,8 +146,9 @@ public class OilAndGasFragment extends Fragment {
             @Override
             public void onClick(android.view.View view) {
                 Log("24");
-                Intent intent = new Intent(getActivity(), MiningMandiriUpdateActivity.class);
-                startActivity(intent);
+                Intent goInput = new Intent(getActivity(), MiningMandiriUpdateActivity.class);
+                goInput.putExtra("KATEGORI","OIL_AND_GAS");
+                startActivity(goInput);
             }
         });
         Back.setOnClickListener(new View.OnClickListener() {

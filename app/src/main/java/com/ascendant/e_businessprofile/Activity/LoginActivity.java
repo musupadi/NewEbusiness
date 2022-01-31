@@ -93,7 +93,7 @@ public class LoginActivity extends AppCompatActivity {
         confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                ForgotPassword();
             }
         });
         Tutup.setOnClickListener(new View.OnClickListener() {
@@ -116,9 +116,8 @@ public class LoginActivity extends AppCompatActivity {
                 pd.hide();
                 try {
                     Toast.makeText(LoginActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
-                    if (response.body().getStatus().equals("status")==true){
-                        myDialog.hide();
-                    }
+                    myDialog.hide();
+
                 }catch (Exception e){
 
                 }

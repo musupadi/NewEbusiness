@@ -30,6 +30,7 @@ import com.ascendant.e_businessprofile.Activity.ui.Healthcare.CreditDecisionTool
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.CreditWorthiness.CreditWorthinessActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.Ecosystem.EcosystemActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.ListOfProbing.ListOfProbingActivity;
+import com.ascendant.e_businessprofile.Activity.ui.Mining.MandiriUpdate.MiningMandiriUpdateActivity;
 import com.ascendant.e_businessprofile.Adapter.AdapterBerita;
 import com.ascendant.e_businessprofile.Model.DataModel;
 import com.ascendant.e_businessprofile.Model.ResponseArrayObject;
@@ -52,6 +53,7 @@ public class HealthcareFragment extends Fragment {
     String Token;
     LinearLayout Back;
     RelativeLayout BusinessRefrence,ListOfProbing,Compliance,Ecosystem,CreditWorthiness,CreditDecisionTool;
+    LinearLayout MandiriUpdate;
     ScrollView scroll;
     TextView View;
     public HealthcareFragment() {
@@ -90,6 +92,7 @@ public class HealthcareFragment extends Fragment {
         Ecosystem = view.findViewById(R.id.relativeEcosystem);
         CreditWorthiness = view.findViewById(R.id.relativeCreditWorthiness);
         CreditDecisionTool = view.findViewById(R.id.relativeCreditDecisionTool);
+        MandiriUpdate = view.findViewById(R.id.linearMandiriUpdate);
         Logic();
         BusinessRefrence.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -137,6 +140,15 @@ public class HealthcareFragment extends Fragment {
                 Log("3");
                 Intent intent = new Intent(getActivity(), ComplianceActivity.class);
                 startActivity(intent);
+            }
+        });
+        MandiriUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(android.view.View view) {
+                Log("38");
+                Intent goInput = new Intent(getActivity(), MiningMandiriUpdateActivity.class);
+                goInput.putExtra("KATEGORI","HEALTHCARE");
+                startActivity(goInput);
             }
         });
         Back.setOnClickListener(new View.OnClickListener() {

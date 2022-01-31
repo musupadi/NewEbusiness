@@ -27,6 +27,7 @@ import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
 import com.ascendant.e_businessprofile.Activity.ui.Mining.Compliance.ComplianceMiningActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Mining.Ecosystem.EcosystemMiningActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Mining.ListOfProbing.ListOfProbingMiningActivity;
+import com.ascendant.e_businessprofile.Activity.ui.Mining.MandiriUpdate.DetailMandiriUpdate;
 import com.ascendant.e_businessprofile.Activity.ui.Mining.MandiriUpdate.MiningMandiriUpdateActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Mining.MarketInteligence.MarketInteliganceMiningActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Mining.Outlook.OutlookActivity;
@@ -145,8 +146,9 @@ public class MiningFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Log("18");
-                Intent intent = new Intent(getActivity(), MiningMandiriUpdateActivity.class);
-                startActivity(intent);
+                Intent goInput = new Intent(getActivity(), MiningMandiriUpdateActivity.class);
+                goInput.putExtra("KATEGORI","MINING");
+                startActivity(goInput);
             }
         });
         Back.setOnClickListener(new View.OnClickListener() {

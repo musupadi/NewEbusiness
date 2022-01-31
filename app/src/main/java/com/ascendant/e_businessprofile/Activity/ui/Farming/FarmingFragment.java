@@ -147,8 +147,9 @@ public class FarmingFragment extends Fragment {
             @Override
             public void onClick(android.view.View view) {
                 Log("36");
-                Intent intent = new Intent(getActivity(), MiningMandiriUpdateActivity.class);
-                startActivity(intent);
+                Intent goInput = new Intent(getActivity(), MiningMandiriUpdateActivity.class);
+                goInput.putExtra("KATEGORI","FARMING");
+                startActivity(goInput);
             }
         });
         Back.setOnClickListener(new View.OnClickListener() {

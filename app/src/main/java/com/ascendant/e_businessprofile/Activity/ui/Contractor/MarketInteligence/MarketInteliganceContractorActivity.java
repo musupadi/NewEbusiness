@@ -125,11 +125,11 @@ public class MarketInteliganceContractorActivity extends AppCompatActivity {
             public void onClick(android.view.View view) {
                 myDialog.show();
                 if (!JUDUL.equals("Procurement of Goods and Services")){
-                    LinkPDF="files/contractor/market_intelligence/market_potential_jasa.pdf";
+                    LinkPDF="files/contractor/market_intelligence/market_potential_pengadaan.pdf";
                     LinkEbook="https://ebuss-book.mandiri-ebuss.com/contractor/page/market_intelligence/market_potential_jasa.php";
                 }else{
-                    LinkPDF="files/contractor/market_intelligence/market_potential_pengadaan.pdf";
-                    LinkEbook="https://ebuss-book.mandiri-ebuss.com/contractor/page/market_intelligence/market_potential_pengadaan.php";
+                    LinkPDF="files/contractor/market_intelligence/market_potential_jasa.pdf";
+                    LinkEbook="https://ebuss-book.mandiri-ebuss.com/contractor/page/market_intelligence/benchmarking_jasa_konstruksi.php";
                 }
                 Download = myDialog.findViewById(R.id.btnDownload);
                 View = myDialog.findViewById(R.id.btnView);

@@ -136,7 +136,16 @@
             android:exported="true" />
         <activity
             android:name=".Activity.ui.Mining.Outlook.MiningNewsletterActivity"
-            android:exported="true" />
+            android:exported="true" >
+            <intent-filter>
+                <data android:scheme="mandiri.ebuss.newsletter_mining" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".Activity.PortraitWebViewEbookActivity"
             android:exported="true"
@@ -162,7 +171,9 @@
             android:exported="true" />
         <activity
             android:name=".Activity.ui.Mining.MandiriUpdate.MiningMandiriUpdateActivity"
-            android:exported="true" />
+            android:exported="true" >
+
+        </activity>
         <activity
             android:name=".Activity.ui.Farming.Compliance.ComplianceFarmingActivity"
             android:exported="true">

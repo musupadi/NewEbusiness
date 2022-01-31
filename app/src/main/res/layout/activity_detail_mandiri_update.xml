@@ -6,6 +6,10 @@
     xmlns:card_view="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:background="@color/colorBackground">
+    <TextView
+        android:layout_width="0.000001dp"
+        android:layout_height="0.000001dp"
+        android:id="@+id/tvKategori"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -108,6 +112,10 @@
                                             android:id="@+id/tvTanggal"
                                             android:text="15-Januari-1994"
                                             android:fontFamily="@font/inter"/>
+                                        <ImageView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:id="@+id/ivCover"/>
                                         <WebView
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
@@ -149,10 +157,27 @@
                             android:layout_width="match_parent"
                             android:layout_height="2dp"
                             android:background="@color/colorPrimary"/>
-                        <androidx.recyclerview.widget.RecyclerView
+                        <RelativeLayout
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:id="@+id/recycler"/>
+                            android:layout_height="match_parent">
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:id="@+id/recycler"/>
+                            <TextView
+                                android:layout_marginTop="10dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:layout_centerInParent="true"
+                                android:text="File Not Available"
+                                android:id="@+id/tvAvailable"
+                                android:textSize="@dimen/header_text_extra_large"
+                                android:fontFamily="@font/inter"
+                                android:textStyle="bold"
+                                android:textColor="@color/colorPrimary"
+                                android:visibility="gone"/>
+                        </RelativeLayout>
                     </LinearLayout>
                 </ScrollView>
             </LinearLayout>

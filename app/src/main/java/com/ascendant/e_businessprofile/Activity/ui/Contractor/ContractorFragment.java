@@ -170,8 +170,9 @@ public class ContractorFragment extends Fragment {
             @Override
             public void onClick(android.view.View view) {
                 Log("30");
-                Intent intent = new Intent(getActivity(), MiningMandiriUpdateActivity.class);
-                startActivity(intent);
+                Intent goInput = new Intent(getActivity(), MiningMandiriUpdateActivity.class);
+                goInput.putExtra("KATEGORI","CONTRACTOR");
+                startActivity(goInput);
             }
         });
         Back.setOnClickListener(new View.OnClickListener() {

@@ -1,15 +1,22 @@
 package com.ascendant.e_businessprofile.Adapter;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.ascendant.e_businessprofile.Activity.HomeActivity;
+import com.ascendant.e_businessprofile.Activity.LoginActivity;
+import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
 import com.ascendant.e_businessprofile.Method.Ascendant;
 import com.ascendant.e_businessprofile.Model.DataModel;
 import com.ascendant.e_businessprofile.R;
@@ -46,7 +53,36 @@ public class AdapterFile extends RecyclerView.Adapter<AdapterFile.HolderData> {
             @Override
             public void onClick(View view) {
                 int lastIndexExt = dm.getLink_file_mandiri_update().lastIndexOf(".");
-                ascendant.DownloadUniversal(dm.getLink_file_mandiri_update(),dm.getCaption_file(),ctx,dm.getLink_file_mandiri_update().substring(lastIndexExt));
+                AlertDialog.Builder builder = new AlertDialog.Builder(ctx);
+
+                // Set a title for alert dialog
+                builder.setTitle("Pemberitahuan");
+
+                // Ask the final question
+                builder.setMessage("Apakah Anda ingin Mendownload File bernama "+dm.getCaption_file()+dm.getLink_file_mandiri_update().substring(lastIndexExt) + " ? ");
+
+                // Set the alert dialog yes button click listener
+                builder.setPositiveButton("Iya", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Do something when user clicked the Yes button
+                        // Set the TextView visibility GONE
+
+                        ascendant.DownloadUniversal(dm.getLink_file_mandiri_update(),dm.getCaption_file(),ctx,dm.getLink_file_mandiri_update().substring(lastIndexExt));
+                    }
+                });
+
+                // Set the alert dialog no button click listener
+                builder.setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Do something when No button clicked
+                    }
+                });
+
+                AlertDialog dialog = builder.create();
+                // Display the alert dialog on interface
+                dialog.show();
             }
         });
     }

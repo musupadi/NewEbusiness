@@ -27,6 +27,7 @@ import com.ascendant.e_businessprofile.Model.DataModel;
 import com.ascendant.e_businessprofile.Model.ResponseDataModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.Mining.MiningOutlookModel;
 import com.ascendant.e_businessprofile.R;
+import com.bumptech.glide.Glide;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView;
@@ -39,7 +40,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class DetailMandiriUpdate extends AppCompatActivity {
-    String ID;
+    String ID,KATEGORI;
     String Token;
     DB_Helper dbHelper;
 
@@ -47,7 +48,7 @@ public class DetailMandiriUpdate extends AppCompatActivity {
     WebView web;
     YouTubePlayerView youtube;
     Ascendant ascendant = new Ascendant();
-
+    TextView Kategori;
     String MODULE;
     RecyclerView rv;
     private List<DataModel> mItems = new ArrayList<>();
@@ -60,6 +61,8 @@ public class DetailMandiriUpdate extends AppCompatActivity {
     LinearLayout More,Back;
     Boolean more=true;
     private ArrayList<DataModel> pList = new ArrayList<>();
+    TextView tvAvailable;
+    ImageView Cover;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,19 +74,19 @@ public class DetailMandiriUpdate extends AppCompatActivity {
                 Token = cursor.getString(0);
             }
         }
+        Kategori  = findViewById(R.id.tvKategori);
         Uri datas = this.getIntent().getData();
         if (datas != null && datas.isHierarchical()) {
             String uri = this.getIntent().getDataString();
             Log.i("MyApp", "Deep link clicked " + uri);
             List<String> params = datas.getPathSegments();
-            String IDS = params.get(0); // "status"
+            String IDS = params.get(0); //
             ID = IDS;
-//            String mail = params.get(1);
-//            Validasi(mail,fury);
         }else{
             Intent intent = getIntent();
             ID = intent.getExtras().getString("ID");
         }
+
 
         Judul = findViewById(R.id.tvJudul);
         Tanggal = findViewById(R.id.tvTanggal);
@@ -91,6 +94,8 @@ public class DetailMandiriUpdate extends AppCompatActivity {
         web = findViewById(R.id.web);
         rv = findViewById(R.id.recycler);
         cardYoutube = findViewById(R.id.cardYoutube);
+        tvAvailable = findViewById(R.id.tvAvailable);
+        Cover = findViewById(R.id.ivCover);
         //Cut Here
         rv2 = findViewById(R.id.recyclerNav);
         Available = findViewById(R.id.linearAvailable);
@@ -143,9 +148,13 @@ public class DetailMandiriUpdate extends AppCompatActivity {
         data.enqueue(new Callback<ResponseDataModel>() {
             @Override
             public void onResponse(Call<ResponseDataModel> call, Response<ResponseDataModel> response) {
+                Kategori.setText(response.body().getData().getDetail().getKategori_mandiri_update());
                 Judul.setText(response.body().getData().getDetail().getJudul_mandiri_update());
                 web.loadData(response.body().getData().getDetail().getIsi_mandiri_update(),"text/html","UTF-8");
                 Tanggal.setText(response.body().getData().getDetail().getCreated_at());
+                Glide.with(DetailMandiriUpdate.this)
+                        .load(ascendant.BASE_URL()+response.body().getData().getDetail().getCover_mandiri_update())
+                        .into(Cover);
                 if (!response.body().getData().getDetail().getLink_youtube().equals("")){
                     cardYoutube.setVisibility(View.VISIBLE);
                     youtube.addYouTubePlayerListener(new AbstractYouTubePlayerListener() {
@@ -158,12 +167,16 @@ public class DetailMandiriUpdate extends AppCompatActivity {
                 }else{
                     cardYoutube.setVisibility(View.GONE);
                 }
-                mManager = new LinearLayoutManager(DetailMandiriUpdate.this, LinearLayoutManager.VERTICAL,false);
-                rv.setLayoutManager(mManager);
-                mItems=response.body().getData().getFiles();
-                mAdapter = new AdapterFile(DetailMandiriUpdate.this,mItems,response.body().getData().getDetail().getCreated_at());
-                rv.setAdapter(mAdapter);
-                mAdapter.notifyDataSetChanged();
+                if (response.body().getData().getFiles().toArray().length>0){
+                    mManager = new LinearLayoutManager(DetailMandiriUpdate.this, LinearLayoutManager.VERTICAL,false);
+                    rv.setLayoutManager(mManager);
+                    mItems=response.body().getData().getFiles();
+                    mAdapter = new AdapterFile(DetailMandiriUpdate.this,mItems,response.body().getData().getDetail().getCreated_at());
+                    rv.setAdapter(mAdapter);
+                    mAdapter.notifyDataSetChanged();
+                }else{
+                    tvAvailable.setVisibility(View.VISIBLE);
+                }
             }
 
             @Override
@@ -171,5 +184,12 @@ public class DetailMandiriUpdate extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent goInput = new Intent(DetailMandiriUpdate.this, MiningMandiriUpdateActivity.class);
+        goInput.putExtra("KATEGORI",Kategori.getText().toString());
+        startActivity(goInput);
     }
 }
