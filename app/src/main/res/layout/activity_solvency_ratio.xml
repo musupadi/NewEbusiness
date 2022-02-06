@@ -86,7 +86,8 @@
                     android:layout_height="100dp"
                     app:cardCornerRadius="10dp"
                     app:cardElevation="5dp"
-                    android:layout_margin="10dp">
+                    android:layout_margin="10dp"
+                    android:id="@+id/cardDER">
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -96,11 +97,11 @@
                             android:layout_width="70dp"
                             android:layout_height="70dp"
                             android:layout_gravity="center|left"
-                            android:src="@drawable/hospital_equipment"/>
+                            android:src="@drawable/regulations"/>
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:text="@string/current_ratio"
+                            android:text="Debt to Equities (DER)"
                             android:gravity="center|left"
                             android:textStyle="bold"
                             android:textColor="@color/colorPrimary"
@@ -113,7 +114,8 @@
                     android:layout_height="100dp"
                     app:cardCornerRadius="10dp"
                     app:cardElevation="5dp"
-                    android:layout_margin="10dp">
+                    android:layout_margin="10dp"
+                    android:id="@+id/cardDAR">
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -123,11 +125,39 @@
                             android:layout_width="70dp"
                             android:layout_height="70dp"
                             android:layout_gravity="center|left"
-                            android:src="@drawable/hospital_equipment"/>
+                            android:src="@drawable/ebook"/>
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:text="@string/quick_ratio"
+                            android:text="Debt to Total Assets (DAR)"
+                            android:gravity="center|left"
+                            android:textStyle="bold"
+                            android:textColor="@color/colorPrimary"
+                            android:fontFamily="@font/inter"
+                            android:textSize="@dimen/text_extra_large"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="5dp"
+                    android:layout_margin="10dp"
+                    android:id="@+id/cardInterestCoverage">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+                        <ImageView
+                            android:layout_margin="10dp"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:layout_gravity="center|left"
+                            android:src="@drawable/newsletter"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="Interest Coverage"
                             android:gravity="center|left"
                             android:textStyle="bold"
                             android:textColor="@color/colorPrimary"

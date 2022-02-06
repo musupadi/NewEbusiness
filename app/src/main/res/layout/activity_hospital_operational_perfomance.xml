@@ -91,7 +91,7 @@
                             <ImageView
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
-                                android:src="@drawable/clinic"/>
+                                android:src="@drawable/regulations"/>
                             <TextView
                                 android:layout_marginLeft="20dp"
                                 android:layout_width="match_parent"
@@ -131,7 +131,7 @@
                             <ImageView
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
-                                android:src="@drawable/clinic"/>
+                                android:src="@drawable/supporting_industries"/>
                             <TextView
                                 android:layout_marginLeft="20dp"
                                 android:layout_width="match_parent"

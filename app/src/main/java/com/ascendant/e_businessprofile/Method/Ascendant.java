@@ -258,7 +258,6 @@ public class Ascendant {
             }
         }
         DB_Helper dbHelper = new DB_Helper(ctx);
-        Toast.makeText(ctx, totalscore, Toast.LENGTH_SHORT).show();
         Quis quis = new Quis(category,totalscore);
         dbHelper.saveScore(quis);
     }

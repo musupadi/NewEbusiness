@@ -45,7 +45,8 @@ public class HomeActivity extends AppCompatActivity {
     Fragment fragment;
     private String[] galleryPermissions =
             {Manifest.permission.READ_EXTERNAL_STORAGE,
-                    Manifest.permission.WRITE_EXTERNAL_STORAGE};
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                    Manifest.permission.ACCESS_COARSE_LOCATION};
     Ascendant ascendant= new Ascendant();
     DB_Helper dbHelper;
     String Token,NotifID;

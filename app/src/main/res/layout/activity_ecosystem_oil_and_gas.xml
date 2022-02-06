@@ -241,8 +241,57 @@
                             </androidx.cardview.widget.CardView>
                         </RelativeLayout>
                     </LinearLayout>
-
                     <LinearLayout
+                        android:id="@+id/linearListContract"
+                        android:layout_margin="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/box_long"
+                        android:orientation="horizontal">
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="match_parent"
+                                android:layout_centerInParent="true"
+                                android:layout_height="match_parent"
+                                app:cardCornerRadius="10dp"
+                                app:cardElevation="10dp">
+                                <LinearLayout
+                                    android:padding="10dp"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:orientation="horizontal"
+                                    android:gravity="center">
+                                    <ImageView
+                                        android:layout_width="80dp"
+                                        android:layout_height="80dp"
+                                        android:src="@drawable/regulations"
+                                        android:layout_margin="10dp"/>
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical">
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:text="@string/list_contract"
+                                            android:textStyle="bold"
+                                            android:textSize="@dimen/text_extra_large" />
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:text="@string/loreum_ipsum"
+                                            android:textColor="@color/colorConcrete"
+                                            android:textSize="@dimen/text_small_medium" />
+                                    </LinearLayout>
+
+                                </LinearLayout>
+                            </androidx.cardview.widget.CardView>
+                        </RelativeLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:visibility="gone"
                         android:id="@+id/linearDaftarPerusahaan"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/box_long"
@@ -339,7 +388,7 @@
                                         <TextView
                                             android:layout_width="match_parent"
                                             android:layout_height="match_parent"
-                                            android:text="@string/downstream_business_entity"
+                                            android:text="@string/downstream_business_proccess"
                                             android:textSize="@dimen/text_extra_large"
                                             android:textStyle="bold" />
 
@@ -639,55 +688,7 @@
                             </androidx.cardview.widget.CardView>
                         </RelativeLayout>
                     </LinearLayout>
-                    <LinearLayout
-                        android:id="@+id/linearListContract"
-                        android:layout_margin="10dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/box_long"
-                        android:orientation="horizontal">
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1">
-                            <androidx.cardview.widget.CardView
-                                android:layout_width="match_parent"
-                                android:layout_centerInParent="true"
-                                android:layout_height="match_parent"
-                                app:cardCornerRadius="10dp"
-                                app:cardElevation="10dp">
-                                <LinearLayout
-                                    android:padding="10dp"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:orientation="horizontal"
-                                    android:gravity="center">
-                                    <ImageView
-                                        android:layout_width="80dp"
-                                        android:layout_height="80dp"
-                                        android:src="@drawable/regulations"
-                                        android:layout_margin="10dp"/>
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:orientation="vertical">
-                                        <TextView
-                                            android:layout_width="match_parent"
-                                            android:layout_height="match_parent"
-                                            android:text="@string/list_contract"
-                                            android:textStyle="bold"
-                                            android:textSize="@dimen/text_extra_large" />
-                                        <TextView
-                                            android:layout_width="match_parent"
-                                            android:layout_height="match_parent"
-                                            android:text="@string/loreum_ipsum"
-                                            android:textColor="@color/colorConcrete"
-                                            android:textSize="@dimen/text_small_medium" />
-                                    </LinearLayout>
 
-                                </LinearLayout>
-                            </androidx.cardview.widget.CardView>
-                        </RelativeLayout>
-                    </LinearLayout>
                 </LinearLayout>
             </ScrollView>
 

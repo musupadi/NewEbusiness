@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.ascendant.e_businessprofile.Method.Ascendant;
 import com.ascendant.e_businessprofile.Adapter.Static.AdapterNavigator;
@@ -147,8 +148,8 @@ public class FMCGSimulationFinancialActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent goInput = new Intent(FMCGSimulationFinancialActivity.this, FMCGCreditWorthinessHitunganActivity.class);
-                goInput.putExtra("HITUNG","KAS BERSIH");
-                goInput.putExtra("KATEGORI","DISTRIBUTOR");
+                goInput.putExtra("HITUNG","KAS BERSIH DARI OPERASI");
+                goInput.putExtra("KATEGORI",KATEGORI);
                 startActivity(goInput);
             }
         });

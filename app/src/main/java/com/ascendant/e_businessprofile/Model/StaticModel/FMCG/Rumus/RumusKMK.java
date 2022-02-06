@@ -11,9 +11,9 @@ public class RumusKMK {
 
     @SerializedName("range_bawah")
     @Expose
-    public Integer range_bawah;
+    public String range_bawah;
 
     @SerializedName("range_atas")
     @Expose
-    public Integer range_atas;
+    public String range_atas;
 }

@@ -145,7 +145,7 @@ public class OutlookOilAndGasActivity extends AppCompatActivity {
                 Download.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(android.view.View view) {
-                        ascendant.Download(OutlookOilAndGasActivity.this,"pdf","files/oil_and_gas/outlook/business_status_and_prospects.pdf","Oil And Gas Busibess Status & Prospects Outlook");
+                        ascendant.Download(OutlookOilAndGasActivity.this,"pdf","files/oil_and_gas/outlook/business_status_and_prospects.pdf","Oil And Gas Business Status & Prospects Outlook");
                     }
                 });
                 View.setOnClickListener(new View.OnClickListener() {

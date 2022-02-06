@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ascendant.e_businessprofile.API.ApiRequest;
+import com.ascendant.e_businessprofile.API.OldRetroServer;
 import com.ascendant.e_businessprofile.API.RetroServer;
 import com.ascendant.e_businessprofile.Method.Ascendant;
 import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
@@ -178,7 +180,8 @@ public class FMCGCreditWorthinessHitunganActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<ResponseKMK> call, Throwable t) {
-
+                Log.d("Zyarga",t.toString());
+//                Toast.makeText(FMCGCreditWorthinessHitunganActivity.this, t.toString(), Toast.LENGTH_SHORT).show();
             }
         });
     }

@@ -5,7 +5,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.widget.Toast;
 
 import com.ascendant.e_businessprofile.Model.DataModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.AnalisisInput;
@@ -146,7 +145,6 @@ public class DB_Helper extends SQLiteOpenHelper {
         if (id.equals("0")){
             SQLiteDatabase db = this.getWritableDatabase();
             db.execSQL("DELETE FROM "+TABLE_5C);
-            Toast.makeText(ctx, "Starting", Toast.LENGTH_SHORT).show();
         }else{
             SQLiteDatabase db = this.getWritableDatabase();
             db.execSQL("DELETE FROM "+TABLE_5C+" WHERE "+COLUMN_ID_FIVE_C+" = "+id);

@@ -92,7 +92,7 @@
                             <ImageView
                                 android:layout_width="80dp"
                                 android:layout_height="80dp"
-                                android:src="@drawable/clinic"/>
+                                android:src="@drawable/regulations"/>
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
@@ -123,7 +123,7 @@
                             <ImageView
                                 android:layout_width="80dp"
                                 android:layout_height="80dp"
-                                android:src="@drawable/clinic"/>
+                                android:src="@drawable/newsletter"/>
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
@@ -162,7 +162,7 @@
                             <ImageView
                                 android:layout_width="80dp"
                                 android:layout_height="80dp"
-                                android:src="@drawable/clinic"/>
+                                android:src="@drawable/ebook"/>
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
@@ -193,7 +193,7 @@
                             <ImageView
                                 android:layout_width="80dp"
                                 android:layout_height="80dp"
-                                android:src="@drawable/clinic"/>
+                                android:src="@drawable/supporting_industries"/>
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
@@ -232,7 +232,7 @@
                             <ImageView
                                 android:layout_width="80dp"
                                 android:layout_height="80dp"
-                                android:src="@drawable/clinic"/>
+                                android:src="@drawable/third_party_administrator"/>
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"

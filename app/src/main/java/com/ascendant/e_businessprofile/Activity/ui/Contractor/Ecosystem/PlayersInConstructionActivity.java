@@ -6,42 +6,66 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
+import com.ascendant.e_businessprofile.API.ApiRequest;
+import com.ascendant.e_businessprofile.API.RetroServer;
+import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
+import com.ascendant.e_businessprofile.Adapter.AdapterBukuPerusahaan;
+import com.ascendant.e_businessprofile.Adapter.AdapterListOfProbing2;
 import com.ascendant.e_businessprofile.Adapter.Static.AdapterNavigator;
 import com.ascendant.e_businessprofile.Method.Ascendant;
 import com.ascendant.e_businessprofile.Model.DataModel;
+import com.ascendant.e_businessprofile.Model.ResponseArrayObject;
 import com.ascendant.e_businessprofile.Model.StaticModel.Mining.MiningOutlookModel;
 import com.ascendant.e_businessprofile.R;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class PlayersInConstructionActivity extends AppCompatActivity {
+    RecyclerView rv;
+    private List<DataModel> mItems = new ArrayList<>();
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager mManager;
+
+    DB_Helper dbHelper;
+    String Token;
+
     LinearLayout Available,Navigator;
-    RecyclerView rv,recyclerView;
+    RecyclerView rv2,recyclerView;
     ImageView ivMore;
     LinearLayout More,Back;
     Boolean more=true;
     private ArrayList<DataModel> pList = new ArrayList<>();
-    Button View,Download;
-    Ascendant ascendant = new Ascendant();
-    Dialog myDialog;
-    LinearLayout Book1,Book2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_players_in_construction);
-        myDialog = new Dialog(this);
-        myDialog.setContentView(R.layout.dialog_view_download);
-        Book1 = findViewById(R.id.linearBook1);
-        Book2 = findViewById(R.id.linearBook2);
+        dbHelper = new DB_Helper(this);
+        Cursor cursor = dbHelper.checkUser();
+        if (cursor.getCount()>0){
+            while (cursor.moveToNext()){
+                Token = cursor.getString(0);
+            }
+        }
+        rv = findViewById(R.id.recycler);
+        Logic();
+
         //Cut Here
-        rv = findViewById(R.id.recyclerNav);
+        rv2 = findViewById(R.id.recyclerNav);
         Available = findViewById(R.id.linearAvailable);
         Navigator = findViewById(R.id.linearNavigator);
         ivMore = findViewById(R.id.ivMore);
@@ -49,50 +73,66 @@ public class PlayersInConstructionActivity extends AppCompatActivity {
         Back = findViewById(R.id.linearBack);
         Available.setVisibility(View.VISIBLE);
         pList.addAll(MiningOutlookModel.getListData());
-        rv.setLayoutManager(new LinearLayoutManager(this));
-        AdapterNavigator adapters = new AdapterNavigator(this, pList);
-        rv.setAdapter(adapters);
+        rv2.setLayoutManager(new LinearLayoutManager(this));
+        AdapterNavigator adapters = new AdapterNavigator(this,pList);
+        rv2.setAdapter(adapters);
 
-        Back.setOnClickListener(new android.view.View.OnClickListener() {
+        Back.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(android.view.View view) {
+            public void onClick(View view) {
                 onBackPressed();
             }
         });
-        More.setOnClickListener(new android.view.View.OnClickListener() {
+        More.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 try {
-                    if (more) {
+                    if (more){
                         more = false;
                         ivMore.setImageResource(R.drawable.close_concerate);
                         Available.setVisibility(View.GONE);
                         Navigator.setVisibility(View.VISIBLE);
-                    } else {
+                    }else{
                         more = true;
                         ivMore.setImageResource(R.drawable.more_vertical_concerate);
                         Available.setVisibility(View.VISIBLE);
                         Navigator.setVisibility(View.GONE);
                     }
-                } catch (Exception e) {
+                }catch (Exception e){
 
                 }
 
             }
         });
+
         //Cut Here
-        Book1.setOnClickListener(new View.OnClickListener() {
+    }
+    private void Logic(){
+        mManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false);
+        rv.setLayoutManager(mManager);
+        ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
+        Call<ResponseArrayObject> data =api.BukuPerusahaan(Token);
+        data.enqueue(new Callback<ResponseArrayObject>() {
             @Override
-            public void onClick(android.view.View view) {
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://mandiri-ebuss.com/files/contractor/ekosistem/direktori_perusahaan_konstruksi_2021_buku_1.pdf"));
-                startActivity(browserIntent);
+            public void onResponse(Call<ResponseArrayObject> call, Response<ResponseArrayObject> response) {
+                try {
+                    if (response.body().getKode().equals(200)){
+                        mItems=response.body().getData();
+                        mAdapter = new AdapterBukuPerusahaan(PlayersInConstructionActivity.this,mItems);
+                        rv.setAdapter(mAdapter);
+                        mAdapter.notifyDataSetChanged();
+                    }else{
+                        Toast.makeText(PlayersInConstructionActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                }catch (Exception e){
+                    Log.d("ZYARGA : ",e.toString());
+                    Toast.makeText(PlayersInConstructionActivity.this, "Terjadi Kesaqlahan", Toast.LENGTH_SHORT).show();
+                }
             }
-        });
-        Book2.setOnClickListener(new View.OnClickListener() {
+
             @Override
-            public void onClick(android.view.View view) {
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://mandiri-ebuss.com/files/contractor/ekosistem/direktori_perusahaan_konstruksi_2021_buku_2.pdf"));
-                startActivity(browserIntent);
+            public void onFailure(Call<ResponseArrayObject> call, Throwable t) {
+                Toast.makeText(PlayersInConstructionActivity.this, "Koneksi Gagal", Toast.LENGTH_SHORT).show();
             }
         });
     }

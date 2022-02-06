@@ -99,7 +99,7 @@ public class OutlookActivity extends AppCompatActivity {
                 Download.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(android.view.View view) {
-                        ascendant.Download(OutlookActivity.this,"pdf","files/mining/outlook/business_status_and_prospects.pdf","Busibess Status & Prospects");
+                        ascendant.Download(OutlookActivity.this,"pdf","files/mining/outlook/business_status_and_prospects.pdf","Business Status & Prospects");
                     }
                 });
                 View.setOnClickListener(new View.OnClickListener() {

@@ -17,6 +17,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.ascendant.e_businessprofile.Activity.HomeActivity;
+import com.ascendant.e_businessprofile.Activity.ModuleActivity;
 import com.ascendant.e_businessprofile.Method.Ascendant;
 import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
 import com.ascendant.e_businessprofile.Activity.ui.FMCG.CreditDecisionTool.SustainableFinancing.FMCGSustainableFinancingActivity;
@@ -168,5 +170,12 @@ public class FMCGMainCreditDecisionToolActivity extends AppCompatActivity {
                 startActivity(goInput);
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent i = new Intent(FMCGMainCreditDecisionToolActivity.this, ModuleActivity.class);
+        i.putExtra("MODULE", "FMCG");
+        startActivity(i);
     }
 }

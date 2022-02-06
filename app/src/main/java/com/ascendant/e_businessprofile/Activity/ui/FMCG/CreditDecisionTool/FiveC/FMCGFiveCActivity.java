@@ -14,7 +14,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.ascendant.e_businessprofile.Activity.Analisis5CActivity;
+import com.ascendant.e_businessprofile.Activity.ModuleActivity;
 import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
+import com.ascendant.e_businessprofile.Activity.ui.FMCG.CreditDecisionTool.FMCGCreditDecisionToolActivity;
+import com.ascendant.e_businessprofile.Activity.ui.FMCG.CreditDecisionTool.FMCGMainCreditDecisionToolActivity;
 import com.ascendant.e_businessprofile.Adapter.Static.AdapterNavigator;
 import com.ascendant.e_businessprofile.Model.DataModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.CreditDecisionTool.FMCGCreditDecisionToolFNB5CModel;
@@ -317,5 +320,12 @@ public class FMCGFiveCActivity extends AppCompatActivity {
         }else{
 
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent i = new Intent(FMCGFiveCActivity.this, FMCGCreditDecisionToolActivity.class);
+        i.putExtra("KATEGORI", KATEGORI);
+        startActivity(i);
     }
 }

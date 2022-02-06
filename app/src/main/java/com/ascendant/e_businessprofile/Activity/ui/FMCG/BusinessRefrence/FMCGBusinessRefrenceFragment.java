@@ -71,7 +71,7 @@ public class FMCGBusinessRefrenceFragment extends Fragment {
         Regulations.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getActivity(), FMCGeBookActivity.class);
+                Intent i = new Intent(getActivity(), FMCGRegulationActivity.class);
                 getActivity().startActivity(i);
             }
         });

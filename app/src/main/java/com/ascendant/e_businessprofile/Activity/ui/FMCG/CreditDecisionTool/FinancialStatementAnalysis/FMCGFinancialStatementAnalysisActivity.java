@@ -149,11 +149,11 @@ public class FMCGFinancialStatementAnalysisActivity extends AppCompatActivity {
         TotalPersediaan.addTextChangedListener(new NumberTextWatcher(TotalPersediaan));
 
         if (KATEGORI.equals("FOOD")){
-            header.setText("FMCG / Credit Decision Tool / Food & Beverage / Working Capital Credit");
+            header.setText("Food Financial Statment Analysis");
         }else if (KATEGORI.equals("NON FOOD ROKOK")){
-            header.setText("FMCG / Credit Decision Tool / Tobacco / Working Capital Credit");
+            header.setText("Tobacco Financial Statment Analysis");
         }else{
-            header.setText("FMCG / Credit Decision Tool / Non Food & Beverage / Working Capital Credit");
+            header.setText("Non Food Financial Statment Analysis");
         }
         Hitung.setOnClickListener(new View.OnClickListener() {
             @Override

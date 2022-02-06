@@ -80,10 +80,7 @@
                 android:layout_weight="1"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginBottom="5dp"
+                android:layout_margin="10dp"
                 android:id="@+id/cardHospitalOperational">
               <LinearLayout
                   android:padding="10dp"
@@ -91,11 +88,13 @@
                   android:layout_height="match_parent"
                   android:orientation="horizontal"
                   android:gravity="center">
+
                 <ImageView
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    android:src="@drawable/clinic"
-                    android:layout_margin="10dp"/>
+                    android:layout_margin="10dp"
+                    android:src="@drawable/supporting_industries" />
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -129,10 +128,7 @@
                 android:layout_weight="1"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginBottom="5dp"
+                android:layout_margin="10dp"
                 android:id="@+id/cardHospitalFinanceIndicator">
               <LinearLayout
                   android:padding="10dp"
@@ -143,7 +139,7 @@
                 <ImageView
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    android:src="@drawable/clinic"
+                    android:src="@drawable/newsletter"
                     android:layout_margin="10dp"/>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -179,10 +175,7 @@
                 android:layout_weight="1"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginBottom="5dp">
+                android:layout_margin="10dp">
               <LinearLayout
                   android:padding="10dp"
                   android:layout_width="match_parent"
@@ -192,7 +185,7 @@
                 <ImageView
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    android:src="@drawable/clinic"
+                    android:src="@drawable/ebook"
                     android:layout_margin="10dp"/>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -228,10 +221,7 @@
                 android:layout_weight="1"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginBottom="5dp">
+                android:layout_margin="10dp">
               <LinearLayout
                   android:padding="10dp"
                   android:layout_width="match_parent"
@@ -241,7 +231,7 @@
                 <ImageView
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    android:src="@drawable/clinic"
+                    android:src="@drawable/regulations"
                     android:layout_margin="10dp"/>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -278,10 +268,7 @@
                 android:layout_weight="1"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginBottom="5dp">
+                android:layout_margin="10dp">
               <LinearLayout
                   android:padding="10dp"
                   android:layout_width="match_parent"
@@ -291,7 +278,7 @@
                 <ImageView
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    android:src="@drawable/clinic"
+                    android:src="@drawable/government_regulations"
                     android:layout_margin="10dp"/>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -328,10 +315,7 @@
                 android:layout_weight="1"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginBottom="5dp">
+                android:layout_margin="10dp">
               <LinearLayout
                   android:padding="10dp"
                   android:layout_width="match_parent"
@@ -341,7 +325,7 @@
                 <ImageView
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    android:src="@drawable/clinic"
+                    android:src="@drawable/bpjs"
                     android:layout_margin="10dp"/>
                 <LinearLayout
                     android:layout_width="match_parent"

@@ -638,6 +638,9 @@ public class DataModel {
     @Expose
     public String total_balasan;
 
+    @SerializedName("link_konstruksi_2021")
+    @Expose
+    public String  link_konstruksi_2021;
 
 
     //Old EBusiness
@@ -671,7 +674,7 @@ public class DataModel {
     String market_size,dua,share;
     String id_fmcg_fivec,no_fivec,kategori_fivec,pernyataan_fivec,isi_fivec,nilai_yes,nilai_no,simulasi_fivec;
 
-
+    String id_regulation,nama_peraturan,jenis_peraturan,kategori_regulation,highlight_regulations,tahun_peraturan,tgl_upload_regulation,link_file_regulation;
     String tgl_registrasi_rs,jenis_rs,
             direktur_rs,latar_pendidikan_direktur_rs,pemilik_rs,
             alamat_rs,provinsi_rs,kabupaten_kota_rs,
@@ -4244,5 +4247,77 @@ public class DataModel {
 
     public void setJenis_riwayat(String jenis_riwayat) {
         this.jenis_riwayat = jenis_riwayat;
+    }
+
+    public String getLink_konstruksi_2021() {
+        return link_konstruksi_2021;
+    }
+
+    public void setLink_konstruksi_2021(String link_konstruksi_2021) {
+        this.link_konstruksi_2021 = link_konstruksi_2021;
+    }
+
+    public String getId_regulation() {
+        return id_regulation;
+    }
+
+    public void setId_regulation(String id_regulation) {
+        this.id_regulation = id_regulation;
+    }
+
+    public String getNama_peraturan() {
+        return nama_peraturan;
+    }
+
+    public void setNama_peraturan(String nama_peraturan) {
+        this.nama_peraturan = nama_peraturan;
+    }
+
+    public String getJenis_peraturan() {
+        return jenis_peraturan;
+    }
+
+    public void setJenis_peraturan(String jenis_peraturan) {
+        this.jenis_peraturan = jenis_peraturan;
+    }
+
+    public String getKategori_regulation() {
+        return kategori_regulation;
+    }
+
+    public void setKategori_regulation(String kategori_regulation) {
+        this.kategori_regulation = kategori_regulation;
+    }
+
+    public String getHighlight_regulations() {
+        return highlight_regulations;
+    }
+
+    public void setHighlight_regulations(String highlight_regulations) {
+        this.highlight_regulations = highlight_regulations;
+    }
+
+    public String getTahun_peraturan() {
+        return tahun_peraturan;
+    }
+
+    public void setTahun_peraturan(String tahun_peraturan) {
+        this.tahun_peraturan = tahun_peraturan;
+    }
+
+    public String getTgl_upload_regulation() {
+        return tgl_upload_regulation;
+    }
+
+    public void setTgl_upload_regulation(String tgl_upload_regulation) {
+        this.tgl_upload_regulation = tgl_upload_regulation;
+    }
+
+    public String getLink_file_regulation() {
+        return link_file_regulation;
+    }
+
+    public void setLink_file_regulation(String link_file_regulation) {
+        this.link_file_regulation = link_file_regulation;
     }
 }

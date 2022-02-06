@@ -1,6 +1,7 @@
 package com.ascendant.e_businessprofile.API;
 
 import com.ascendant.e_businessprofile.Model.DataModel;
+import com.ascendant.e_businessprofile.Model.RegulationFMCGModel;
 import com.ascendant.e_businessprofile.Model.ResponseArrayObject;
 import com.ascendant.e_businessprofile.Model.ResponseDataModel;
 import com.ascendant.e_businessprofile.Model.ResponseObject;
@@ -22,6 +23,11 @@ import retrofit2.http.POST;
 import retrofit2.http.Part;
 
 public interface ApiRequest {
+    @FormUrlEncoded
+    @POST("regulations/list_fmcg")
+    Call<RegulationFMCGModel> RegulationFMCG(@Header("Authorization") String authHeader,
+                                             @Field("kuncifaba") String kuncifaba);
+
     @FormUrlEncoded
     @POST("suratapi/simulator")
     Call<ResponseObject> SimulasiAnalisisKinerjaRS(@Header("Authorization") String authHeader,
@@ -576,4 +582,8 @@ public interface ApiRequest {
     @FormUrlEncoded
     @POST("lihat_notif")
     Call<ResponseArrayObject> LihatNotif(@Field("token") String token);
+
+    @FormUrlEncoded
+    @POST("contractor/perusahaan_book")
+    Call<ResponseArrayObject> BukuPerusahaan(@Field("token") String token);
 }

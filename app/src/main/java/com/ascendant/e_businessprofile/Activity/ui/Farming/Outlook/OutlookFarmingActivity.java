@@ -84,8 +84,10 @@ public class OutlookFarmingActivity extends AppCompatActivity {
         BusinessReview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://mandiri-ebuss.com/files/farming/outlook/business_review.pdf"));
-                startActivity(browserIntent);
+//                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://mandiri-ebuss.com/files/farming/outlook/business_review.pdf"));
+//                startActivity(browserIntent);
+                Intent intent = new Intent(OutlookFarmingActivity.this,FarmingBusinessReviewActivity.class);
+                startActivity(intent);
             }
         });
         KeySuccess.setOnClickListener(new View.OnClickListener() {

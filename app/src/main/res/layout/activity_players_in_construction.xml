@@ -60,21 +60,82 @@
                     </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:id="@+id/linearAvailable">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                </androidx.recyclerview.widget.RecyclerView>
+            </LinearLayout>
             <ScrollView
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <LinearLayout
-                    android:id="@+id/linearAvailable"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
                     <LinearLayout
-                        android:id="@+id/linearBook1"
                         android:layout_margin="10dp"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/box_long"
                         android:orientation="horizontal">
                         <RelativeLayout
+                            android:id="@+id/relativeEBook"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="match_parent"
+                                android:layout_centerInParent="true"
+                                android:layout_height="match_parent"
+                                app:cardCornerRadius="10dp"
+                                app:cardElevation="10dp">
+                                <LinearLayout
+                                    android:padding="10dp"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:orientation="horizontal"
+                                    android:gravity="center">
+                                    <ImageView
+                                        android:layout_width="80dp"
+                                        android:layout_height="80dp"
+                                        android:src="@drawable/government_regulations"
+                                        android:layout_margin="10dp"/>
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical">
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:text="@string/legal_aspect_licence"
+                                            android:textStyle="bold"
+                                            android:textSize="@dimen/text_extra_large" />
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:text="@string/loreum_ipsum"
+                                            android:textColor="@color/colorConcrete"
+                                            android:textSize="@dimen/text_small_medium" />
+                                    </LinearLayout>
+
+                                </LinearLayout>
+                            </androidx.cardview.widget.CardView>
+                        </RelativeLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_margin="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/box_long"
+                        android:orientation="horizontal">
+                        <RelativeLayout
+                            android:id="@+id/relativeRegulations"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1">
@@ -102,13 +163,13 @@
                                         <TextView
                                             android:layout_width="match_parent"
                                             android:layout_height="match_parent"
-                                            android:text="@string/book1"
+                                            android:text="@string/operational_technical"
                                             android:textStyle="bold"
                                             android:textSize="@dimen/text_extra_large" />
                                         <TextView
                                             android:layout_width="match_parent"
                                             android:layout_height="match_parent"
-                                            android:text="Sumatera, Kalimantan, Sulawesi, Papua"
+                                            android:text="@string/loreum_ipsum"
                                             android:textColor="@color/colorConcrete"
                                             android:textSize="@dimen/text_small_medium" />
                                     </LinearLayout>
@@ -118,12 +179,12 @@
                         </RelativeLayout>
                     </LinearLayout>
                     <LinearLayout
-                        android:id="@+id/linearBook2"
                         android:layout_margin="10dp"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/box_long"
                         android:orientation="horizontal">
                         <RelativeLayout
+                            android:id="@+id/relativeNewsletter"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1">
@@ -142,7 +203,7 @@
                                     <ImageView
                                         android:layout_width="80dp"
                                         android:layout_height="80dp"
-                                        android:src="@drawable/newsletter"
+                                        android:src="@drawable/health_minister_decree"
                                         android:layout_margin="10dp"/>
                                     <LinearLayout
                                         android:layout_width="match_parent"
@@ -151,13 +212,62 @@
                                         <TextView
                                             android:layout_width="match_parent"
                                             android:layout_height="match_parent"
-                                            android:text="@string/book2"
+                                            android:text="@string/financial_aspect"
                                             android:textStyle="bold"
                                             android:textSize="@dimen/text_extra_large" />
                                         <TextView
                                             android:layout_width="match_parent"
                                             android:layout_height="match_parent"
-                                            android:text="Jawa, Bali, NTT, Maluiku"
+                                            android:text="@string/loreum_ipsum"
+                                            android:textColor="@color/colorConcrete"
+                                            android:textSize="@dimen/text_small_medium" />
+                                    </LinearLayout>
+
+                                </LinearLayout>
+                            </androidx.cardview.widget.CardView>
+                        </RelativeLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_margin="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/box_long"
+                        android:orientation="horizontal">
+                        <RelativeLayout
+                            android:id="@+id/relativeBusinessReview"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="match_parent"
+                                android:layout_centerInParent="true"
+                                android:layout_height="match_parent"
+                                app:cardCornerRadius="10dp"
+                                app:cardElevation="10dp">
+                                <LinearLayout
+                                    android:padding="10dp"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:orientation="horizontal"
+                                    android:gravity="center">
+                                    <ImageView
+                                        android:layout_width="80dp"
+                                        android:layout_height="80dp"
+                                        android:src="@drawable/third_party_administrator"
+                                        android:layout_margin="10dp"/>
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical">
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:text="@string/management_key_person"
+                                            android:textStyle="bold"
+                                            android:textSize="@dimen/text_extra_large" />
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:text="@string/loreum_ipsum"
                                             android:textColor="@color/colorConcrete"
                                             android:textSize="@dimen/text_small_medium" />
                                     </LinearLayout>

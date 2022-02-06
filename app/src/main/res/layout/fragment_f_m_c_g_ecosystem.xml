@@ -76,7 +76,7 @@
                         android:layout_marginBottom="10dp"
                         android:layout_width="37.5dp"
                         android:layout_height="37.5dp"
-                        android:src="@drawable/calendar"/>
+                        android:src="@drawable/ebook"/>
                     <TextView
                         android:layout_marginLeft="10dp"
                         android:layout_width="match_parent"
@@ -107,7 +107,7 @@
                         android:layout_marginBottom="10dp"
                         android:layout_width="37.5dp"
                         android:layout_height="37.5dp"
-                        android:src="@drawable/calendar"/>
+                        android:src="@drawable/third_party_administrator"/>
                     <TextView
                         android:layout_marginLeft="10dp"
                         android:layout_width="match_parent"
@@ -138,7 +138,7 @@
                         android:layout_marginBottom="10dp"
                         android:layout_width="37.5dp"
                         android:layout_height="37.5dp"
-                        android:src="@drawable/calendar"/>
+                        android:src="@drawable/government_regulations"/>
                     <TextView
                         android:layout_marginLeft="10dp"
                         android:layout_width="match_parent"
@@ -169,7 +169,7 @@
                         android:layout_marginBottom="10dp"
                         android:layout_width="37.5dp"
                         android:layout_height="37.5dp"
-                        android:src="@drawable/calendar"/>
+                        android:src="@drawable/bpjs"/>
                     <TextView
                         android:layout_marginLeft="10dp"
                         android:layout_width="match_parent"
@@ -200,7 +200,7 @@
                         android:layout_marginBottom="10dp"
                         android:layout_width="37.5dp"
                         android:layout_height="37.5dp"
-                        android:src="@drawable/calendar"/>
+                        android:src="@drawable/regulations"/>
                     <TextView
                         android:layout_marginLeft="10dp"
                         android:layout_width="match_parent"
@@ -231,7 +231,7 @@
                         android:layout_marginBottom="10dp"
                         android:layout_width="37.5dp"
                         android:layout_height="37.5dp"
-                        android:src="@drawable/calendar"/>
+                        android:src="@drawable/supporting_industries"/>
                     <TextView
                         android:layout_marginLeft="10dp"
                         android:layout_width="match_parent"
@@ -262,7 +262,7 @@
                         android:layout_marginBottom="10dp"
                         android:layout_width="37.5dp"
                         android:layout_height="37.5dp"
-                        android:src="@drawable/calendar"/>
+                        android:src="@drawable/newsletter"/>
                     <TextView
                         android:layout_marginLeft="10dp"
                         android:layout_width="match_parent"

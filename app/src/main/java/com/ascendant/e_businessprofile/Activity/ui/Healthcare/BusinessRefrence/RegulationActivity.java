@@ -18,8 +18,8 @@ import com.ascendant.e_businessprofile.Activity.ui.NavigatorFragment;
 import com.ascendant.e_businessprofile.R;
 
 public class RegulationActivity extends AppCompatActivity {
-    LinearLayout LHome, LForum, LChat, LProfile;
-    ImageView Home, Forum, Chat, Profile;
+    LinearLayout LHome, LForum, LProfile;
+    ImageView Home, Forum, Profile;
     Fragment fragment;
     Dialog dialog;
     ImageView ivMore;
@@ -46,12 +46,6 @@ public class RegulationActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Forum();
-            }
-        });
-        LChat.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Chat();
             }
         });
         LProfile.setOnClickListener(new View.OnClickListener() {
@@ -95,12 +89,10 @@ public class RegulationActivity extends AppCompatActivity {
     private void Declaration() {
         LHome = findViewById(R.id.linearHome);
         LForum = findViewById(R.id.linearForum);
-        LChat = findViewById(R.id.linearChat);
         LProfile = findViewById(R.id.linearProfile);
 
         Home = findViewById(R.id.ivHome);
         Forum = findViewById(R.id.ivForum);
-        Chat = findViewById(R.id.ivChat);
         Profile = findViewById(R.id.ivProfile);
 
         ivMore = findViewById(R.id.ivMore);
@@ -111,7 +103,6 @@ public class RegulationActivity extends AppCompatActivity {
     private void Default() {
         Home.setImageResource(R.drawable.home_inactive);
         Forum.setImageResource(R.drawable.forum_inactive);
-        Chat.setImageResource(R.drawable.chat_inactive);
         Profile.setImageResource(R.drawable.profile_inactive);
     }
 
@@ -125,12 +116,6 @@ public class RegulationActivity extends AppCompatActivity {
         Default();
         Forum.setImageResource(R.drawable.forum_active);
         fragment = new ForumFragment();
-        ChangeFragment(fragment);
-    }
-    private void Chat() {
-        Default();
-        Chat.setImageResource(R.drawable.chat_active);
-        fragment = new ChatFragment();
         ChangeFragment(fragment);
     }
     private void Profile() {

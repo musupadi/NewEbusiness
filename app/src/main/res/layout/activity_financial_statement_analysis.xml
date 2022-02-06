@@ -87,7 +87,7 @@
                                 android:layout_width="100dp"
                                 android:layout_height="100dp"
                                 android:layout_gravity="center"
-                                android:src="@drawable/hospital_equipment"/>
+                                android:src="@drawable/newsletter"/>
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
@@ -115,7 +115,7 @@
                                 android:layout_width="100dp"
                                 android:layout_height="100dp"
                                 android:layout_gravity="center"
-                                android:src="@drawable/hospital_equipment"/>
+                                android:src="@drawable/supporting_industries"/>
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
@@ -148,7 +148,7 @@
                                 android:layout_width="100dp"
                                 android:layout_height="100dp"
                                 android:layout_gravity="center"
-                                android:src="@drawable/hospital_equipment"/>
+                                android:src="@drawable/acts"/>
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
@@ -176,7 +176,7 @@
                                 android:layout_width="100dp"
                                 android:layout_height="100dp"
                                 android:layout_gravity="center"
-                                android:src="@drawable/hospital_equipment"/>
+                                android:src="@drawable/pharmacy"/>
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"

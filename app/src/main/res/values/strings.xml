@@ -37,7 +37,7 @@
     <string name="view_more">View More</string>
     <string name="back">Kembali</string>
     <string name="detail_healthcare"></string>
-    <string name="business_refrence">Business Refrence</string>
+    <string name="business_refrence">Business Reference</string>
     <string name="outlook">Outlook</string>
     <string name="market_inteligence">Market\nInteligence</string>
     <string name="ecosystem">Ecosystem</string>
@@ -140,6 +140,7 @@
     <string name="kks_produksi">KKKS Productrion</string>
     <string name="kks_cbm">KKKS CBM</string>
     <string name="downstream_business_entity">Downstream Business Entity</string>
+    <string name="downstream_business_proccess">Downstream Business Proccess</string>
     <string name="processing_business">Processing Business Entity</string>
     <string name="storage_business_entitty">Storage Business Entity status Fourth Quarter 2021</string>
     <string name="list_company">List of Supporting Companies</string>
@@ -192,7 +193,7 @@
     <string name="interest_coverage">Intereset Coverage</string>
     <string name="receivable_turnover">Receivable Turnover</string>
     <string name="inventory_turnover">Inventory Turnover</string>
-    <string name="payable_turnover">payable Turnover</string>
+    <string name="payable_turnover">Payable Turnover</string>
     <string name="net_profit_margin">Net Profit Margin</string>
     <string name="return_on_investment">Return On Investment</string>
     <string name="return_on_equitu">Return On Equity</string>

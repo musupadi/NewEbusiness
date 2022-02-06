@@ -19,6 +19,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ascendant.e_businessprofile.API.ApiRequest;
@@ -50,6 +51,10 @@ public class ForumFragment extends Fragment {
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mManager;
     RecyclerView rv;
+    ImageView Left,Right;
+    TextView Paging;
+    String Page = "1";
+    String Jduul = "";
     public ForumFragment() {
         // Required empty public constructor
     }
@@ -58,7 +63,6 @@ public class ForumFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
@@ -71,6 +75,9 @@ public class ForumFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        Left = view.findViewById(R.id.ivLeft);
+        Right = view.findViewById(R.id.ivRight);
+        Paging = view.findViewById(R.id.tvPaging);
         Search = view.findViewById(R.id.ivSearch);
         etSearch = view.findViewById(R.id.etSearch);
         Category = view.findViewById(R.id.spinnerCategory);
@@ -101,13 +108,38 @@ public class ForumFragment extends Fragment {
                 startActivity(intent);
             }
         });
+        Right.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Page=String.valueOf(Integer.parseInt(Page)+1);
+                Logic();
+                Paging.setText(Page);
+            }
+        });
+        Left.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Page=String.valueOf(Integer.parseInt(Page)-1);
+                Logic();
+                Paging.setText(Page);
+            }
+        });
+        Search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Search();
+            }
+        });
     }
-
+    private void Search(){
+        Jduul=etSearch.getText().toString();
+        Logic();
+    }
     private void Logic(){
         mManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL,false);
         rv.setLayoutManager(mManager);
         ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
-        final Call<ResponseArrayObject> data =api.Daftar_Postingan(Token,Checker(Category.getSelectedItem().toString()),"1","");
+        final Call<ResponseArrayObject> data =api.Daftar_Postingan(Token,Checker(Category.getSelectedItem().toString()),Page,Jduul);
         data.enqueue(new Callback<ResponseArrayObject>() {
             @Override
             public void onResponse(Call<ResponseArrayObject> call, Response<ResponseArrayObject> response) {
@@ -117,12 +149,22 @@ public class ForumFragment extends Fragment {
                         mAdapter = new AdapterForum(getActivity(),mItems);
                         rv.setAdapter(mAdapter);
                         mAdapter.notifyDataSetChanged();
+                        if (Integer.parseInt(Page)>Integer.parseInt(response.body().getMax_page())){
+                            Right.setVisibility(View.INVISIBLE);
+                        }else{
+                            Right.setVisibility(View.VISIBLE);
+                        }
+                        if (Integer.parseInt(Page)==1){
+                            Left.setVisibility(View.INVISIBLE);
+                        }else{
+                            Left.setVisibility(View.VISIBLE);
+                        }
                     }else{
                         Toast.makeText(getActivity(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 }catch (Exception e){
                     Log.d("DONTOL : ",e.toString());
-                    Toast.makeText(getActivity(), "Terjadi Kesaqlahan", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getActivity(), "Terjadi Kesaqlahan", Toast.LENGTH_SHORT).show();
                 }
             }
 
