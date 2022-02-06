@@ -57,8 +57,7 @@ public class Ascendant {
         Locale localeID = new Locale("in", "ID");
         NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(localeID);
         BigDecimal bd1 = new BigDecimal(nilai).setScale(0, RoundingMode.HALF_UP);
-        String MAGIC1 = formatRupiah.format(bd1).replace("Rp","Rp ");
-        return MAGIC1;
+        return formatRupiah.format(bd1);
     }
     public String RPEraser(String magic){
         String MAGIC1 = magic.replace("Rp","");

@@ -129,7 +129,7 @@ public class MarketInteliganceContractorActivity extends AppCompatActivity {
                     LinkEbook="https://ebuss-book.mandiri-ebuss.com/contractor/page/market_intelligence/market_potential_jasa.php";
                 }else{
                     LinkPDF="files/contractor/market_intelligence/market_potential_pengadaan.pdf";
-                    LinkEbook="";
+                    LinkEbook="https://ebuss-book.mandiri-ebuss.com/contractor/page/market_intelligence/market_potential_pengadaan.php";
                 }
                 Download = myDialog.findViewById(R.id.btnDownload);
                 View = myDialog.findViewById(R.id.btnView);

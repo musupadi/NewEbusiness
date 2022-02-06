@@ -51,7 +51,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:text="@string/debt_to_equties"
+                            android:text="@string/debt_to_total_assets"
                             android:gravity="center|left"
                             android:fontFamily="@font/inter"
                             android:textStyle="bold"

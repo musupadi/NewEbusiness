@@ -70,20 +70,26 @@ public class AdaptereBook2 extends RecyclerView.Adapter<AdaptereBook2.HolderData
                 View.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(android.view.View view) {
-                        if (dm.getLink_ebook().equals("") || dm.getLink_ebook().isEmpty()){
+                        try {
+                            if (dm.getLink_ebook().equals("") || dm.getLink_ebook().isEmpty()){
+                                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(dm.getLink_file_ebook()));
+                                ctx.startActivity(browserIntent);
+                            }else{
+                                if (dm.getMode_ebook().equals("P")){
+                                    Intent i = new Intent(ctx, PortraitWebViewEbookActivity.class);
+                                    i.putExtra("LINK", dm.getLink_ebook());
+                                    ctx.startActivity(i);
+                                }else{
+                                    Intent i = new Intent(ctx, LandscapeWebViewEbookActivity.class);
+                                    i.putExtra("LINK", dm.getLink_ebook());
+                                    ctx.startActivity(i);
+                                }
+                            }
+                        }catch (Exception e){
                             Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(dm.getLink_file_ebook()));
                             ctx.startActivity(browserIntent);
-                        }else{
-                            if (dm.getMode_ebook().equals("P")){
-                                Intent i = new Intent(ctx, PortraitWebViewEbookActivity.class);
-                                i.putExtra("LINK", dm.getLink_ebook());
-                                ctx.startActivity(i);
-                            }else{
-                                Intent i = new Intent(ctx, LandscapeWebViewEbookActivity.class);
-                                i.putExtra("LINK", dm.getLink_ebook());
-                                ctx.startActivity(i);
-                            }
                         }
+
                     }
                 });
             }
