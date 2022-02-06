@@ -377,7 +377,7 @@ public class FMCGResultFinancialStatementAnalysisActivity extends AppCompatActiv
                 if(hDOP>=Double.parseDouble(batasBawahDOP) && hDOP<=Double.parseDouble(batasAtasDOP)){
                     KeteranganDOP.setText("Normal");
                 }else{
-                    KeteranganDOP.setText("Tidak Norma");
+                    KeteranganDOP.setText("Tidak Normal");
                 }
             }
 

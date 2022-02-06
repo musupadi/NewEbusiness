@@ -59,7 +59,7 @@ public class AdapterListOfProbing extends RecyclerView.Adapter<AdapterListOfProb
                 }
             });
         }else{
-            holderData.web.setVisibility(View.VISIBLE);
+            holderData.web.setVisibility(View.GONE);
             holderData.image.setImageResource(R.drawable.pdf_file);
             holderData.card.setOnClickListener(new View.OnClickListener() {
                 @Override

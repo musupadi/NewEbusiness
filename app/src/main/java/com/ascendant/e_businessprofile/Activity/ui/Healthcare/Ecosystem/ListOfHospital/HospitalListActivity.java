@@ -85,6 +85,7 @@ public class HospitalListActivity extends AppCompatActivity implements OnMapRead
     Dialog myDialog;
     Button detail;
     Ascendant method = new Ascendant();
+    Button btnCari;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -373,6 +374,12 @@ public class HospitalListActivity extends AppCompatActivity implements OnMapRead
                 card.setVisibility(View.GONE);
             }
         });
+        btnCari.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Logic();
+            }
+        });
     }
     private void GetKota(){
         ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
@@ -457,6 +464,7 @@ public class HospitalListActivity extends AppCompatActivity implements OnMapRead
         Bed = findViewById(R.id.tvJumlahBed);
         recycler = findViewById(R.id.recycler);
         card = findViewById(R.id.card);
+        btnCari = findViewById(R.id.btnCari);
         Main();
     }
 

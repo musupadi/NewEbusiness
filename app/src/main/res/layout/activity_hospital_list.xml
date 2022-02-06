@@ -110,13 +110,27 @@
                                             android:layout_height="30dp"
                                             android:src="@drawable/search"
                                             android:layout_margin="10dp"/>
-                                        <EditText
-                                            android:layout_marginLeft="10dp"
+                                        <LinearLayout
                                             android:layout_width="match_parent"
                                             android:layout_height="match_parent"
-                                            android:gravity="center|left"
-                                            android:id="@+id/etSearchHospital"
-                                            android:hint="Search Hospital"/>
+                                            android:orientation="horizontal">
+                                            <EditText
+                                                android:layout_weight="1"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:gravity="center|left"
+                                                android:id="@+id/etSearchHospital"
+                                                android:hint="Search Hospital"/>
+                                            <Button
+                                                android:id="@+id/btnCari"
+                                                android:layout_margin="5dp"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:layout_weight="2"
+                                                android:text="Cari"
+                                                android:textColor="@color/colorWhite"
+                                                android:background="@drawable/btn_rounded_accent_2"/>
+                                        </LinearLayout>
                                     </LinearLayout>
                                 </LinearLayout>
                                 <LinearLayout

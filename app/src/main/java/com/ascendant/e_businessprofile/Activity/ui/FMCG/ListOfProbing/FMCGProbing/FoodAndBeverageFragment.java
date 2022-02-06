@@ -19,6 +19,7 @@ import com.ascendant.e_businessprofile.API.ApiRequest;
 import com.ascendant.e_businessprofile.API.RetroServer;
 import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
 import com.ascendant.e_businessprofile.Adapter.AdapterListOfProbing;
+import com.ascendant.e_businessprofile.Adapter.AdapterListOfProbingFMCG;
 import com.ascendant.e_businessprofile.Model.DataModel;
 import com.ascendant.e_businessprofile.Model.ResponseArrayObject;
 import com.ascendant.e_businessprofile.R;
@@ -79,7 +80,7 @@ public class FoodAndBeverageFragment extends Fragment {
                 try {
                     if (response.body().getKode().equals(200)){
                         mItems=response.body().getData();
-                        mAdapter = new AdapterListOfProbing(getActivity(),mItems);
+                        mAdapter = new AdapterListOfProbingFMCG(getActivity(),mItems);
                         rv.setAdapter(mAdapter);
                         mAdapter.notifyDataSetChanged();
                     }else{

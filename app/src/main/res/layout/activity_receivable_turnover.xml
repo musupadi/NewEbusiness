@@ -54,7 +54,7 @@
                 android:layout_height="match_parent"
                 android:fontFamily="@font/inter"
                 android:gravity="center|left"
-                android:text="@string/payable_turnover"
+                android:text="@string/receivable_turnover"
                 android:textColor="@color/colorPrimary"
                 android:textSize="@dimen/header_text_small"
                 android:textStyle="bold" />

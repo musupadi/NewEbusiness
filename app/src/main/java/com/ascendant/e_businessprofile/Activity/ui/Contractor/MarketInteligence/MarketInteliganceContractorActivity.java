@@ -125,11 +125,11 @@ public class MarketInteliganceContractorActivity extends AppCompatActivity {
             public void onClick(android.view.View view) {
                 myDialog.show();
                 if (!JUDUL.equals("Procurement of Goods and Services")){
-                    LinkPDF="files/contractor/market_intelligence/market_potential_pengadaan.pdf";
-                    LinkEbook="";
-                }else{
                     LinkPDF="files/contractor/market_intelligence/market_potential_jasa.pdf";
                     LinkEbook="https://ebuss-book.mandiri-ebuss.com/contractor/page/market_intelligence/market_potential_jasa.php";
+                }else{
+                    LinkPDF="files/contractor/market_intelligence/market_potential_pengadaan.pdf";
+                    LinkEbook="";
                 }
                 Download = myDialog.findViewById(R.id.btnDownload);
                 View = myDialog.findViewById(R.id.btnView);
@@ -143,7 +143,7 @@ public class MarketInteliganceContractorActivity extends AppCompatActivity {
                     @Override
                     public void onClick(android.view.View view) {
                         if (LinkEbook.equals("")){
-                            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(LinkPDF));
+                            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(ascendant.BASE_URL()+LinkPDF));
                             startActivity(browserIntent);
                         }else{
                             Intent i = new Intent(MarketInteliganceContractorActivity.this, LandscapeWebViewEbookActivity.class);
@@ -159,11 +159,11 @@ public class MarketInteliganceContractorActivity extends AppCompatActivity {
             public void onClick(android.view.View view) {
                 myDialog.show();
                 if (!JUDUL.equals("Procurement of Goods and Services")){
-                    LinkPDF="http://mandiri-ebuss.com/files/contractor/market_intelligence/benchmarking_pengadaan.pdf";
-                    LinkEbook="";
-                }else{
                     LinkPDF="http://mandiri-ebuss.com/files/contractor/market_intelligence/benchmarking_jasa.pdf";
                     LinkEbook="https://ebuss-book.mandiri-ebuss.com/contractor/page/market_intelligence/benchmarking_jasa_konstruksi.php";
+                }else{
+                    LinkPDF="http://mandiri-ebuss.com/files/contractor/market_intelligence/benchmarking_pengadaan.pdf";
+                    LinkEbook="";
                 }
                 Download = myDialog.findViewById(R.id.btnDownload);
                 View = myDialog.findViewById(R.id.btnView);
@@ -177,7 +177,7 @@ public class MarketInteliganceContractorActivity extends AppCompatActivity {
                     @Override
                     public void onClick(android.view.View view) {
                         if (LinkEbook.equals("")){
-                            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(LinkPDF));
+                            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(ascendant.BASE_URL()+LinkPDF));
                             startActivity(browserIntent);
                         }else{
                             Intent i = new Intent(MarketInteliganceContractorActivity.this, LandscapeWebViewEbookActivity.class);
