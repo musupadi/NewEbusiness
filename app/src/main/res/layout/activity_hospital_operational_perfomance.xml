@@ -23,7 +23,7 @@
                     android:orientation="horizontal">
                     <LinearLayout
                         android:id="@+id/linearMore"
-                        android:layout_width="50dp"
+                        android:layout_width="@dimen/icon_regular"
                         android:layout_height="match_parent">
                         <ImageView
                             android:id="@+id/ivMore"
@@ -44,7 +44,7 @@
                         android:orientation="horizontal"
                         android:id="@+id/linearBack">
                         <ImageView
-                            android:layout_width="50dp"
+                            android:layout_width="@dimen/icon_regular"
                             android:layout_height="match_parent"
                             android:src="@drawable/chevron_left_concerate"
                             android:layout_margin="10dp"/>
@@ -68,7 +68,7 @@
                 android:orientation="vertical">
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
+                    android:layout_height="@dimen/box_regular"
                     android:orientation="horizontal">
 
                     <androidx.cardview.widget.CardView
@@ -89,8 +89,8 @@
                             android:orientation="horizontal"
                             android:gravity="center">
                             <ImageView
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
+                                android:layout_width="@dimen/icon_regular"
+                                android:layout_height="@dimen/icon_regular"
                                 android:src="@drawable/regulations"/>
                             <TextView
                                 android:layout_marginLeft="20dp"
@@ -108,7 +108,7 @@
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
+                    android:layout_height="@dimen/box_regular"
                     android:orientation="horizontal">
 
                     <androidx.cardview.widget.CardView
@@ -129,8 +129,8 @@
                             android:orientation="horizontal"
                             android:gravity="center">
                             <ImageView
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
+                                android:layout_width="@dimen/icon_regular"
+                                android:layout_height="@dimen/icon_regular"
                                 android:src="@drawable/supporting_industries"/>
                             <TextView
                                 android:layout_marginLeft="20dp"

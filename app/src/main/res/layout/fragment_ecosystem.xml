@@ -57,7 +57,7 @@
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="@dimen/box_regular"
                 app:cardElevation="5dp"
                 app:cardCornerRadius="10dp"
                 android:layout_margin="10dp"
@@ -69,12 +69,9 @@
                     android:gravity="center|left"
                     android:padding="10dp">
                     <ImageView
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginRight="20dp"
-                        android:layout_marginBottom="10dp"
-                        android:layout_width="37.5dp"
-                        android:layout_height="37.5dp"
+                        android:layout_margin="10dp"
+                        android:layout_width="@dimen/icon_regular"
+                        android:layout_height="@dimen/icon_regular"
                         android:src="@drawable/list_of_hospital"/>
                     <TextView
                         android:layout_marginLeft="10dp"
@@ -88,7 +85,7 @@
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="@dimen/box_regular"
                 app:cardElevation="5dp"
                 app:cardCornerRadius="10dp"
                 android:layout_margin="10dp"
@@ -100,12 +97,9 @@
                     android:gravity="center|left"
                     android:padding="10dp">
                     <ImageView
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginRight="20dp"
-                        android:layout_marginBottom="10dp"
-                        android:layout_width="37.5dp"
-                        android:layout_height="37.5dp"
+                        android:layout_margin="10dp"
+                        android:layout_width="@dimen/icon_regular"
+                        android:layout_height="@dimen/icon_regular"
                         android:src="@drawable/supporting_industries"/>
                     <TextView
                         android:layout_marginLeft="10dp"
@@ -119,7 +113,7 @@
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="@dimen/box_regular"
                 app:cardElevation="5dp"
                 app:cardCornerRadius="10dp"
                 android:layout_margin="10dp"
@@ -131,12 +125,9 @@
                     android:gravity="center|left"
                     android:padding="10dp">
                     <ImageView
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginRight="20dp"
-                        android:layout_marginBottom="10dp"
-                        android:layout_width="37.5dp"
-                        android:layout_height="37.5dp"
+                        android:layout_margin="10dp"
+                        android:layout_width="@dimen/icon_regular"
+                        android:layout_height="@dimen/icon_regular"
                         android:src="@drawable/hospital_association"/>
                     <TextView
                         android:layout_marginLeft="10dp"

@@ -76,7 +76,7 @@
                             android:id="@+id/linearStakeHolder"
                             android:layout_margin="10dp"
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/box_long"
+                            android:layout_height="@dimen/box_regular"
                             android:orientation="horizontal">
                             <RelativeLayout
                                 android:layout_width="match_parent"
@@ -95,8 +95,8 @@
                                         android:orientation="horizontal"
                                         android:gravity="center">
                                         <ImageView
-                                            android:layout_width="80dp"
-                                            android:layout_height="80dp"
+                                            android:layout_width="@dimen/icon_regular"
+                                            android:layout_height="@dimen/icon_regular"
                                             android:src="@drawable/business_review"
                                             android:layout_margin="10dp"/>
                                         <LinearLayout
@@ -125,7 +125,7 @@
                             android:id="@+id/linearPerusahaanJasaPertambangan"
                             android:layout_margin="10dp"
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/box_long"
+                            android:layout_height="@dimen/box_regular"
                             android:orientation="horizontal">
                             <RelativeLayout
                                 android:layout_width="match_parent"
@@ -144,8 +144,8 @@
                                         android:orientation="horizontal"
                                         android:gravity="center">
                                         <ImageView
-                                            android:layout_width="80dp"
-                                            android:layout_height="80dp"
+                                            android:layout_width="@dimen/icon_regular"
+                                            android:layout_height="@dimen/icon_regular"
                                             android:src="@drawable/newsletter"
                                             android:layout_margin="10dp"/>
                                         <LinearLayout
@@ -174,7 +174,7 @@
                             android:id="@+id/linearPerusahaanTambangBatubara"
                             android:layout_margin="10dp"
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/box_long"
+                            android:layout_height="@dimen/box_regular"
                             android:orientation="horizontal">
                             <RelativeLayout
                                 android:layout_width="match_parent"
@@ -193,8 +193,8 @@
                                         android:orientation="horizontal"
                                         android:gravity="center">
                                         <ImageView
-                                            android:layout_width="80dp"
-                                            android:layout_height="80dp"
+                                            android:layout_width="@dimen/icon_regular"
+                                            android:layout_height="@dimen/icon_regular"
                                             android:src="@drawable/third_party_administrator"
                                             android:layout_margin="10dp"/>
                                         <LinearLayout
@@ -223,7 +223,7 @@
                             android:id="@+id/linearDaftarPerusahaanTambang"
                             android:layout_margin="10dp"
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/box_long"
+                            android:layout_height="@dimen/box_regular"
                             android:orientation="horizontal">
                             <RelativeLayout
                                 android:layout_width="match_parent"
@@ -242,8 +242,8 @@
                                         android:orientation="horizontal"
                                         android:gravity="center">
                                         <ImageView
-                                            android:layout_width="80dp"
-                                            android:layout_height="80dp"
+                                            android:layout_width="@dimen/icon_regular"
+                                            android:layout_height="@dimen/icon_regular"
                                             android:src="@drawable/government_regulations"
                                             android:layout_margin="10dp"/>
                                         <LinearLayout
@@ -272,7 +272,7 @@
                             android:id="@+id/linearMinerbaOneMap"
                             android:layout_margin="10dp"
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/box_long"
+                            android:layout_height="@dimen/box_regular"
                             android:orientation="horizontal">
                             <RelativeLayout
                                 android:layout_width="match_parent"
@@ -291,8 +291,8 @@
                                         android:orientation="horizontal"
                                         android:gravity="center">
                                         <ImageView
-                                            android:layout_width="80dp"
-                                            android:layout_height="80dp"
+                                            android:layout_width="@dimen/icon_regular"
+                                            android:layout_height="@dimen/icon_regular"
                                             android:src="@drawable/health_minister_decree"
                                             android:layout_margin="10dp"/>
                                         <LinearLayout

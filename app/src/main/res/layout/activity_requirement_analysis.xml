@@ -69,7 +69,7 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/cardInvestmentCredit"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="@dimen/box_regular"
             app:cardCornerRadius="10dp"
             android:layout_margin="10dp"
             app:cardElevation="5dp">
@@ -79,8 +79,8 @@
               android:layout_height="match_parent"
               android:orientation="horizontal">
             <ImageView
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="@dimen/icon_regular"
+                android:layout_height="@dimen/icon_regular"
                 android:layout_margin="10dp"
                 android:layout_gravity="center"
                 android:src="@drawable/regulations"/>
@@ -98,7 +98,7 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/cardWorkingCapitalCredit"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="@dimen/box_regular"
             app:cardCornerRadius="10dp"
             android:layout_margin="10dp"
             app:cardElevation="5dp">
@@ -108,8 +108,8 @@
               android:layout_height="match_parent"
               android:orientation="horizontal">
             <ImageView
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="@dimen/icon_regular"
+                android:layout_height="@dimen/icon_regular"
                 android:layout_margin="10dp"
                 android:layout_gravity="center"
                 android:src="@drawable/newsletter"/>

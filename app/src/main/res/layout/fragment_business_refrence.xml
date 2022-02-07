@@ -66,10 +66,7 @@
                 </RelativeLayout>
             </LinearLayout>
             <LinearLayout
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginBottom="10dp"
+                android:layout_margin="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/box_regular"
                 android:orientation="horizontal">
@@ -107,12 +104,6 @@
                                     android:textSize="@dimen/text_extra_large"
                                     android:textStyle="bold" />
 
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:text="@string/loreum_ipsum"
-                                    android:textColor="@color/colorConcrete"
-                                    android:textSize="@dimen/text_small_medium" />
                             </LinearLayout>
 
                         </LinearLayout>
@@ -120,10 +111,7 @@
                 </RelativeLayout>
             </LinearLayout>
             <LinearLayout
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginBottom="10dp"
+                android:layout_margin="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/box_regular"
                 android:orientation="horizontal">
@@ -159,12 +147,6 @@
                                     android:text="@string/newsletter"
                                     android:textStyle="bold"
                                     android:textSize="@dimen/text_extra_large" />
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:text="@string/loreum_ipsum"
-                                    android:textColor="@color/colorConcrete"
-                                    android:textSize="@dimen/text_small_medium" />
                             </LinearLayout>
 
                         </LinearLayout>
@@ -172,10 +154,7 @@
                 </RelativeLayout>
             </LinearLayout>
             <LinearLayout
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginBottom="10dp"
+                android:layout_margin="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/box_regular"
                 android:orientation="horizontal">
@@ -211,12 +190,6 @@
                                     android:text="@string/business_review"
                                     android:textStyle="bold"
                                     android:textSize="@dimen/text_extra_large" />
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:text="@string/loreum_ipsum"
-                                    android:textColor="@color/colorConcrete"
-                                    android:textSize="@dimen/text_small_medium" />
                             </LinearLayout>
 
                         </LinearLayout>

@@ -73,7 +73,7 @@
                         android:id="@+id/linearBenchmarking"
                         android:layout_margin="10dp"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/box_long"
+                        android:layout_height="@dimen/box_regular"
                         android:orientation="horizontal">
                         <RelativeLayout
                             android:id="@+id/relativeEBook"
@@ -93,8 +93,8 @@
                                     android:orientation="horizontal"
                                     android:gravity="center">
                                     <ImageView
-                                        android:layout_width="80dp"
-                                        android:layout_height="80dp"
+                                        android:layout_width="@dimen/icon_regular"
+                                        android:layout_height="@dimen/icon_regular"
                                         android:src="@drawable/regulations"
                                         android:layout_margin="10dp"/>
                                     <LinearLayout
@@ -123,7 +123,7 @@
                         android:id="@+id/linearMarketingPotential"
                         android:layout_margin="10dp"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/box_long"
+                        android:layout_height="@dimen/box_regular"
                         android:orientation="horizontal">
 
                         <RelativeLayout
@@ -144,8 +144,8 @@
                                     android:orientation="horizontal"
                                     android:gravity="center">
                                     <ImageView
-                                        android:layout_width="80dp"
-                                        android:layout_height="80dp"
+                                        android:layout_width="@dimen/icon_regular"
+                                        android:layout_height="@dimen/icon_regular"
                                         android:src="@drawable/business_review"
                                         android:layout_margin="10dp"/>
                                     <LinearLayout

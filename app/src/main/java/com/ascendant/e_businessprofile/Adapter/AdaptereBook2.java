@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 
@@ -28,6 +29,7 @@ public class AdaptereBook2 extends RecyclerView.Adapter<AdaptereBook2.HolderData
     private Context ctx;
     Dialog myDialog;
     Button View,Download;
+    Ascendant ascendant = new Ascendant();
     public AdaptereBook2(Context ctx, List<DataModel> mList){
         this.ctx = ctx;
         this.mList = mList;
@@ -49,18 +51,14 @@ public class AdaptereBook2 extends RecyclerView.Adapter<AdaptereBook2.HolderData
         myDialog.setContentView(R.layout.dialog_view_download);
         holderData.icon.setText(String.valueOf(posistion+1));
         holderData.judul.setText(dm.getNama_ebook());
-        holderData.judul.setOnClickListener(new View.OnClickListener() {
+        holderData.tanggal.setText(ascendant.MagicDateChange(dm.getTgl_upload_ebook()));
+        holderData.card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 myDialog.show();
                 Download = myDialog.findViewById(R.id.btnDownload);
                 View = myDialog.findViewById(R.id.btnView);
-                holderData.download.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        myDialog.show();
-                    }
-                });
+
                 Download.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(android.view.View view) {
@@ -94,8 +92,6 @@ public class AdaptereBook2 extends RecyclerView.Adapter<AdaptereBook2.HolderData
                 });
             }
         });
-
-
     }
 
     @Override
@@ -104,14 +100,14 @@ public class AdaptereBook2 extends RecyclerView.Adapter<AdaptereBook2.HolderData
     }
 
     class HolderData extends RecyclerView.ViewHolder{
-        TextView judul;
-        ImageView download;
-        TextView icon;
+        TextView judul,icon,tanggal;
+        CardView card;
         HolderData(View v){
             super(v);
-            judul = v.findViewById(R.id.tvJudul);
-            download = v.findViewById(R.id.ivDownloadBook);
-            icon = v.findViewById(R.id.ivIcon);
+            judul = v.findViewById(R.id.tvNama);
+            card = v.findViewById(R.id.card);
+            icon = v.findViewById(R.id.tvId);
+            tanggal = v.findViewById(R.id.tvTanggal);
         }
     }
 }

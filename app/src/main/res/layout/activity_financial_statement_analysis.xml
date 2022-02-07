@@ -66,128 +66,198 @@
                 android:layout_height="match_parent"
                 android:id="@+id/linearAvailable"
                 android:orientation="vertical">
-                <LinearLayout
+                <ScrollView
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:orientation="horizontal">
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/cardLiquidityRatio"
+                    android:layout_height="match_parent">
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        app:cardElevation="5dp"
-                        app:cardCornerRadius="10dp"
-                        android:layout_margin="10dp">
-                        <LinearLayout
+                        android:orientation="vertical"
+                        android:background="@color/colorBackground">
+                        <TextView
+                            android:visibility="gone"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical">
-                            <ImageView
-                                android:layout_margin="20dp"
-                                android:layout_width="100dp"
-                                android:layout_height="100dp"
-                                android:layout_gravity="center"
-                                android:src="@drawable/newsletter"/>
-                            <TextView
+                            android:layout_height="wrap_content"
+                            android:text="@string/loreum_ipsum_full"
+                            android:fontFamily="@font/inter"/>
+                        <LinearLayout
+                            android:layout_margin="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/box_regular"
+                            android:orientation="horizontal">
+                            <RelativeLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:text="@string/liquidity_ratio"
-                                android:gravity="center"
-                                android:textSize="@dimen/text_extra_large"
-                                android:textColor="@color/colorPrimary"
-                                android:fontFamily="@font/inter"/>
+                                android:layout_weight="1">
+                                <androidx.cardview.widget.CardView
+                                    android:id="@+id/cardLiquidityRatio"
+                                    android:layout_width="match_parent"
+                                    android:layout_centerInParent="true"
+                                    android:layout_height="match_parent"
+                                    app:cardCornerRadius="10dp"
+                                    app:cardElevation="10dp">
+                                    <LinearLayout
+                                        android:padding="10dp"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:orientation="horizontal"
+                                        android:gravity="center">
+                                        <ImageView
+                                            android:layout_width="@dimen/icon_regular"
+                                            android:layout_height="@dimen/icon_regular"
+                                            android:src="@drawable/newsletter"
+                                            android:layout_margin="10dp"/>
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="vertical">
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:text="@string/liquidity_ratio"
+                                                android:textStyle="bold"
+                                                android:textSize="@dimen/text_extra_large" />
+                                        </LinearLayout>
+
+                                    </LinearLayout>
+                                </androidx.cardview.widget.CardView>
+                            </RelativeLayout>
                         </LinearLayout>
-                    </androidx.cardview.widget.CardView>
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/cardSolvencyRatio"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        app:cardElevation="5dp"
-                        app:cardCornerRadius="10dp"
-                        android:layout_margin="10dp">
                         <LinearLayout
+                            android:layout_margin="10dp"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical">
-                            <ImageView
-                                android:layout_margin="20dp"
-                                android:layout_width="100dp"
-                                android:layout_height="100dp"
-                                android:layout_gravity="center"
-                                android:src="@drawable/supporting_industries"/>
-                            <TextView
+                            android:layout_height="@dimen/box_regular"
+                            android:orientation="horizontal">
+                            <RelativeLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:text="@string/solvency_ratio"
-                                android:gravity="center"
-                                android:textSize="@dimen/text_extra_large"
-                                android:textColor="@color/colorPrimary"
-                                android:fontFamily="@font/inter"/>
+                                android:layout_weight="1">
+                                <androidx.cardview.widget.CardView
+                                    android:id="@+id/cardSolvencyRatio"
+                                    android:layout_width="match_parent"
+                                    android:layout_centerInParent="true"
+                                    android:layout_height="match_parent"
+                                    app:cardCornerRadius="10dp"
+                                    app:cardElevation="10dp">
+                                    <LinearLayout
+                                        android:padding="10dp"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:orientation="horizontal"
+                                        android:gravity="center">
+                                        <ImageView
+                                            android:layout_width="@dimen/icon_regular"
+                                            android:layout_height="@dimen/icon_regular"
+                                            android:src="@drawable/supporting_industries"
+                                            android:layout_margin="10dp"/>
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="vertical">
+
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:text="@string/solvency_ratio"
+                                                android:textSize="@dimen/text_extra_large"
+                                                android:textStyle="bold" />
+                                        </LinearLayout>
+
+                                    </LinearLayout>
+                                </androidx.cardview.widget.CardView>
+                            </RelativeLayout>
                         </LinearLayout>
-                    </androidx.cardview.widget.CardView>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:orientation="horizontal">
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/cardActivityRatio"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        app:cardElevation="5dp"
-                        app:cardCornerRadius="10dp"
-                        android:layout_margin="10dp">
                         <LinearLayout
+                            android:layout_margin="10dp"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical">
-                            <ImageView
-                                android:layout_margin="20dp"
-                                android:layout_width="100dp"
-                                android:layout_height="100dp"
-                                android:layout_gravity="center"
-                                android:src="@drawable/acts"/>
-                            <TextView
+                            android:layout_height="@dimen/box_regular"
+                            android:orientation="horizontal">
+                            <RelativeLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:text="@string/activity_ratio"
-                                android:gravity="center"
-                                android:textSize="@dimen/text_extra_large"
-                                android:textColor="@color/colorPrimary"
-                                android:fontFamily="@font/inter"/>
+                                android:layout_weight="1">
+                                <androidx.cardview.widget.CardView
+                                    android:id="@+id/cardActivityRatio"
+                                    android:layout_width="match_parent"
+                                    android:layout_centerInParent="true"
+                                    android:layout_height="match_parent"
+                                    app:cardCornerRadius="10dp"
+                                    app:cardElevation="10dp">
+                                    <LinearLayout
+                                        android:padding="10dp"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:orientation="horizontal"
+                                        android:gravity="center">
+                                        <ImageView
+                                            android:layout_width="@dimen/icon_regular"
+                                            android:layout_height="@dimen/icon_regular"
+                                            android:src="@drawable/acts"
+                                            android:layout_margin="10dp"/>
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="vertical">
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:text="@string/activity_ratio"
+                                                android:textStyle="bold"
+                                                android:textSize="@dimen/text_extra_large" />
+                                        </LinearLayout>
+
+                                    </LinearLayout>
+                                </androidx.cardview.widget.CardView>
+                            </RelativeLayout>
                         </LinearLayout>
-                    </androidx.cardview.widget.CardView>
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/cardProfitabilityRatio"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        app:cardElevation="5dp"
-                        app:cardCornerRadius="10dp"
-                        android:layout_margin="10dp">
                         <LinearLayout
+                            android:layout_margin="10dp"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical">
-                            <ImageView
-                                android:layout_margin="20dp"
-                                android:layout_width="100dp"
-                                android:layout_height="100dp"
-                                android:layout_gravity="center"
-                                android:src="@drawable/pharmacy"/>
-                            <TextView
+                            android:layout_height="@dimen/box_regular"
+                            android:orientation="horizontal">
+                            <RelativeLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:text="@string/profitability_ratio"
-                                android:gravity="center"
-                                android:textSize="@dimen/text_extra_large"
-                                android:textColor="@color/colorPrimary"
-                                android:fontFamily="@font/inter"/>
+                                android:layout_weight="1">
+                                <androidx.cardview.widget.CardView
+                                    android:id="@+id/cardProfitabilityRatio"
+                                    android:layout_width="match_parent"
+                                    android:layout_centerInParent="true"
+                                    android:layout_height="145dp"
+                                    app:cardCornerRadius="10dp"
+                                    app:cardElevation="10dp">
+                                    <LinearLayout
+                                        android:padding="10dp"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:orientation="horizontal"
+                                        android:gravity="center">
+                                        <ImageView
+                                            android:layout_width="@dimen/icon_regular"
+                                            android:layout_height="@dimen/icon_regular"
+                                            android:src="@drawable/pharmacy"
+                                            android:layout_margin="10dp"/>
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="vertical">
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:text="@string/profitability_ratio"
+                                                android:textStyle="bold"
+                                                android:textSize="@dimen/text_extra_large" />
+                                        </LinearLayout>
+
+                                    </LinearLayout>
+                                </androidx.cardview.widget.CardView>
+                            </RelativeLayout>
                         </LinearLayout>
-                    </androidx.cardview.widget.CardView>
-                </LinearLayout>
+                    </LinearLayout>
+                </ScrollView>
             </LinearLayout>
             <LinearLayout
                 android:visibility="gone"
