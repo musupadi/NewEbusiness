@@ -1,6 +1,7 @@
 package com.ascendant.e_businessprofile.Adapter;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -9,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -18,8 +20,10 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.ascendant.e_businessprofile.Activity.HomeActivity;
+import com.ascendant.e_businessprofile.Activity.LandscapeWebViewEbookActivity;
 import com.ascendant.e_businessprofile.Activity.LoginActivity;
 import com.ascendant.e_businessprofile.Activity.MainActivity;
+import com.ascendant.e_businessprofile.Activity.PortraitWebViewEbookActivity;
 import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
 import com.ascendant.e_businessprofile.Method.Ascendant;
 import com.ascendant.e_businessprofile.Model.DataModel;
@@ -32,6 +36,8 @@ public class AdapterBukuPerusahaan extends RecyclerView.Adapter<AdapterBukuPerus
     private Context ctx;
     Ascendant ascendant;
     Boolean ONCLICK=true;
+    Dialog myDialog;
+    Button View,Download;
     public AdapterBukuPerusahaan(Context ctx, List<DataModel> mList){
         this.ctx = ctx;
         this.mList = mList;
@@ -49,41 +55,49 @@ public class AdapterBukuPerusahaan extends RecyclerView.Adapter<AdapterBukuPerus
     public void onBindViewHolder(@NonNull final HolderData holderData, int posistion) {
         DataModel dm = mList.get(posistion);
         ascendant = new Ascendant();
+        myDialog = new Dialog(ctx);
+        myDialog.setContentView(R.layout.dialog_view_download);
         holderData.Judul.setText(ascendant.SmallText(dm.getNama_provinsi()));
         holderData.web.setVisibility(View.VISIBLE);
         holderData.image.setImageResource(R.drawable.pdf_file);
         holderData.card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(ctx);
+                myDialog.show();
+                Download = myDialog.findViewById(R.id.btnDownload);
+                View = myDialog.findViewById(R.id.btnView);
 
-                // Set a title for alert dialog
-                builder.setTitle("Pemberitahuan");
-
-                // Ask the final question
-                builder.setMessage("Apakah Anda Ingin Mendownload PDF Buku Perusahaan "+dm.getNama_provinsi());
-
-                // Set the alert dialog yes button click listener
-                builder.setPositiveButton("Iya", new DialogInterface.OnClickListener() {
+                Download.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        // Do something when user clicked the Yes button
-                        // Set the TextView visibility GONE
-                        ascendant.DownloadPDFSimulation(ascendant.BASE_URL()+dm.getLink_konstruksi_2021(),"Buku Perusahaan "+dm.getNama_provinsi(),ctx);
+                    public void onClick(android.view.View view) {
+                        ascendant.Download(ctx,"pdf",ascendant.BASE_URL()+dm.getLink_konstruksi_2021(),"Buku Perusahaan "+dm.getNama_provinsi());
                     }
                 });
-
-                // Set the alert dialog no button click listener
-                builder.setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+                View.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        // Do something when No button clicked
+                    public void onClick(android.view.View view) {
+                        try {
+                            if (dm.getLink_ebook().equals("") || dm.getLink_ebook().isEmpty()){
+                                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(ascendant.BASE_URL()+dm.getLink_konstruksi_2021()));
+                                ctx.startActivity(browserIntent);
+                            }else{
+                                if (dm.getMode_ebook().equals("P")){
+                                    Intent i = new Intent(ctx, PortraitWebViewEbookActivity.class);
+                                    i.putExtra("LINK", dm.getLink_ebook());
+                                    ctx.startActivity(i);
+                                }else{
+                                    Intent i = new Intent(ctx, LandscapeWebViewEbookActivity.class);
+                                    i.putExtra("LINK", dm.getLink_ebook());
+                                    ctx.startActivity(i);
+                                }
+                            }
+                        }catch (Exception e){
+                            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(ascendant.BASE_URL()+dm.getLink_konstruksi_2021()));
+                            ctx.startActivity(browserIntent);
+                        }
+
                     }
                 });
-
-                AlertDialog dialog = builder.create();
-                // Display the alert dialog on interface
-                dialog.show();
             }
         });
     }

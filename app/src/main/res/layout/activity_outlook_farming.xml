@@ -75,7 +75,7 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginBottom="10dp"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/box_long"
+                        android:layout_height="@dimen/box_regular"
                         android:orientation="horizontal">
                         <RelativeLayout
                             android:id="@+id/relativeEBook"
@@ -95,8 +95,8 @@
                                     android:orientation="horizontal"
                                     android:gravity="center">
                                     <ImageView
-                                        android:layout_width="80dp"
-                                        android:layout_height="80dp"
+                                        android:layout_width="@dimen/icon_regular"
+                                        android:layout_height="@dimen/icon_regular"
                                         android:src="@drawable/presidential_decree"
                                         android:layout_margin="10dp"/>
                                     <LinearLayout
@@ -128,7 +128,7 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginBottom="10dp"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/box_long"
+                        android:layout_height="@dimen/box_regular"
                         android:orientation="horizontal">
                         <RelativeLayout
                             android:id="@+id/relativeBusinessProcess"
@@ -148,8 +148,8 @@
                                     android:orientation="horizontal"
                                     android:gravity="center">
                                     <ImageView
-                                        android:layout_width="80dp"
-                                        android:layout_height="80dp"
+                                        android:layout_width="@dimen/icon_regular"
+                                        android:layout_height="@dimen/icon_regular"
                                         android:src="@drawable/third_party_administrator"
                                         android:layout_margin="10dp"/>
                                     <LinearLayout
@@ -180,7 +180,7 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginBottom="10dp"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/box_long"
+                        android:layout_height="@dimen/box_regular"
                         android:orientation="horizontal"
                         android:id="@+id/linearBusinessReview">
                         <RelativeLayout
@@ -200,8 +200,8 @@
                                     android:orientation="horizontal"
                                     android:gravity="center">
                                     <ImageView
-                                        android:layout_width="80dp"
-                                        android:layout_height="80dp"
+                                        android:layout_width="@dimen/icon_regular"
+                                        android:layout_height="@dimen/icon_regular"
                                         android:src="@drawable/business_review"
                                         android:layout_margin="10dp"/>
                                     <LinearLayout
@@ -232,7 +232,7 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginBottom="10dp"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/box_long"
+                        android:layout_height="@dimen/box_regular"
                         android:id="@+id/linearKeySucces"
                         android:orientation="horizontal">
                         <RelativeLayout
@@ -252,8 +252,8 @@
                                     android:orientation="horizontal"
                                     android:gravity="center">
                                     <ImageView
-                                        android:layout_width="80dp"
-                                        android:layout_height="80dp"
+                                        android:layout_width="@dimen/icon_regular"
+                                        android:layout_height="@dimen/icon_regular"
                                         android:src="@drawable/health_minister_decree"
                                         android:layout_margin="10dp"/>
                                     <LinearLayout
@@ -284,7 +284,7 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginBottom="10dp"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/box_long"
+                        android:layout_height="@dimen/box_regular"
                         android:orientation="horizontal"
                         android:id="@+id/linearRegulations">
                         <RelativeLayout
@@ -304,8 +304,8 @@
                                     android:orientation="horizontal"
                                     android:gravity="center">
                                     <ImageView
-                                        android:layout_width="80dp"
-                                        android:layout_height="80dp"
+                                        android:layout_width="@dimen/icon_regular"
+                                        android:layout_height="@dimen/icon_regular"
                                         android:src="@drawable/regulations"
                                         android:layout_margin="10dp"/>
                                     <LinearLayout
@@ -336,7 +336,7 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginBottom="10dp"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/box_long"
+                        android:layout_height="@dimen/box_regular"
                         android:orientation="horizontal"
                         android:id="@+id/linearRiskAndMitigation">
                         <RelativeLayout
@@ -356,8 +356,8 @@
                                     android:orientation="horizontal"
                                     android:gravity="center">
                                     <ImageView
-                                        android:layout_width="80dp"
-                                        android:layout_height="80dp"
+                                        android:layout_width="@dimen/icon_regular"
+                                        android:layout_height="@dimen/icon_regular"
                                         android:src="@drawable/presidential_decree"
                                         android:layout_margin="10dp"/>
                                     <LinearLayout

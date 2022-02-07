@@ -204,6 +204,7 @@ public class FMCGCreditWorthinessHitunganActivity extends AppCompatActivity {
     private void nonfood(String hitung,String penjelasan1,String penjelasan2){
         if (hitung.equals("CURRENT RATIO")){
             num3.setVisibility(View.GONE);
+            ti3.setVisibility(View.GONE);
             tittle.setText("Current Ratio");
             ti1.setHint("Aktiva Lancar");
             ti2.setHint("Hutang Lancar");
@@ -235,6 +236,7 @@ public class FMCGCreditWorthinessHitunganActivity extends AppCompatActivity {
             });
         }else if(hitung.equals("GROSS PROFIT MARGIN")){
             num3.setVisibility(View.GONE);
+            ti3.setVisibility(View.GONE);
             tittle.setText("Gross Profit Margin");
             ti1.setHint("Laba Kotor (Gross Profit)");
             ti2.setHint("Pendapatan Penjualan");
@@ -266,6 +268,7 @@ public class FMCGCreditWorthinessHitunganActivity extends AppCompatActivity {
             });
         }else if (hitung.equals("DEBT TO EQUITY")){
             num3.setVisibility(View.GONE);
+            ti3.setVisibility(View.GONE);
             tittle.setText("Debt To Equity");
             ti1.setHint("Total Hutang");
             ti2.setHint("Total Equitas");
@@ -298,6 +301,7 @@ public class FMCGCreditWorthinessHitunganActivity extends AppCompatActivity {
         }else if(hitung.equals("DEBT TO EBITDA")){
             tittle.setText("Debt to EBITDA");
             num3.setVisibility(View.GONE);
+            ti3.setVisibility(View.GONE);
             ti1.setHint("Total Hutang");
             ti2.setHint("EBITDA");
             nama.setText("Debt to EBITDA");
@@ -360,6 +364,7 @@ public class FMCGCreditWorthinessHitunganActivity extends AppCompatActivity {
         }else if(hitung.equals("KAS BERSIH")){
             tittle.setText("Kas Bersih Dari Operasi");
             num3.setVisibility(View.GONE);
+            ti3.setVisibility(View.GONE);
             ti1.setHint("Kas Bersih dari Operasi");
             ti2.setHint("Beban Pokok Penjualan");
             nama.setText("Kas Bersih Dari Operasi");
@@ -391,6 +396,7 @@ public class FMCGCreditWorthinessHitunganActivity extends AppCompatActivity {
         }else if(hitung.equals("SALES GROWTH")){
             tittle.setText("Sales Growth");
             num3.setVisibility(View.GONE);
+            ti3.setVisibility(View.GONE);
             ti1.setHint("Pendapatan");
             ti2.setHint("Pendapatan Tahun Sebelumnya");
             penjelasan.setText(penjelasan1);
@@ -422,6 +428,7 @@ public class FMCGCreditWorthinessHitunganActivity extends AppCompatActivity {
         }else if(hitung.equals("SALES GOWTH MARGIN")){
             tittle.setText("Sales Gross Margin");
             num3.setVisibility(View.GONE);
+            ti3.setVisibility(View.GONE);
             ti1.setHint("Laba Bruto");
             ti2.setHint("Pendapatan");
             penjelasan.setText(penjelasan1);
@@ -453,6 +460,7 @@ public class FMCGCreditWorthinessHitunganActivity extends AppCompatActivity {
         }else if(hitung.equals("BEBAN USAHA THP LABA BRUTO")){
             tittle.setText("Beban Usaha Terhadap Laba Bruto");
             num3.setVisibility(View.GONE);
+            ti3.setVisibility(View.GONE);
             ti1.setHint("Beban Usaha");
             ti2.setHint("Laba Bruto");
             penjelasan.setText(penjelasan1);
@@ -484,6 +492,7 @@ public class FMCGCreditWorthinessHitunganActivity extends AppCompatActivity {
         }else if(hitung.equals("LABA SEBELUM PAJAK THP PENDAPATAN")){
             tittle.setText("Laba Sebelum Pajak Terhadap Pendapatan");
             num3.setVisibility(View.GONE);
+            ti3.setVisibility(View.GONE);
             ti1.setHint("Laba Sebelum Pajak");
             ti2.setHint("Pendapatan");
             nama.setText("Laba Sebelum Pajak Yerhadap Pendapatan");
@@ -515,6 +524,7 @@ public class FMCGCreditWorthinessHitunganActivity extends AppCompatActivity {
         }else if(hitung.equals("LABA TAHUN BERJALAN THP PENDAPATAN")){
             tittle.setText("Laba Tahun Berjalan Terhadap Pendapatan");
             num3.setVisibility(View.GONE);
+            ti3.setVisibility(View.GONE);
             ti1.setHint("Laba Tahun Berjalan");
             ti2.setHint("Pendapatan");
             nama.setText("Laba Tahun Berjalan Terhadap Pendapatan");
@@ -546,6 +556,7 @@ public class FMCGCreditWorthinessHitunganActivity extends AppCompatActivity {
         }else if(hitung.equals("EKUITAS")){
             tittle.setText("Ekuitas");
             num3.setVisibility(View.GONE);
+            ti3.setVisibility(View.GONE);
             ti1.setHint("Total Asset");
             ti2.setHint("Total (Hutang)");
             nama.setText("Ekuitas");
@@ -577,6 +588,7 @@ public class FMCGCreditWorthinessHitunganActivity extends AppCompatActivity {
         }else if(hitung.equals("LIABILITAS")){
             tittle.setText("Liabilitas");
             num3.setVisibility(View.GONE);
+            ti3.setVisibility(View.GONE);
             ti1.setHint("Asset");
             ti2.setHint("Equitas");
             nama.setText("Liabilitas");
@@ -608,6 +620,7 @@ public class FMCGCreditWorthinessHitunganActivity extends AppCompatActivity {
         }else if(hitung.equals("ASET")) {
             tittle.setText("Asset");
             num3.setVisibility(View.GONE);
+            ti3.setVisibility(View.GONE);
             ti1.setHint("Hutang");
             ti2.setHint("Modal");
             nama.setText("Asset");
@@ -639,6 +652,7 @@ public class FMCGCreditWorthinessHitunganActivity extends AppCompatActivity {
         }else if(hitung.equals("DOR")){
             tittle.setText("Days of Receivable (DOR)");
             num3.setVisibility(View.GONE);
+            ti3.setVisibility(View.GONE);
             ti1.setHint("Piutang Dagang pada akhir periode (Rp)");
             ti2.setHint("Harga Pokok Penjualan Setahun (Rp)");
             nama.setText("DOR");
@@ -670,6 +684,7 @@ public class FMCGCreditWorthinessHitunganActivity extends AppCompatActivity {
         }else if(hitung.equals("DOI")){
             tittle.setText("Days of Inventory (DOI)");
             num3.setVisibility(View.GONE);
+            ti3.setVisibility(View.GONE);
             ti1.setHint("Nilai Persediaan Barang di akhir periode (Rp)");
             ti2.setHint("Harga Pokok Penjualan Setahun (Rp)");
             penjelasan.setText(penjelasan1);
@@ -701,6 +716,7 @@ public class FMCGCreditWorthinessHitunganActivity extends AppCompatActivity {
         }else if(hitung.equals("DOP")){
             tittle.setText("Days of Payable (DOP)");
             num3.setVisibility(View.GONE);
+            ti3.setVisibility(View.GONE);
             ti1.setHint("Hutang Dagang");
             ti2.setHint("Beban Pokok Penjualan");
             penjelasan.setText(penjelasan1);

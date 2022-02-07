@@ -74,7 +74,7 @@
                     <LinearLayout
                         android:visibility="gone"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/box_long"
+                        android:layout_height="@dimen/box_regular"
                         android:layout_margin="10dp"
                         android:orientation="horizontal">
 
@@ -98,8 +98,8 @@
                                     android:padding="10dp">
 
                                     <ImageView
-                                        android:layout_width="80dp"
-                                        android:layout_height="80dp"
+                                        android:layout_width="@dimen/icon_regular"
+                                        android:layout_height="@dimen/icon_regular"
                                         android:layout_margin="10dp"
                                         android:src="@drawable/business_review" />
 
@@ -131,7 +131,7 @@
                     <LinearLayout
                         android:visibility="gone"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/box_long"
+                        android:layout_height="@dimen/box_regular"
                         android:layout_margin="10dp"
                         android:orientation="horizontal">
 
@@ -155,8 +155,8 @@
                                     android:padding="10dp">
 
                                     <ImageView
-                                        android:layout_width="80dp"
-                                        android:layout_height="80dp"
+                                        android:layout_width="@dimen/icon_regular"
+                                        android:layout_height="@dimen/icon_regular"
                                         android:layout_margin="10dp"
                                         android:src="@drawable/newsletter" />
 
@@ -188,7 +188,7 @@
                     <LinearLayout
                         android:visibility="gone"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/box_long"
+                        android:layout_height="@dimen/box_regular"
                         android:layout_margin="10dp"
                         android:orientation="horizontal">
 
@@ -212,8 +212,8 @@
                                     android:padding="10dp">
 
                                     <ImageView
-                                        android:layout_width="80dp"
-                                        android:layout_height="80dp"
+                                        android:layout_width="@dimen/icon_regular"
+                                        android:layout_height="@dimen/icon_regular"
                                         android:layout_margin="10dp"
                                         android:src="@drawable/presidential_decree" />
 
@@ -245,7 +245,7 @@
                         android:id="@+id/linearListContract"
                         android:layout_margin="10dp"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/box_long"
+                        android:layout_height="@dimen/box_regular"
                         android:orientation="horizontal">
                         <RelativeLayout
                             android:layout_width="match_parent"
@@ -264,8 +264,8 @@
                                     android:orientation="horizontal"
                                     android:gravity="center">
                                     <ImageView
-                                        android:layout_width="80dp"
-                                        android:layout_height="80dp"
+                                        android:layout_width="@dimen/icon_regular"
+                                        android:layout_height="@dimen/icon_regular"
                                         android:src="@drawable/regulations"
                                         android:layout_margin="10dp"/>
                                     <LinearLayout
@@ -294,7 +294,7 @@
                         android:visibility="gone"
                         android:id="@+id/linearDaftarPerusahaan"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/box_long"
+                        android:layout_height="@dimen/box_regular"
                         android:layout_margin="10dp"
                         android:orientation="horizontal">
 
@@ -318,8 +318,8 @@
                                     android:padding="10dp">
 
                                     <ImageView
-                                        android:layout_width="80dp"
-                                        android:layout_height="80dp"
+                                        android:layout_width="@dimen/icon_regular"
+                                        android:layout_height="@dimen/icon_regular"
                                         android:layout_margin="10dp"
                                         android:src="@drawable/third_party_administrator" />
 
@@ -351,7 +351,7 @@
                     <LinearLayout
                         android:id="@+id/linearEcosystemIndustry"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/box_long"
+                        android:layout_height="@dimen/box_regular"
                         android:layout_margin="10dp"
                         android:orientation="horizontal">
 
@@ -375,8 +375,8 @@
                                     android:padding="10dp">
 
                                     <ImageView
-                                        android:layout_width="80dp"
-                                        android:layout_height="80dp"
+                                        android:layout_width="@dimen/icon_regular"
+                                        android:layout_height="@dimen/icon_regular"
                                         android:layout_margin="10dp"
                                         android:src="@drawable/supporting_industries" />
 
@@ -408,7 +408,7 @@
                     <LinearLayout
                         android:id="@+id/linearDownstreamBusinessEntitty"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/box_long"
+                        android:layout_height="@dimen/box_regular"
                         android:layout_margin="10dp"
                         android:orientation="horizontal">
 
@@ -432,8 +432,8 @@
                                     android:padding="10dp">
 
                                     <ImageView
-                                        android:layout_width="80dp"
-                                        android:layout_height="80dp"
+                                        android:layout_width="@dimen/icon_regular"
+                                        android:layout_height="@dimen/icon_regular"
                                         android:layout_margin="10dp"
                                         android:src="@drawable/ebook" />
 
@@ -465,7 +465,7 @@
                     <LinearLayout
                         android:id="@+id/linearListCompany"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/box_long"
+                        android:layout_height="@dimen/box_regular"
                         android:layout_margin="10dp"
                         android:orientation="horizontal">
 
@@ -489,8 +489,8 @@
                                     android:padding="10dp">
 
                                     <ImageView
-                                        android:layout_width="80dp"
-                                        android:layout_height="80dp"
+                                        android:layout_width="@dimen/icon_regular"
+                                        android:layout_height="@dimen/icon_regular"
                                         android:layout_margin="10dp"
                                         android:src="@drawable/presidential_decree" />
 
@@ -521,7 +521,7 @@
                     <LinearLayout
                         android:id="@+id/linearCommercial"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/box_long"
+                        android:layout_height="@dimen/box_regular"
                         android:layout_margin="10dp"
                         android:orientation="horizontal">
 
@@ -545,8 +545,8 @@
                                     android:padding="10dp">
 
                                     <ImageView
-                                        android:layout_width="80dp"
-                                        android:layout_height="80dp"
+                                        android:layout_width="@dimen/icon_regular"
+                                        android:layout_height="@dimen/icon_regular"
                                         android:layout_margin="10dp"
                                         android:src="@drawable/bpjs" />
 
@@ -578,7 +578,7 @@
                     <LinearLayout
                         android:id="@+id/linearListBBM"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/box_long"
+                        android:layout_height="@dimen/box_regular"
                         android:layout_margin="10dp"
                         android:orientation="horizontal">
 
@@ -602,8 +602,8 @@
                                     android:padding="10dp">
 
                                     <ImageView
-                                        android:layout_width="80dp"
-                                        android:layout_height="80dp"
+                                        android:layout_width="@dimen/icon_regular"
+                                        android:layout_height="@dimen/icon_regular"
                                         android:layout_margin="10dp"
                                         android:src="@drawable/government_regulations" />
 
@@ -635,7 +635,7 @@
                     <LinearLayout
                         android:id="@+id/linearOilAndGasTransportation"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/box_long"
+                        android:layout_height="@dimen/box_regular"
                         android:layout_margin="10dp"
                         android:orientation="horizontal">
 
@@ -659,8 +659,8 @@
                                     android:padding="10dp">
 
                                     <ImageView
-                                        android:layout_width="80dp"
-                                        android:layout_height="80dp"
+                                        android:layout_width="@dimen/icon_regular"
+                                        android:layout_height="@dimen/icon_regular"
                                         android:layout_margin="10dp"
                                         android:src="@drawable/business_review" />
 

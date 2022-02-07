@@ -48,7 +48,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:text="@string/view"
-                            android:textColor="@color/colorPrimary"
+                            android:textColor="@color/colorBlack"
                             android:fontFamily="@font/inter_extra_bold"
                             android:gravity="center"
                             android:id="@+id/tvView"/>
@@ -78,7 +78,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/list_of_hospital"
-                        android:textColor="@color/colorPrimary"
+                        android:textColor="@color/colorBlack"
                         android:fontFamily="@font/inter"
                         android:textSize="@dimen/header_text_small"/>
                 </LinearLayout>
@@ -106,7 +106,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/supporting_industries"
-                        android:textColor="@color/colorPrimary"
+                        android:textColor="@color/colorBlack"
                         android:fontFamily="@font/inter"
                         android:textSize="@dimen/header_text_small"/>
                 </LinearLayout>
@@ -134,7 +134,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/hospital_association"
-                        android:textColor="@color/colorPrimary"
+                        android:textColor="@color/colorBlack"
                         android:fontFamily="@font/inter"
                         android:textSize="@dimen/header_text_small"/>
                 </LinearLayout>

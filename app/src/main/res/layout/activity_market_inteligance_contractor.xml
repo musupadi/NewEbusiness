@@ -52,7 +52,7 @@
                             android:id="@+id/tvJudul"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:text="Market Inteligence"
+                            android:text="Market Intelligence"
                             android:gravity="center|left"
                             android:fontFamily="@font/inter"
                             android:textStyle="bold"

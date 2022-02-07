@@ -82,7 +82,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/distributor"
-                        android:textColor="@color/colorPrimary"
+                        android:textColor="@color/colorBlack"
                         android:fontFamily="@font/inter"
                         android:textSize="@dimen/header_text_small"/>
                 </LinearLayout>
@@ -113,7 +113,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/retail"
-                        android:textColor="@color/colorPrimary"
+                        android:textColor="@color/colorBlack"
                         android:fontFamily="@font/inter"
                         android:textSize="@dimen/header_text_small"/>
                 </LinearLayout>
@@ -144,7 +144,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/e_commerce"
-                        android:textColor="@color/colorPrimary"
+                        android:textColor="@color/colorBlack"
                         android:fontFamily="@font/inter"
                         android:textSize="@dimen/header_text_small"/>
                 </LinearLayout>
@@ -175,7 +175,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/players"
-                        android:textColor="@color/colorPrimary"
+                        android:textColor="@color/colorBlack"
                         android:fontFamily="@font/inter"
                         android:textSize="@dimen/header_text_small"/>
                 </LinearLayout>
@@ -206,7 +206,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/association"
-                        android:textColor="@color/colorPrimary"
+                        android:textColor="@color/colorBlack"
                         android:fontFamily="@font/inter"
                         android:textSize="@dimen/header_text_small"/>
                 </LinearLayout>
@@ -237,7 +237,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/manufacture"
-                        android:textColor="@color/colorPrimary"
+                        android:textColor="@color/colorBlack"
                         android:fontFamily="@font/inter"
                         android:textSize="@dimen/header_text_small"/>
                 </LinearLayout>
@@ -268,7 +268,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/suppliers"
-                        android:textColor="@color/colorPrimary"
+                        android:textColor="@color/colorBlack"
                         android:fontFamily="@font/inter"
                         android:textSize="@dimen/header_text_small"/>
                 </LinearLayout>

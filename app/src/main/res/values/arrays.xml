@@ -118,8 +118,8 @@
 
     <string-array name="Beef">
         <item>Peternakan Sapi</item>
-        <item>Pengholahan Susu</item>
-        <item>Pengholahan Daging</item>
+        <item>Pengolahan Susu</item>
+        <item>Pengolahan Daging</item>
     </string-array>
 
     <string-array name="Polutry">
