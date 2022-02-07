@@ -23,8 +23,8 @@
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/drawable/button_yellow_rounded.xml" value="0.1" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/drawable/list_hadiah.xml" value="0.14635416666666667" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/drawable/list_history_penukaran.xml" value="0.2703125" />
-        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/activity_acttivity_ratio.xml" value="0.264" />
-        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/activity_business_refrence.xml" value="0.25" />
+        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/activity_acttivity_ratio.xml" value="0.176" />
+        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/activity_business_refrence.xml" value="0.16799999999999998" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/activity_compliance.xml" value="0.176" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/activity_consultant_ecosystem_contractor.xml" value="0.1" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/activity_credit_worthiness.xml" value="0.176" />
@@ -35,13 +35,14 @@
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/activity_deractivity.xml" value="0.2" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/activity_detail_berita.xml" value="0.136" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/activity_detail_forum.xml" value="0.4" />
+        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/activity_detail_hospital.xml" value="0.25" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/activity_detail_mandiri_update.xml" value="0.264" />
-        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/activity_ebook.xml" value="0.25" />
+        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/activity_ebook.xml" value="0.176" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/activity_ecosystem_contractor.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/activity_ecosystem_oil_and_gas.xml" value="0.25" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/activity_executive_ecosystem_contractor.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/activity_farming_business_review.xml" value="0.2" />
-        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/activity_financial_statement_analysis.xml" value="0.176" />
+        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/activity_financial_statement_analysis.xml" value="0.2" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/activity_five_cactivity.xml" value="0.1" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/activity_fmcg_main_credit_decision_tool.xml" value="0.25" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/activity_fmcg_requirement_analysis.xml" value="0.264" />
@@ -63,6 +64,7 @@
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/activity_fmcgsustainable_financing.xml" value="0.25" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/activity_history_poin.xml" value="0.24010416666666667" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/activity_home.xml" value="0.25" />
+        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/activity_hospital_association.xml" value="0.25" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/activity_hospital_finance_indicator.xml" value="0.2" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/activity_hospital_key_of_success.xml" value="0.1" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/activity_hospital_list.xml" value="0.25" />
@@ -119,11 +121,14 @@
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/dialog_perhitungan_indikator_kinerja_rs.xml" value="0.1" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/dialog_quiz_harian.xml" value="0.1" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/dialog_rasio_kebutuhan.xml" value="0.1" />
-        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/fragment_business_refrence.xml" value="0.25" />
+        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/fragment_business_refrence.xml" value="0.2" />
+        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/fragment_compliance.xml" value="0.25" />
+        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/fragment_e_book.xml" value="0.25" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/fragment_ecosystem.xml" value="0.25" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/fragment_f_m_c_g.xml" value="0.264" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/fragment_f_m_c_g_business_refrence.xml" value="0.264" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/fragment_f_m_c_g_ecosystem.xml" value="0.25" />
+        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/fragment_f_m_c_g_ecosystem_players.xml" value="0.128125" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/fragment_f_m_c_g_navigator.xml" value="0.17753623188405798" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/fragment_f_m_c_g_regulation.xml" value="0.25" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/fragment_f_m_c_ge_book.xml" value="0.25" />
@@ -134,7 +139,8 @@
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/fragment_hospital_equipment.xml" value="0.1" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/fragment_list_of_hospital.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/fragment_mining.xml" value="0.2" />
-        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/fragment_regulations.xml" value="0.1" />
+        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/fragment_regulations.xml" value="0.152" />
+        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/fragment_supporting_industries.xml" value="0.264" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/list.xml" value="0.13020833333333334" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/list_ebook.xml" value="0.2477355072463768" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/list_file.xml" value="0.2477355072463768" />

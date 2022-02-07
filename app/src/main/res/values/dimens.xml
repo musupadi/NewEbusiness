@@ -12,7 +12,7 @@
     <dimen name="text_small">8sp</dimen>
     <dimen name="text_small_medium">11sp</dimen>
 
-
-
+    <dimen name="icon_regular">37.5dp</dimen>
+    <dimen name="box_regular">100dp</dimen>
     <dimen name="box_long">150dp</dimen>
 </resources>
