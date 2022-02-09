@@ -104,7 +104,6 @@
                             android:text="@string/receivable_turnover"
                             android:gravity="center|left"
                             android:textStyle="bold"
-                            android:textColor="@color/colorPrimary"
                             android:fontFamily="@font/inter"
                             android:textSize="@dimen/text_extra_large"/>
                     </LinearLayout>
@@ -132,7 +131,6 @@
                             android:text="@string/inventory_turnover"
                             android:gravity="center|left"
                             android:textStyle="bold"
-                            android:textColor="@color/colorPrimary"
                             android:fontFamily="@font/inter"
                             android:textSize="@dimen/text_extra_large"/>
                     </LinearLayout>
@@ -160,7 +158,6 @@
                             android:text="@string/payable_turnover"
                             android:gravity="center|left"
                             android:textStyle="bold"
-                            android:textColor="@color/colorPrimary"
                             android:fontFamily="@font/inter"
                             android:textSize="@dimen/text_extra_large"/>
                     </LinearLayout>

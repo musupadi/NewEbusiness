@@ -85,9 +85,10 @@
                             android:layout_gravity="center"
                             android:src="@drawable/regulations"/>
                         <TextView
+                            android:textStyle="bold"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:textColor="@color/colorBlack"
+
                             android:fontFamily="@font/inter"
                             android:textSize="@dimen/text_extra_large"
                             android:text="@string/five_c_analysis"
@@ -114,9 +115,9 @@
                             android:layout_gravity="center"
                             android:src="@drawable/third_party_administrator"/>
                         <TextView
+                            android:textStyle="bold"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:textColor="@color/colorBlack"
                             android:fontFamily="@font/inter"
                             android:textSize="@dimen/text_extra_large"
                             android:text="@string/requirement_analysis"
@@ -143,9 +144,9 @@
                             android:layout_gravity="center"
                             android:src="@drawable/ebook"/>
                         <TextView
+                            android:textStyle="bold"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:textColor="@color/colorBlack"
                             android:fontFamily="@font/inter"
                             android:textSize="@dimen/text_extra_large"
                             android:text="@string/financial_statement_analysis"

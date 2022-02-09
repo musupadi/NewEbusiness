@@ -54,6 +54,7 @@
                                 android:layout_height="wrap_content"
                                 android:orientation="vertical">
                                 <TextView
+                                    android:fontFamily="@font/inter"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
                                     android:text="@string/acts"
@@ -101,6 +102,7 @@
                                 android:orientation="vertical">
 
                                 <TextView
+                                    android:fontFamily="@font/inter"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
                                     android:text="@string/government_regulations"
@@ -145,6 +147,7 @@
                                 android:layout_height="wrap_content"
                                 android:orientation="vertical">
                                 <TextView
+                                    android:fontFamily="@font/inter"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
                                     android:text="@string/newsletter"
@@ -191,6 +194,7 @@
                                 android:layout_height="wrap_content"
                                 android:orientation="vertical">
                                 <TextView
+                                    android:fontFamily="@font/inter"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
                                     android:text="@string/health_minister_decree"

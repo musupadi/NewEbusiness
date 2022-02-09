@@ -137,7 +137,7 @@
     <string name="supporting_players">Supporting Players</string>
     <string name="list_contract">List of Contract Companies</string>
     <string name="kks_eksplorasi">KKKS Exploration</string>
-    <string name="kks_produksi">KKKS Productrion</string>
+    <string name="kks_produksi">KKKS Production</string>
     <string name="kks_cbm">KKKS CBM</string>
     <string name="downstream_business_entity">Downstream Business Entity</string>
     <string name="downstream_business_proccess">Downstream Business Proccess</string>
@@ -166,15 +166,15 @@
     <string name="players_in_polutry">Players In Poultry Business</string>
     <string name="players_in_supporting_business">Players In Supporting Business</string>
     <string name="ecosystem_industry">Ecosystem Industry</string>
-    <string name="link_association_farmer">Link Member Associatio Farming</string>
+    <string name="link_association_farmer">Member of Association Farming</string>
 
 
     <string name="directory_farming_company">Directory Farming Company</string>
-    <string name="link_member_poultry">Link Member Poultry Company</string>
-    <string name="link_member_poultry_feed">Link Member Poultry Feed Company</string>
-    <string name="link_member_beef">Link Member Meat Processing Industry</string>
-    <string name="link_member_milk">Link Member Dairy Company</string>
-    <string name="link_member_fnb">Link Member Food and Beverage Entrepreneurs Throughout Indonesia</string>
+    <string name="link_member_poultry">Member of Poultry Company</string>
+    <string name="link_member_poultry_feed">Member of Poultry Feed Company</string>
+    <string name="link_member_beef">Member of Meat Processing Industry</string>
+    <string name="link_member_milk">Member of Dairy Company</string>
+    <string name="link_member_fnb">Member of  Food and Beverage Entrepreneurs Throughout Indonesia</string>
 
     <!-- Credit Decision Tool   -->
     <string name="five_c_analysis">5C Analysis</string>

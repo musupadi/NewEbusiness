@@ -106,13 +106,9 @@
                                             android:layout_height="match_parent"
                                             android:text="@string/benchmarking"
                                             android:textStyle="bold"
-                                            android:textSize="@dimen/text_extra_large" />
-                                        <TextView
-                                            android:layout_width="match_parent"
-                                            android:layout_height="match_parent"
-                                            android:text="@string/loreum_ipsum"
-                                            android:textColor="@color/colorConcrete"
-                                            android:textSize="@dimen/text_small_medium" />
+                                            android:textSize="@dimen/text_extra_large"
+                                            android:fontFamily="@font/inter"/>
+
                                     </LinearLayout>
 
                                 </LinearLayout>
@@ -157,13 +153,8 @@
                                             android:layout_height="match_parent"
                                             android:text="@string/market_potential"
                                             android:textStyle="bold"
-                                            android:textSize="@dimen/text_extra_large" />
-                                        <TextView
-                                            android:layout_width="match_parent"
-                                            android:layout_height="match_parent"
-                                            android:text="@string/loreum_ipsum"
-                                            android:textColor="@color/colorConcrete"
-                                            android:textSize="@dimen/text_small_medium" />
+                                            android:textSize="@dimen/text_extra_large"
+                                            android:fontFamily="@font/inter"/>
                                     </LinearLayout>
 
                                 </LinearLayout>

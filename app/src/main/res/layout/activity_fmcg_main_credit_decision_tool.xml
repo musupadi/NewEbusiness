@@ -110,6 +110,7 @@
                                             android:layout_height="wrap_content"
                                             android:orientation="vertical">
                                             <TextView
+                                                android:fontFamily="@font/inter"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="match_parent"
                                                 android:text="@string/food_and_beverage"
@@ -156,6 +157,7 @@
                                             android:layout_height="wrap_content"
                                             android:orientation="vertical">
                                             <TextView
+                                                android:fontFamily="@font/inter"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="match_parent"
                                                 android:text="@string/non_food_and_beverage"
@@ -202,6 +204,7 @@
                                             android:layout_height="wrap_content"
                                             android:orientation="vertical">
                                             <TextView
+                                                android:fontFamily="@font/inter"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="match_parent"
                                                 android:text="@string/tobacco"
@@ -248,6 +251,7 @@
                                             android:layout_height="wrap_content"
                                             android:orientation="vertical">
                                             <TextView
+                                                android:fontFamily="@font/inter"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="match_parent"
                                                 android:text="@string/sustainable_financing"
@@ -294,6 +298,7 @@
                                             android:layout_height="wrap_content"
                                             android:orientation="vertical">
                                             <TextView
+                                                android:fontFamily="@font/inter"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="match_parent"
                                                 android:text="@string/supply_chain_financing"

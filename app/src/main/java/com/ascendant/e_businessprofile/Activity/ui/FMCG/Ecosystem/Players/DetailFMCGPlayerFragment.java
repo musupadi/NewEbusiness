@@ -131,7 +131,10 @@ public class DetailFMCGPlayerFragment extends Fragment {
                                         .setCancelable(false)
                                         .setPositiveButton("Iya", new DialogInterface.OnClickListener() {
                                             public void onClick(DialogInterface dialog, int id) {
-                                                method.DownloadPDF(response.body().detailPerusahaan.ringkasan_performa,"Ringkasan "+response.body().detailPerusahaan.nama_perusahaan,getActivity());
+                                                String Changer = response.body().detailPerusahaan.ringkasan_performa;
+                                                String replace = Changer.replace("http://mandiri-ebusinessraw.the-urbandev.com/","");
+                                                Toast.makeText(getActivity(), replace, Toast.LENGTH_SHORT).show();
+                                                method.RingkasanDownload(response.body().detailPerusahaan.ringkasan_performa,"Ringkasan "+response.body().detailPerusahaan.nama_perusahaan,getActivity(),"pdf");
                                             }
                                         })
                                         .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {

@@ -104,13 +104,8 @@
                                             android:layout_height="match_parent"
                                             android:text="@string/players_in_construction"
                                             android:textStyle="bold"
-                                            android:textSize="@dimen/text_extra_large" />
-                                        <TextView
-                                            android:layout_width="match_parent"
-                                            android:layout_height="match_parent"
-                                            android:text="@string/loreum_ipsum"
-                                            android:textColor="@color/colorConcrete"
-                                            android:textSize="@dimen/text_small_medium" />
+                                            android:textSize="@dimen/text_extra_large"
+                                            android:fontFamily="@font/inter"/>
                                     </LinearLayout>
 
                                 </LinearLayout>
@@ -203,13 +198,8 @@
                                             android:layout_height="match_parent"
                                             android:text="@string/construction_service_business"
                                             android:textStyle="bold"
-                                            android:textSize="@dimen/text_extra_large" />
-                                        <TextView
-                                            android:layout_width="match_parent"
-                                            android:layout_height="match_parent"
-                                            android:text="@string/loreum_ipsum"
-                                            android:textColor="@color/colorConcrete"
-                                            android:textSize="@dimen/text_small_medium" />
+                                            android:textSize="@dimen/text_extra_large"
+                                            android:fontFamily="@font/inter"/>
                                     </LinearLayout>
 
                                 </LinearLayout>
@@ -252,13 +242,8 @@
                                             android:layout_height="match_parent"
                                             android:text="@string/supporting_players"
                                             android:textStyle="bold"
-                                            android:textSize="@dimen/text_extra_large" />
-                                        <TextView
-                                            android:layout_width="match_parent"
-                                            android:layout_height="match_parent"
-                                            android:text="@string/loreum_ipsum"
-                                            android:textColor="@color/colorConcrete"
-                                            android:textSize="@dimen/text_small_medium" />
+                                            android:textSize="@dimen/text_extra_large"
+                                            android:fontFamily="@font/inter"/>
                                     </LinearLayout>
 
                                 </LinearLayout>
@@ -301,13 +286,8 @@
                                             android:layout_height="match_parent"
                                             android:text="@string/ecosystem_industry"
                                             android:textStyle="bold"
-                                            android:textSize="@dimen/text_extra_large" />
-                                        <TextView
-                                            android:layout_width="match_parent"
-                                            android:layout_height="match_parent"
-                                            android:text="@string/loreum_ipsum"
-                                            android:textColor="@color/colorConcrete"
-                                            android:textSize="@dimen/text_small_medium" />
+                                            android:textSize="@dimen/text_extra_large"
+                                            android:fontFamily="@font/inter"/>
                                     </LinearLayout>
 
                                 </LinearLayout>
@@ -350,13 +330,8 @@
                                             android:layout_height="match_parent"
                                             android:text="@string/executive"
                                             android:textStyle="bold"
-                                            android:textSize="@dimen/text_extra_large" />
-                                        <TextView
-                                            android:layout_width="match_parent"
-                                            android:layout_height="match_parent"
-                                            android:text="@string/loreum_ipsum"
-                                            android:textColor="@color/colorConcrete"
-                                            android:textSize="@dimen/text_small_medium" />
+                                            android:textSize="@dimen/text_extra_large"
+                                            android:fontFamily="@font/inter"/>
                                     </LinearLayout>
 
                                 </LinearLayout>
@@ -399,13 +374,8 @@
                                             android:layout_height="match_parent"
                                             android:text="@string/consultant"
                                             android:textStyle="bold"
-                                            android:textSize="@dimen/text_extra_large" />
-                                        <TextView
-                                            android:layout_width="match_parent"
-                                            android:layout_height="match_parent"
-                                            android:text="@string/loreum_ipsum"
-                                            android:textColor="@color/colorConcrete"
-                                            android:textSize="@dimen/text_small_medium" />
+                                            android:textSize="@dimen/text_extra_large"
+                                            android:fontFamily="@font/inter"/>
                                     </LinearLayout>
 
                                 </LinearLayout>

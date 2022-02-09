@@ -101,6 +101,7 @@
                                         android:layout_height="wrap_content"
                                         android:orientation="vertical">
                                         <TextView
+                                            android:fontFamily="@font/inter"
                                             android:layout_width="match_parent"
                                             android:layout_height="match_parent"
                                             android:text="@string/operational"
@@ -141,6 +142,7 @@
                                         android:layout_height="wrap_content"
                                         android:orientation="vertical">
                                         <TextView
+                                            android:fontFamily="@font/inter"
                                             android:layout_width="match_parent"
                                             android:layout_height="match_parent"
                                             android:text="@string/financial"
@@ -183,6 +185,7 @@
                                         android:layout_height="wrap_content"
                                         android:orientation="vertical">
                                         <TextView
+                                            android:fontFamily="@font/inter"
                                             android:layout_width="match_parent"
                                             android:layout_height="match_parent"
                                             android:text="@string/parameters"
@@ -221,6 +224,7 @@
                                         android:layout_height="wrap_content"
                                         android:orientation="vertical">
                                         <TextView
+                                            android:fontFamily="@font/inter"
                                             android:layout_width="match_parent"
                                             android:layout_height="match_parent"
                                             android:text="@string/key_of_success"
@@ -262,6 +266,7 @@
                                         android:layout_height="wrap_content"
                                         android:orientation="vertical">
                                         <TextView
+                                            android:fontFamily="@font/inter"
                                             android:layout_width="match_parent"
                                             android:layout_height="match_parent"
                                             android:text="@string/risk_and_mitigation"

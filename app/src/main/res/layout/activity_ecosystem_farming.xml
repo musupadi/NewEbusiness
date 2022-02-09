@@ -100,17 +100,12 @@
                                         android:layout_height="wrap_content"
                                         android:orientation="vertical">
                                         <TextView
+                                            android:fontFamily="@font/inter"
                                             android:layout_width="match_parent"
                                             android:layout_height="match_parent"
                                             android:text="@string/players_in_beef_cattle"
                                             android:textStyle="bold"
                                             android:textSize="@dimen/text_extra_large" />
-                                        <TextView
-                                            android:layout_width="match_parent"
-                                            android:layout_height="match_parent"
-                                            android:text="@string/loreum_ipsum"
-                                            android:textColor="@color/colorConcrete"
-                                            android:textSize="@dimen/text_small_medium" />
                                     </LinearLayout>
 
                                 </LinearLayout>
@@ -149,17 +144,13 @@
                                         android:layout_height="wrap_content"
                                         android:orientation="vertical">
                                         <TextView
+                                            android:fontFamily="@font/inter"
                                             android:layout_width="match_parent"
                                             android:layout_height="match_parent"
                                             android:text="@string/players_in_polutry"
                                             android:textStyle="bold"
                                             android:textSize="@dimen/text_extra_large" />
-                                        <TextView
-                                            android:layout_width="match_parent"
-                                            android:layout_height="match_parent"
-                                            android:text="@string/loreum_ipsum"
-                                            android:textColor="@color/colorConcrete"
-                                            android:textSize="@dimen/text_small_medium" />
+
                                     </LinearLayout>
 
                                 </LinearLayout>
@@ -198,17 +189,13 @@
                                         android:layout_height="wrap_content"
                                         android:orientation="vertical">
                                         <TextView
+                                            android:fontFamily="@font/inter"
                                             android:layout_width="match_parent"
                                             android:layout_height="match_parent"
                                             android:text="@string/players_in_supporting_business"
                                             android:textStyle="bold"
                                             android:textSize="@dimen/text_extra_large" />
-                                        <TextView
-                                            android:layout_width="match_parent"
-                                            android:layout_height="match_parent"
-                                            android:text="@string/loreum_ipsum"
-                                            android:textColor="@color/colorConcrete"
-                                            android:textSize="@dimen/text_small_medium" />
+
                                     </LinearLayout>
 
                                 </LinearLayout>
@@ -247,17 +234,13 @@
                                         android:layout_height="wrap_content"
                                         android:orientation="vertical">
                                         <TextView
+                                            android:fontFamily="@font/inter"
                                             android:layout_width="match_parent"
                                             android:layout_height="match_parent"
                                             android:text="@string/link_association_farmer"
                                             android:textStyle="bold"
                                             android:textSize="@dimen/text_extra_large" />
-                                        <TextView
-                                            android:layout_width="match_parent"
-                                            android:layout_height="match_parent"
-                                            android:text="@string/loreum_ipsum"
-                                            android:textColor="@color/colorConcrete"
-                                            android:textSize="@dimen/text_small_medium" />
+
                                     </LinearLayout>
 
                                 </LinearLayout>
@@ -296,17 +279,13 @@
                                         android:layout_height="wrap_content"
                                         android:orientation="vertical">
                                         <TextView
+                                            android:fontFamily="@font/inter"
                                             android:layout_width="match_parent"
                                             android:layout_height="match_parent"
                                             android:text="@string/directory_farming_company"
                                             android:textStyle="bold"
                                             android:textSize="@dimen/text_extra_large" />
-                                        <TextView
-                                            android:layout_width="match_parent"
-                                            android:layout_height="match_parent"
-                                            android:text="@string/loreum_ipsum"
-                                            android:textColor="@color/colorConcrete"
-                                            android:textSize="@dimen/text_small_medium" />
+
                                     </LinearLayout>
 
                                 </LinearLayout>

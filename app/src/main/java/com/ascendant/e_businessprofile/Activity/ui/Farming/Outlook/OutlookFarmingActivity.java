@@ -4,17 +4,22 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
+import com.ascendant.e_businessprofile.Activity.LandscapeWebViewEbookActivity;
+import com.ascendant.e_businessprofile.Activity.ui.Contractor.Outlook.OtulookActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Mining.Outlook.MiningNewsletterActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Mining.Outlook.OutlookActivity;
 import com.ascendant.e_businessprofile.Adapter.Static.AdapterNavigator;
+import com.ascendant.e_businessprofile.Method.Ascendant;
 import com.ascendant.e_businessprofile.Model.DataModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.Mining.MiningOutlookModel;
 import com.ascendant.e_businessprofile.R;
@@ -29,10 +34,15 @@ public class OutlookFarmingActivity extends AppCompatActivity {
     LinearLayout More,Back;
     Boolean more=true;
     private ArrayList<DataModel> pList = new ArrayList<>();
+    Button View,Download;
+    Ascendant ascendant = new Ascendant();
+    Dialog myDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_outlook_farming);
+        myDialog = new Dialog(this);
+        myDialog.setContentView(R.layout.dialog_view_download);
         Regulation = findViewById(R.id.linearRegulations);
         BusinessStatus = findViewById(R.id.linearBusinessStatus);
         BusinessProcess = findViewById(R.id.linearBusinessProcess);
@@ -93,14 +103,29 @@ public class OutlookFarmingActivity extends AppCompatActivity {
         KeySuccess.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://mandiri-ebuss.com/files/farming/outlook/key_success_factor.pdf"));
-                startActivity(browserIntent);
+                myDialog.show();
+                Download = myDialog.findViewById(R.id.btnDownload);
+                View = myDialog.findViewById(R.id.btnView);
+                Download.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(android.view.View view) {
+                        ascendant.Download(OutlookFarmingActivity.this,"pdf","files/farming/outlook/key_success_factor.pdf","Key Of Succes Farming");
+                    }
+                });
+                View.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(android.view.View view) {
+                        Intent i = new Intent(OutlookFarmingActivity.this, LandscapeWebViewEbookActivity.class);
+                        i.putExtra("LINK", "https://ebuss-book.mandiri-ebuss.com/farming/page/outlook/key_of_success_factor/key_of_success_factor.php");
+                        startActivity(i);
+                    }
+                });
             }
         });
         RiskAndMitigation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://mandiri-ebuss.com/files/farming/outlook/business_review.pdf"));
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://mandiri-ebuss.com/files/farming/outlook/risk_mitigasi.pdf"));
                 startActivity(browserIntent);
             }
         });

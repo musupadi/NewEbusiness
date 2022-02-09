@@ -90,6 +90,7 @@
                                 android:layout_height="@dimen/icon_regular"
                                 android:src="@drawable/regulations"/>
                             <TextView
+                                android:fontFamily="@font/inter"
                                 android:layout_marginLeft="20dp"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
@@ -130,6 +131,7 @@
                                 android:layout_height="@dimen/icon_regular"
                                 android:src="@drawable/supporting_industries"/>
                             <TextView
+                                android:fontFamily="@font/inter"
                                 android:layout_marginLeft="20dp"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"

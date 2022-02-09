@@ -27,20 +27,16 @@
                     android:gravity="left|center"
                     android:padding="10dp">
                     <ImageView
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginRight="20dp"
-                        android:layout_marginBottom="10dp"
+                        android:layout_margin="10dp"
                         android:layout_width="37.5dp"
                         android:layout_height="37.5dp"
                         android:src="@drawable/pharmacy"/>
                     <TextView
-                        android:layout_marginLeft="25dp"
+                        android:textStyle="bold"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/pharmaceutical_wholesaler"
                         android:textSize="@dimen/text_extra_large"
-                        android:textColor="@color/colorBlack"
                         android:fontFamily="@font/inter"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -58,20 +54,16 @@
                     android:gravity="left|center"
                     android:padding="10dp">
                     <ImageView
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginRight="20dp"
-                        android:layout_marginBottom="10dp"
+                        android:layout_margin="10dp"
                         android:layout_width="37.5dp"
                         android:layout_height="37.5dp"
                         android:src="@drawable/insurance_1"/>
                     <TextView
-                        android:layout_marginLeft="25dp"
+                        android:textStyle="bold"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/health_insurance"
                         android:textSize="@dimen/text_extra_large"
-                        android:textColor="@color/colorBlack"
                         android:fontFamily="@font/inter"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -89,20 +81,16 @@
                     android:gravity="left|center"
                     android:padding="10dp">
                     <ImageView
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginRight="20dp"
-                        android:layout_marginBottom="10dp"
+                        android:layout_margin="10dp"
                         android:layout_width="37.5dp"
                         android:layout_height="37.5dp"
                         android:src="@drawable/clinical_labolatory"/>
                     <TextView
-                        android:layout_marginLeft="25dp"
+                        android:textStyle="bold"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/clinical_labolatory"
                         android:textSize="@dimen/text_extra_large"
-                        android:textColor="@color/colorBlack"
                         android:fontFamily="@font/inter"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -120,20 +108,16 @@
                     android:gravity="left|center"
                     android:padding="10dp">
                     <ImageView
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginRight="20dp"
-                        android:layout_marginBottom="10dp"
+                        android:layout_margin="10dp"
                         android:layout_width="37.5dp"
                         android:layout_height="37.5dp"
                         android:src="@drawable/medical_waste_management_service"/>
                     <TextView
-                        android:layout_marginLeft="25dp"
+                        android:textStyle="bold"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/medical_waste_management_service"
                         android:textSize="@dimen/text_extra_large"
-                        android:textColor="@color/colorBlack"
                         android:fontFamily="@font/inter"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -151,20 +135,16 @@
                     android:gravity="left|center"
                     android:padding="10dp">
                     <ImageView
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginRight="20dp"
-                        android:layout_marginBottom="10dp"
+                        android:layout_margin="10dp"
                         android:layout_width="37.5dp"
                         android:layout_height="37.5dp"
                         android:src="@drawable/third_party_administrator"/>
                     <TextView
-                        android:layout_marginLeft="25dp"
+                        android:textStyle="bold"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/third_party_administrator"
                         android:textSize="@dimen/text_extra_large"
-                        android:textColor="@color/colorBlack"
                         android:fontFamily="@font/inter"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -182,20 +162,16 @@
                     android:gravity="left|center"
                     android:padding="10dp">
                     <ImageView
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginRight="20dp"
-                        android:layout_marginBottom="10dp"
+                        android:layout_margin="10dp"
                         android:layout_width="37.5dp"
                         android:layout_height="37.5dp"
                         android:src="@drawable/hospital_equipment"/>
                     <TextView
-                        android:layout_marginLeft="25dp"
+                        android:textStyle="bold"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/medical_device_suppliers"
                         android:textSize="@dimen/text_extra_large"
-                        android:textColor="@color/colorBlack"
                         android:fontFamily="@font/inter"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -213,20 +189,16 @@
                     android:gravity="left|center"
                     android:padding="10dp">
                     <ImageView
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginRight="20dp"
-                        android:layout_marginBottom="10dp"
+                        android:layout_margin="10dp"
                         android:layout_width="37.5dp"
                         android:layout_height="37.5dp"
                         android:src="@drawable/bpjs"/>
                     <TextView
-                        android:layout_marginLeft="25dp"
+                        android:textStyle="bold"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/bpjs"
                         android:textSize="@dimen/text_extra_large"
-                        android:textColor="@color/colorBlack"
                         android:fontFamily="@font/inter"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -244,15 +216,12 @@
                     android:gravity="left|center"
                     android:padding="10dp">
                     <ImageView
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginRight="20dp"
-                        android:layout_marginBottom="10dp"
+                        android:layout_margin="10dp"
                         android:layout_width="37.5dp"
                         android:layout_height="37.5dp"
                         android:src="@drawable/clinic"/>
                     <TextView
-                        android:layout_marginLeft="25dp"
+                        android:textStyle="bold"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/clinic"
@@ -275,20 +244,16 @@
                     android:gravity="left|center"
                     android:padding="10dp">
                     <ImageView
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginRight="20dp"
-                        android:layout_marginBottom="10dp"
+                        android:layout_margin="10dp"
                         android:layout_width="37.5dp"
                         android:layout_height="37.5dp"
                         android:src="@drawable/hospital_equipment"/>
                     <TextView
-                        android:layout_marginLeft="25dp"
+                        android:textStyle="bold"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/hospital_equipment"
                         android:textSize="@dimen/text_extra_large"
-                        android:textColor="@color/colorBlack"
                         android:fontFamily="@font/inter"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>

@@ -273,17 +273,12 @@
                                         android:layout_height="wrap_content"
                                         android:orientation="vertical">
                                         <TextView
+                                            android:fontFamily="@font/inter"
                                             android:layout_width="match_parent"
                                             android:layout_height="match_parent"
                                             android:text="@string/list_contract"
                                             android:textStyle="bold"
                                             android:textSize="@dimen/text_extra_large" />
-                                        <TextView
-                                            android:layout_width="match_parent"
-                                            android:layout_height="match_parent"
-                                            android:text="@string/loreum_ipsum"
-                                            android:textColor="@color/colorConcrete"
-                                            android:textSize="@dimen/text_small_medium" />
                                     </LinearLayout>
 
                                 </LinearLayout>
@@ -329,18 +324,14 @@
                                         android:orientation="vertical">
 
                                         <TextView
+                                            android:fontFamily="@font/inter"
                                             android:layout_width="match_parent"
                                             android:layout_height="match_parent"
                                             android:text="@string/players_in_supporting_business"
                                             android:textSize="@dimen/text_extra_large"
                                             android:textStyle="bold" />
 
-                                        <TextView
-                                            android:layout_width="match_parent"
-                                            android:layout_height="match_parent"
-                                            android:text="@string/loreum_ipsum"
-                                            android:textColor="@color/colorConcrete"
-                                            android:textSize="@dimen/text_small_medium" />
+
                                     </LinearLayout>
 
                                 </LinearLayout>
@@ -386,18 +377,13 @@
                                         android:orientation="vertical">
 
                                         <TextView
+                                            android:fontFamily="@font/inter"
                                             android:layout_width="match_parent"
                                             android:layout_height="match_parent"
                                             android:text="@string/downstream_business_proccess"
                                             android:textSize="@dimen/text_extra_large"
                                             android:textStyle="bold" />
 
-                                        <TextView
-                                            android:layout_width="match_parent"
-                                            android:layout_height="match_parent"
-                                            android:text="@string/loreum_ipsum"
-                                            android:textColor="@color/colorConcrete"
-                                            android:textSize="@dimen/text_small_medium" />
                                     </LinearLayout>
 
                                 </LinearLayout>
@@ -447,14 +433,9 @@
                                             android:layout_height="match_parent"
                                             android:text="@string/downstream_business_entity"
                                             android:textSize="@dimen/text_extra_large"
-                                            android:textStyle="bold" />
+                                            android:textStyle="bold"
+                                            android:fontFamily="@font/inter"/>
 
-                                        <TextView
-                                            android:layout_width="match_parent"
-                                            android:layout_height="match_parent"
-                                            android:text="@string/loreum_ipsum"
-                                            android:textColor="@color/colorConcrete"
-                                            android:textSize="@dimen/text_small_medium" />
                                     </LinearLayout>
 
                                 </LinearLayout>
@@ -504,14 +485,9 @@
                                             android:layout_height="match_parent"
                                             android:text="@string/list_company"
                                             android:textSize="@dimen/text_extra_large"
-                                            android:textStyle="bold" />
+                                            android:textStyle="bold"
+                                            android:fontFamily="@font/inter"/>
 
-                                        <TextView
-                                            android:layout_width="match_parent"
-                                            android:layout_height="match_parent"
-                                            android:text="@string/loreum_ipsum"
-                                            android:textColor="@color/colorConcrete"
-                                            android:textSize="@dimen/text_small_medium" />
                                     </LinearLayout>
 
                                 </LinearLayout>
@@ -560,14 +536,10 @@
                                             android:layout_height="match_parent"
                                             android:text="@string/oil_and_gas_commercial"
                                             android:textSize="@dimen/text_extra_large"
-                                            android:textStyle="bold" />
+                                            android:textStyle="bold"
+                                            android:fontFamily="@font/inter"/>
 
-                                        <TextView
-                                            android:layout_width="match_parent"
-                                            android:layout_height="match_parent"
-                                            android:text="@string/loreum_ipsum"
-                                            android:textColor="@color/colorConcrete"
-                                            android:textSize="@dimen/text_small_medium" />
+
                                     </LinearLayout>
 
 
@@ -617,14 +589,10 @@
                                             android:layout_height="match_parent"
                                             android:text="@string/list_bbm"
                                             android:textSize="@dimen/text_extra_large"
-                                            android:textStyle="bold" />
+                                            android:textStyle="bold"
+                                            android:fontFamily="@font/inter"/>
 
-                                        <TextView
-                                            android:layout_width="match_parent"
-                                            android:layout_height="match_parent"
-                                            android:text="@string/loreum_ipsum"
-                                            android:textColor="@color/colorConcrete"
-                                            android:textSize="@dimen/text_small_medium" />
+
                                     </LinearLayout>
 
                                 </LinearLayout>
@@ -674,14 +642,10 @@
                                             android:layout_height="match_parent"
                                             android:text="@string/oil_and_gas_transportation"
                                             android:textSize="@dimen/text_extra_large"
-                                            android:textStyle="bold" />
+                                            android:textStyle="bold"
+                                            android:fontFamily="@font/inter"/>
 
-                                        <TextView
-                                            android:layout_width="match_parent"
-                                            android:layout_height="match_parent"
-                                            android:text="@string/loreum_ipsum"
-                                            android:textColor="@color/colorConcrete"
-                                            android:textSize="@dimen/text_small_medium" />
+
                                     </LinearLayout>
 
                                 </LinearLayout>

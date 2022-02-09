@@ -100,6 +100,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
                   <TextView
+                      android:fontFamily="@font/inter"
                       android:layout_width="match_parent"
                       android:layout_height="match_parent"
                       android:text="@string/hospital_operational_perfomance_indicator"
@@ -140,6 +141,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
                   <TextView
+                      android:fontFamily="@font/inter"
                       android:layout_width="match_parent"
                       android:layout_height="match_parent"
                       android:text="@string/hospital_finance_indicator"
@@ -181,6 +183,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
                   <TextView
+                      android:fontFamily="@font/inter"
                       android:layout_width="match_parent"
                       android:layout_height="match_parent"
                       android:text="@string/hospital_requirement_ratio"
@@ -221,6 +224,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
                   <TextView
+                      android:fontFamily="@font/inter"
                       android:layout_width="match_parent"
                       android:layout_height="match_parent"
                       android:text="@string/business_opportinity_for_bank"
@@ -262,6 +266,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
                   <TextView
+                      android:fontFamily="@font/inter"
                       android:layout_width="match_parent"
                       android:layout_height="match_parent"
                       android:text="@string/risk_and_mitigation"
@@ -304,6 +309,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
                   <TextView
+                      android:fontFamily="@font/inter"
                       android:layout_width="match_parent"
                       android:layout_height="match_parent"
                       android:text="@string/hospital_key_of_success"

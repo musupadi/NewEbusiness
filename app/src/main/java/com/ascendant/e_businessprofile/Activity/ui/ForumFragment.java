@@ -149,7 +149,7 @@ public class ForumFragment extends Fragment {
                         mAdapter = new AdapterForum(getActivity(),mItems);
                         rv.setAdapter(mAdapter);
                         mAdapter.notifyDataSetChanged();
-                        if (Integer.parseInt(Page)>Integer.parseInt(response.body().getMax_page())){
+                        if (Integer.parseInt(Page)>Integer.parseInt(response.body().getMax_page())-1){
                             Right.setVisibility(View.INVISIBLE);
                         }else{
                             Right.setVisibility(View.VISIBLE);

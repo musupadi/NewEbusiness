@@ -85,6 +85,7 @@
                 android:layout_gravity="center"
                 android:src="@drawable/regulations"/>
             <TextView
+                android:textStyle="bold"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:textColor="@color/colorBlack"
@@ -113,15 +114,17 @@
                 android:layout_margin="10dp"
                 android:layout_gravity="center"
                 android:src="@drawable/newsletter"/>
+
             <TextView
+                android:textStyle="bold"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:textColor="@color/colorBlack"
+                android:layout_marginLeft="10dp"
                 android:fontFamily="@font/inter"
-                android:textSize="@dimen/text_extra_large"
-                android:text="@string/working_capital_credit"
                 android:gravity="center|left"
-                android:layout_marginLeft="10dp"/>
+                android:text="@string/working_capital_credit"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/text_extra_large" />
           </LinearLayout>
         </androidx.cardview.widget.CardView>
 

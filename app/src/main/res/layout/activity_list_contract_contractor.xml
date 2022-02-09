@@ -72,7 +72,7 @@
                         android:id="@+id/linearEksplorasi"
                         android:layout_margin="10dp"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/box_long"
+                        android:layout_height="@dimen/box_regular"
                         android:orientation="horizontal">
                         <RelativeLayout
                             android:layout_width="match_parent"
@@ -91,8 +91,8 @@
                                     android:orientation="horizontal"
                                     android:gravity="center">
                                     <ImageView
-                                        android:layout_width="80dp"
-                                        android:layout_height="80dp"
+                                        android:layout_width="@dimen/icon_regular"
+                                        android:layout_height="@dimen/icon_regular"
                                         android:src="@drawable/business_review"
                                         android:layout_margin="10dp"/>
                                     <LinearLayout
@@ -104,13 +104,8 @@
                                             android:layout_height="match_parent"
                                             android:text="@string/kks_eksplorasi"
                                             android:textStyle="bold"
-                                            android:textSize="@dimen/text_extra_large" />
-                                        <TextView
-                                            android:layout_width="match_parent"
-                                            android:layout_height="match_parent"
-                                            android:text="@string/loreum_ipsum"
-                                            android:textColor="@color/colorConcrete"
-                                            android:textSize="@dimen/text_small_medium" />
+                                            android:textSize="@dimen/text_extra_large"
+                                            android:fontFamily="@font/inter"/>
                                     </LinearLayout>
 
                                 </LinearLayout>
@@ -121,7 +116,7 @@
                         android:id="@+id/linearProduksi"
                         android:layout_margin="10dp"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/box_long"
+                        android:layout_height="@dimen/box_regular"
                         android:orientation="horizontal">
                         <RelativeLayout
                             android:layout_width="match_parent"
@@ -140,8 +135,8 @@
                                     android:orientation="horizontal"
                                     android:gravity="center">
                                     <ImageView
-                                        android:layout_width="80dp"
-                                        android:layout_height="80dp"
+                                        android:layout_width="@dimen/icon_regular"
+                                        android:layout_height="@dimen/icon_regular"
                                         android:src="@drawable/newsletter"
                                         android:layout_margin="10dp"/>
                                     <LinearLayout
@@ -153,13 +148,8 @@
                                             android:layout_height="match_parent"
                                             android:text="@string/kks_produksi"
                                             android:textStyle="bold"
-                                            android:textSize="@dimen/text_extra_large" />
-                                        <TextView
-                                            android:layout_width="match_parent"
-                                            android:layout_height="match_parent"
-                                            android:text="@string/loreum_ipsum"
-                                            android:textColor="@color/colorConcrete"
-                                            android:textSize="@dimen/text_small_medium" />
+                                            android:textSize="@dimen/text_extra_large"
+                                            android:fontFamily="@font/inter"/>
                                     </LinearLayout>
 
                                 </LinearLayout>
@@ -170,7 +160,7 @@
                         android:id="@+id/linearCBM"
                         android:layout_margin="10dp"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/box_long"
+                        android:layout_height="@dimen/box_regular"
                         android:orientation="horizontal">
                         <RelativeLayout
                             android:layout_width="match_parent"
@@ -189,8 +179,8 @@
                                     android:orientation="horizontal"
                                     android:gravity="center">
                                     <ImageView
-                                        android:layout_width="80dp"
-                                        android:layout_height="80dp"
+                                        android:layout_width="@dimen/icon_regular"
+                                        android:layout_height="@dimen/icon_regular"
                                         android:src="@drawable/third_party_administrator"
                                         android:layout_margin="10dp"/>
                                     <LinearLayout
@@ -202,13 +192,8 @@
                                             android:layout_height="match_parent"
                                             android:text="@string/kks_cbm"
                                             android:textStyle="bold"
-                                            android:textSize="@dimen/text_extra_large" />
-                                        <TextView
-                                            android:layout_width="match_parent"
-                                            android:layout_height="match_parent"
-                                            android:text="@string/loreum_ipsum"
-                                            android:textColor="@color/colorConcrete"
-                                            android:textSize="@dimen/text_small_medium" />
+                                            android:textSize="@dimen/text_extra_large"
+                                            android:fontFamily="@font/inter"/>
                                     </LinearLayout>
 
                                 </LinearLayout>

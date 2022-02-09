@@ -165,7 +165,7 @@ public class DetailBeritaActivity extends AppCompatActivity {
                         mAdapter = new AdapterFullBerita(DetailBeritaActivity.this,mItems);
                         rv.setAdapter(mAdapter);
                         mAdapter.notifyDataSetChanged();
-                        if (Integer.parseInt(Page)>Integer.parseInt(response.body().getMax_page())){
+                        if (Integer.parseInt(Page)>Integer.parseInt(response.body().getMax_page())-1){
                             Right.setVisibility(View.INVISIBLE);
                         }else{
                             Right.setVisibility(View.VISIBLE);
