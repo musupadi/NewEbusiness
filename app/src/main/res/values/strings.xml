@@ -10,6 +10,7 @@
     <!--    <string name="type_here">Type here...</string>-->
     <string name="search">Search</string>
     <string name="email">Email</string>
+    <string name="note">Note</string>
     <string name="nip">NIP</string>
     <string name="divisi">Divisi</string>
     <string name="password_login">Password</string>
@@ -70,6 +71,7 @@
 
     <!-- Ecosystem   -->
     <string name="healthcare_ecosystem_flow">Healthcare Ecosystem Flow</string>
+    <string name="fmcg_ecosystem_flow">FMCG Ecosystem Flow</string>
     <string name="view">View</string>
     <string name="list_of_hospital">List of Hospital</string>
     <string name="distributor">Distributor</string>

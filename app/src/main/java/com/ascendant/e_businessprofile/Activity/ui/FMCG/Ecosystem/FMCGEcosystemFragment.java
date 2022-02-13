@@ -17,7 +17,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
+import com.ascendant.e_businessprofile.Activity.FullScreenActivity;
 import com.ascendant.e_businessprofile.Method.Ascendant;
 import com.ascendant.e_businessprofile.Activity.ui.FMCG.Ecosystem.Association.FMCGAssociationActivity;
 import com.ascendant.e_businessprofile.Activity.ui.FMCG.Ecosystem.Players.FMCGEcosystemPlayersActivity;
@@ -32,7 +34,7 @@ import java.net.URL;
 
 
 public class FMCGEcosystemFragment extends Fragment {
-
+    TextView lihat;
     PDFView photoView;
     CardView Distributor,Retail,ECommerce,Players,Association,Manufacture,Supplier;
     Dialog myDialog;
@@ -61,7 +63,7 @@ public class FMCGEcosystemFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         AscNet = new Ascendant();
 
-
+        lihat = view.findViewById(R.id.tvView);
         Distributor = view.findViewById(R.id.cardDistributor);
         Retail = view.findViewById(R.id.cardRetail);
         ECommerce = view.findViewById(R.id.cardECommerce);
@@ -74,6 +76,14 @@ public class FMCGEcosystemFragment extends Fragment {
         Views = myDialog.findViewById(R.id.btnView);
         Download = myDialog.findViewById(R.id.btnDownload);
         photoView = view.findViewById(R.id.ivEcosystem);
+        lihat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goInput = new Intent(getActivity(), FullScreenActivity.class);
+                goInput.putExtra("IMAGE","https://fabakonsultan.com/uploads/hospital/ekosistem/map_ekosistem.jpg");
+                startActivity(goInput);
+            }
+        });
         new RetreivePDFStreams().execute(ascendant.BASE_URL()+"/files/healthcare/ekosistem/map_ekosistem.pdf");
         Distributor.setOnClickListener(new View.OnClickListener() {
             @Override

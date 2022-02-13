@@ -41,7 +41,7 @@
                             android:layout_weight="1"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:text="@string/healthcare_ecosystem_flow"
+                            android:text="@string/fmcg_ecosystem_flow"
                             android:textColor="@color/colorBlack"
                             android:gravity="center|left"
                             android:fontFamily="@font/inter"

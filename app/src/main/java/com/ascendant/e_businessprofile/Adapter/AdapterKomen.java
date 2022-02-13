@@ -29,6 +29,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.ascendant.e_businessprofile.API.ApiRequest;
 import com.ascendant.e_businessprofile.API.RetroServer;
+import com.ascendant.e_businessprofile.Activity.HomeActivity;
 import com.ascendant.e_businessprofile.Method.Ascendant;
 import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
 import com.ascendant.e_businessprofile.Activity.ui.Forum.DetailForumActivity;
@@ -86,6 +87,8 @@ public class AdapterKomen extends RecyclerView.Adapter<AdapterKomen.HolderData> 
     DB_Helper dbHelper;
     String Token;
     String NamaUser;
+    EditText Note;
+    Button Konfirmasi,Tutup;
     public AdapterKomen(Context ctx, List<DataModel> mList,String ID,String CATEGORY,String JUDUL,String NamaUser){
         this.ctx = ctx;
         this.mList = mList;
@@ -204,15 +207,49 @@ public class AdapterKomen extends RecyclerView.Adapter<AdapterKomen.HolderData> 
                 ctx.startActivities(new Intent[]{goInput});
             }
         });
-//        holderData.Upload.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent galleryIntent = new Intent(Intent.ACTION_PICK,
-//                        MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-//                (galleryIntent,REQUEST_PICK_PHOTO, holderData.Gambar);
-//                holderData.Gambar.setVisibility(View.VISIBLE);
-//            }
-//        });
+        myDialog = new Dialog(ctx);
+        myDialog.setContentView(R.layout.dialog_report);
+        Note = myDialog.findViewById(R.id.etNote);
+        Konfirmasi = myDialog.findViewById(R.id.btnKonfirmasi);
+        Tutup = myDialog.findViewById(R.id.btnTutup);
+        holderData.Report.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                myDialog.show();
+                Konfirmasi.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if (Note.getText().toString().isEmpty() || Note.getText().toString()==""){
+                            Toast.makeText(ctx, "Note Tidak Boleh Kosong", Toast.LENGTH_SHORT).show();
+                        }else{
+                            ReportKomen();
+                        }
+                    }
+                });
+            }
+        });
+        Tutup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                myDialog.dismiss();
+            }
+        });
+    }
+    private void ReportKomen(){
+        ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
+        Call<ResponseArrayObject> data =api.ReportPosting(Token,ID,"komen",Note.getText().toString());
+        data.enqueue(new Callback<ResponseArrayObject>() {
+            @Override
+            public void onResponse(Call<ResponseArrayObject> call, Response<ResponseArrayObject> response) {
+                Toast.makeText(ctx, "Komen berhasil di Report", Toast.LENGTH_SHORT).show();
+                myDialog.dismiss();
+            }
+
+            @Override
+            public void onFailure(Call<ResponseArrayObject> call, Throwable t) {
+
+            }
+        });
     }
     private void DeleteKomen(String IDS){
         ApiRequest api = RetroServer.getClient().create(ApiRequest.class);

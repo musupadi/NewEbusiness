@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -115,10 +116,18 @@ public class DetailForumActivity extends AppCompatActivity {
 
     LinearLayout Delete,Report,Edit;
     String token;
+    Dialog myDialog;
+    EditText Note;
+    Button Konfirmasi,Tutup;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_forum);
+        myDialog = new Dialog(this);
+        myDialog.setContentView(R.layout.dialog_report);
+        Note = myDialog.findViewById(R.id.etNote);
+        Konfirmasi = myDialog.findViewById(R.id.btnKonfirmasi);
+        Tutup = myDialog.findViewById(R.id.btnTutup);
         Delete = findViewById(R.id.linearDelete);
         Report = findViewById(R.id.linearReport);
         Edit = findViewById(R.id.linearEdit);
@@ -580,6 +589,28 @@ public class DetailForumActivity extends AppCompatActivity {
                             Report.setVisibility(View.VISIBLE);
                             Delete.setVisibility(View.GONE);
                             Edit.setVisibility(View.GONE);
+                            Tutup.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    myDialog.dismiss();
+                                }
+                            });
+                            Report.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    myDialog.show();
+                                }
+                            });
+                            Konfirmasi.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    if (Note.getText().toString().isEmpty() || Note.getText().toString() == ""){
+                                        Toast.makeText(DetailForumActivity.this, "Note Tidak Boleh Kosong", Toast.LENGTH_SHORT).show();
+                                    }else{
+                                        ReportKomen();
+                                    }
+                                }
+                            });
                         }
                         Nama.setText(response.body().getData().getDetail().getNama_user());
                         web.setText(response.body().getData().getDetail().getIsi_post());
@@ -652,6 +683,31 @@ public class DetailForumActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<ResponseObject> call, Throwable t) {
+
+            }
+        });
+    }
+    private void ReportKomen(){
+        ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
+        Call<ResponseArrayObject> data =api.ReportPosting(Token,ID,"post",Note.getText().toString());
+        data.enqueue(new Callback<ResponseArrayObject>() {
+            @Override
+            public void onResponse(Call<ResponseArrayObject> call, Response<ResponseArrayObject> response) {
+                Toast.makeText(DetailForumActivity.this, "Post berhasil di Report", Toast.LENGTH_SHORT).show();
+//                Intent goInput = new Intent(DetailForumActivity.this, DetailForumActivity.class);
+//                goInput.putExtra("ID",ID);
+//                goInput.putExtra("CATEGORY",CATEGORY);
+//                goInput.putExtra("JUDUL",JUDUL);
+//                goInput.putExtra("REPLY_NAME","");
+//                goInput.putExtra("REPLY","");
+//                goInput.putExtra("EDIT","NO");
+//                goInput.putExtra("ISI_KOMEN","");
+//                startActivities(new Intent[]{goInput});
+                myDialog.dismiss();
+            }
+
+            @Override
+            public void onFailure(Call<ResponseArrayObject> call, Throwable t) {
 
             }
         });

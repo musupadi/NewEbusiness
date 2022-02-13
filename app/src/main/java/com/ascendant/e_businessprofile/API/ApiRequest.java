@@ -75,9 +75,18 @@ public interface ApiRequest {
     @POST("forget_pass")
     Call<ResponseArrayObject> ForgetPassword(@Field("email") String email);
 
+
+
     @FormUrlEncoded
     @POST("validasi_regist")
     Call<ResponseArrayObject> validasi_regist(@Field("token") String token);
+
+
+    @FormUrlEncoded
+    @POST("validasi_regist")
+    Call<ResponseArrayObject> report(@Field("token") String token,
+                                              @Field("tipe_post") String tipe_post,
+                                              @Field("note") String note);
 
     @FormUrlEncoded
     @POST("berita")

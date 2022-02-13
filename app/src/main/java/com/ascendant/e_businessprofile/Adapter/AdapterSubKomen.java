@@ -9,6 +9,8 @@ import android.database.Cursor;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -20,6 +22,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.ascendant.e_businessprofile.API.ApiRequest;
 import com.ascendant.e_businessprofile.API.RetroServer;
+import com.ascendant.e_businessprofile.Activity.HomeActivity;
 import com.ascendant.e_businessprofile.Method.Ascendant;
 import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
 import com.ascendant.e_businessprofile.Activity.ui.Forum.DetailForumActivity;
@@ -43,6 +46,8 @@ public class AdapterSubKomen extends RecyclerView.Adapter<AdapterSubKomen.Holder
     DB_Helper dbHelper;
     String Token;
     String IDSUB;
+    EditText Note;
+    Button Konfirmasi,Tutup;
     public AdapterSubKomen(Context ctx, List<DataModel> mList,String NamaUser,String ID,String CATEGORY,String JUIDUL){
         this.ctx = ctx;
         this.mList = mList;
@@ -125,6 +130,21 @@ public class AdapterSubKomen extends RecyclerView.Adapter<AdapterSubKomen.Holder
                 dialog.show();
             }
         });
+        holderData.Reply.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent goInput = new Intent(ctx, DetailForumActivity.class);
+                goInput.putExtra("ID",ID);
+                goInput.putExtra("CATEGORY",CATEGORY);
+                goInput.putExtra("JUDUL",JUDUL);
+                goInput.putExtra("REPLY_NAME",dm.getNama_user());
+                goInput.putExtra("REPLY",dm.getId_post_komen());
+                goInput.putExtra("EDIT","NO");
+                goInput.putExtra("ISI_KOMEN","");
+                goInput.putExtra("SUB_KOMEN","NO");
+                ctx.startActivities(new Intent[]{goInput});
+            }
+        });
         holderData.Edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -141,9 +161,51 @@ public class AdapterSubKomen extends RecyclerView.Adapter<AdapterSubKomen.Holder
                 ctx.startActivities(new Intent[]{goInput});
             }
         });
+        myDialog = new Dialog(ctx);
+        myDialog.setContentView(R.layout.dialog_report);
+        Note = myDialog.findViewById(R.id.etNote);
+        Konfirmasi = myDialog.findViewById(R.id.btnKonfirmasi);
+        Tutup = myDialog.findViewById(R.id.btnTutup);
+        holderData.Report.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                myDialog.show();
+                Konfirmasi.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if (Note.getText().toString().isEmpty() || Note.getText().toString()==""){
+                            Toast.makeText(ctx, "Note Tidak Boleh Kosong", Toast.LENGTH_SHORT).show();
+                        }else{
+                            ReportKomen();
+                        }
+                    }
+                });
+            }
+        });
+        Tutup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                myDialog.dismiss();
+            }
+        });
         holderData.cardKomen.setVisibility(View.GONE);
     }
+    private void ReportKomen(){
+        ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
+        Call<ResponseArrayObject> data =api.ReportPosting(Token,ID,"sub_komen",Note.getText().toString());
+        data.enqueue(new Callback<ResponseArrayObject>() {
+            @Override
+            public void onResponse(Call<ResponseArrayObject> call, Response<ResponseArrayObject> response) {
+                Toast.makeText(ctx, "Subkomen berhasil di Report", Toast.LENGTH_SHORT).show();
+                myDialog.dismiss();
+            }
 
+            @Override
+            public void onFailure(Call<ResponseArrayObject> call, Throwable t) {
+
+            }
+        });
+    }
     private void DeleteKomen(String IDSUB){
         ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
         Call<ResponseArrayObject> data =api.DeletePosting(Token,IDSUB,"sub_komen");
