@@ -7,29 +7,19 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.ascendant.e_businessprofile.API.ApiRequest;
-import com.ascendant.e_businessprofile.API.RetroServer;
 import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
-import com.ascendant.e_businessprofile.Adapter.AdapterListOfProbing2;
 import com.ascendant.e_businessprofile.Adapter.Static.AdapterNavigator;
 import com.ascendant.e_businessprofile.Model.DataModel;
-import com.ascendant.e_businessprofile.Model.ResponseArrayObject;
-import com.ascendant.e_businessprofile.Model.StaticModel.Mining.MiningOutlookModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.Mining.Outlook.MiningOutlookModel;
 import com.ascendant.e_businessprofile.R;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class DetailHospitalActivity extends AppCompatActivity {
     RecyclerView rv;

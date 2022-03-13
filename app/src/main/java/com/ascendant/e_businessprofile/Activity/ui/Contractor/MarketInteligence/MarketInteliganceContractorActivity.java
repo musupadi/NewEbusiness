@@ -15,11 +15,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.ascendant.e_businessprofile.Activity.LandscapeWebViewEbookActivity;
-import com.ascendant.e_businessprofile.Activity.ui.Contractor.Ecosystem.EcosystemContractorActivity;
 import com.ascendant.e_businessprofile.Adapter.Static.AdapterNavigator;
 import com.ascendant.e_businessprofile.Method.Ascendant;
 import com.ascendant.e_businessprofile.Model.DataModel;
-import com.ascendant.e_businessprofile.Model.StaticModel.Mining.MiningOutlookModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.Mining.Outlook.MiningOutlookModel;
 import com.ascendant.e_businessprofile.R;
 
 import java.util.ArrayList;
@@ -136,7 +135,7 @@ public class MarketInteliganceContractorActivity extends AppCompatActivity {
                 Download.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(android.view.View view) {
-                        ascendant.Download(MarketInteliganceContractorActivity.this,"pdf",LinkPDF,"Ecosystem Industry");
+                        ascendant.Download(MarketInteliganceContractorActivity.this,"pdf",LinkPDF,"Market Potential "+JUDUL);
                     }
                 });
                 View.setOnClickListener(new View.OnClickListener() {
@@ -170,7 +169,7 @@ public class MarketInteliganceContractorActivity extends AppCompatActivity {
                 Download.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(android.view.View view) {
-                        ascendant.Download(MarketInteliganceContractorActivity.this,"pdf",LinkPDF,"Ecosystem Industry");
+                        ascendant.Download(MarketInteliganceContractorActivity.this,"pdf",LinkPDF,"Benchmarking "+JUDUL);
                     }
                 });
                 View.setOnClickListener(new View.OnClickListener() {

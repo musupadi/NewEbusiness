@@ -14,11 +14,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.ascendant.e_businessprofile.Activity.LandscapeWebViewEbookActivity;
-import com.ascendant.e_businessprofile.Activity.ui.Contractor.Outlook.OtulookActivity;
 import com.ascendant.e_businessprofile.Adapter.Static.AdapterNavigator;
 import com.ascendant.e_businessprofile.Method.Ascendant;
 import com.ascendant.e_businessprofile.Model.DataModel;
-import com.ascendant.e_businessprofile.Model.StaticModel.Mining.MiningOutlookModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.Contractor.Ecosystem.ContractorEcosystem;
+import com.ascendant.e_businessprofile.Model.StaticModel.Mining.Outlook.MiningOutlookModel;
 import com.ascendant.e_businessprofile.R;
 
 import java.util.ArrayList;
@@ -56,7 +56,7 @@ public class EcosystemContractorActivity extends AppCompatActivity {
         More = findViewById(R.id.linearMore);
         Back = findViewById(R.id.linearBack);
         Available.setVisibility(View.VISIBLE);
-        pList.addAll(MiningOutlookModel.getListData());
+        pList.addAll(ContractorEcosystem.getListData());
         rv.setLayoutManager(new LinearLayoutManager(this));
         AdapterNavigator adapters = new AdapterNavigator(this, pList);
         rv.setAdapter(adapters);

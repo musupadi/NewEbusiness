@@ -14,6 +14,8 @@ import android.view.ViewGroup;
 
 import com.ascendant.e_businessprofile.Adapter.Static.AdapterNavigator;
 import com.ascendant.e_businessprofile.Model.DataModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.BusinessRefrence.FMCGRegulationModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.BusinessRefrence.FMCGeBookModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.Ecosystem.FMCGEcosystemAssociationModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.Ecosystem.FMCGEcosystemModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.Ecosystem.FMCGEcosystemPlayersModel;
@@ -21,8 +23,10 @@ import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.Business
 import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.BusinessRefrence.FMCGBusinessReviewModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.BusinessRefrence.FMCGNewsletterModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.ListOfProbing.FMCGListOfProbingFoodAndBeverageModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.ListOfProbing.FMCGListOfProbingModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.ListOfProbing.FMCGListOfProbingNonFoodAndBeverageModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.ListOfProbing.FMCGListOfProbingTobaccoModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.MandiriUpdate.FMCGMandiriUpdate;
 import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.BusinessRefrence.ActsModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.BusinessRefrence.ComplianceModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.BusinessRefrence.GovernmentRegulationsModel;
@@ -78,13 +82,13 @@ public class FMCGNavigatorFragment extends Fragment {
         if (Navigator.equals("Business Refrence")){
             pList.addAll(FMCGBusinessRefrenceModel.getListData());
         }else if (Navigator.equals("e-Book")){
-            pList.addAll(eBookModel.getListData());
+            pList.addAll(FMCGeBookModel.getListData());
         }else if (Navigator.equals("Newsletter")){
             pList.addAll(FMCGNewsletterModel.getListData());
         }else if (Navigator.equals("Business Review")){
             pList.addAll(FMCGBusinessReviewModel.getListData());
         }else if (Navigator.equals("Regulations")){
-            pList.addAll(RegulationModel.getListData());
+            pList.addAll(FMCGRegulationModel.getListData());
         }else if (Navigator.equals("Acts")){
             pList.addAll(ActsModel.getListData());
         }else if (Navigator.equals("Presidential Decree")){
@@ -94,7 +98,7 @@ public class FMCGNavigatorFragment extends Fragment {
         }else if (Navigator.equals("Health Minister Regulations")){
             pList.addAll(HealthMinisterRegulationsModel.getListData());
         }else if (Navigator.equals("List of Probing")){
-            pList.addAll(ListOfProbingModel.getListData());
+            pList.addAll(FMCGListOfProbingModel.getListData());
         }else if (Navigator.equals("Compliance")){
             pList.addAll(ComplianceModel.getListData());
         }else if (Navigator.equals("News")){
@@ -117,6 +121,8 @@ public class FMCGNavigatorFragment extends Fragment {
             pList.addAll(FMCGListOfProbingNonFoodAndBeverageModel.getListData());
         }else if (Navigator.equals("Tobacco")){
             pList.addAll(FMCGListOfProbingTobaccoModel.getListData());
+        }else if (Navigator.equals("Mandiri Update")){
+            pList.addAll(FMCGMandiriUpdate.getListData());
         }
         rv.setLayoutManager(new LinearLayoutManager(getActivity()));
         AdapterNavigator adapters = new AdapterNavigator(getActivity(),pList);

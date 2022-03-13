@@ -25,7 +25,7 @@ import com.ascendant.e_businessprofile.Adapter.AdapterFile;
 import com.ascendant.e_businessprofile.Adapter.Static.AdapterNavigator;
 import com.ascendant.e_businessprofile.Model.DataModel;
 import com.ascendant.e_businessprofile.Model.ResponseDataModel;
-import com.ascendant.e_businessprofile.Model.StaticModel.Mining.MiningOutlookModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.Mining.Outlook.MiningOutlookModel;
 import com.ascendant.e_businessprofile.R;
 import com.bumptech.glide.Glide;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer;

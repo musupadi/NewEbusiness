@@ -10,6 +10,31 @@
         android:layout_height="0.0000sp"
         android:textSize="0.000000sp"
         android:text="0"
+        android:id="@+id/tvIdDirektorat"/>
+    <TextView
+        android:layout_width="0.0000sp"
+        android:layout_height="0.0000sp"
+        android:textSize="0.000000sp"
+        android:text="0"
+        android:id="@+id/tvIdGroup"/>
+    <TextView
+        android:layout_width="0.0000sp"
+        android:layout_height="0.0000sp"
+        android:textSize="0.000000sp"
+        android:text="0"
+        android:id="@+id/tvIdRegion"/>
+    <TextView
+        android:layout_width="0.0000sp"
+        android:layout_height="0.0000sp"
+        android:textSize="0.000000sp"
+        android:text="0"
+        android:id="@+id/tvIdArea"/>
+
+    <TextView
+        android:layout_width="0.0000sp"
+        android:layout_height="0.0000sp"
+        android:textSize="0.000000sp"
+        android:text="0"
         android:id="@+id/tvIdDivisi"/>
     <TextView
         android:layout_width="0.0000sp"
@@ -95,7 +120,7 @@
 
                     <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
-                        android:layout_height="220dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
                         app:cardCornerRadius="10dp"
@@ -179,9 +204,10 @@
                                 android:orientation="vertical">
 
                                 <LinearLayout
+                                    android:visibility="gone"
+                                    android:id="@+id/linearPoint"
                                     android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="0.8"
+                                    android:layout_height="wrap_content"
                                     android:orientation="horizontal">
 
                                     <RelativeLayout
@@ -267,11 +293,10 @@
                                             android:visibility="gone" />
                                     </LinearLayout>
                                 </LinearLayout>
-
                                 <LinearLayout
+                                    android:layout_weight="1"
                                     android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="2"
+                                    android:layout_height="wrap_content"
                                     android:orientation="vertical">
 
                                     <androidx.cardview.widget.CardView
@@ -279,42 +304,90 @@
                                         android:layout_height="1dp"
                                         android:alpha="0.2"
                                         android:elevation="10dp" />
-
                                     <LinearLayout
-                                        android:id="@+id/linearQuiz"
                                         android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:background="@color/colorWhite"
-                                        android:gravity="center"
+                                        android:layout_height="wrap_content"
                                         android:orientation="horizontal">
-
-                                        <com.airbnb.lottie.LottieAnimationView
-                                            android:id="@+id/lottie"
-                                            android:layout_width="30dp"
-                                            android:layout_height="30dp"
-                                            android:layout_marginRight="10dp"
-                                            app:lottie_autoPlay="true"
-                                            app:lottie_fileName="alert_blue.json"
-                                            app:lottie_loop="true">
-
-                                        </com.airbnb.lottie.LottieAnimationView>
-
-                                        <TextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:fontFamily="@font/inter_extra_bold"
+                                        <LinearLayout
+                                            android:layout_margin="5dp"
+                                            android:layout_weight="1"
+                                            android:id="@+id/linearLihatPoint"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:background="@color/colorWhite"
                                             android:gravity="center"
-                                            android:text="@string/look_new_quiz"
-                                            android:textColor="@color/colorPrimary"
-                                            android:textSize="@dimen/text_medium" />
+                                            android:orientation="horizontal">
 
-                                        <ImageView
-                                            android:layout_width="14dp"
-                                            android:layout_height="18dp"
-                                            android:layout_marginLeft="10dp"
-                                            android:src="@drawable/chevron_right" />
+                                            <TextView
+                                                android:id="@+id/textPoint"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:fontFamily="@font/inter_extra_bold"
+                                                android:gravity="center"
+                                                android:text="@string/look_point"
+                                                android:textColor="@color/colorPrimary"
+                                                android:textSize="@dimen/text_medium" />
+
+                                            <ImageView
+                                                android:visibility="gone"
+                                                android:layout_width="14dp"
+                                                android:layout_height="18dp"
+                                                android:layout_marginLeft="10dp"
+                                                android:src="@drawable/chevron_right" />
+
+                                        </LinearLayout>
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1.8"
+                                            android:gravity="center">
+                                            <androidx.cardview.widget.CardView
+                                                android:layout_width="1dp"
+                                                android:layout_height="match_parent"
+                                                android:alpha="0.2"
+                                                android:elevation="10dp" />
+                                        </LinearLayout>
+                                        <LinearLayout
+                                            android:layout_margin="5dp"
+                                            android:layout_weight="1"
+                                            android:id="@+id/linearQuiz"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:background="@color/colorWhite"
+                                            android:gravity="center"
+                                            android:orientation="horizontal">
+
+                                            <com.airbnb.lottie.LottieAnimationView
+                                                android:id="@+id/lottie"
+                                                android:layout_width="30dp"
+                                                android:layout_height="30dp"
+                                                android:layout_marginRight="10dp"
+                                                app:lottie_autoPlay="true"
+                                                app:lottie_fileName="alert_blue.json"
+                                                app:lottie_loop="true">
+
+                                            </com.airbnb.lottie.LottieAnimationView>
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:fontFamily="@font/inter_extra_bold"
+                                                android:gravity="center"
+                                                android:text="@string/look_new_quiz"
+                                                android:textColor="@color/colorPrimary"
+                                                android:textSize="@dimen/text_medium" />
+
+                                            <ImageView
+                                                android:visibility="gone"
+                                                android:layout_width="14dp"
+                                                android:layout_height="18dp"
+                                                android:layout_marginLeft="10dp"
+                                                android:src="@drawable/chevron_right" />
+
+                                        </LinearLayout>
 
                                     </LinearLayout>
+
                                 </LinearLayout>
                             </LinearLayout>
                         </LinearLayout>

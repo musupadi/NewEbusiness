@@ -12,10 +12,12 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
+import com.ascendant.e_businessprofile.Activity.ui.Mining.MarketInteligence.Benchmark.MiningBenchmarkActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Mining.MarketInteligence.MarketPotential.MarketPotentialActivity;
 import com.ascendant.e_businessprofile.Adapter.Static.AdapterNavigator;
 import com.ascendant.e_businessprofile.Model.DataModel;
-import com.ascendant.e_businessprofile.Model.StaticModel.Mining.MiningOutlookModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.Mining.MarketIntelligence.MiningMarketIntelligenceModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.Mining.Outlook.MiningOutlookModel;
 import com.ascendant.e_businessprofile.R;
 
 import java.util.ArrayList;
@@ -44,7 +46,7 @@ public class MarketInteliganceMiningActivity extends AppCompatActivity {
         More = findViewById(R.id.linearMore);
         Back = findViewById(R.id.linearBack);
         Available.setVisibility(View.VISIBLE);
-        pList.addAll(MiningOutlookModel.getListData());
+        pList.addAll(MiningMarketIntelligenceModel.getListData());
         rv.setLayoutManager(new LinearLayoutManager(this));
         AdapterNavigator adapters = new AdapterNavigator(this,pList);
         rv.setAdapter(adapters);
@@ -81,8 +83,10 @@ public class MarketInteliganceMiningActivity extends AppCompatActivity {
         Benchmark.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://ebuss-raw.the-urbandev.com/uploads/mining/benchmark.pdf"));
-                startActivity(browserIntent);
+                Intent intent = new Intent(MarketInteliganceMiningActivity.this, MiningBenchmarkActivity.class);
+                startActivity(intent);
+//                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://ebuss-raw.the-urbandev.com/uploads/mining/benchmark.pdf"));
+//                startActivity(browserIntent);
             }
         });
         MarketPotential.setOnClickListener(new View.OnClickListener() {

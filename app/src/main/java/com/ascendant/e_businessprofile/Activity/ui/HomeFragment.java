@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
@@ -37,7 +38,11 @@ import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
 import com.ascendant.e_businessprofile.Activity.TukarPoinAtivity;
 import com.ascendant.e_businessprofile.Activity.ui.Mining.MandiriUpdate.DetailMandiriUpdate;
 import com.ascendant.e_businessprofile.Adapter.AdapterBerita;
+import com.ascendant.e_businessprofile.Adapter.Spinner.SpinnerArea;
+import com.ascendant.e_businessprofile.Adapter.Spinner.SpinnerDirektorat;
 import com.ascendant.e_businessprofile.Adapter.Spinner.SpinnerDivisi;
+import com.ascendant.e_businessprofile.Adapter.Spinner.SpinnerGroup;
+import com.ascendant.e_businessprofile.Adapter.Spinner.SpinnerRegion;
 import com.ascendant.e_businessprofile.Adapter.Spinner.SpinnerWilayah;
 import com.ascendant.e_businessprofile.Model.DataModel;
 import com.ascendant.e_businessprofile.Model.ResponseArrayObject;
@@ -71,7 +76,18 @@ public class HomeFragment extends Fragment {
     TextView KategoriSoal,Soal;
     Button A,B,C,D,Konfirmasi;
     Button PilihDivisi;
-    Spinner spDivisi,spWilayah;
+//    Spinner spDivisi,spWilayah;
+   Spinner RegionKantor;
+   LinearLayout Region,KantorPusat;
+   TextView IdRegion,IdArea,IdDirektorat,IdGroup;
+  //Regiion
+    Spinner spRegion;
+
+    Spinner DaftarArea;
+    EditText Cabang;
+    //Kantor Pusat
+    Spinner Direktorat,Group;
+    EditText Departement,UnitTeam;
     TextView tvDivisi,tvWilayah;
     LottieAnimationView lottie;
     Boolean Quiz=false;
@@ -82,9 +98,11 @@ public class HomeFragment extends Fragment {
     Button KonfirmasiPesan;
     String token;
     RelativeLayout History;
-    LinearLayout Tukar,linearNotif;
+    LinearLayout Tukar,linearNotif,LihatPoint,linearPoint;
     TextView tvNotif;
     RelativeLayout Notification;
+    Boolean PointHide=true;
+    TextView textPoint;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -107,13 +125,16 @@ public class HomeFragment extends Fragment {
                 Token = cursor.getString(0);
             }
         }
+        linearPoint = view.findViewById(R.id.linearPoint);
+        LihatPoint  = view.findViewById(R.id.linearLihatPoint);
         linearNotif = view.findViewById(R.id.linearNotif);
         tvNotif = view.findViewById(R.id.tvNotif);
+        textPoint = view.findViewById(R.id.textPoint);
         Notification = view.findViewById(R.id.relativeNotif);
         dialogPesan = new Dialog(getActivity());
         dialogPesan.setContentView(R.layout.dialog_message);
         myDialog = new Dialog(getActivity());
-        myDialog.setContentView(R.layout.dialog_divisi);
+        myDialog.setContentView(R.layout.dialog_unit_kerja);
         quizDialog = new Dialog(getActivity());
         quizDialog.setContentView(R.layout.dialog_quiz_harian);
         View = view.findViewById(R.id.tvView);
@@ -126,9 +147,27 @@ public class HomeFragment extends Fragment {
         C = quizDialog.findViewById(R.id.btnC);
         D = quizDialog.findViewById(R.id.btnD);
         Konfirmasi = quizDialog.findViewById(R.id.btnKonfirmasi);
-        spDivisi = myDialog.findViewById(R.id.spDivisi);
-        spWilayah = myDialog.findViewById(R.id.spWilayah);
+//        spDivisi = myDialog.findViewById(R.id.spDivisi);
+//        spWilayah = myDialog.findViewById(R.id.spWilayah);
         PilihDivisi = myDialog.findViewById(R.id.btnPilih);
+        RegionKantor = myDialog.findViewById(R.id.spRegionOrKantor);
+        Region = myDialog.findViewById(R.id.linearRegion);
+        KantorPusat = myDialog.findViewById(R.id.linearKantorPusat);
+        IdRegion = view.findViewById(R.id.tvIdRegion);
+        IdArea = view.findViewById(R.id.tvIdArea);
+        IdDirektorat = view.findViewById(R.id.tvIdDirektorat);
+        IdGroup = view.findViewById(R.id.tvIdGroup);
+        //Region
+        spRegion = myDialog.findViewById(R.id.spRegion);
+        DaftarArea = myDialog.findViewById(R.id.spArea);
+        Cabang = myDialog.findViewById(R.id.etCabang);
+        //Kantor Pusat
+        Direktorat = myDialog.findViewById(R.id.spDirektorat);
+        Group= myDialog.findViewById(R.id.spGroup);
+        Departement = myDialog.findViewById(R.id.etDepartemen);
+        UnitTeam = myDialog.findViewById(R.id.etUnitTeam);
+
+
         History = view.findViewById(R.id.relativeHistoryPoin);
         linearQuiz = view.findViewById(R.id.linearQuiz);
         scroll = view.findViewById(R.id.scroll);
@@ -143,6 +182,7 @@ public class HomeFragment extends Fragment {
         Farm = view.findViewById(R.id.relativeFarm);
         nama = view.findViewById(R.id.tvNama);
         divisi = view.findViewById(R.id.tvDivisi);
+        divisi = view.findViewById(R.id.tvDivisi);
         poin = view.findViewById(R.id.tvPoin);
         tvDivisi = view.findViewById(R.id.tvIdDivisi);
         tvWilayah = view.findViewById(R.id.tvIdWilayah);
@@ -154,11 +194,88 @@ public class HomeFragment extends Fragment {
         GetData();
         GetPoin();
         Logic();
-        GetDivisi();
-        GetWilayah();
+//        GetDivisi();
+//        GetWilayah();
         CheckQuiz();
         IsiQuiz();
         GetJumlahNotif();
+
+
+        //Kantor Pusat
+        GetGroup();
+//        Direktorat.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> adapterView, android.view.View view, int i, long l) {
+//                try {
+//                    DataModel clickedItem = (DataModel) adapterView.getItemAtPosition(i);
+//                    int clickedItems = Integer.parseInt(clickedItem.getId_direktorat());
+//                    IdDirektorat.setText(String.valueOf(clickedItems));
+//
+//                }catch (Exception e){
+//                    Log.d("ZYARGA : ",e.toString());
+//                }
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> adapterView) {
+//
+//            }
+//        });
+        //Region
+        GetRegion();
+        spRegion.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, android.view.View view, int i, long l) {
+                try {
+                    DataModel clickedItem = (DataModel) adapterView.getItemAtPosition(i);
+                    int clickedItems = Integer.parseInt(clickedItem.getId_region());
+                    IdRegion.setText(String.valueOf(clickedItems));
+                    GetArea(IdRegion.getText().toString());
+                }catch (Exception e){
+//                    Toast.makeText(getActivity(), "Failed ?", Toast.LENGTH_SHORT).show();
+//                    Log.d("ZYARGA : ",e.toString());
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+        Group.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, android.view.View view, int i, long l) {
+                try {
+                    DataModel clickedItem = (DataModel) adapterView.getItemAtPosition(i);
+                    int clickedItems = Integer.parseInt(clickedItem.getId_group_pusat());
+                    IdGroup.setText(String.valueOf(clickedItems));
+                }catch (Exception e){
+                    Log.d("ZYARGA : ",e.toString());
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+        DaftarArea.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, android.view.View view, int i, long l) {
+                try {
+                    DataModel clickedItem = (DataModel) adapterView.getItemAtPosition(i);
+                    int clickedItems = Integer.parseInt(clickedItem.getId_wilayah_mandiri());
+                    IdArea.setText(String.valueOf(clickedItems));
+                }catch (Exception e){
+                    Log.d("ZYARGA : ",e.toString());
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
         Healtcare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -223,15 +340,18 @@ public class HomeFragment extends Fragment {
                 startActivity(i);
             }
         });
-        spDivisi.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        RegionKantor.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                try {
-                    DataModel clickedItem = (DataModel) adapterView.getItemAtPosition(i);
-                    int clickedItems = Integer.parseInt(clickedItem.getId_divisi_mandiri());
-                    tvDivisi.setText(String.valueOf(clickedItems));
-                }catch (Exception e){
-                    Log.d("ZYARGA : ",e.toString());
+            public void onItemSelected(AdapterView<?> adapterView, android.view.View view, int i, long l) {
+                if (RegionKantor.getSelectedItem().toString().equals("Region")){
+                    Region.setVisibility(android.view.View.VISIBLE);
+                    KantorPusat.setVisibility(android.view.View.GONE);
+                }else if (RegionKantor.getSelectedItem().toString().equals("Kantor Pusat")){
+                    Region.setVisibility(android.view.View.GONE);
+                    KantorPusat.setVisibility(android.view.View.VISIBLE);
+                }else{
+                    Region.setVisibility(android.view.View.GONE);
+                    KantorPusat.setVisibility(android.view.View.GONE);
                 }
             }
 
@@ -240,23 +360,55 @@ public class HomeFragment extends Fragment {
 
             }
         });
-        spWilayah.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        LihatPoint.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                try {
-                    DataModel clickedItem = (DataModel) adapterView.getItemAtPosition(i);
-                    int clickedItems = Integer.parseInt(clickedItem.getId_wilayah_mandiri());
-                    tvWilayah.setText(String.valueOf(clickedItems));
-                }catch (Exception e){
-                    Log.d("ZYARGA : ",e.toString());
+            public void onClick(android.view.View view) {
+                if (PointHide){
+                    textPoint.setText("Hide Points");
+                    linearPoint.setVisibility(android.view.View.VISIBLE);
+                    PointHide=false;
+                }else{
+                    textPoint.setText("Show Points");
+                    linearPoint.setVisibility(android.view.View.GONE);
+                    PointHide=true;
                 }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
 
             }
         });
+//        spDivisi.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+//                try {
+//                    DataModel clickedItem = (DataModel) adapterView.getItemAtPosition(i);
+//                    int clickedItems = Integer.parseInt(clickedItem.getId_divisi_mandiri());
+//                    tvDivisi.setText(String.valueOf(clickedItems));
+//                }catch (Exception e){
+//                    Log.d("ZYARGA : ",e.toString());
+//                }
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> adapterView) {
+//
+//            }
+//        });
+//        spWilayah.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+//                try {
+//                    DataModel clickedItem = (DataModel) adapterView.getItemAtPosition(i);
+//                    int clickedItems = Integer.parseInt(clickedItem.getId_wilayah_mandiri());
+//                    tvWilayah.setText(String.valueOf(clickedItems));
+//                }catch (Exception e){
+//                    Log.d("ZYARGA : ",e.toString());
+//                }
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> adapterView) {
+//
+//            }
+//        });
         PilihDivisi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -317,26 +469,61 @@ public class HomeFragment extends Fragment {
 
     }
     private void UpdateDivisi(){
-        ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
-        final Call<ResponseObject> data =api.UpdateDivisi(Token,tvDivisi.getText().toString(),tvWilayah.getText().toString());
-        data.enqueue(new Callback<ResponseObject>() {
-            @Override
-            public void onResponse(Call<ResponseObject> call, Response<ResponseObject> response) {
-                myDialog.hide();
-                try {
-                    Toast.makeText(getActivity(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(getActivity(),HomeActivity.class);
-                    startActivity(intent);
-                }catch (Exception e){
-                    Toast.makeText(getActivity(), "Terjadi Kesalahan : "+e.toString(), Toast.LENGTH_SHORT).show();
+        if (RegionKantor.getSelectedItem().toString().equals("Mohon Pilih Unit Kerja")){
+            Toast.makeText(getActivity(), "Mohon Pilih Unit Kerja", Toast.LENGTH_SHORT).show();
+        }else{
+            if (RegionKantor.getSelectedItem().toString().equals("Region")){
+                if (Cabang.getText().toString().isEmpty()){
+                    Toast.makeText(getActivity(), "Mohon Isi Cabang", Toast.LENGTH_SHORT).show();
+                }else{
+                    ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
+                    final Call<ResponseObject> data =api.UpdateUserRegion(Token,"region",IdArea.getText().toString(),Cabang.getText().toString());
+                    data.enqueue(new Callback<ResponseObject>() {
+                        @Override
+                        public void onResponse(Call<ResponseObject> call, Response<ResponseObject> response) {
+                            myDialog.hide();
+                            try {
+                                Toast.makeText(getActivity(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(getActivity(),HomeActivity.class);
+                                startActivity(intent);
+                            }catch (Exception e){
+                                Toast.makeText(getActivity(), "Terjadi Kesalahan : "+e.toString(), Toast.LENGTH_SHORT).show();
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<ResponseObject> call, Throwable t) {
+                            Toast.makeText(getActivity(),"Koneksi Gagal ",Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
+            }else{
+                if (Departement.getText().toString().isEmpty()){
+                    Toast.makeText(getActivity(), "Harap isi Departemen", Toast.LENGTH_SHORT).show();
+                }else{
+                    ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
+                    final Call<ResponseObject> data =api.UpdateUserKantor(Token,"kantor_pusat",IdGroup.getText().toString(),Departement.getText().toString());
+                    data.enqueue(new Callback<ResponseObject>() {
+                        @Override
+                        public void onResponse(Call<ResponseObject> call, Response<ResponseObject> response) {
+                            myDialog.hide();
+                            try {
+                                Toast.makeText(getActivity(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(getActivity(),HomeActivity.class);
+                                startActivity(intent);
+                            }catch (Exception e){
+                                Toast.makeText(getActivity(), "Terjadi Kesalahan : "+e.toString(), Toast.LENGTH_SHORT).show();
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<ResponseObject> call, Throwable t) {
+                            Toast.makeText(getActivity(),"Koneksi Gagal ",Toast.LENGTH_SHORT).show();
+                        }
+                    });
                 }
             }
-
-            @Override
-            public void onFailure(Call<ResponseObject> call, Throwable t) {
-                Toast.makeText(getActivity(),"Koneksi Gagal ",Toast.LENGTH_SHORT).show();
-            }
-        });
+        }
     }
     private void GetJumlahNotif(){
         ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
@@ -529,17 +716,17 @@ public class HomeFragment extends Fragment {
             }
         });
     }
-    private void GetWilayah(){
+    private void GetGroup(){
         ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
-        final Call<ResponseArrayObject> Data =api.Wilayah();
+        final Call<ResponseArrayObject> Data =api.Group(Token);
         Data.enqueue(new Callback<ResponseArrayObject>() {
             @Override
             public void onResponse(Call<ResponseArrayObject> call, Response<ResponseArrayObject> response) {
                 try {
                     if (response.body().getKode().equals(200)){
                         mItems=response.body().getData();
-                        SpinnerWilayah adapter = new SpinnerWilayah(getActivity(),mItems);
-                        spWilayah.setAdapter(adapter);
+                        SpinnerGroup adapter = new SpinnerGroup(getActivity(),mItems);
+                        Group.setAdapter(adapter);
                     }
                 }catch (Exception e){
 
@@ -552,17 +739,41 @@ public class HomeFragment extends Fragment {
             }
         });
     }
-    private void GetDivisi(){
+    private void GetDirektorat(){
         ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
-        final Call<ResponseArrayObject> Data =api.Divisi();
+        final Call<ResponseArrayObject> Data =api.Direktorat(Token);
         Data.enqueue(new Callback<ResponseArrayObject>() {
             @Override
             public void onResponse(Call<ResponseArrayObject> call, Response<ResponseArrayObject> response) {
                 try {
                     if (response.body().getKode().equals(200)){
                         mItems=response.body().getData();
-                        SpinnerDivisi adapter = new SpinnerDivisi(getActivity(),mItems);
-                        spDivisi.setAdapter(adapter);
+                        SpinnerDirektorat adapter = new SpinnerDirektorat(getActivity(),mItems);
+                        Direktorat.setAdapter(adapter);
+                    }
+                }catch (Exception e){
+                    Log.d("Zyarga Errors : ",e.toString());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseArrayObject> call, Throwable t) {
+                Toast.makeText(getActivity(), t.toString(), Toast.LENGTH_SHORT).show();
+                Log.d("Zyarga Errors : ",t.toString());
+            }
+        });
+    }
+    private void GetArea(String id){
+        ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
+        final Call<ResponseArrayObject> Data =api.Area(Token,id);
+        Data.enqueue(new Callback<ResponseArrayObject>() {
+            @Override
+            public void onResponse(Call<ResponseArrayObject> call, Response<ResponseArrayObject> response) {
+                try {
+                    if (response.body().getKode().equals(200)){
+                        mItems=response.body().getData();
+                        SpinnerArea adapter = new SpinnerArea(getActivity(),mItems);
+                        DaftarArea.setAdapter(adapter);
                     }
                 }catch (Exception e){
 
@@ -575,6 +786,76 @@ public class HomeFragment extends Fragment {
             }
         });
     }
+    private void GetRegion(){
+        ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
+        final Call<ResponseArrayObject> Data =api.Region(Token);
+        Data.enqueue(new Callback<ResponseArrayObject>() {
+            @Override
+            public void onResponse(Call<ResponseArrayObject> call, Response<ResponseArrayObject> response) {
+                try {
+                    if (response.body().getKode().equals(200)){
+                        mItems=response.body().getData();
+                        SpinnerRegion adapter = new SpinnerRegion(getActivity(),mItems);
+                        spRegion.setAdapter(adapter);
+                    }
+                }catch (Exception e){
+                    Log.d("Zyarga Errors : ",e.toString());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseArrayObject> call, Throwable t) {
+                Toast.makeText(getActivity(), t.toString(), Toast.LENGTH_SHORT).show();
+                Log.d("Zyarga Errors : ",t.toString());
+            }
+        });
+    }
+//    private void GetWilayah(){
+//        ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
+//        final Call<ResponseArrayObject> Data =api.Wilayah();
+//        Data.enqueue(new Callback<ResponseArrayObject>() {
+//            @Override
+//            public void onResponse(Call<ResponseArrayObject> call, Response<ResponseArrayObject> response) {
+//                try {
+//                    if (response.body().getKode().equals(200)){
+//                        mItems=response.body().getData();
+//                        SpinnerWilayah adapter = new SpinnerWilayah(getActivity(),mItems);
+//                        spWilayah.setAdapter(adapter);
+//                    }
+//                }catch (Exception e){
+//
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<ResponseArrayObject> call, Throwable t) {
+////                Toast.makeText(getActivity(), "Koneksi Gagal", Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//    }
+//    private void GetDivisi(){
+//        ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
+//        final Call<ResponseArrayObject> Data =api.Divisi();
+//        Data.enqueue(new Callback<ResponseArrayObject>() {
+//            @Override
+//            public void onResponse(Call<ResponseArrayObject> call, Response<ResponseArrayObject> response) {
+//                try {
+//                    if (response.body().getKode().equals(200)){
+//                        mItems=response.body().getData();
+//                        SpinnerDivisi adapter = new SpinnerDivisi(getActivity(),mItems);
+//                        spDivisi.setAdapter(adapter);
+//                    }
+//                }catch (Exception e){
+//
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<ResponseArrayObject> call, Throwable t) {
+////                Toast.makeText(getActivity(), "Koneksi Gagal", Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//    }
     private void GetData(){
         FirebaseApp.initializeApp(getActivity());
         FirebaseMessaging.getInstance().getToken().addOnCompleteListener(new OnCompleteListener<String>() {
@@ -595,8 +876,8 @@ public class HomeFragment extends Fragment {
                         try {
                             if (response.body().getKode().equals(200)){
                                 nama.setText(response.body().getData().getNama_user());
-                                divisi.setText(response.body().getData().getDivisi()+" ("+response.body().getData().getWilayah()+")");
-                                if (response.body().getData().getDivisi().equals("")){
+                                divisi.setText(response.body().getData().getAddinfo());
+                                if (response.body().getData().getAddinfo().equals("")){
                                     myDialog.show();
                                 }
                             }else{

@@ -1,10 +1,10 @@
-package com.ascendant.e_businessprofile.Model.StaticModel.Mining;
+package com.ascendant.e_businessprofile.Model.StaticModel.Mining.Ecosystem;
 
 import com.ascendant.e_businessprofile.Model.DataModel;
 
 import java.util.ArrayList;
 
-public class MiningOutlookModel {
+public class MiningEcosystemModel {
     public static String[][] data = new String[][]{
             {"1",
                     "Home",
@@ -15,7 +15,7 @@ public class MiningOutlookModel {
                     "false"
             },
             {"3",
-                    "Outlook",
+                    "Ecosystem",
                     "true"
             }
     };

@@ -29,6 +29,11 @@ public interface ApiRequest {
                                              @Field("kuncifaba") String kuncifaba);
 
     @FormUrlEncoded
+    @POST("open_ebook")
+    Call<ResponseObject> OpenEbook(@Field("token") String token);
+
+
+    @FormUrlEncoded
     @POST("suratapi/simulator")
     Call<ResponseObject> SimulasiAnalisisKinerjaRS(@Header("Authorization") String authHeader,
                                                   @Field("type") String type,
@@ -70,6 +75,10 @@ public interface ApiRequest {
     Call<ResponseArrayObject> login(@Field("email") String email,
                                     @Field("password") String password,
                                     @Field("andro_token") String andro_token);
+
+    @FormUrlEncoded
+    @POST("farming/benchmark")
+    Call<ResponseArrayObject> BenchmarkFarming(@Field("token") String token);
 
     @FormUrlEncoded
     @POST("forget_pass")
@@ -166,9 +175,7 @@ public interface ApiRequest {
                                        @Field("email") String email,
                                        @Field("nip") String nip,
                                        @Field("no_telp") String no_telp,
-                                       @Field("divisi") String divisi,
-                                       @Field("password") String password,
-                                       @Field("wilayah") String wilayah);
+                                       @Field("password") String password);
 
     @FormUrlEncoded
     @POST("fmcg/business_refrence")
@@ -242,6 +249,20 @@ public interface ApiRequest {
     Call<ResponseObject> UpdateDivisi(@Field("token") String token,
                                       @Field("id_divisi_mandiri") String id_divisi_mandiri,
                                       @Field("id_wilayah_mandiri") String id_wilayah_mandiri);
+
+    @FormUrlEncoded
+    @POST("update_user_reg")
+    Call<ResponseObject> UpdateUserRegion(@Field("token") String token,
+                                          @Field("tipe") String tipe,
+                                          @Field("id_area") String id_area,
+                                          @Field("cabang") String cabang);
+
+    @FormUrlEncoded
+    @POST("update_user_reg")
+    Call<ResponseObject> UpdateUserKantor(@Field("token") String token,
+                                          @Field("tipe") String tipe,
+                                          @Field("id_group_pusat") String id_group_pusat,
+                                          @Field("department") String department);
 
     @FormUrlEncoded
     @POST("jawab_quiz_harian")
@@ -393,6 +414,25 @@ public interface ApiRequest {
 
     @GET("wilayah")
     Call<ResponseArrayObject> Wilayah();
+
+
+    //New API 1/3/2022
+    @FormUrlEncoded
+    @POST("direktorat")
+    Call<ResponseArrayObject> Direktorat(@Field("token") String token);
+
+    @FormUrlEncoded
+    @POST("group")
+    Call<ResponseArrayObject> Group(@Field("token") String token);
+
+    @FormUrlEncoded
+    @POST("region")
+    Call<ResponseArrayObject> Region(@Field("token") String token);
+
+    @FormUrlEncoded
+    @POST("area")
+    Call<ResponseArrayObject> Area(@Field("token") String token,
+                                   @Field("id_region") String id_region);
 
     //Old API
     //FMCG

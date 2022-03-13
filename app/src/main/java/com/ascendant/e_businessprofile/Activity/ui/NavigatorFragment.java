@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 
 import com.ascendant.e_businessprofile.Adapter.Static.AdapterNavigator;
 import com.ascendant.e_businessprofile.Model.DataModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.MandiriUpdate.FMCGMandiriUpdate;
 import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.BusinessRefrence.ActsModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.BusinessRefrence.BusinessRefrenceModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.BusinessRefrence.BusinessReviewModel;
@@ -29,6 +30,7 @@ import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.Ecosystem.Ho
 import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.Ecosystem.ListOfHospitalModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.Ecosystem.SupportingIndustriesModel;
 import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.ListOfProbing.ListOfProbingModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.MandiriUpdate.MandiriUpdate;
 import com.ascendant.e_businessprofile.Model.StaticModel.NewsModel;
 import com.ascendant.e_businessprofile.R;
 
@@ -98,6 +100,8 @@ public class NavigatorFragment extends Fragment {
             pList.addAll(HospitalEquipmentodel.getListData());
         }else if (Navigator.equals("List of Hospital")){
             pList.addAll(ListOfHospitalModel.getListData());
+        }else if (Navigator.equals("Mandiri Update")){
+            pList.addAll(MandiriUpdate.getListData());
         }
         rv.setLayoutManager(new LinearLayoutManager(getActivity()));
         AdapterNavigator adapters = new AdapterNavigator(getActivity(),pList);

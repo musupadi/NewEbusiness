@@ -6,12 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".Activity.MainActivity"
     android:background="@color/colorPrimary">
-    
+
     <ImageView
-        android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_centerInParent="true"
-        android:src="@drawable/splash_loho"/>
+        android:src="@drawable/splashing" />
 
 
 </RelativeLayout>

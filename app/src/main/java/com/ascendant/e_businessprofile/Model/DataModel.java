@@ -642,6 +642,54 @@ public class DataModel {
     @Expose
     public String  link_konstruksi_2021;
 
+    @SerializedName("nama_group_pusat")
+    @Expose
+    public String nama_group_pusat;
+
+    @SerializedName("id_group_pusat")
+    @Expose
+    public String id_group_pusat;
+
+    @SerializedName("id_direktorat")
+    @Expose
+    public String id_direktorat;
+
+    @SerializedName("nama_direktorat")
+    @Expose
+    public String nama_direktorat;
+
+    @SerializedName("id_region")
+    @Expose
+    public String id_region;
+
+    @SerializedName("nomor_region")
+    @Expose
+    public String nomor_region;
+
+    @SerializedName("nama_region")
+    @Expose
+    public String nama_region;
+
+    @SerializedName("daerah")
+    @Expose
+    public String daerah;
+
+    @SerializedName("addinfo")
+    @Expose
+    public String addinfo;
+
+    @SerializedName("nama_benchmark")
+    @Expose
+    public String nama_benchmark;
+
+    @SerializedName("link_file_benchmark")
+    @Expose
+    public String link_file_benchmark;
+
+    @SerializedName("tgl_upload")
+    @Expose
+    public String tgl_upload;
+
 
     //Old EBusiness
     String id_fmcg_param,nama_param,rumus_param,kategori_param,rata_rata_param,penjelasan_param,penjelasan2_param;
@@ -885,6 +933,70 @@ public class DataModel {
 
     public void setLink_file_business_refrence(String link_file_business_refrence) {
         this.link_file_business_refrence = link_file_business_refrence;
+    }
+
+    public String getNama_group_pusat() {
+        return nama_group_pusat;
+    }
+
+    public void setNama_group_pusat(String nama_group_pusat) {
+        this.nama_group_pusat = nama_group_pusat;
+    }
+
+    public String getId_group_pusat() {
+        return id_group_pusat;
+    }
+
+    public void setId_group_pusat(String id_group_pusat) {
+        this.id_group_pusat = id_group_pusat;
+    }
+
+    public String getId_direktorat() {
+        return id_direktorat;
+    }
+
+    public void setId_direktorat(String id_direktorat) {
+        this.id_direktorat = id_direktorat;
+    }
+
+    public String getNama_direktorat() {
+        return nama_direktorat;
+    }
+
+    public void setNama_direktorat(String nama_direktorat) {
+        this.nama_direktorat = nama_direktorat;
+    }
+
+    public String getId_region() {
+        return id_region;
+    }
+
+    public void setId_region(String id_region) {
+        this.id_region = id_region;
+    }
+
+    public String getNomor_region() {
+        return nomor_region;
+    }
+
+    public void setNomor_region(String nomor_region) {
+        this.nomor_region = nomor_region;
+    }
+
+    public String getNama_region() {
+        return nama_region;
+    }
+
+    public void setNama_region(String nama_region) {
+        this.nama_region = nama_region;
+    }
+
+    public String getDaerah() {
+        return daerah;
+    }
+
+    public void setDaerah(String daerah) {
+        this.daerah = daerah;
     }
 
     public String getJudul_probing() {
@@ -4319,5 +4431,38 @@ public class DataModel {
 
     public void setLink_file_regulation(String link_file_regulation) {
         this.link_file_regulation = link_file_regulation;
+    }
+
+    public String getAddinfo() {
+        return addinfo;
+    }
+
+    public void setAddinfo(String addinfo) {
+        this.addinfo = addinfo;
+    }
+
+    public String getNama_benchmark() {
+        return nama_benchmark;
+    }
+
+    public void setNama_benchmark(String nama_benchmark) {
+        this.nama_benchmark = nama_benchmark;
+    }
+
+    public String getLink_file_benchmark() {
+        return link_file_benchmark;
+    }
+
+    public void setLink_file_benchmark(String link_file_benchmark) {
+        this.link_file_benchmark = link_file_benchmark;
+    }
+
+
+    public String getTgl_upload() {
+        return tgl_upload;
+    }
+
+    public void setTgl_upload(String tgl_upload) {
+        this.tgl_upload = tgl_upload;
     }
 }

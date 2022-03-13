@@ -14,12 +14,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.ascendant.e_businessprofile.Activity.LandscapeWebViewEbookActivity;
-import com.ascendant.e_businessprofile.Activity.ui.Contractor.MarketInteligence.MarketInteliganceContractorActivity;
-import com.ascendant.e_businessprofile.Activity.ui.Mining.MarketInteligence.MarketPotential.MarketPotentialActivity;
 import com.ascendant.e_businessprofile.Adapter.Static.AdapterNavigator;
 import com.ascendant.e_businessprofile.Method.Ascendant;
 import com.ascendant.e_businessprofile.Model.DataModel;
-import com.ascendant.e_businessprofile.Model.StaticModel.Mining.MiningOutlookModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.Farming.MarketIntelligence.FarmingMarketIntelligence;
+import com.ascendant.e_businessprofile.Model.StaticModel.Mining.Outlook.MiningOutlookModel;
 import com.ascendant.e_businessprofile.R;
 
 import java.util.ArrayList;
@@ -51,7 +50,7 @@ public class MarketingIntelienceFarmingActivity extends AppCompatActivity {
         More = findViewById(R.id.linearMore);
         Back = findViewById(R.id.linearBack);
         Available.setVisibility(View.VISIBLE);
-        pList.addAll(MiningOutlookModel.getListData());
+        pList.addAll(FarmingMarketIntelligence.getListData());
         rv.setLayoutManager(new LinearLayoutManager(this));
         AdapterNavigator adapters = new AdapterNavigator(this, pList);
         rv.setAdapter(adapters);
@@ -113,8 +112,10 @@ public class MarketingIntelienceFarmingActivity extends AppCompatActivity {
         Benchmarking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://mandiri-ebuss.com/files/farming/market_intelligence/benchmark/LAPORAN_LABA_RUGI_DAN_NERACA_PETERNAKAN_AYAM.pdf"));
-                startActivity(browserIntent);
+//                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://mandiri-ebuss.com/files/farming/market_intelligence/benchmark/LAPORAN_LABA_RUGI_DAN_NERACA_PETERNAKAN_AYAM.pdf"));
+//                startActivity(browserIntent);
+                Intent intent = new Intent(MarketingIntelienceFarmingActivity.this,FarmingBenchmarkActivity.class);
+                startActivity(intent);
             }
         });
         MarketPotential.setOnClickListener(new View.OnClickListener() {
@@ -126,7 +127,7 @@ public class MarketingIntelienceFarmingActivity extends AppCompatActivity {
                 Download.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(android.view.View view) {
-                        ascendant.Download(MarketingIntelienceFarmingActivity.this,"pdf","files/farming/market_intelligence/market_potential.pdf","Ecosystem Industry");
+                        ascendant.Download(MarketingIntelienceFarmingActivity.this,"pdf","files/farming/market_intelligence/market_potential.pdf","Market Potential Farming");
                     }
                 });
                 View.setOnClickListener(new View.OnClickListener() {

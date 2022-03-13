@@ -155,9 +155,7 @@ public class RegisterActivity extends AppCompatActivity {
                     Email.getText().toString(),
                     NIP.getText().toString(),
                     "+62 "+NoTelp.getText().toString(),
-                    idDivisi.getText().toString(),
-                    Password.getText().toString(),
-                    idWIlayah.getText().toString());
+                    Password.getText().toString());
             data.enqueue(new Callback<ResponseArrayObject>() {
                 @Override
                 public void onResponse(Call<ResponseArrayObject> call, Response<ResponseArrayObject> response) {

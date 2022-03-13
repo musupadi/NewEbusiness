@@ -30,6 +30,12 @@
         <item>camera_image</item>
     </string-array>
 
+    <string-array name="regionorkantor">
+        <item>Mohon Pilih Unit Kerja</item>
+        <item>Region</item>
+        <item>Kantor Pusat</item>
+    </string-array>
+
     <string-array name="dinas_pendidikan">
         <item>Surat PDF</item>
         <item>Artikel</item>

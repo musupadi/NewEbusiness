@@ -16,14 +16,19 @@ import android.widget.Toast;
 
 import com.ascendant.e_businessprofile.API.ApiRequest;
 import com.ascendant.e_businessprofile.API.RetroServer;
-import com.ascendant.e_businessprofile.Activity.HomeActivity;
 import com.ascendant.e_businessprofile.Activity.ModuleActivity;
 import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
 import com.ascendant.e_businessprofile.Adapter.AdapterMandiriUpdate;
 import com.ascendant.e_businessprofile.Adapter.Static.AdapterNavigator;
 import com.ascendant.e_businessprofile.Model.DataModel;
 import com.ascendant.e_businessprofile.Model.ResponseArrayObject;
-import com.ascendant.e_businessprofile.Model.StaticModel.Mining.MiningOutlookModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.Contractor.ContractorMandiriUpdate;
+import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.MandiriUpdate.FMCGMandiriUpdate;
+import com.ascendant.e_businessprofile.Model.StaticModel.Farming.FarmingMandiriUpdate;
+import com.ascendant.e_businessprofile.Model.StaticModel.Healthcare.MandiriUpdate.MandiriUpdate;
+import com.ascendant.e_businessprofile.Model.StaticModel.Mining.MiningMandiriUpdate;
+import com.ascendant.e_businessprofile.Model.StaticModel.Mining.Outlook.MiningOutlookModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.OilAndGas.OilAndGasMandiriUpdate;
 import com.ascendant.e_businessprofile.R;
 
 import java.util.ArrayList;
@@ -87,7 +92,20 @@ public class MiningMandiriUpdateActivity extends AppCompatActivity {
             More = findViewById(R.id.linearMore);
             Back = findViewById(R.id.linearBack);
             Available.setVisibility(View.VISIBLE);
-            pList.addAll(MiningOutlookModel.getListData());
+
+            if (Kategori.equals("HEALTHCARE")){
+                pList.addAll(MandiriUpdate.getListData());
+            }else if (Kategori.equals("FMCG")){
+                pList.addAll(FMCGMandiriUpdate.getListData());
+            }else if (Kategori.equals("MINING")){
+                pList.addAll(MiningMandiriUpdate.getListData());
+            }else if (Kategori.equals("CONTRACTOR")){
+                pList.addAll(ContractorMandiriUpdate.getListData());
+            }else if (Kategori.equals("OIL AND GAS")){
+                pList.addAll(OilAndGasMandiriUpdate.getListData());
+            }else if (Kategori.equals("FARMING")){
+                pList.addAll(FarmingMandiriUpdate.getListData());
+            }
             rv2.setLayoutManager(new LinearLayoutManager(this));
             AdapterNavigator adapters = new AdapterNavigator(this,pList);
             rv2.setAdapter(adapters);

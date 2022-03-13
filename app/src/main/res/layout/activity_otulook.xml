@@ -60,112 +60,117 @@
                     </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
-            <ScrollView
+            <LinearLayout
+                android:id="@+id/linearAvailable"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <LinearLayout
-                    android:id="@+id/linearAvailable"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <ScrollView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:layout_height="match_parent">
                     <LinearLayout
-                        android:id="@+id/linearProcurment"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginBottom="10dp"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/box_regular"
-                        android:orientation="horizontal">
-                        <RelativeLayout
-                            android:id="@+id/relativeEBook"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:id="@+id/linearProcurment"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginBottom="10dp"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1">
-                            <androidx.cardview.widget.CardView
+                            android:layout_height="@dimen/box_regular"
+                            android:orientation="horizontal">
+                            <RelativeLayout
+                                android:id="@+id/relativeEBook"
                                 android:layout_width="match_parent"
-                                android:layout_centerInParent="true"
                                 android:layout_height="match_parent"
-                                app:cardCornerRadius="10dp"
-                                app:cardElevation="10dp">
-                                <LinearLayout
-                                    android:padding="10dp"
+                                android:layout_weight="1">
+                                <androidx.cardview.widget.CardView
                                     android:layout_width="match_parent"
+                                    android:layout_centerInParent="true"
                                     android:layout_height="match_parent"
-                                    android:orientation="horizontal"
-                                    android:gravity="center">
-                                    <ImageView
-                                        android:layout_width="@dimen/icon_regular"
-                                        android:layout_height="@dimen/icon_regular"
-                                        android:src="@drawable/presidential_decree"
-                                        android:layout_margin="10dp"/>
+                                    app:cardCornerRadius="10dp"
+                                    app:cardElevation="10dp">
                                     <LinearLayout
+                                        android:padding="10dp"
                                         android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:orientation="vertical">
-                                        <TextView
-                                            android:fontFamily="@font/inter"
+                                        android:layout_height="match_parent"
+                                        android:orientation="horizontal"
+                                        android:gravity="center">
+                                        <ImageView
+                                            android:layout_width="@dimen/icon_regular"
+                                            android:layout_height="@dimen/icon_regular"
+                                            android:src="@drawable/presidential_decree"
+                                            android:layout_margin="10dp"/>
+                                        <LinearLayout
                                             android:layout_width="match_parent"
-                                            android:layout_height="match_parent"
-                                            android:text="@string/procurment_of_good"
-                                            android:textStyle="bold"
-                                            android:textSize="@dimen/text_extra_large" />
-                                    </LinearLayout>
+                                            android:layout_height="wrap_content"
+                                            android:orientation="vertical">
+                                            <TextView
+                                                android:fontFamily="@font/inter"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:text="@string/procurment_of_good"
+                                                android:textStyle="bold"
+                                                android:textSize="@dimen/text_extra_large" />
+                                        </LinearLayout>
 
-                                </LinearLayout>
-                            </androidx.cardview.widget.CardView>
-                        </RelativeLayout>
-                    </LinearLayout>
-                    <LinearLayout
-                        android:id="@+id/linearConstruction"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/box_regular"
-                        android:orientation="horizontal">
-                        <RelativeLayout
-                            android:id="@+id/relativeRegulations"
+                                    </LinearLayout>
+                                </androidx.cardview.widget.CardView>
+                            </RelativeLayout>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:id="@+id/linearConstruction"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginBottom="10dp"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1">
-                            <androidx.cardview.widget.CardView
+                            android:layout_height="@dimen/box_regular"
+                            android:orientation="horizontal">
+                            <RelativeLayout
+                                android:id="@+id/relativeRegulations"
                                 android:layout_width="match_parent"
-                                android:layout_centerInParent="true"
                                 android:layout_height="match_parent"
-                                app:cardCornerRadius="10dp"
-                                app:cardElevation="10dp">
-                                <LinearLayout
-                                    android:padding="10dp"
+                                android:layout_weight="1">
+                                <androidx.cardview.widget.CardView
                                     android:layout_width="match_parent"
+                                    android:layout_centerInParent="true"
                                     android:layout_height="match_parent"
-                                    android:orientation="horizontal"
-                                    android:gravity="center">
-                                    <ImageView
-                                        android:layout_width="@dimen/icon_regular"
-                                        android:layout_height="@dimen/icon_regular"
-                                        android:src="@drawable/third_party_administrator"
-                                        android:layout_margin="10dp"/>
+                                    app:cardCornerRadius="10dp"
+                                    app:cardElevation="10dp">
                                     <LinearLayout
+                                        android:padding="10dp"
                                         android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:orientation="vertical">
-                                        <TextView
-                                            android:fontFamily="@font/inter"
+                                        android:layout_height="match_parent"
+                                        android:orientation="horizontal"
+                                        android:gravity="center">
+                                        <ImageView
+                                            android:layout_width="@dimen/icon_regular"
+                                            android:layout_height="@dimen/icon_regular"
+                                            android:src="@drawable/third_party_administrator"
+                                            android:layout_margin="10dp"/>
+                                        <LinearLayout
                                             android:layout_width="match_parent"
-                                            android:layout_height="match_parent"
-                                            android:text="@string/construction_service"
-                                            android:textStyle="bold"
-                                            android:textSize="@dimen/text_extra_large" />
-                                    </LinearLayout>
+                                            android:layout_height="wrap_content"
+                                            android:orientation="vertical">
+                                            <TextView
+                                                android:fontFamily="@font/inter"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:text="@string/construction_service"
+                                                android:textStyle="bold"
+                                                android:textSize="@dimen/text_extra_large" />
+                                        </LinearLayout>
 
-                                </LinearLayout>
-                            </androidx.cardview.widget.CardView>
-                        </RelativeLayout>
+                                    </LinearLayout>
+                                </androidx.cardview.widget.CardView>
+                            </RelativeLayout>
+                        </LinearLayout>
                     </LinearLayout>
-                </LinearLayout>
-            </ScrollView>
+                </ScrollView>
+            </LinearLayout>
             <LinearLayout
                 android:visibility="gone"
                 android:layout_width="match_parent"

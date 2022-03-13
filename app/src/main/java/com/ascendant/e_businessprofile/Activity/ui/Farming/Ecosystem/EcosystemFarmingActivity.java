@@ -6,37 +6,26 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.database.Cursor;
-import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
-import android.widget.Toast;
 
-import com.ascendant.e_businessprofile.API.ApiRequest;
-import com.ascendant.e_businessprofile.API.RetroServer;
 import com.ascendant.e_businessprofile.Activity.PortraitWebViewEbookActivity;
 import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
 import com.ascendant.e_businessprofile.Activity.ui.Farming.Ecosystem.Players.BeefFarmingActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Farming.Ecosystem.Players.PolutryFarmingActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Farming.Ecosystem.Players.SuportingIndustryFarmingActivity;
-import com.ascendant.e_businessprofile.Adapter.AdapterPerusahaanFarming;
 import com.ascendant.e_businessprofile.Adapter.Static.AdapterNavigator;
 import com.ascendant.e_businessprofile.Model.DataModel;
-import com.ascendant.e_businessprofile.Model.ResponseArrayObject;
-import com.ascendant.e_businessprofile.Model.StaticModel.Mining.MiningOutlookModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.Farming.Ecosystem.FarmingEcosystem;
+import com.ascendant.e_businessprofile.Model.StaticModel.Mining.Outlook.MiningOutlookModel;
 import com.ascendant.e_businessprofile.R;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class EcosystemFarmingActivity extends AppCompatActivity {
     Spinner Kategori;
@@ -120,7 +109,7 @@ public class EcosystemFarmingActivity extends AppCompatActivity {
         More = findViewById(R.id.linearMore);
         Back = findViewById(R.id.linearBack);
         Available.setVisibility(View.VISIBLE);
-        pList.addAll(MiningOutlookModel.getListData());
+        pList.addAll(FarmingEcosystem.getListData());
         rv2.setLayoutManager(new LinearLayoutManager(this));
         AdapterNavigator adapters = new AdapterNavigator(this,pList);
         rv2.setAdapter(adapters);

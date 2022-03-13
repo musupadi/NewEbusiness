@@ -48,15 +48,16 @@
                             android:layout_height="match_parent"
                             android:src="@drawable/chevron_left_concerate"
                             android:layout_margin="10dp"/>
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:text="@string/list_of_hospital"
-                            android:gravity="center|left"
                             android:fontFamily="@font/inter"
-                            android:textStyle="bold"
+                            android:gravity="center|left"
+                            android:text="@string/hospital_association"
+                            android:textColor="@color/colorPrimary"
                             android:textSize="@dimen/header_text_small"
-                            android:textColor="@color/colorPrimary"/>
+                            android:textStyle="bold" />
                     </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>

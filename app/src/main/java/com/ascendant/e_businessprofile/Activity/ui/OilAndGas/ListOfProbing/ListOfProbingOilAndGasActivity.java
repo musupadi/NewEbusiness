@@ -19,7 +19,8 @@ import com.ascendant.e_businessprofile.Adapter.AdapterListOfProbing2;
 import com.ascendant.e_businessprofile.Adapter.Static.AdapterNavigator;
 import com.ascendant.e_businessprofile.Model.DataModel;
 import com.ascendant.e_businessprofile.Model.ResponseArrayObject;
-import com.ascendant.e_businessprofile.Model.StaticModel.Mining.MiningOutlookModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.Mining.Outlook.MiningOutlookModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.OilAndGas.ListOfProbing.OilAndGasListOfProbing;
 import com.ascendant.e_businessprofile.R;
 
 import java.util.ArrayList;
@@ -66,7 +67,7 @@ public class ListOfProbingOilAndGasActivity extends AppCompatActivity {
         More = findViewById(R.id.linearMore);
         Back = findViewById(R.id.linearBack);
         Available.setVisibility(View.VISIBLE);
-        pList.addAll(MiningOutlookModel.getListData());
+        pList.addAll(OilAndGasListOfProbing.getListData());
         rv2.setLayoutManager(new LinearLayoutManager(this));
         AdapterNavigator adapters = new AdapterNavigator(this,pList);
         rv2.setAdapter(adapters);

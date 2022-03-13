@@ -20,6 +20,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.ascendant.e_businessprofile.Activity.FullScreenActivity;
+import com.ascendant.e_businessprofile.Activity.LandscapeWebViewEbookActivity;
 import com.ascendant.e_businessprofile.Method.Ascendant;
 import com.ascendant.e_businessprofile.Activity.ui.FMCG.Ecosystem.Association.FMCGAssociationActivity;
 import com.ascendant.e_businessprofile.Activity.ui.FMCG.Ecosystem.Players.FMCGEcosystemPlayersActivity;
@@ -80,7 +81,7 @@ public class FMCGEcosystemFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent goInput = new Intent(getActivity(), FullScreenActivity.class);
-                goInput.putExtra("IMAGE","https://fabakonsultan.com/uploads/hospital/ekosistem/map_ekosistem.jpg");
+                goInput.putExtra("IMAGE","https://fabakonsultan.com/uploads/fmcg/ekosistem/map_ekosistem.jpg");
                 startActivity(goInput);
             }
         });
@@ -92,8 +93,11 @@ public class FMCGEcosystemFragment extends Fragment {
                 Views.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://mandiri-ebusinessraw.the-urbandev.com/uploads/fmcg/distributor.pdf"));
-                        startActivity(browserIntent);
+                        Intent i = new Intent(getActivity(), LandscapeWebViewEbookActivity.class);
+                        i.putExtra("LINK", "https://ebuss-book.mandiri-ebuss.com/fmcg/page/ekosistem/distributor.php");
+                        startActivity(i);
+//                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://ebuss-book.mandiri-ebuss.com/fmcg/page/ekosistem/distributor.php"));
+//                        startActivity(browserIntent);
                     }
                 });
                 Download.setOnClickListener(new View.OnClickListener() {
@@ -104,7 +108,7 @@ public class FMCGEcosystemFragment extends Fragment {
                                 .setCancelable(false)
                                 .setPositiveButton("Iya", new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int id) {
-                                        AscNet.DownloadPDF("http://mandiri-ebusinessraw.the-urbandev.com/uploads/fmcg/distributor.pdf","Distributor FMCG",getActivity());
+                                        AscNet.DownloadPDF("https://mandiri-ebuss.com/files/fmcg/distributor.pdf","Distributor FMCG",getActivity());
                                     }
                                 })
                                 .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
@@ -128,8 +132,11 @@ public class FMCGEcosystemFragment extends Fragment {
                 Views.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://mandiri-ebusinessraw.the-urbandev.com/uploads/fmcg/retail.pdf"));
-                        startActivity(browserIntent);
+                        Intent i = new Intent(getActivity(), LandscapeWebViewEbookActivity.class);
+                        i.putExtra("LINK", "https://ebuss-book.mandiri-ebuss.com/fmcg/page/ekosistem/retail.php");
+                        startActivity(i);
+//                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://ebuss-book.mandiri-ebuss.com/fmcg/page/ekosistem/retail.php"));
+//                        startActivity(browserIntent);
                     }
                 });
                 Download.setOnClickListener(new View.OnClickListener() {
@@ -140,7 +147,7 @@ public class FMCGEcosystemFragment extends Fragment {
                                 .setCancelable(false)
                                 .setPositiveButton("Iya", new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int id) {
-                                        AscNet.DownloadPDF("http://mandiri-ebusinessraw.the-urbandev.com/uploads/fmcg/retail.pdf","Retail FMCG",getActivity());
+                                        AscNet.DownloadPDF("https://mandiri-ebuss.com/files/fmcg/retail.pdf","Retail FMCG",getActivity());
                                     }
                                 })
                                 .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
@@ -164,8 +171,11 @@ public class FMCGEcosystemFragment extends Fragment {
                 Views.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://mandiri-ebusinessraw.the-urbandev.com/uploads/fmcg/e-commerce.pdf"));
-                        startActivity(browserIntent);
+                        Intent i = new Intent(getActivity(), LandscapeWebViewEbookActivity.class);
+                        i.putExtra("LINK", "https://ebuss-book.mandiri-ebuss.com/fmcg/page/ekosistem/e-commerce.php");
+                        startActivity(i);
+//                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://ebuss-book.mandiri-ebuss.com/fmcg/page/ekosistem/e-commerce.php"));
+//                        startActivity(browserIntent);
                     }
                 });
                 Download.setOnClickListener(new View.OnClickListener() {
@@ -176,7 +186,7 @@ public class FMCGEcosystemFragment extends Fragment {
                                 .setCancelable(false)
                                 .setPositiveButton("Iya", new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int id) {
-                                        AscNet.DownloadPDF("http://mandiri-ebusinessraw.the-urbandev.com/uploads/fmcg/e-commerce.pdf","E-Commerce FMCG",getActivity());
+                                        AscNet.DownloadPDF("https://mandiri-ebuss.com/files/fmcg/distributor.pdf","E-Commerce FMCG",getActivity());
                                     }
                                 })
                                 .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
@@ -214,8 +224,11 @@ public class FMCGEcosystemFragment extends Fragment {
                 Views.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://mandiri-ebusinessraw.the-urbandev.com/uploads/fmcg/ekosistem-manufaktur.pdf"));
-                        startActivity(browserIntent);
+                        Intent i = new Intent(getActivity(), LandscapeWebViewEbookActivity.class);
+                        i.putExtra("LINK", "https://ebuss-book.mandiri-ebuss.com/fmcg/page/ekosistem/manufaktur.php");
+                        startActivity(i);
+//                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://ebuss-book.mandiri-ebuss.com/fmcg/page/ekosistem/manufaktur.php"));
+//                        startActivity(browserIntent);
                     }
                 });
                 Download.setOnClickListener(new View.OnClickListener() {
@@ -226,7 +239,7 @@ public class FMCGEcosystemFragment extends Fragment {
                                 .setCancelable(false)
                                 .setPositiveButton("Iya", new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int id) {
-                                        AscNet.DownloadPDF("http://mandiri-ebusinessraw.the-urbandev.com/uploads/fmcg/ekosistem-manufaktur.pdf","Manufacture FMCG",getActivity());
+                                        AscNet.DownloadPDF("https://mandiri-ebuss.com/files/fmcg/ekosistem-manufaktur.pdf","Manufacture FMCG",getActivity());
                                     }
                                 })
                                 .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
@@ -250,8 +263,11 @@ public class FMCGEcosystemFragment extends Fragment {
                 Views.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://mandiri-ebusinessraw.the-urbandev.com/uploads/fmcg/ekosistem-suplier.pdf"));
-                        startActivity(browserIntent);
+                        Intent i = new Intent(getActivity(), LandscapeWebViewEbookActivity.class);
+                        i.putExtra("LINK", "https://ebuss-book.mandiri-ebuss.com/fmcg/page/ekosistem/supplier.php");
+                        startActivity(i);
+//                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(""));
+//                        startActivity(browserIntent);
                     }
                 });
                 Download.setOnClickListener(new View.OnClickListener() {
@@ -262,7 +278,7 @@ public class FMCGEcosystemFragment extends Fragment {
                                 .setCancelable(false)
                                 .setPositiveButton("Iya", new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int id) {
-                                        AscNet.DownloadPDF("http://mandiri-ebusinessraw.the-urbandev.com/uploads/fmcg/ekosistem-suplier.pdf","Supplier FMCG",getActivity());
+                                        AscNet.DownloadPDF("https://mandiri-ebuss.com/files/fmcg/ekosistem-suplier.pdf","Supplier FMCG",getActivity());
                                     }
                                 })
                                 .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {

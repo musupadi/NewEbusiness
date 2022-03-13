@@ -13,12 +13,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.ascendant.e_businessprofile.Activity.LandscapeWebViewEbookActivity;
-import com.ascendant.e_businessprofile.Activity.ui.Farming.MarketingInteligence.MarketingIntelienceFarmingActivity;
-import com.ascendant.e_businessprofile.Activity.ui.OilAndGas.Ecossytem.EcosystemOilAndGasActivity;
 import com.ascendant.e_businessprofile.Adapter.Static.AdapterNavigator;
 import com.ascendant.e_businessprofile.Method.Ascendant;
 import com.ascendant.e_businessprofile.Model.DataModel;
-import com.ascendant.e_businessprofile.Model.StaticModel.Mining.MiningOutlookModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.Mining.Outlook.MiningOutlookModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.OilAndGas.MarketInteligence.OilAndGasMarketIntelligence;
 import com.ascendant.e_businessprofile.R;
 
 import java.util.ArrayList;
@@ -50,7 +49,7 @@ public class MarketInteligenceOilAndGasActivity extends AppCompatActivity {
         More = findViewById(R.id.linearMore);
         Back = findViewById(R.id.linearBack);
         Available.setVisibility(View.VISIBLE);
-        pList.addAll(MiningOutlookModel.getListData());
+        pList.addAll(OilAndGasMarketIntelligence.getListData());
         rv.setLayoutManager(new LinearLayoutManager(this));
         AdapterNavigator adapters = new AdapterNavigator(this, pList);
         rv.setAdapter(adapters);
@@ -89,7 +88,6 @@ public class MarketInteligenceOilAndGasActivity extends AppCompatActivity {
         More = findViewById(R.id.linearMore);
         Back = findViewById(R.id.linearBack);
         Available.setVisibility(View.VISIBLE);
-        pList.addAll(MiningOutlookModel.getListData());
         rv.setLayoutManager(new LinearLayoutManager(this));
         AdapterNavigator adapterss = new AdapterNavigator(this, pList);
         rv.setAdapter(adapterss);
