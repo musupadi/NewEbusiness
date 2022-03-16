@@ -63,7 +63,8 @@ public class Ascendant {
         String MAGIC1 = magic.replace("Rp","");
         String MAGIC2 = MAGIC1.replace("Rp.","");
         String MAGIC3 = MAGIC2.replace(",00","");
-        return MAGIC3;
+        String MAGIC4 = MAGIC3.replace("$ ","");
+        return MAGIC4;
     }
     public void LOGICHOSPITAL5C(Context ctx,String category,int score){
         String totalscore = "0";

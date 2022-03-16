@@ -72,153 +72,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical">
-                        <LinearLayout
-                            android:layout_marginTop="20dp"
-                            android:layout_marginRight="10dp"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginBottom="10dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/box_regular"
-                            android:orientation="horizontal">
-                            <RelativeLayout
-                                android:id="@+id/relativeIndustriNikel"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1">
-                                <androidx.cardview.widget.CardView
-                                    android:layout_width="match_parent"
-                                    android:layout_centerInParent="true"
-                                    android:layout_height="match_parent"
-                                    app:cardCornerRadius="10dp"
-                                    app:cardElevation="10dp">
-                                    <LinearLayout
-                                        android:padding="10dp"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:orientation="horizontal"
-                                        android:gravity="center">
 
-                                        <ImageView
-                                            android:layout_width="@dimen/icon_regular"
-                                            android:layout_height="@dimen/icon_regular"
-                                            android:layout_margin="10dp"
-                                            android:src="@drawable/government_regulations" />
-
-                                        <LinearLayout
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:orientation="vertical">
-                                            <TextView
-                                                android:fontFamily="@font/inter"
-                                                android:layout_width="match_parent"
-                                                android:layout_height="match_parent"
-                                                android:text="Nickel Industry Development"
-                                                android:textStyle="bold"
-                                                android:textSize="@dimen/text_extra_large" />
-                                        </LinearLayout>
-
-                                    </LinearLayout>
-                                </androidx.cardview.widget.CardView>
-                            </RelativeLayout>
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_marginTop="20dp"
-                            android:layout_marginRight="10dp"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginBottom="10dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/box_regular"
-                            android:orientation="horizontal">
-                            <RelativeLayout
-                                android:id="@+id/relativeSumberDayaNickel"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1">
-                                <androidx.cardview.widget.CardView
-                                    android:layout_width="match_parent"
-                                    android:layout_centerInParent="true"
-                                    android:layout_height="match_parent"
-                                    app:cardCornerRadius="10dp"
-                                    app:cardElevation="10dp">
-                                    <LinearLayout
-                                        android:padding="10dp"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:orientation="horizontal"
-                                        android:gravity="center">
-
-                                        <ImageView
-                                            android:layout_width="@dimen/icon_regular"
-                                            android:layout_height="@dimen/icon_regular"
-                                            android:layout_margin="10dp"
-                                            android:src="@drawable/supporting_industries" />
-
-                                        <LinearLayout
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:orientation="vertical">
-                                            <TextView
-                                                android:fontFamily="@font/inter"
-                                                android:layout_width="match_parent"
-                                                android:layout_height="match_parent"
-                                                android:text="Nickel Resources and Reserves"
-                                                android:textStyle="bold"
-                                                android:textSize="@dimen/text_extra_large" />
-                                        </LinearLayout>
-
-                                    </LinearLayout>
-                                </androidx.cardview.widget.CardView>
-                            </RelativeLayout>
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_marginTop="20dp"
-                            android:layout_marginRight="10dp"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginBottom="10dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/box_regular"
-                            android:orientation="horizontal">
-                            <RelativeLayout
-                                android:id="@+id/relativeResikoPertambanganNickel"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1">
-                                <androidx.cardview.widget.CardView
-                                    android:layout_width="match_parent"
-                                    android:layout_centerInParent="true"
-                                    android:layout_height="match_parent"
-                                    app:cardCornerRadius="10dp"
-                                    app:cardElevation="10dp">
-                                    <LinearLayout
-                                        android:padding="10dp"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:orientation="horizontal"
-                                        android:gravity="center">
-
-                                        <ImageView
-                                            android:layout_width="@dimen/icon_regular"
-                                            android:layout_height="@dimen/icon_regular"
-                                            android:layout_margin="10dp"
-                                            android:src="@drawable/bpjs" />
-
-                                        <LinearLayout
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:orientation="vertical">
-                                            <TextView
-                                                android:fontFamily="@font/inter"
-                                                android:layout_width="match_parent"
-                                                android:layout_height="match_parent"
-                                                android:text="Nickel Mining Risk"
-                                                android:textStyle="bold"
-                                                android:textSize="@dimen/text_extra_large" />
-                                        </LinearLayout>
-
-                                    </LinearLayout>
-                                </androidx.cardview.widget.CardView>
-                            </RelativeLayout>
-                        </LinearLayout>
 
                         <LinearLayout
                             android:layout_marginTop="20dp"
@@ -451,6 +305,153 @@
                                                 android:layout_width="match_parent"
                                                 android:layout_height="match_parent"
                                                 android:text="@string/newsletter"
+                                                android:textStyle="bold"
+                                                android:textSize="@dimen/text_extra_large" />
+                                        </LinearLayout>
+
+                                    </LinearLayout>
+                                </androidx.cardview.widget.CardView>
+                            </RelativeLayout>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_marginTop="20dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/box_regular"
+                            android:orientation="horizontal">
+                            <RelativeLayout
+                                android:id="@+id/relativeIndustriNikel"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1">
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="match_parent"
+                                    android:layout_centerInParent="true"
+                                    android:layout_height="match_parent"
+                                    app:cardCornerRadius="10dp"
+                                    app:cardElevation="10dp">
+                                    <LinearLayout
+                                        android:padding="10dp"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:orientation="horizontal"
+                                        android:gravity="center">
+
+                                        <ImageView
+                                            android:layout_width="@dimen/icon_regular"
+                                            android:layout_height="@dimen/icon_regular"
+                                            android:layout_margin="10dp"
+                                            android:src="@drawable/government_regulations" />
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="vertical">
+                                            <TextView
+                                                android:fontFamily="@font/inter"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:text="Nickel Industry Development"
+                                                android:textStyle="bold"
+                                                android:textSize="@dimen/text_extra_large" />
+                                        </LinearLayout>
+
+                                    </LinearLayout>
+                                </androidx.cardview.widget.CardView>
+                            </RelativeLayout>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_marginTop="20dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/box_regular"
+                            android:orientation="horizontal">
+                            <RelativeLayout
+                                android:id="@+id/relativeSumberDayaNickel"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1">
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="match_parent"
+                                    android:layout_centerInParent="true"
+                                    android:layout_height="match_parent"
+                                    app:cardCornerRadius="10dp"
+                                    app:cardElevation="10dp">
+                                    <LinearLayout
+                                        android:padding="10dp"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:orientation="horizontal"
+                                        android:gravity="center">
+
+                                        <ImageView
+                                            android:layout_width="@dimen/icon_regular"
+                                            android:layout_height="@dimen/icon_regular"
+                                            android:layout_margin="10dp"
+                                            android:src="@drawable/supporting_industries" />
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="vertical">
+                                            <TextView
+                                                android:fontFamily="@font/inter"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:text="Nickel Resources and Reserves"
+                                                android:textStyle="bold"
+                                                android:textSize="@dimen/text_extra_large" />
+                                        </LinearLayout>
+
+                                    </LinearLayout>
+                                </androidx.cardview.widget.CardView>
+                            </RelativeLayout>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_marginTop="20dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/box_regular"
+                            android:orientation="horizontal">
+                            <RelativeLayout
+                                android:id="@+id/relativeResikoPertambanganNickel"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1">
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="match_parent"
+                                    android:layout_centerInParent="true"
+                                    android:layout_height="match_parent"
+                                    app:cardCornerRadius="10dp"
+                                    app:cardElevation="10dp">
+                                    <LinearLayout
+                                        android:padding="10dp"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:orientation="horizontal"
+                                        android:gravity="center">
+
+                                        <ImageView
+                                            android:layout_width="@dimen/icon_regular"
+                                            android:layout_height="@dimen/icon_regular"
+                                            android:layout_margin="10dp"
+                                            android:src="@drawable/bpjs" />
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="vertical">
+                                            <TextView
+                                                android:fontFamily="@font/inter"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:text="Nickel Mining Risk"
                                                 android:textStyle="bold"
                                                 android:textSize="@dimen/text_extra_large" />
                                         </LinearLayout>

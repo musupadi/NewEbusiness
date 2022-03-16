@@ -2,9 +2,11 @@ package com.ascendant.e_businessprofile.Activity.ui;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -12,23 +14,46 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.os.Environment;
+import android.provider.MediaStore;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ascendant.e_businessprofile.API.ApiRequest;
 import com.ascendant.e_businessprofile.API.RetroServer;
+import com.ascendant.e_businessprofile.Activity.DetailBeritaActivity;
 import com.ascendant.e_businessprofile.Activity.HomeActivity;
 import com.ascendant.e_businessprofile.Activity.LoginActivity;
 import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
 import com.ascendant.e_businessprofile.Activity.WebActivity;
+import com.ascendant.e_businessprofile.Activity.ui.Forum.PostForumActivity;
 import com.ascendant.e_businessprofile.Model.ResponseArrayObject;
+import com.ascendant.e_businessprofile.Model.ResponseObject;
 import com.ascendant.e_businessprofile.R;
+import com.bumptech.glide.Glide;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.messaging.FirebaseMessaging;
 
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+import java.util.logging.Logger;
+
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -40,6 +65,38 @@ public class ProfileFragment extends Fragment {
     Button Confirm,Close;
     DB_Helper dbHelper;
     String Token;
+    TextView Nama,UnitKerja,NIP,NoTelpon;
+    String token;
+    ImageView user;
+    //Dellaroy Logic
+    private static final int REQUEST_TAKE_PHOTO = 0;
+    private static final int REQUEST_PICK_PHOTO = 2;
+    private Uri mMediaUri;
+    private static final int CAMERA_PIC_REQUEST = 1111;
+
+
+    private static final int CAMERA_CAPTURE_IMAGE_REQUEST_CODE = 100;
+
+    public static final int MEDIA_TYPE_IMAGE = 1;
+
+    private Uri fileUri;
+
+    private String mediaPath;
+
+    private Button btnCapturePicture;
+
+    private String mImageFileLocation = "";
+    public static final String IMAGE_DIRECTORY_NAME = "Android File Upload";
+    ProgressDialog pDialog;
+    String postFoto1= "";
+    String postFoto2= "";
+    String postFoto3= "";
+    String postFoto4= "";
+    //ONCLICK
+    Boolean Gambar1 = false;
+    Boolean Gambar2 = false;
+    Boolean Gambar3 = false;
+    Boolean Gambar4 = false;
     public ProfileFragment() {
         // Required empty public constructor
     }
@@ -78,6 +135,11 @@ public class ProfileFragment extends Fragment {
         Privacy = view.findViewById(R.id.relativePrivacy);
         ChangePassword = view.findViewById(R.id.relativeChangePassword);
         ContactUs = view.findViewById(R.id.relativeContactUs);
+        Nama = view.findViewById(R.id.tvNama);
+        UnitKerja = view.findViewById(R.id.tvUnitKerja);
+        NIP = view.findViewById(R.id.tvNip);
+        NoTelpon = view.findViewById(R.id.tvNoTelpon);
+        user = view.findViewById(R.id.ivUser);
         Privacy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -144,6 +206,19 @@ public class ProfileFragment extends Fragment {
                 startActivity(intent);
             }
         });
+        user.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ChangeProfileUser();
+            }
+        });
+        GetData();
+    }
+    private void ChangeProfileUser(){
+        Gambar1 = true;
+        Intent galleryIntent = new Intent(Intent.ACTION_PICK,
+                MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        startActivityForResult(galleryIntent, REQUEST_PICK_PHOTO);
     }
     private void Checker(){
         if (OldPassword.getText().toString().isEmpty()){
@@ -157,6 +232,57 @@ public class ProfileFragment extends Fragment {
         }else{
             ChangePassword();
         }
+    }
+    private void GetData(){
+        FirebaseApp.initializeApp(getActivity());
+        FirebaseMessaging.getInstance().getToken().addOnCompleteListener(new OnCompleteListener<String>() {
+            @Override
+            public void onComplete(@NonNull Task<String> task) {
+                if(!task.isSuccessful()){
+                    Log.d("Zyarga","Fetching FCM Failed",task.getException());
+                    return;
+                }
+                // Get new FCM registration token
+                token = task.getResult().toString();
+                Log.e("TAGSOO",token);
+                ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
+                final Call<ResponseObject> data =api.Profil(Token,token);
+                data.enqueue(new Callback<ResponseObject>() {
+                    @Override
+                    public void onResponse(Call<ResponseObject> call, Response<ResponseObject> response) {
+                        try {
+                            if (response.body().getKode().equals(200)){
+                                Nama.setText(response.body().getData().getNama_user());
+                                UnitKerja.setText(response.body().getData().getUnit_kerja()+"\n"+response.body().getData().getAddinfo());
+                                NIP.setText(response.body().getData().getNip_user());
+                                NoTelpon.setText(response.body().getData().getNo_telpon_user());
+                                if (!response.body().getData().getFoto_user().equals("")){
+                                    Glide.with(getActivity())
+                                            .load(response.body().getData().getFoto_user())
+                                            .into(user);
+                                }
+//                                Cut Here
+                                if (response.body().getData().getAddinfo().equals("")){
+                                    myDialog.show();
+                                }
+                            }else{
+                                response.body().getMessage();
+                            }
+                        }catch (Exception e){
+                            Log.d("ZYARGA : ",e.toString());
+                            Toast.makeText(getActivity(), "Koneksi Gagal", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<ResponseObject> call, Throwable t) {
+                        Intent intent = new Intent(getActivity(),LoginActivity.class);
+                        startActivity(intent);
+                        Toast.makeText(getActivity(), "Waktu Sesi habis harap coba Login Lagfi", Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        });
     }
     private void ChangePassword(){
         ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
@@ -188,5 +314,124 @@ public class ProfileFragment extends Fragment {
         Intent intent = new Intent(getActivity(), LoginActivity.class);
         startActivity(intent);
         getActivity().finishAffinity();
+    }
+
+    public Uri getOutputMediaFileUri(int type) {
+        return Uri.fromFile(getOutputMediaFile(type));
+    }
+
+    private static File getOutputMediaFile(int type) {
+
+        // External sdcard location
+        File mediaStorageDir = new File(
+                Environment
+                        .getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES),
+                IMAGE_DIRECTORY_NAME);
+
+        // Create the storage directory if it does not exist
+        if (!mediaStorageDir.exists()) {
+            if (!mediaStorageDir.mkdirs()) {
+                Log.d("TEST", "Oops! Failed create "
+                        + IMAGE_DIRECTORY_NAME + " directory");
+                return null;
+            }
+        }
+
+        // Create a media file name
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss",
+                Locale.getDefault()).format(new Date());
+        File mediaFile;
+        if (type == MEDIA_TYPE_IMAGE) {
+            mediaFile = new File(mediaStorageDir.getPath() + File.separator
+                    + "IMG_" + ".jpg");
+        }  else {
+            return null;
+        }
+
+        return mediaFile;
+    }
+    File createImageFile() throws IOException {
+        Logger.getAnonymousLogger().info("Generating the image - method started");
+
+        // Here we create a "non-collision file name", alternatively said, "an unique filename" using the "timeStamp" functionality
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmSS").format(new Date());
+        String imageFileName = "IMAGE_" + timeStamp;
+        // Here we specify the environment location and the exact path where we want to save the so-created file
+        File storageDirectory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES + "/photo_saving_app");
+        Logger.getAnonymousLogger().info("Storage directory set");
+
+        // Then we create the storage directory if does not exists
+        if (!storageDirectory.exists()) storageDirectory.mkdir();
+
+        // Here we create the file using a prefix, a suffix and a directory
+        File image = new File(storageDirectory, imageFileName + ".jpg");
+        // File image = File.createTempFile(imageFileName, ".jpg", storageDirectory);
+
+        // Here the location is saved into the string mImageFileLocation
+        Logger.getAnonymousLogger().info("File name and path set");
+
+        mImageFileLocation = image.getAbsolutePath();
+        // fileUri = Uri.parse(mImageFileLocation);
+        // The file is returned to the previous intent across the camera application
+        return image;
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_TAKE_PHOTO || requestCode == REQUEST_PICK_PHOTO) {
+            if (data != null) {
+                // Get the Image from data
+                Uri selectedImage = data.getData();
+                String[] filePathColumn = {MediaStore.Images.Media.DATA};
+
+                Cursor cursor = getActivity().getContentResolver().query(selectedImage, filePathColumn, null, null, null);
+                assert cursor != null;
+                cursor.moveToFirst();
+
+                int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
+                mediaPath = cursor.getString(columnIndex);
+
+                // Set the Image in ImageView for Previewing the Media
+
+//                    imageView.setImageBitmap(BitmapFactory.decodeFile(mediaPath));
+                cursor.close();
+                if(Gambar1) {
+                    postFoto1 = mediaPath;
+                    String filename = postFoto1.substring(postFoto1.lastIndexOf("/") + 1);
+
+                    Gambar1 = false;
+                    final ProgressDialog pd = new ProgressDialog(getActivity());
+                    pd.setMessage("Sedang Mengisi Post");
+                    pd.show();
+                    pd.setCancelable(false);
+                    File file1= new File(postFoto1);
+                    RequestBody fileReqBody1 = RequestBody.create(MediaType.parse("image/*"), file1);
+                    MultipartBody.Part Foto1 = MultipartBody.Part.createFormData("img_profil", file1.getName(), fileReqBody1);
+                    Call<ResponseObject> datas;
+                    ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
+                    datas =api.EditFoto(
+                            RequestBody.create(MediaType.parse("text/plain"),Token),
+                            Foto1);
+                    datas.enqueue(new Callback<ResponseObject>() {
+                        @Override
+                        public void onResponse(Call<ResponseObject> call, Response<ResponseObject> response) {
+                            pd.hide();
+                            try {
+                                Toast.makeText(getActivity(), "Gambar Berhasil Diubah", Toast.LENGTH_SHORT).show();
+                                user.setImageBitmap(BitmapFactory.decodeFile(mediaPath));
+                            }catch (Exception e){
+                                Log.d("Zyarga : ",e.toString());
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<ResponseObject> call, Throwable t) {
+                            pd.hide();
+                            Toast.makeText(getActivity(), "Connection Failed Please Wait Later", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
+            }}
     }
 }

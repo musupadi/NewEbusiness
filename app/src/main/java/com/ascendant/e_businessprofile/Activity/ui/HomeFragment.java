@@ -18,6 +18,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
@@ -44,11 +45,13 @@ import com.ascendant.e_businessprofile.Adapter.Spinner.SpinnerDivisi;
 import com.ascendant.e_businessprofile.Adapter.Spinner.SpinnerGroup;
 import com.ascendant.e_businessprofile.Adapter.Spinner.SpinnerRegion;
 import com.ascendant.e_businessprofile.Adapter.Spinner.SpinnerWilayah;
+import com.ascendant.e_businessprofile.Method.Ascendant;
 import com.ascendant.e_businessprofile.Model.DataModel;
 import com.ascendant.e_businessprofile.Model.ResponseArrayObject;
 import com.ascendant.e_businessprofile.Model.ResponseObject;
 import com.ascendant.e_businessprofile.Model.ResponseQuiz;
 import com.ascendant.e_businessprofile.R;
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
@@ -103,6 +106,9 @@ public class HomeFragment extends Fragment {
     RelativeLayout Notification;
     Boolean PointHide=true;
     TextView textPoint;
+    ImageView user;
+    LinearLayout profiles;
+    Ascendant ascendant = new Ascendant();
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -125,6 +131,8 @@ public class HomeFragment extends Fragment {
                 Token = cursor.getString(0);
             }
         }
+        profiles = view.findViewById(R.id.linearProfiles);
+        user = view.findViewById(R.id.ivUser);
         linearPoint = view.findViewById(R.id.linearPoint);
         LihatPoint  = view.findViewById(R.id.linearLihatPoint);
         linearNotif = view.findViewById(R.id.linearNotif);
@@ -373,6 +381,14 @@ public class HomeFragment extends Fragment {
                     PointHide=true;
                 }
 
+            }
+        });
+        profiles.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(android.view.View view) {
+                Intent i = new Intent(getActivity(), HomeActivity.class);
+                i.putExtra("PROFIL", "PROFIL");
+                startActivity(i);
             }
         });
 //        spDivisi.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -877,6 +893,12 @@ public class HomeFragment extends Fragment {
                             if (response.body().getKode().equals(200)){
                                 nama.setText(response.body().getData().getNama_user());
                                 divisi.setText(response.body().getData().getAddinfo());
+                                if (!response.body().getData().getFoto_user().equals("")){
+                                    Glide.with(getActivity())
+                                            .load(response.body().getData().getFoto_user())
+                                            .into(user);
+                                }
+//                                Cut Here
                                 if (response.body().getData().getAddinfo().equals("")){
                                     myDialog.show();
                                 }
@@ -885,7 +907,6 @@ public class HomeFragment extends Fragment {
                             }
                         }catch (Exception e){
                             Log.d("ZYARGA : ",e.toString());
-                            Toast.makeText(getActivity(), "Koneksi Gagal", Toast.LENGTH_SHORT).show();
                         }
                     }
 

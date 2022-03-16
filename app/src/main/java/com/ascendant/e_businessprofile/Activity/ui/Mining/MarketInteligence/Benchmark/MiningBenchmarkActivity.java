@@ -1,15 +1,26 @@
 package com.ascendant.e_businessprofile.Activity.ui.Mining.MarketInteligence.Benchmark;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.Toast;
 
+import com.ascendant.e_businessprofile.Adapter.Static.AdapterNavigator;
+import com.ascendant.e_businessprofile.Method.Ascendant;
+import com.ascendant.e_businessprofile.Model.DataModel;
+import com.ascendant.e_businessprofile.Model.StaticModel.Mining.Outlook.MiningOutlookModel;
 import com.ascendant.e_businessprofile.R;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 
 public class MiningBenchmarkActivity extends AppCompatActivity {
     //A
@@ -23,10 +34,62 @@ public class MiningBenchmarkActivity extends AppCompatActivity {
 
     //Total
     EditText SubTotalMiningDelivery,SubtotalCostBeforeVAT,VAT,SubtotalCostAfterVAT,IndicativeProfit;
+    Ascendant ascendant = new Ascendant();
+
+    LinearLayout Available,Navigator;
+    RecyclerView rv,recyclerView;
+    ImageView ivMore;
+    LinearLayout More,Back;
+    Boolean more=true;
+    private ArrayList<DataModel> pList = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mining_benchmark);
+        //Cut Here
+        rv = findViewById(R.id.recyclerNav);
+        Available = findViewById(R.id.linearAvailable);
+        Navigator = findViewById(R.id.linearNavigator);
+        ivMore = findViewById(R.id.ivMore);
+        More = findViewById(R.id.linearMore);
+        Back = findViewById(R.id.linearBack);
+        Available.setVisibility(View.VISIBLE);
+        pList.addAll(MiningOutlookModel.getListData());
+        rv.setLayoutManager(new LinearLayoutManager(this));
+        AdapterNavigator adapters = new AdapterNavigator(this,pList);
+        rv.setAdapter(adapters);
+
+        Back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
+        More.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    if (more){
+                        more = false;
+                        ivMore.setImageResource(R.drawable.close_concerate);
+                        Available.setVisibility(View.GONE);
+                        Navigator.setVisibility(View.VISIBLE);
+                    }else{
+                        more = true;
+                        ivMore.setImageResource(R.drawable.more_vertical_concerate);
+                        Available.setVisibility(View.VISIBLE);
+                        Navigator.setVisibility(View.GONE);
+                    }
+                }catch (Exception e){
+
+                }
+
+            }
+        });
+
+        //Cut Here
+
+
         formatData = new DecimalFormat("#.##");
         SROB = findViewById(R.id.etSROB);
         CostOB = findViewById(R.id.etCostTotalOB);
@@ -51,7 +114,11 @@ public class MiningBenchmarkActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                HitungOB();
+                try {
+                    HitungOB();
+                }catch (Exception e){
+//                    Toast.makeText(MiningBenchmarkActivity.this, e.toString(), Toast.LENGTH_SHORT).show();
+                }
             }
 
             @Override
@@ -67,7 +134,11 @@ public class MiningBenchmarkActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                HitungCoalHauling();
+                try {
+                    HitungCoalHauling();
+                }catch (Exception e){
+//                    Toast.makeText(MiningBenchmarkActivity.this, e.toString(), Toast.LENGTH_SHORT).show();
+                }
             }
 
             @Override
@@ -83,7 +154,11 @@ public class MiningBenchmarkActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                HitungRoadMaintenance();
+                try {
+                    HitungRoadMaintenance();
+                }catch (Exception e){
+//                    Toast.makeText(MiningBenchmarkActivity.this, e.toString(), Toast.LENGTH_SHORT).show();
+                }
             }
 
             @Override
@@ -130,22 +205,28 @@ public class MiningBenchmarkActivity extends AppCompatActivity {
     }
     private void HitungStockpile(){
         if (!KMRoadMaintenance.getText().toString().isEmpty() && !KMCoalHauling.getText().toString().isEmpty()){
-            Double CoalHauling = Double.parseDouble(KMCoalHauling.getText().toString());
-            Double Road = Double.parseDouble(KMRoadMaintenance.getText().toString());
-            TotalCostPortMGT.setText("$ "+String.valueOf(formatData.format((CoalHauling*0.15)+(Road*0.25)+1.50+2.50)));
-            b=(CoalHauling*0.15)+(Road*0.25)+1.50+2.50;
+//            Double CoalHauling = Double.parseDouble(KMCoalHauling.getText().toString());
+//            Double Road = Double.parseDouble(KMRoadMaintenance.getText().toString());
+            Double CoalHauling = Double.parseDouble(ascendant.RPEraser(TotalCoalHauling.getText().toString()));
+            Double Road = Double.parseDouble(ascendant.RPEraser(RoadMaintenance.getText().toString()));
+//            TotalCostPortMGT.setText("$ "+String.valueOf(formatData.format((CoalHauling*0.15)+(Road*0.25)+1.50+2.50)));
+//            b=(CoalHauling*0.15)+(Road*0.25)+1.50+2.50;
+            b=CoalHauling+Road+1.50+2.50;
+            TotalCostPortMGT.setText(formatData.format(b));
             Hitungan();
         }else if (!KMRoadMaintenance.getText().toString().isEmpty() && KMCoalHauling.getText().toString().isEmpty()){
-//            Double CoalHauling = Double.parseDouble(KMCoalHauling.getText().toString());
-            Double Road = Double.parseDouble(KMRoadMaintenance.getText().toString());
-            TotalCostPortMGT.setText("$ "+String.valueOf(formatData.format((Road*0.25)+1.50+2.50)));
-            b=(Road*0.25)+1.50+2.50;
+//            Double Road = Double.parseDouble(KMRoadMaintenance.getText().toString());
+//            TotalCostPortMGT.setText("$ "+String.valueOf(formatData.format((Road*0.25)+1.50+2.50)));
+//            b=(Road*0.25)+1.50+2.50;
+            Double Road = Double.parseDouble(ascendant.RPEraser(RoadMaintenance.getText().toString()));
+            b=Road+1.50+2.50;
             Hitungan();
         }else if (KMRoadMaintenance.getText().toString().isEmpty() && !KMCoalHauling.getText().toString().isEmpty()){
-            Double CoalHauling = Double.parseDouble(KMCoalHauling.getText().toString());
-//            Double Road = Double.parseDouble(KMRoadMaintenance.getText().toString());
-            TotalCostPortMGT.setText("$ "+String.valueOf(formatData.format((CoalHauling*0.15)+1.50+2.50)));
-            b=(CoalHauling*0.15)+1.50+2.50;
+//            Double CoalHauling = Double.parseDouble(KMCoalHauling.getText().toString());
+//            TotalCostPortMGT.setText("$ "+String.valueOf(formatData.format((CoalHauling*0.15)+1.50+2.50)));
+//            b=(CoalHauling*0.15)+1.50+2.50;
+            Double CoalHauling = Double.parseDouble(ascendant.RPEraser(TotalCoalHauling.getText().toString()));
+            b=CoalHauling*0.15+1.50+2.50;
             Hitungan();
         }else if (KMRoadMaintenance.getText().toString().isEmpty() && !KMCoalHauling.getText().toString().isEmpty()){
             TotalCostPortMGT.setText("$ "+String.valueOf(formatData.format(1.50+2.50)));
@@ -165,10 +246,10 @@ public class MiningBenchmarkActivity extends AppCompatActivity {
     }
     private void VAT(){
         VAT.setText("$ "+formatData.format((a+b+c)*10/100));
-        SubTotalAfterVAT(formatData.format((a+b+c)*10/100),formatData.format((a+b+c)));
+        SubTotalAfterVAT();
     }
-    private void SubTotalAfterVAT(String VAT,String BeforeVAT){
-        Double Cost = Double.parseDouble(BeforeVAT)-Double.parseDouble(VAT);
+    private void SubTotalAfterVAT(){
+        Double Cost = a+b+c+Double.parseDouble(ascendant.RPEraser(VAT.getText().toString()));
         SubtotalCostAfterVAT.setText("$ "+formatData.format(Cost));
         IndiciativeProfit(Cost);
     }

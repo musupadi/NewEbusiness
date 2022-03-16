@@ -81,11 +81,11 @@ public class FMCGEcosystemFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent goInput = new Intent(getActivity(), FullScreenActivity.class);
-                goInput.putExtra("IMAGE","https://fabakonsultan.com/uploads/fmcg/ekosistem/map_ekosistem.jpg");
+                goInput.putExtra("IMAGE","https://ebuss-raw.mandiri-ebuss.com/uploads/fmcg/ekosistem-fmcg.jpg");
                 startActivity(goInput);
             }
         });
-        new RetreivePDFStreams().execute(ascendant.BASE_URL()+"/files/healthcare/ekosistem/map_ekosistem.pdf");
+        new RetreivePDFStreams().execute("https://ebuss-raw.mandiri-ebuss.com/uploads/fmcg/ekosistem-fmcg.pdf");
         Distributor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

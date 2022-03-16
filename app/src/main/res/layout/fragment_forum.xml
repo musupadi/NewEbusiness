@@ -55,7 +55,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/btn_rounded_primary"
             android:layout_margin="10dp"
-            android:text="Post Forum"
+            android:text="Create New Post"
             android:textColor="@color/colorWhite"
             android:id="@+id/btnPost"/>
         <LinearLayout

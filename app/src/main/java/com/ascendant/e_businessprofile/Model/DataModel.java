@@ -39,16 +39,25 @@ public class DataModel {
     @Expose
     public String status_berita;
 
-    //Universal
     @SerializedName("created_at")
     @Expose
     public String created_at;
+
+
+    //Universal
+    @SerializedName("foto_user")
+    @Expose
+    public String foto_user;
 
     @SerializedName("updated_at")
     @Expose
     public String updated_at;
 
     //Divisi
+    @SerializedName("unit_kerja")
+    @Expose
+    public String unit_kerja;
+
     @SerializedName("id_divisi_mandiri")
     @Expose
     public String id_divisi_mandiri;
@@ -4464,5 +4473,21 @@ public class DataModel {
 
     public void setTgl_upload(String tgl_upload) {
         this.tgl_upload = tgl_upload;
+    }
+
+    public String getFoto_user() {
+        return foto_user;
+    }
+
+    public void setFoto_user(String foto_user) {
+        this.foto_user = foto_user;
+    }
+
+    public String getUnit_kerja() {
+        return unit_kerja;
+    }
+
+    public void setUnit_kerja(String unit_kerja) {
+        this.unit_kerja = unit_kerja;
     }
 }

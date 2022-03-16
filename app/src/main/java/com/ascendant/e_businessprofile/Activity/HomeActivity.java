@@ -51,6 +51,7 @@ public class HomeActivity extends AppCompatActivity {
     DB_Helper dbHelper;
     String Token,NotifID;
     String FORUM;
+    String PROFIL;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,7 +63,6 @@ public class HomeActivity extends AppCompatActivity {
                     101, galleryPermissions);
         }
         Declaration();
-
         OnClick();
         dbHelper = new DB_Helper(HomeActivity.this);
         Cursor cursor = dbHelper.checkUser();
@@ -85,7 +85,13 @@ public class HomeActivity extends AppCompatActivity {
             Home();
         }
 
-
+        try {
+            Intent intent = getIntent();
+            PROFIL = intent.getExtras().getString("PROFIL");
+            Profile();
+        }catch (Exception e){
+            Home();
+        }
     }
 
     private void OnClick() {

@@ -4,33 +4,164 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:card_view="http://schemas.android.com/tools">
+
     <ScrollView
-        android:layout_centerInParent="true"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="28dp"
                 android:layout_marginLeft="28dp"
                 android:layout_marginTop="4dp"
+                android:layout_marginRight="28dp"
                 android:layout_marginBottom="4dp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
-                    <RelativeLayout
-                        android:id="@+id/relativePrivacy"
-                        android:layout_margin="10dp"
-                        android:padding="10dp"
-                        android:layout_marginTop="10dp"
+                    <androidx.cardview.widget.CardView
+                        android:layout_gravity="center"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        app:cardCornerRadius="90dp"
+                        app:cardElevation="10dp"
+                        android:layout_margin="10dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/colorGrey2"
+                            android:elevation="1dp">
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:id="@+id/ivUser"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/person_active"/>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                    <LinearLayout
+                        android:id="@+id/relativeChangeProfile"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/button_white_rounded">
+                        android:layout_margin="10dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/button_white_rounded"
+                        android:padding="10dp"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_weight="2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Nama"
+                                android:textColor="@color/colorPrimary"
+                                android:fontFamily="@font/inter"
+                                android:textSize="@dimen/text_medium"/>
+                            <TextView
+                                android:id="@+id/tvNama"
+                                android:layout_weight="1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="-"
+                                android:textColor="@color/colorPrimary"
+                                android:fontFamily="@font/inter"
+                                android:textSize="@dimen/text_medium"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_weight="2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Unit Kerja"
+                                android:textColor="@color/colorPrimary"
+                                android:fontFamily="@font/inter"
+                                android:textSize="@dimen/text_medium"/>
+                            <TextView
+                                android:id="@+id/tvUnitKerja"
+                                android:layout_weight="1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="-"
+                                android:textColor="@color/colorPrimary"
+                                android:fontFamily="@font/inter"
+                                android:textSize="@dimen/text_medium"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_weight="2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="NIP"
+                                android:textColor="@color/colorPrimary"
+                                android:fontFamily="@font/inter"
+                                android:textSize="@dimen/text_medium"/>
+                            <TextView
+                                android:id="@+id/tvNip"
+                                android:layout_weight="1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="-"
+                                android:textColor="@color/colorPrimary"
+                                android:fontFamily="@font/inter"
+                                android:textSize="@dimen/text_medium"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_weight="2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="No Telpon"
+                                android:textColor="@color/colorPrimary"
+                                android:fontFamily="@font/inter"
+                                android:textSize="@dimen/text_medium"/>
+                            <TextView
+                                android:id="@+id/tvNoTelpon"
+                                android:layout_weight="1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="-"
+                                android:textColor="@color/colorPrimary"
+                                android:fontFamily="@font/inter"
+                                android:textSize="@dimen/text_medium"/>
+                        </LinearLayout>
+
+                    </LinearLayout>
+                    <RelativeLayout
+                        android:id="@+id/relativePrivacy"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/button_white_rounded"
+                        android:padding="10dp">
 
                         <TextView
                             android:layout_width="match_parent"
@@ -44,14 +175,15 @@
                             android:textColor="@color/colorPrimaryDark"
                             android:textStyle="bold" />
                     </RelativeLayout>
+
                     <RelativeLayout
                         android:id="@+id/relativeChangePassword"
-                        android:layout_margin="10dp"
-                        android:padding="10dp"
-                        android:layout_marginTop="10dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/button_white_rounded">
+                        android:layout_margin="10dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/button_white_rounded"
+                        android:padding="10dp">
 
                         <TextView
                             android:layout_width="match_parent"
@@ -65,14 +197,15 @@
                             android:textColor="@color/colorPrimaryDark"
                             android:textStyle="bold" />
                     </RelativeLayout>
+
                     <RelativeLayout
                         android:id="@+id/relativeContactUs"
-                        android:layout_margin="10dp"
-                        android:padding="10dp"
-                        android:layout_marginTop="10dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/button_white_rounded">
+                        android:layout_margin="10dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/button_white_rounded"
+                        android:padding="10dp">
 
                         <TextView
                             android:layout_width="match_parent"
@@ -86,15 +219,16 @@
                             android:textColor="@color/colorPrimaryDark"
                             android:textStyle="bold" />
                     </RelativeLayout>
+
                     <RelativeLayout
-                        android:visibility="gone"
                         android:id="@+id/relativeSaran"
-                        android:layout_margin="10dp"
-                        android:padding="10dp"
-                        android:layout_marginTop="10dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/button_white_rounded">
+                        android:layout_margin="10dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/button_white_rounded"
+                        android:padding="10dp"
+                        android:visibility="gone">
 
                         <TextView
                             android:layout_width="match_parent"
@@ -108,14 +242,15 @@
                             android:textColor="@color/colorPrimaryDark"
                             android:textStyle="bold" />
                     </RelativeLayout>
+
                     <RelativeLayout
                         android:id="@+id/relativeLogout"
-                        android:layout_margin="10dp"
-                        android:padding="10dp"
-                        android:layout_marginTop="10dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/button_white_rounded">
+                        android:layout_margin="10dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/button_white_rounded"
+                        android:padding="10dp">
 
                         <TextView
                             android:layout_width="match_parent"

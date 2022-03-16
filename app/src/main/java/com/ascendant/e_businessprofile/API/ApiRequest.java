@@ -408,6 +408,11 @@ public interface ApiRequest {
                                       @Part("caption[]") RequestBody caption4);
 
 
+    @Multipart
+    @POST("edit_foto")
+    Call<ResponseObject> EditFoto(@Part("token") RequestBody token,
+                                      @Part MultipartBody.Part img_profil);
+
     //GET
     @GET("divisi")
     Call<ResponseArrayObject> Divisi();

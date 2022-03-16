@@ -23,6 +23,7 @@
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/drawable/button_yellow_rounded.xml" value="0.1" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/drawable/list_hadiah.xml" value="0.14635416666666667" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/drawable/list_history_penukaran.xml" value="0.2703125" />
+        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/drawable/person_active.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/activity_acttivity_ratio.xml" value="0.176" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/activity_analisis5_cactivity.xml" value="0.25" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/activity_beef_farming.xml" value="0.25" />
@@ -104,7 +105,7 @@
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/activity_market_inteligance_contractor.xml" value="0.2" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/activity_market_inteligance_mining.xml" value="0.17753623188405798" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/activity_market_inteligence_oil_and_gas.xml" value="0.25" />
-        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/activity_market_potential.xml" value="0.10400000000000001" />
+        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/activity_market_potential.xml" value="0.16" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/activity_marketing_intelience_farming.xml" value="0.25" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/activity_mining_benchmark.xml" value="0.264" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/activity_mining_business_and_prospect.xml" value="0.25" />
@@ -181,7 +182,7 @@
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/fragment_farming.xml" value="0.264" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/fragment_forum.xml" value="0.18795289855072464" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/fragment_healthcare.xml" value="0.4" />
-        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/fragment_home.xml" value="0.4" />
+        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/fragment_home.xml" value="0.264" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/fragment_hospital_equipment.xml" value="0.1" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/fragment_list_hospital.xml" value="0.25" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/fragment_list_of_hospital.xml" value="0.25416666666666665" />
@@ -189,7 +190,9 @@
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/fragment_list_of_probing_f_m_c_g.xml" value="0.25" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/fragment_maps_hospital.xml" value="0.1296875" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/fragment_mining.xml" value="0.2" />
+        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/fragment_navigator.xml" value="0.25" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/fragment_oil_and_gas.xml" value="0.25" />
+        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/fragment_profile.xml" value="0.22327898550724637" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/fragment_regulations.xml" value="0.176" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/fragment_supporting_industries.xml" value="0.264" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/list.xml" value="0.13020833333333334" />

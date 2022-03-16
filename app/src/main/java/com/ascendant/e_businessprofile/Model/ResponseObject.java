@@ -46,7 +46,9 @@ public class ResponseObject {
     @Expose
     List<DataModel> daftar_rs;
 
-
+    @SerializedName("foto_user")
+    @Expose
+    public String foto_user;
 
     public Integer getKode() {
         return kode;
@@ -127,5 +129,13 @@ public class ResponseObject {
 
     public void setVer(String ver) {
         this.ver = ver;
+    }
+
+    public String getFoto_user() {
+        return foto_user;
+    }
+
+    public void setFoto_user(String foto_user) {
+        this.foto_user = foto_user;
     }
 }
