@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Environment;
 import android.util.Base64;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.ascendant.e_businessprofile.API.ApiRequest;
@@ -17,6 +18,7 @@ import com.ascendant.e_businessprofile.Model.ResponseArrayObject;
 import com.ascendant.e_businessprofile.Model.StaticModel.Quis;
 import com.ascendant.e_businessprofile.R;
 
+import java.io.File;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.NumberFormat;
@@ -30,6 +32,56 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class Ascendant {
+    public static void deleteCache(Context context) {
+        try {
+            File dir = context.getCacheDir();
+            deleteDir(dir);
+        } catch (Exception e) { e.printStackTrace();}
+    }
+
+    public static boolean deleteDir(File dir) {
+        if (dir != null && dir.isDirectory()) {
+            String[] children = dir.list();
+            for (int i = 0; i < children.length; i++) {
+                boolean success = deleteDir(new File(dir, children[i]));
+                if (!success) {
+                    return false;
+                }
+            }
+            return dir.delete();
+        } else if(dir!= null && dir.isFile()) {
+            return dir.delete();
+        } else {
+            return false;
+        }
+    }
+//    public void clearApplicationData(Context ctx) {
+//        File cache = ctx.getCacheDir();
+//        File appDir = new File(cache.getParent());
+//        if (appDir.exists()) {
+//            String[] children = appDir.list();
+//            for (String s : children) {
+//                if (!s.equals("lib")) {
+//                    deleteDir(new File(appDir, s));
+//                    Log.i("Zyargas Error", "**************** File /data/data/APP_PACKAGE/" + s + " DELETED *******************");
+//                }
+//            }
+//        }
+//    }
+//
+//    public static boolean deleteDir(File dir) {
+//        if (dir != null && dir.isDirectory()) {
+//            String[] children = dir.list();
+//            for (int i = 0; i < children.length; i++) {
+//                boolean success = deleteDir(new File(dir, children[i]));
+//                if (!success) {
+//                    return false;
+//                }
+//            }
+//        }
+//
+//        return dir.delete();
+//    }
     public String OneSignalAppId(){
         String OneSignal = "f7221318-7c72-4c22-809c-c1a9b3636ca9";
         return OneSignal;

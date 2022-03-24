@@ -61,21 +61,21 @@ public class AdapterHistoryHadiah extends RecyclerView.Adapter<AdapterHistoryHad
         }
         if (dm.getJenis_riwayat().equals("quiz")){
             holderData.card.setBackgroundResource(R.drawable.btn_rounded_accent_2);
-            holderData.titledeskripsi.setText("Deskripsi Poin");
+            holderData.titledeskripsi.setText("Description");
         }else if (dm.getJenis_riwayat().equals("pengajuan")){
             holderData.card.setBackgroundResource(R.drawable.btn_rounded_primary2);
-            holderData.titledeskripsi.setText("Deskripsi");
+            holderData.titledeskripsi.setText("Description");
         }else if (dm.getJenis_riwayat().equals("ditolak")) {
             holderData.card.setBackgroundResource(R.drawable.btn_rounded_red);
-            holderData.titledeskripsi.setText("Deskripsi");
+            holderData.titledeskripsi.setText("Description");
         }else{
             holderData.card.setBackgroundResource(R.drawable.btn_rounded_orange);
-            holderData.titledeskripsi.setText("Deskripsi");
+            holderData.titledeskripsi.setText("Description");
         }
         holderData.id.setText(String.valueOf(posistion+1));
         holderData.tanggal.setText(ascendant.MagicDateChange(dm.getTgl_poin_didapatkan()));
         holderData.deskripsi.setText(dm.getDeskripsi_poin());
-        holderData.poin.setText("Poin : "+dm.getNilai_poin());
+        holderData.poin.setText("Points : "+dm.getNilai_poin());
     }
 
     @Override

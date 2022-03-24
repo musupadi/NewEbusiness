@@ -13,7 +13,7 @@
     android:id="@+id/linearNotif">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="120dp">
+        android:layout_height="100dp">
         <LinearLayout
             android:id="@+id/linearRead"
             android:alpha="0.2"
@@ -45,15 +45,13 @@
                 android:fontFamily="@font/inter"
              />
             <TextView
-
                 android:id="@+id/tvTanggal"
                 android:gravity="bottom|left"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="15 Januari"
                 android:textSize="@dimen/text_small_medium"
-                android:fontFamily="@font/inter"
-               />
+                android:fontFamily="@font/inter" />
         </LinearLayout>
 
     </RelativeLayout>

@@ -26,7 +26,7 @@
     <string name="have_account">Sudah punya akun ? </string>
     <string name="register_here">Daftar Disini</string>
     <string name="login_here">Login Disini</string>
-    <string name="your_point">Poin Anda</string>
+    <string name="your_point">Your Points</string>
     <string name="look_new_quiz">Daily Quiz</string>
     <string name="look_point">Show Points</string>
     <string name="healthcare">Healthcare</string>
@@ -41,6 +41,8 @@
     <string name="detail_healthcare"></string>
     <string name="business_refrence">Business\nReference</string>
     <string name="outlook">Outlook</string>
+    <string name="ubah_unit_kerja">Change Works Unit</string>
+    <string name="ubah_profil">Change Profil</string>
     <string name="market_inteligence">Market\nIntelligence</string>
     <string name="ecosystem">Ecosystem</string>
     <string name="list_of_probing">List of\nProbing</string>
@@ -58,7 +60,17 @@
     <string name="executive">Executive</string>
     <string name="consultant">Consultant</string>
 
-
+    <string name="user_agreement2">Dengan mengunduh, mengakses dan/atau menggunakan aplikasi e-Business Profile ini, berarti Anda telah setuju untuk terikat serta tunduk pada Syarat dan Ketentuan Penggunaan aplikasi ini
+(selanjutnya disebut sebagai “Syarat”. Atau “Ketentuan Layanan”, atau “Syarat dan Ketentuan”. Jika
+anda tidak menyetujui Syarat dan Ketentuan ini, maka Anda kami sarankan untuk berhenti
+mengakses dan/atau menggunakan aplikasi e-Business Profile ini.
+Anda dilarang untuk menyalahgunakan aplikasi ini dengan cara apapun dan juga tidak diizinkan
+untuk menggunakan untuk kepentingan yang tidak diizinkan pihak developer maupun pihak Bank
+Mandiri.
+e-Business Profile berhak untuk melakukan revisi dan perubahan syarat dan ketentuan tanpa
+terlebih dahulu mendapatkan persetujuan dari Anda. Perubahan dan pengembangan atas syarat dan
+ketentuan secara berkala, karena penggunaan lanjutan Anda atas Aplikasi e-Business Profile akan
+mengartikan bahwa anda menerima revisi atau pembaharuan apapun.</string>
     <!-- Business Refrence    -->
     <string name="eBook">e-Book</string>
     <string name="regulations">Regulations</string>

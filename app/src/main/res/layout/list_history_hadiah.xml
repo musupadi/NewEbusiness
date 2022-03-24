@@ -68,7 +68,7 @@
                         android:textColor="@color/colorWhite"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Deskripsi Poin :  "
+                        android:text="Points Description :  "
                         android:textSize="@dimen/text_extra_large"/>
                 </LinearLayout>
                 <LinearLayout

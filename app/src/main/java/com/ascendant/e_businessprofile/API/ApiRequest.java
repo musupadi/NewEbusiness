@@ -258,6 +258,13 @@ public interface ApiRequest {
                                           @Field("cabang") String cabang);
 
     @FormUrlEncoded
+    @POST("edit_profil")
+    Call<ResponseObject> EditProfil(@Field("token") String token,
+                                          @Field("nama_user") String nama_user,
+                                          @Field("nip_user") String nip_user,
+                                          @Field("no_telpon_user") String no_telpon_user);
+
+    @FormUrlEncoded
     @POST("update_user_reg")
     Call<ResponseObject> UpdateUserKantor(@Field("token") String token,
                                           @Field("tipe") String tipe,

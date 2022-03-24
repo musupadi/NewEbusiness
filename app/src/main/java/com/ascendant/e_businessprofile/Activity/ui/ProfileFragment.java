@@ -7,11 +7,13 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import android.os.Environment;
@@ -23,16 +25,21 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ascendant.e_businessprofile.API.ApiRequest;
 import com.ascendant.e_businessprofile.API.RetroServer;
+import com.ascendant.e_businessprofile.Activity.ChangeUnitKerjaActivity;
 import com.ascendant.e_businessprofile.Activity.DetailBeritaActivity;
+import com.ascendant.e_businessprofile.Activity.HistoryPoinActivity;
 import com.ascendant.e_businessprofile.Activity.HomeActivity;
 import com.ascendant.e_businessprofile.Activity.LoginActivity;
 import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
+import com.ascendant.e_businessprofile.Activity.UbahProfilActivity;
+import com.ascendant.e_businessprofile.Activity.UnitKerjaActivity;
 import com.ascendant.e_businessprofile.Activity.WebActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Forum.PostForumActivity;
 import com.ascendant.e_businessprofile.Model.ResponseArrayObject;
@@ -59,7 +66,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class ProfileFragment extends Fragment {
-    RelativeLayout Logout,Privacy,ChangePassword,ContactUs;
+    RelativeLayout Logout,Privacy,ChangePassword,ContactUs,UnitKerjas,ChangeProfile;
     Dialog myDialog;
     EditText OldPassword,NewPassword,ConfirmPassword;
     Button Confirm,Close;
@@ -68,6 +75,14 @@ public class ProfileFragment extends Fragment {
     TextView Nama,UnitKerja,NIP,NoTelpon;
     String token;
     ImageView user;
+    TextView poin;
+    LinearLayout Background;
+    ImageView image;
+    TextView tvQuiz;
+    LinearLayout Lpoin;
+    TextView tvHistory;
+    CardView cardHistory;
+
     //Dellaroy Logic
     private static final int REQUEST_TAKE_PHOTO = 0;
     private static final int REQUEST_PICK_PHOTO = 2;
@@ -124,6 +139,14 @@ public class ProfileFragment extends Fragment {
                 Token = cursor.getString(0);
             }
         }
+        UnitKerjas = view.findViewById(R.id.relativeUnitKerja);
+        ChangeProfile = view.findViewById(R.id.relativeEditProfile);
+        tvHistory = view.findViewById(R.id.tvHistory);
+        Lpoin = view.findViewById(R.id.poin);
+        tvQuiz = view.findViewById(R.id.tvQuiz);
+        poin = view.findViewById(R.id.tvPoin);
+        Background = view.findViewById(R.id.linearQuizBackgorund);
+        image = view.findViewById(R.id.ivQuiz);
         myDialog = new Dialog(getActivity());
         myDialog.setContentView(R.layout.dialog_change_password);
         OldPassword = myDialog.findViewById(R.id.etOldPassword);
@@ -140,6 +163,9 @@ public class ProfileFragment extends Fragment {
         NIP = view.findViewById(R.id.tvNip);
         NoTelpon = view.findViewById(R.id.tvNoTelpon);
         user = view.findViewById(R.id.ivUser);
+        cardHistory = view.findViewById(R.id.cardPointHistory);
+        CheckQuiz();
+        GetPoin();
         Privacy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -181,6 +207,20 @@ public class ProfileFragment extends Fragment {
                 dialog.show();
             }
         });
+        ChangeProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), UbahProfilActivity.class);
+                startActivity(intent);
+            }
+        });
+        UnitKerjas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), ChangeUnitKerjaActivity.class);
+                startActivity(intent);
+            }
+        });
         ChangePassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -212,7 +252,66 @@ public class ProfileFragment extends Fragment {
                 ChangeProfileUser();
             }
         });
+        cardHistory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getActivity(), HistoryPoinActivity.class);
+                i.putExtra("POIN", poin.getText().toString());
+                startActivity(i);
+            }
+        });
         GetData();
+    }
+    private void CheckQuiz(){
+        ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
+        final Call<ResponseArrayObject> data =api.check_quiz(Token);
+        data.enqueue(new Callback<ResponseArrayObject>() {
+            @Override
+            public void onResponse(Call<ResponseArrayObject> call, Response<ResponseArrayObject> response) {
+                try {
+                    if (response.body().getMessage().equals("Quiz tersedia")){
+                        image.setImageResource(R.drawable.wrong);
+                        Background.setBackgroundColor(Color.rgb(241,0,0));
+                        tvQuiz.setText("Quiz Belum Dikerjakan");
+                    }else{
+                        image.setImageResource(R.drawable.check);
+                        Background.setBackgroundColor(Color.rgb(0,241,0));
+                        tvQuiz.setText("Quiz Sudah Dikerjakan");
+                    }
+                }catch (Exception e){
+                    //Toast.makeText(getActivity(), "Kesalahan pada : "+e.toString(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseArrayObject> call, Throwable t) {
+//                Toast.makeText(getActivity(), "Koneksi Gagal", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+    private void GetPoin(){
+        ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
+        final Call<ResponseObject> data =api.Poin(Token);
+        data.enqueue(new Callback<ResponseObject>() {
+            @Override
+            public void onResponse(Call<ResponseObject> call, Response<ResponseObject> response) {
+                try {
+                    if (response.body().getKode().equals(200)){
+                        poin.setText(String.valueOf(response.body().getData().getTotal_poin()));
+                    }else{
+                        response.body().getMessage();
+                    }
+                }catch (Exception e){
+                    Log.d("ZYARGA : ",e.toString());
+                    Toast.makeText(getActivity(), "Koneksi Gagal", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseObject> call, Throwable t) {
+//                Toast.makeText(getActivity(), "Koneksi Gagal", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
     private void ChangeProfileUser(){
         Gambar1 = true;

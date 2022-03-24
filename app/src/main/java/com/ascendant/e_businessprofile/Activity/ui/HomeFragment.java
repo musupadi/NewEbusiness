@@ -1,5 +1,6 @@
 package com.ascendant.e_businessprofile.Activity.ui;
 
+import android.animation.Animator;
 import android.app.Dialog;
 import android.content.Intent;
 import android.database.Cursor;
@@ -37,6 +38,7 @@ import com.ascendant.e_businessprofile.Activity.ModuleActivity;
 import com.ascendant.e_businessprofile.Activity.NotifActivity;
 import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
 import com.ascendant.e_businessprofile.Activity.TukarPoinAtivity;
+import com.ascendant.e_businessprofile.Activity.UnitKerjaActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Mining.MandiriUpdate.DetailMandiriUpdate;
 import com.ascendant.e_businessprofile.Adapter.AdapterBerita;
 import com.ascendant.e_businessprofile.Adapter.Spinner.SpinnerArea;
@@ -75,15 +77,15 @@ public class HomeFragment extends Fragment {
     TextView divisi,nama,poin;
     RelativeLayout Healtcare,FMCG,Mining,Contractor,OilAndGas,Farm;
     ScrollView scroll;
-    Dialog myDialog,quizDialog,dialogPesan;
+    Dialog newDialog,quizDialog,dialogPesan;
     TextView KategoriSoal,Soal;
     Button A,B,C,D,Konfirmasi;
     Button PilihDivisi;
-//    Spinner spDivisi,spWilayah;
-   Spinner RegionKantor;
-   LinearLayout Region,KantorPusat;
-   TextView IdRegion,IdArea,IdDirektorat,IdGroup;
-  //Regiion
+    //Spinner spDivisi,spWilayah;
+    Spinner RegionKantor;
+    LinearLayout Region,KantorPusat;
+    TextView IdRegion,IdArea,IdDirektorat,IdGroup;
+    //Region
     Spinner spRegion;
 
     Spinner DaftarArea;
@@ -92,7 +94,7 @@ public class HomeFragment extends Fragment {
     Spinner Direktorat,Group;
     EditText Departement,UnitTeam;
     TextView tvDivisi,tvWilayah;
-    LottieAnimationView lottie;
+    LottieAnimationView lottie,animation;
     Boolean Quiz=false;
     LinearLayout linearQuiz;
     String JawabQuiz="";
@@ -131,6 +133,7 @@ public class HomeFragment extends Fragment {
                 Token = cursor.getString(0);
             }
         }
+        animation = view.findViewById(R.id.animation);
         profiles = view.findViewById(R.id.linearProfiles);
         user = view.findViewById(R.id.ivUser);
         linearPoint = view.findViewById(R.id.linearPoint);
@@ -141,8 +144,8 @@ public class HomeFragment extends Fragment {
         Notification = view.findViewById(R.id.relativeNotif);
         dialogPesan = new Dialog(getActivity());
         dialogPesan.setContentView(R.layout.dialog_message);
-        myDialog = new Dialog(getActivity());
-        myDialog.setContentView(R.layout.dialog_unit_kerja);
+        newDialog = new Dialog(getActivity());
+        newDialog.setContentView(R.layout.dialog_unit_kerja);
         quizDialog = new Dialog(getActivity());
         quizDialog.setContentView(R.layout.dialog_quiz_harian);
         View = view.findViewById(R.id.tvView);
@@ -155,25 +158,25 @@ public class HomeFragment extends Fragment {
         C = quizDialog.findViewById(R.id.btnC);
         D = quizDialog.findViewById(R.id.btnD);
         Konfirmasi = quizDialog.findViewById(R.id.btnKonfirmasi);
-//        spDivisi = myDialog.findViewById(R.id.spDivisi);
-//        spWilayah = myDialog.findViewById(R.id.spWilayah);
-        PilihDivisi = myDialog.findViewById(R.id.btnPilih);
-        RegionKantor = myDialog.findViewById(R.id.spRegionOrKantor);
-        Region = myDialog.findViewById(R.id.linearRegion);
-        KantorPusat = myDialog.findViewById(R.id.linearKantorPusat);
+//        spDivisi = newDialog.findViewById(R.id.spDivisi);
+//        spWilayah = newDialog.findViewById(R.id.spWilayah);
+        PilihDivisi = newDialog.findViewById(R.id.btnPilih);
+        RegionKantor = newDialog.findViewById(R.id.spRegionOrKantor);
+        Region = newDialog.findViewById(R.id.linearRegion);
+        KantorPusat = newDialog.findViewById(R.id.linearKantorPusat);
         IdRegion = view.findViewById(R.id.tvIdRegion);
         IdArea = view.findViewById(R.id.tvIdArea);
         IdDirektorat = view.findViewById(R.id.tvIdDirektorat);
         IdGroup = view.findViewById(R.id.tvIdGroup);
         //Region
-        spRegion = myDialog.findViewById(R.id.spRegion);
-        DaftarArea = myDialog.findViewById(R.id.spArea);
-        Cabang = myDialog.findViewById(R.id.etCabang);
+        spRegion = newDialog.findViewById(R.id.spRegion);
+        DaftarArea = newDialog.findViewById(R.id.spArea);
+        Cabang = newDialog.findViewById(R.id.etCabang);
         //Kantor Pusat
-        Direktorat = myDialog.findViewById(R.id.spDirektorat);
-        Group= myDialog.findViewById(R.id.spGroup);
-        Departement = myDialog.findViewById(R.id.etDepartemen);
-        UnitTeam = myDialog.findViewById(R.id.etUnitTeam);
+        Direktorat = newDialog.findViewById(R.id.spDirektorat);
+        Group= newDialog.findViewById(R.id.spGroup);
+        Departement = newDialog.findViewById(R.id.etDepartemen);
+        UnitTeam = newDialog.findViewById(R.id.etUnitTeam);
 
 
         History = view.findViewById(R.id.relativeHistoryPoin);
@@ -199,198 +202,179 @@ public class HomeFragment extends Fragment {
         lottie = view.findViewById(R.id.lottie);
         scroll.fullScroll(View.FOCUS_UP);
         lottie.setVisibility(View.GONE);
-        GetData();
-        GetPoin();
-        Logic();
-//        GetDivisi();
-//        GetWilayah();
-        CheckQuiz();
-        IsiQuiz();
-        GetJumlahNotif();
+        try {
+            GetData();
+            GetPoin();
+            Logic();
+            CheckQuiz();
+            IsiQuiz();
+            GetJumlahNotif();
 
 
-        //Kantor Pusat
-        GetGroup();
-//        Direktorat.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> adapterView, android.view.View view, int i, long l) {
-//                try {
-//                    DataModel clickedItem = (DataModel) adapterView.getItemAtPosition(i);
-//                    int clickedItems = Integer.parseInt(clickedItem.getId_direktorat());
-//                    IdDirektorat.setText(String.valueOf(clickedItems));
-//
-//                }catch (Exception e){
-//                    Log.d("ZYARGA : ",e.toString());
-//                }
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> adapterView) {
-//
-//            }
-//        });
-        //Region
-        GetRegion();
-        spRegion.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, android.view.View view, int i, long l) {
-                try {
-                    DataModel clickedItem = (DataModel) adapterView.getItemAtPosition(i);
-                    int clickedItems = Integer.parseInt(clickedItem.getId_region());
-                    IdRegion.setText(String.valueOf(clickedItems));
-                    GetArea(IdRegion.getText().toString());
-                }catch (Exception e){
+            //Kantor Pusat
+            GetGroup();
+            //Region
+            GetRegion();
+            spRegion.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, android.view.View view, int i, long l) {
+                    try {
+                        DataModel clickedItem = (DataModel) adapterView.getItemAtPosition(i);
+                        int clickedItems = Integer.parseInt(clickedItem.getId_region());
+                        IdRegion.setText(String.valueOf(clickedItems));
+                        GetArea(IdRegion.getText().toString());
+                    }catch (Exception e){
 //                    Toast.makeText(getActivity(), "Failed ?", Toast.LENGTH_SHORT).show();
 //                    Log.d("ZYARGA : ",e.toString());
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
-        Group.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, android.view.View view, int i, long l) {
-                try {
-                    DataModel clickedItem = (DataModel) adapterView.getItemAtPosition(i);
-                    int clickedItems = Integer.parseInt(clickedItem.getId_group_pusat());
-                    IdGroup.setText(String.valueOf(clickedItems));
-                }catch (Exception e){
-                    Log.d("ZYARGA : ",e.toString());
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
-        DaftarArea.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, android.view.View view, int i, long l) {
-                try {
-                    DataModel clickedItem = (DataModel) adapterView.getItemAtPosition(i);
-                    int clickedItems = Integer.parseInt(clickedItem.getId_wilayah_mandiri());
-                    IdArea.setText(String.valueOf(clickedItems));
-                }catch (Exception e){
-                    Log.d("ZYARGA : ",e.toString());
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
-        Healtcare.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(getActivity(), ModuleActivity.class);
-                i.putExtra("MODULE", "HEALTHCARE");
-                startActivity(i);
-            }
-        });
-        FMCG.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(getActivity(), ModuleActivity.class);
-                i.putExtra("MODULE", "FMCG");
-                startActivity(i);
-            }
-        });
-        Mining.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(getActivity(), ModuleActivity.class);
-                i.putExtra("MODULE", "Mining");
-                startActivity(i);
-            }
-        });
-        Contractor.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(getActivity(), ModuleActivity.class);
-                i.putExtra("MODULE", "Contractor");
-                startActivity(i);
-            }
-        });
-        OilAndGas.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(getActivity(), ModuleActivity.class);
-                i.putExtra("MODULE", "Oil & Gas");
-                startActivity(i);
-            }
-        });
-        Farm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(getActivity(), ModuleActivity.class);
-                i.putExtra("MODULE", "Farming");
-                startActivity(i);
-            }
-        });
-        Tukar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(android.view.View view) {
-                Intent i = new Intent(getActivity(), TukarPoinAtivity.class);
-                i.putExtra("POIN", poin.getText().toString());
-                startActivity(i);
-            }
-        });
-        History.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(android.view.View view) {
-                Intent i = new Intent(getActivity(), HistoryPoinActivity.class);
-                i.putExtra("POIN", poin.getText().toString());
-                startActivity(i);
-            }
-        });
-        RegionKantor.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, android.view.View view, int i, long l) {
-                if (RegionKantor.getSelectedItem().toString().equals("Region")){
-                    Region.setVisibility(android.view.View.VISIBLE);
-                    KantorPusat.setVisibility(android.view.View.GONE);
-                }else if (RegionKantor.getSelectedItem().toString().equals("Kantor Pusat")){
-                    Region.setVisibility(android.view.View.GONE);
-                    KantorPusat.setVisibility(android.view.View.VISIBLE);
-                }else{
-                    Region.setVisibility(android.view.View.GONE);
-                    KantorPusat.setVisibility(android.view.View.GONE);
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
-        LihatPoint.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(android.view.View view) {
-                if (PointHide){
-                    textPoint.setText("Hide Points");
-                    linearPoint.setVisibility(android.view.View.VISIBLE);
-                    PointHide=false;
-                }else{
-                    textPoint.setText("Show Points");
-                    linearPoint.setVisibility(android.view.View.GONE);
-                    PointHide=true;
+                    }
                 }
 
-            }
-        });
-        profiles.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(android.view.View view) {
-                Intent i = new Intent(getActivity(), HomeActivity.class);
-                i.putExtra("PROFIL", "PROFIL");
-                startActivity(i);
-            }
-        });
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+
+                }
+            });
+            Group.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, android.view.View view, int i, long l) {
+                    try {
+                        DataModel clickedItem = (DataModel) adapterView.getItemAtPosition(i);
+                        int clickedItems = Integer.parseInt(clickedItem.getId_group_pusat());
+                        IdGroup.setText(String.valueOf(clickedItems));
+                    }catch (Exception e){
+                        Log.d("ZYARGA : ",e.toString());
+                    }
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+
+                }
+            });
+            DaftarArea.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, android.view.View view, int i, long l) {
+                    try {
+                        DataModel clickedItem = (DataModel) adapterView.getItemAtPosition(i);
+                        int clickedItems = Integer.parseInt(clickedItem.getId_wilayah_mandiri());
+                        IdArea.setText(String.valueOf(clickedItems));
+                    }catch (Exception e){
+                        Log.d("ZYARGA : ",e.toString());
+                    }
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+
+                }
+            });
+            Healtcare.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent i = new Intent(getActivity(), ModuleActivity.class);
+                    i.putExtra("MODULE", "HEALTHCARE");
+                    startActivity(i);
+                }
+            });
+            FMCG.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent i = new Intent(getActivity(), ModuleActivity.class);
+                    i.putExtra("MODULE", "FMCG");
+                    startActivity(i);
+                }
+            });
+            Mining.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent i = new Intent(getActivity(), ModuleActivity.class);
+                    i.putExtra("MODULE", "Mining");
+                    startActivity(i);
+                }
+            });
+            Contractor.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent i = new Intent(getActivity(), ModuleActivity.class);
+                    i.putExtra("MODULE", "Contractor");
+                    startActivity(i);
+                }
+            });
+            OilAndGas.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent i = new Intent(getActivity(), ModuleActivity.class);
+                    i.putExtra("MODULE", "Oil & Gas");
+                    startActivity(i);
+                }
+            });
+            Farm.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent i = new Intent(getActivity(), ModuleActivity.class);
+                    i.putExtra("MODULE", "Farming");
+                    startActivity(i);
+                }
+            });
+            Tukar.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(android.view.View view) {
+                    Intent i = new Intent(getActivity(), TukarPoinAtivity.class);
+                    i.putExtra("POIN", poin.getText().toString());
+                    startActivity(i);
+                }
+            });
+            History.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(android.view.View view) {
+                    Intent i = new Intent(getActivity(), HistoryPoinActivity.class);
+                    i.putExtra("POIN", poin.getText().toString());
+                    startActivity(i);
+                }
+            });
+            RegionKantor.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, android.view.View view, int i, long l) {
+                    if (RegionKantor.getSelectedItem().toString().equals("Region")){
+                        Region.setVisibility(android.view.View.VISIBLE);
+                        KantorPusat.setVisibility(android.view.View.GONE);
+                    }else if (RegionKantor.getSelectedItem().toString().equals("Kantor Pusat")){
+                        Region.setVisibility(android.view.View.GONE);
+                        KantorPusat.setVisibility(android.view.View.VISIBLE);
+                    }else{
+                        Region.setVisibility(android.view.View.GONE);
+                        KantorPusat.setVisibility(android.view.View.GONE);
+                    }
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+
+                }
+            });
+            LihatPoint.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(android.view.View view) {
+                    if (PointHide){
+                        textPoint.setText("Hide Points");
+                        linearPoint.setVisibility(android.view.View.VISIBLE);
+                        PointHide=false;
+                    }else{
+                        textPoint.setText("Show Points");
+                        linearPoint.setVisibility(android.view.View.GONE);
+                        PointHide=true;
+                    }
+
+                }
+            });
+            profiles.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(android.view.View view) {
+                    Intent i = new Intent(getActivity(), HomeActivity.class);
+                    i.putExtra("PROFIL", "PROFIL");
+                    startActivity(i);
+                }
+            });
 //        spDivisi.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 //            @Override
 //            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -404,6 +388,7 @@ public class HomeFragment extends Fragment {
 //            }
 //
 //            @Override
+//            @Override
 //            public void onNothingSelected(AdapterView<?> adapterView) {
 //
 //            }
@@ -414,7 +399,7 @@ public class HomeFragment extends Fragment {
 //                try {
 //                    DataModel clickedItem = (DataModel) adapterView.getItemAtPosition(i);
 //                    int clickedItems = Integer.parseInt(clickedItem.getId_wilayah_mandiri());
-//                    tvWilayah.setText(String.valueOf(clickedItems));
+//                    tvWilayah.setText(String.valueOfF(clickedItems));
 //                }catch (Exception e){
 //                    Log.d("ZYARGA : ",e.toString());
 //                }
@@ -425,63 +410,70 @@ public class HomeFragment extends Fragment {
 //
 //            }
 //        });
-        PilihDivisi.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                UpdateDivisi();
-            }
-        });
-        linearQuiz.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                try {
-                    if (Quiz){
-                        quizDialog.show();
-                    }else{
-                        Toast.makeText(getActivity(), QuizResponse, Toast.LENGTH_SHORT).show();
-                    }
-                }catch (Exception e){
-                    Log.d("AscNet : ",e.toString());
+            PilihDivisi.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    UpdateDivisi();
                 }
-            }
-        });
-        Notification.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(android.view.View view) {
-                Intent intent = new Intent(getActivity(),NotifActivity.class);
-                startActivity(intent);
-            }
-        });
-        A.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                JawabA();
-            }
-        });
-        B.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                JawabB();
-            }
-        });
-        C.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                JawabC();
-            }
-        });
-        D.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                JawabD();
-            }
-        });
-        Konfirmasi.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                JawabQuiz();
-            }
-        });
+            });
+            linearQuiz.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    try {
+                        if (Quiz){
+                            quizDialog.show();
+                        }else{
+                            Toast.makeText(getActivity(), QuizResponse, Toast.LENGTH_SHORT).show();
+                        }
+                    }catch (Exception e){
+                        Log.d("AscNet : ",e.toString());
+                    }
+                }
+            });
+            Notification.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(android.view.View view) {
+                    Intent intent = new Intent(getActivity(),NotifActivity.class);
+                    startActivity(intent);
+                }
+            });
+            A.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    JawabA();
+                }
+            });
+            B.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    JawabB();
+                }
+            });
+            C.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    JawabC();
+                }
+            });
+            D.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    JawabD();
+                }
+            });
+            Konfirmasi.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (JawabQuiz.equals("")){
+                        Toast.makeText(getActivity(), "Mohon Pilih Jawaban", Toast.LENGTH_SHORT).show();
+                    }else{
+                        JawabQuiz();
+                    }
+                }
+            });
+        }catch (Exception e){
+            ascendant.deleteCache(getActivity());
+        }
 
     }
     private void UpdateDivisi(){
@@ -497,7 +489,7 @@ public class HomeFragment extends Fragment {
                     data.enqueue(new Callback<ResponseObject>() {
                         @Override
                         public void onResponse(Call<ResponseObject> call, Response<ResponseObject> response) {
-                            myDialog.hide();
+                            newDialog.hide();
                             try {
                                 Toast.makeText(getActivity(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(getActivity(),HomeActivity.class);
@@ -522,7 +514,7 @@ public class HomeFragment extends Fragment {
                     data.enqueue(new Callback<ResponseObject>() {
                         @Override
                         public void onResponse(Call<ResponseObject> call, Response<ResponseObject> response) {
-                            myDialog.hide();
+                            newDialog.hide();
                             try {
                                 Toast.makeText(getActivity(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(getActivity(),HomeActivity.class);
@@ -575,20 +567,52 @@ public class HomeFragment extends Fragment {
             @Override
             public void onResponse(Call<ResponseObject> call, Response<ResponseObject> response) {
                 quizDialog.hide();
-                try {
-                    dialogPesan.show();
-                    Pesan.setText(response.body().getMessage());
-                    KonfirmasiPesan.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            Intent intent = new Intent(getActivity(),HomeActivity.class);
-                            startActivity(intent);
-                            getActivity().finishAffinity();
-                        }
-                    });
-                }catch (Exception e){
-                    Toast.makeText(getActivity(), "Terjadi Kesalahan : "+e.toString(), Toast.LENGTH_SHORT).show();
+                if (response.body().getBenar() == 0){
+                    animation.setAnimation("failed.json");
+                    animation.setVisibility(android.view.View.VISIBLE);
+                }else{
+                    animation.setAnimation("congrats.json");
+                    animation.setVisibility(android.view.View.VISIBLE);
                 }
+                scroll.setAlpha(0.4f);
+                animation.playAnimation();
+                animation.addAnimatorListener(new Animator.AnimatorListener() {
+                    @Override
+                    public void onAnimationStart(Animator animator) {
+
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animator animator) {
+                        try {
+                            scroll.setAlpha(1f);
+                            dialogPesan.show();
+                            animation.setVisibility(android.view.View.GONE);
+                            Pesan.setText(response.body().getMessage());
+                            KonfirmasiPesan.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    Intent intent = new Intent(getActivity(),HomeActivity.class);
+                                    startActivity(intent);
+                                    getActivity().finishAffinity();
+                                }
+                            });
+                        }catch (Exception e){
+                            Toast.makeText(getActivity(), "Terjadi Kesalahan : "+e.toString(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onAnimationCancel(Animator animator) {
+
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animator animator) {
+
+                    }
+                });
+
             }
 
             @Override
@@ -637,10 +661,10 @@ public class HomeFragment extends Fragment {
                     idQuiz.setText(response.body().getData().getId_quiz().toString());
                     Soal.setText(response.body().getData().getSoal_quiz());
                     KategoriSoal.setText(response.body().getData().getKategori());
-                    A.setText("A."+response.body().getData().getJawaban().get(0).getIsi_jawaban());
-                    B.setText("B."+response.body().getData().getJawaban().get(1).getIsi_jawaban());
-                    C.setText("C."+response.body().getData().getJawaban().get(2).getIsi_jawaban());
-                    D.setText("D."+response.body().getData().getJawaban().get(3).getIsi_jawaban());
+                    A.setText("A. "+response.body().getData().getJawaban().get(0).getIsi_jawaban());
+                    B.setText("B. "+response.body().getData().getJawaban().get(1).getIsi_jawaban());
+                    C.setText("C. "+response.body().getData().getJawaban().get(2).getIsi_jawaban());
+                    D.setText("D. "+response.body().getData().getJawaban().get(3).getIsi_jawaban());
                 }catch (Exception e){
 //                    Toast.makeText(getActivity(), "Terjadi Kesalahan : "+e.toString(), Toast.LENGTH_SHORT).show();
                 }
@@ -900,7 +924,9 @@ public class HomeFragment extends Fragment {
                                 }
 //                                Cut Here
                                 if (response.body().getData().getAddinfo().equals("")){
-                                    myDialog.show();
+//                                    newDialog.show();
+                                    Intent intent = new Intent(getActivity(),UnitKerjaActivity.class);
+                                    startActivity(intent);
                                 }
                             }else{
                                 response.body().getMessage();

@@ -28,6 +28,7 @@
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/activity_analisis5_cactivity.xml" value="0.25" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/activity_beef_farming.xml" value="0.25" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/activity_business_refrence.xml" value="0.2" />
+        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/activity_change_unit_kerja.xml" value="0.2359375" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/activity_compliance.xml" value="0.136" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/activity_compliance_contractor.xml" value="0.25" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/activity_compliance_farming.xml" value="0.25" />
@@ -148,20 +149,23 @@
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/activity_soal.xml" value="0.25" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/activity_solvency_ratio.xml" value="0.264" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/activity_suporting_industry_farming.xml" value="0.2" />
-        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/activity_tukar_poin_ativity.xml" value="0.17753623188405798" />
+        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/activity_tukar_poin_ativity.xml" value="0.264" />
+        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/activity_ubah_profil.xml" value="0.2359375" />
+        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/activity_unit_kerja.xml" value="0.264" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/activity_web_view_ebook.xml" value="0.17753623188405798" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/activity_working_capital_credit.xml" value="0.1" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/dialog_change_password.xml" value="0.4" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/dialog_data_rs.xml" value="0.128" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/dialog_divisi.xml" value="0.24954710144927536" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/dialog_forgot_password.xml" value="0.264" />
-        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/dialog_message.xml" value="0.25" />
+        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/dialog_message.xml" value="0.176" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/dialog_navigator.xml" value="0.25" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/dialog_perhitungan_indikator_kinerja_rs.xml" value="0.1" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/dialog_quiz_harian.xml" value="0.1" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/dialog_rasio_kebutuhan.xml" value="0.1" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/dialog_report.xml" value="0.25" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/dialog_unit_kerja.xml" value="0.38823529411764707" />
+        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/dialog_user_agreement.xml" value="0.264" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/dialog_view_download.xml" value="0.25" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/fragment_business_refrence.xml" value="0.264" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/fragment_compliance.xml" value="0.25" />
@@ -170,7 +174,7 @@
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/fragment_detail_f_m_c_g_player.xml" value="0.25" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/fragment_e_book.xml" value="0.25" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/fragment_ecosystem.xml" value="0.264" />
-        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/fragment_f_m_c_g.xml" value="0.264" />
+        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/fragment_f_m_c_g.xml" value="0.4" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/fragment_f_m_c_g_association.xml" value="0.25" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/fragment_f_m_c_g_business_refrence.xml" value="0.264" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/fragment_f_m_c_g_compliance.xml" value="0.25" />
@@ -181,7 +185,7 @@
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/fragment_f_m_c_ge_book.xml" value="0.25" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/fragment_farming.xml" value="0.264" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/fragment_forum.xml" value="0.18795289855072464" />
-        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/fragment_healthcare.xml" value="0.4" />
+        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/fragment_healthcare.xml" value="0.39285714285714285" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/fragment_home.xml" value="0.264" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/fragment_hospital_equipment.xml" value="0.1" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/fragment_list_hospital.xml" value="0.25" />
@@ -192,7 +196,7 @@
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/fragment_mining.xml" value="0.2" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/fragment_navigator.xml" value="0.25" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/fragment_oil_and_gas.xml" value="0.25" />
-        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/fragment_profile.xml" value="0.22327898550724637" />
+        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/fragment_profile.xml" value="0.264" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/fragment_regulations.xml" value="0.176" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/fragment_supporting_industries.xml" value="0.264" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/list.xml" value="0.13020833333333334" />
@@ -205,13 +209,13 @@
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/list_file.xml" value="0.2477355072463768" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/list_forum.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/list_hadiah.xml" value="0.4" />
-        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/list_history_hadiah.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/list_history_hadiah.xml" value="0.264" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/list_history_penukaran.xml" value="0.9011627906976745" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/list_komen.xml" value="0.264" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/list_list_of_probing.xml" value="0.16" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/list_newsletter.xml" value="0.2" />
-        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/list_notif.xml" value="0.264" />
-        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/list_penukaran_history.xml" value="0.152" />
+        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/list_notif.xml" value="0.4" />
+        <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/list_penukaran_history.xml" value="0.264" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/list_perusahaan_contractor.xml" value="0.6" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/list_probing.xml" value="0.24583333333333332" />
         <entry key="..\:/Users/Zyarga/AndroidStudioProjects/NewEbusiness/app/src/main/res/layout/list_sub_komen.xml" value="0.264" />

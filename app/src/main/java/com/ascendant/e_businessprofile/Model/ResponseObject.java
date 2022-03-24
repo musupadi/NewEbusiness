@@ -26,6 +26,10 @@ public class ResponseObject {
     @Expose
     DataModel data;
 
+    @SerializedName("benar")
+    @Expose
+    public Integer benar;
+
     @SerializedName("new_key")
     @Expose
     public String new_key;
@@ -137,5 +141,14 @@ public class ResponseObject {
 
     public void setFoto_user(String foto_user) {
         this.foto_user = foto_user;
+    }
+
+
+    public Integer getBenar() {
+        return benar;
+    }
+
+    public void setBenar(Integer benar) {
+        this.benar = benar;
     }
 }

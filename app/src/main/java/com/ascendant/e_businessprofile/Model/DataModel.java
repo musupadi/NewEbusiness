@@ -6,6 +6,9 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 public class DataModel {
+    @SerializedName("benar")
+    @Expose
+    public String benar;
     //Berita
     @SerializedName("id_berita")
     @Expose
@@ -4489,5 +4492,13 @@ public class DataModel {
 
     public void setUnit_kerja(String unit_kerja) {
         this.unit_kerja = unit_kerja;
+    }
+
+    public String getBenar() {
+        return benar;
+    }
+
+    public void setBenar(String benar) {
+        this.benar = benar;
     }
 }
