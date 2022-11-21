@@ -6,12 +6,16 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
+import com.ascendant.e_businessprofile.Activity.LoginActivity;
 import com.ascendant.e_businessprofile.Activity.ui.ChatFragment;
+import com.ascendant.e_businessprofile.Activity.ui.Forum.DetailForumActivity;
 import com.ascendant.e_businessprofile.Activity.ui.ForumFragment;
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.Compliance.ComplianceFragment;
 import com.ascendant.e_businessprofile.Activity.ui.HomeFragment;
@@ -30,11 +34,17 @@ public class FMCGComplianceActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fmcgcompliance);
-        Declaration();
-        Home.setImageResource(R.drawable.home_active);
-        fragment = new FMCGComplianceFragment();
-        ChangeFragment(fragment);
-        OnClick();
+        try {
+            Declaration();
+            Home.setImageResource(R.drawable.home_active);
+            fragment = new FMCGComplianceFragment();
+            ChangeFragment(fragment);
+            OnClick();
+        }catch (Exception e){
+            Toast.makeText(FMCGComplianceActivity.this, "Anda Belum Login", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(FMCGComplianceActivity.this, LoginActivity.class);
+            startActivity(intent);
+        }
 
     }
     private void OnClick() {

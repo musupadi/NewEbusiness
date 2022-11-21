@@ -16,9 +16,11 @@ import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.ascendant.e_businessprofile.API.ApiRequest;
 import com.ascendant.e_businessprofile.API.RetroServer;
+import com.ascendant.e_businessprofile.Activity.LoginActivity;
 import com.ascendant.e_businessprofile.Method.Ascendant;
 import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
 import com.ascendant.e_businessprofile.Adapter.AdapterFile;
@@ -148,34 +150,40 @@ public class DetailMandiriUpdate extends AppCompatActivity {
         data.enqueue(new Callback<ResponseDataModel>() {
             @Override
             public void onResponse(Call<ResponseDataModel> call, Response<ResponseDataModel> response) {
-                Kategori.setText(response.body().getData().getDetail().getKategori_mandiri_update());
-                Judul.setText(response.body().getData().getDetail().getJudul_mandiri_update());
-                web.loadData(response.body().getData().getDetail().getIsi_mandiri_update(),"text/html","UTF-8");
-                Tanggal.setText(response.body().getData().getDetail().getCreated_at());
-                Glide.with(DetailMandiriUpdate.this)
-                        .load(ascendant.BASE_URL()+response.body().getData().getDetail().getCover_mandiri_update())
-                        .into(Cover);
-                if (!response.body().getData().getDetail().getLink_youtube().equals("")){
-                    cardYoutube.setVisibility(View.VISIBLE);
-                    youtube.addYouTubePlayerListener(new AbstractYouTubePlayerListener() {
-                        @Override
-                        public void onReady(@NonNull YouTubePlayer youTubePlayer) {
-                            String videoId = ascendant.GetIDYoutube(response.body().getData().getDetail().getLink_youtube());
-                            youTubePlayer.loadVideo(videoId, 0);
-                        }
-                    });
-                }else{
-                    cardYoutube.setVisibility(View.GONE);
-                }
-                if (response.body().getData().getFiles().toArray().length>0){
-                    mManager = new LinearLayoutManager(DetailMandiriUpdate.this, LinearLayoutManager.VERTICAL,false);
-                    rv.setLayoutManager(mManager);
-                    mItems=response.body().getData().getFiles();
-                    mAdapter = new AdapterFile(DetailMandiriUpdate.this,mItems,response.body().getData().getDetail().getCreated_at());
-                    rv.setAdapter(mAdapter);
-                    mAdapter.notifyDataSetChanged();
-                }else{
-                    tvAvailable.setVisibility(View.VISIBLE);
+                try {
+                    Kategori.setText(response.body().getData().getDetail().getKategori_mandiri_update());
+                    Judul.setText(response.body().getData().getDetail().getJudul_mandiri_update());
+                    web.loadData(response.body().getData().getDetail().getIsi_mandiri_update(),"text/html","UTF-8");
+                    Tanggal.setText(response.body().getData().getDetail().getCreated_at());
+                    Glide.with(DetailMandiriUpdate.this)
+                            .load(ascendant.BASE_URL()+response.body().getData().getDetail().getCover_mandiri_update())
+                            .into(Cover);
+                    if (!response.body().getData().getDetail().getLink_youtube().equals("")){
+                        cardYoutube.setVisibility(View.VISIBLE);
+                        youtube.addYouTubePlayerListener(new AbstractYouTubePlayerListener() {
+                            @Override
+                            public void onReady(@NonNull YouTubePlayer youTubePlayer) {
+                                String videoId = ascendant.GetIDYoutube(response.body().getData().getDetail().getLink_youtube());
+                                youTubePlayer.loadVideo(videoId, 0);
+                            }
+                        });
+                    }else{
+                        cardYoutube.setVisibility(View.GONE);
+                    }
+                    if (response.body().getData().getFiles().toArray().length>0){
+                        mManager = new LinearLayoutManager(DetailMandiriUpdate.this, LinearLayoutManager.VERTICAL,false);
+                        rv.setLayoutManager(mManager);
+                        mItems=response.body().getData().getFiles();
+                        mAdapter = new AdapterFile(DetailMandiriUpdate.this,mItems,response.body().getData().getDetail().getCreated_at());
+                        rv.setAdapter(mAdapter);
+                        mAdapter.notifyDataSetChanged();
+                    }else{
+                        tvAvailable.setVisibility(View.VISIBLE);
+                    }
+                }catch (Exception e){
+                    Toast.makeText(DetailMandiriUpdate.this, "Anda Belum Login", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(DetailMandiriUpdate.this, LoginActivity.class);
+                    startActivity(intent);
                 }
             }
 

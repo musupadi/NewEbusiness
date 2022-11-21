@@ -8,14 +8,19 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.Manifest;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.ascendant.e_businessprofile.Activity.ui.FMCG.BusinessRefrence.FMCGeBookFragment;
 import com.ascendant.e_businessprofile.Activity.ui.NavigatorFragment;
 import com.ascendant.e_businessprofile.R;
+
+import java.util.List;
 
 import pub.devrel.easypermissions.EasyPermissions;
 
@@ -44,31 +49,47 @@ public class eBookActivity extends AppCompatActivity {
         Back = findViewById(R.id.linearBack);
         More = findViewById(R.id.linearMore);
         ivMore = findViewById(R.id.ivMore);
-        Intent intent = getIntent();
-        MODULE = intent.getExtras().getString("MODULE");
-        Bundle bundle = new Bundle();
-        bundle.putString("MODULE", MODULE);
-        fragment = new eBookFragment();
-        fragment.setArguments(bundle);
-        ChangeFragment(fragment);
-        String Mod=MODULE;
-        if (MODULE.equals("ebook")){
-            Mod = "e-Book";
-        }else if (MODULE.equals("newsletter")){
-            Mod = "Newsletter";
-        }else if (MODULE.equals("business_review")){
-            Mod = "Business Review";
-        }else if (MODULE.equals("uu")){
-            Mod = "Acts";
-        }else if (MODULE.equals("pp")){
-            Mod = "Government Regulations";
-        }else if (MODULE.equals("pmk")){
-            Mod = "Presidential Decree";
-        }else if (MODULE.equals("perpres")){
-            Mod = "Health Minister Regulations";
+        try {
+            Uri datas = this.getIntent().getData();
+            if (datas != null && datas.isHierarchical()) {
+                MODULE = "newsletter";
+                Bundle bundle = new Bundle();
+                bundle.putString("MODULE", MODULE);
+                fragment = new FMCGeBookFragment();
+                fragment.setArguments(bundle);
+                ChangeFragment(fragment);
+                String Mod="Newsletter";
+                eBook.setText(Mod);
+                OnClick();
+            }
+        }catch (Exception e){
+            Intent intent = getIntent();
+            MODULE = intent.getExtras().getString("MODULE");
+            Bundle bundle = new Bundle();
+            bundle.putString("MODULE", MODULE);
+            fragment = new eBookFragment();
+            fragment.setArguments(bundle);
+            ChangeFragment(fragment);
+            String Mod=MODULE;
+            if (MODULE.equals("ebook")){
+                Mod = "e-Book";
+            }else if (MODULE.equals("newsletter")){
+                Mod = "Newsletter";
+            }else if (MODULE.equals("business_review")){
+                Mod = "Business Review";
+            }else if (MODULE.equals("uu")){
+                Mod = "Acts";
+            }else if (MODULE.equals("pp")){
+                Mod = "Government Regulations";
+            }else if (MODULE.equals("pmk")){
+                Mod = "Presidential Decree";
+            }else if (MODULE.equals("perpres")){
+                Mod = "Health Minister Regulations";
+            }
+            eBook.setText(Mod);
+            OnClick();
         }
-        eBook.setText(Mod);
-        OnClick();
+
     }
     private void ChangeFragment(Fragment fragment){
         if(fragment != null){

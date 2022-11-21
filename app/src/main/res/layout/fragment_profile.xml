@@ -48,13 +48,14 @@
                                 android:src="@drawable/person_active" />
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/inter"
-                        android:text="Edit Image"
                         android:layout_marginBottom="10dp"
+                        android:fontFamily="@font/inter"
                         android:gravity="center"
+                        android:text="Edit Image"
                         android:textColor="@color/colorPrimary"
                         android:textSize="@dimen/text_medium" />
 
@@ -213,10 +214,10 @@
                                         android:textStyle="bold" />
 
                                     <TextView
-                                        android:layout_marginTop="15dp"
                                         android:id="@+id/tvPoin"
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
+                                        android:layout_marginTop="15dp"
                                         android:fontFamily="@font/inter_extra_bold"
                                         android:gravity="center"
                                         android:text="0"
@@ -258,11 +259,12 @@
                                         android:textStyle="bold" />
 
                                     <LinearLayout
-                                        android:layout_marginTop="15dp"
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
-                                        android:orientation="vertical"
-                                        android:gravity="center">
+                                        android:layout_marginTop="15dp"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
                                         <androidx.cardview.widget.CardView
                                             android:layout_width="30dp"
                                             android:layout_height="30dp"
@@ -276,7 +278,7 @@
                                                 android:layout_width="match_parent"
                                                 android:layout_height="match_parent"
                                                 android:background="@color/colorRed"
-                                                android:orientation="vertical" >
+                                                android:orientation="vertical">
 
                                                 <ImageView
                                                     android:id="@+id/ivQuiz"
@@ -318,15 +320,17 @@
                                         android:layout_height="match_parent"
                                         app:cardCornerRadius="10dp"
                                         app:cardElevation="10dp">
+
                                         <LinearLayout
                                             android:layout_width="match_parent"
                                             android:layout_height="30dp"
                                             android:background="@color/colorPrimary">
+
                                             <TextView
-                                                android:background="@color/colorPrimary"
                                                 android:id="@+id/tvHistory"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="match_parent"
+                                                android:background="@color/colorPrimary"
                                                 android:fontFamily="@font/inter"
                                                 android:gravity="center"
                                                 android:text="Points History"
@@ -416,6 +420,43 @@
                             android:textColor="@color/colorPrimaryDark"
                             android:textStyle="bold" />
                     </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/relativeVotingDesign"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/button_white_rounded">
+
+                        <com.airbnb.lottie.LottieAnimationView
+                            android:id="@+id/lottie"
+                            android:layout_width="70dp"
+                            android:layout_height="50dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginRight="5dp"
+                            android:layout_alignParentRight="true"
+                            app:lottie_autoPlay="true"
+                            android:scaleType="fitXY"
+                            app:lottie_fileName="shining_star.json"
+                            app:lottie_loop="true">
+
+                        </com.airbnb.lottie.LottieAnimationView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="30dp"
+                            android:layout_marginRight="20dp"
+                            android:layout_marginBottom="10dp"
+                            android:gravity="center"
+                            android:text="Voting Design"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textStyle="bold" />
+                    </RelativeLayout>
+
                     <RelativeLayout
                         android:id="@+id/relativePrivacy"
                         android:layout_width="match_parent"
@@ -481,6 +522,7 @@
                             android:textColor="@color/colorPrimaryDark"
                             android:textStyle="bold" />
                     </RelativeLayout>
+
 
                     <RelativeLayout
                         android:id="@+id/relativeSaran"

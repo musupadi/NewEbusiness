@@ -17,6 +17,9 @@ import com.ascendant.e_businessprofile.API.ApiRequest;
 import com.ascendant.e_businessprofile.API.RetroServer;
 import com.ascendant.e_businessprofile.Activity.LandscapeWebViewEbookActivity;
 import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
+import com.ascendant.e_businessprofile.Activity.ui.Mining.Outlook.OutlookActivity;
+import com.ascendant.e_businessprofile.Activity.ui.OilAndGas.Outlook.OilAndGasNewsletterActivity;
+import com.ascendant.e_businessprofile.Activity.ui.OilAndGas.Outlook.OutlookOilAndGasActivity;
 import com.ascendant.e_businessprofile.Adapter.Static.AdapterNavigator;
 import com.ascendant.e_businessprofile.Method.Ascendant;
 import com.ascendant.e_businessprofile.Model.DataModel;
@@ -33,7 +36,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class OtulookActivity extends AppCompatActivity {
-    LinearLayout Procurment,Construction;
+    LinearLayout Procurment,Construction,Newsletter;
     LinearLayout Available,Navigator;
     RecyclerView rv,recyclerView;
     ImageView ivMore;
@@ -53,7 +56,7 @@ public class OtulookActivity extends AppCompatActivity {
         myDialog.setContentView(R.layout.dialog_view_download);
         Procurment = findViewById(R.id.linearProcurment);
         Construction = findViewById(R.id.linearConstruction);
-
+        Newsletter = findViewById(R.id.linearNewsletter);
         dbHelper = new DB_Helper(this);
         Cursor cursor = dbHelper.checkUser();
         if (cursor.getCount()>0){
@@ -167,6 +170,13 @@ public class OtulookActivity extends AppCompatActivity {
                         });
                     }
                 });
+            }
+        });
+        Newsletter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(android.view.View view) {
+                Intent intent = new Intent(OtulookActivity.this, NewsletterContractorActivity.class);
+                startActivity(intent);
             }
         });
     }

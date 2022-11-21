@@ -33,6 +33,7 @@ import com.ascendant.e_businessprofile.API.RetroServer;
 import com.ascendant.e_businessprofile.Activity.HomeActivity;
 import com.ascendant.e_businessprofile.Activity.LoginActivity;
 import com.ascendant.e_businessprofile.Activity.MainActivity;
+import com.ascendant.e_businessprofile.Activity.NewsActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.Compliance.DetailComplianceActivity;
 import com.ascendant.e_businessprofile.Method.Ascendant;
 import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
@@ -73,7 +74,7 @@ public class DetailForumActivity extends AppCompatActivity {
     Boolean more=true;
     private ArrayList<DataModel> pListt = new ArrayList<>();
     DB_Helper dbHelper;
-    String Token;
+    String Token,Level;
     String ID,CATEGORY,JUDUL,REPLY_NAME,REPLY,EDIT,KOMEN,SUBKOMEN;
     TextView Header,Nama,Jam;
     private List<DataModel> mItemsGambar = new ArrayList<>();
@@ -85,10 +86,10 @@ public class DetailForumActivity extends AppCompatActivity {
     Ascendant AscNet = new Ascendant();
     TextView web;
     CardView cardImg;
-    ImageView Reply,GambarKomen,Upload,Send;
+    ImageView GambarKomen,Upload,Send;
     LinearLayout cardKomen;
     EditText etKomen;
-    TextView ReplyName,cancelReply;
+    TextView Reply,ReplyName,cancelReply;
     NestedScrollView scrollView;
     //Dellaroy Logic
     private static final int REQUEST_TAKE_PHOTO = 0;
@@ -123,166 +124,177 @@ public class DetailForumActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_forum);
-        myDialog = new Dialog(this);
-        myDialog.setContentView(R.layout.dialog_report);
-        Note = myDialog.findViewById(R.id.etNote);
-        Konfirmasi = myDialog.findViewById(R.id.btnKonfirmasi);
-        Tutup = myDialog.findViewById(R.id.btnTutup);
-        Delete = findViewById(R.id.linearDelete);
-        Report = findViewById(R.id.linearReport);
-        Edit = findViewById(R.id.linearEdit);
-        rv = findViewById(R.id.recyclerNav);
-        Available = findViewById(R.id.linearAvailable);
-        Navigator = findViewById(R.id.linearNavigator);
-        ivMore = findViewById(R.id.ivMore);
-        More = findViewById(R.id.linearMore);
-        Back = findViewById(R.id.linearBack);
-        Header = findViewById(R.id.tvHeader);
-        Nama = findViewById(R.id.tvNama);
-        Jam = findViewById(R.id.tvJam);
-        web = findViewById(R.id.web);
-        cardKomen = findViewById(R.id.cardKomen);
-        etKomen = findViewById(R.id.etKomen);
-        Reply = findViewById(R.id.ivReply);
-        recyclerViewGambar = findViewById(R.id.recyclerGambar);
-        recyclerKomen = findViewById(R.id.recyclerComment);
-        GambarKomen = findViewById(R.id.ivKomenGambar);
-        Upload = findViewById(R.id.ivUpload);
-        Send = findViewById(R.id.ivSend);
-        ReplyName = findViewById(R.id.tvReplyName);
-        cancelReply = findViewById(R.id.tvCancelReply);
-        cardImg = findViewById(R.id.cardImg);
-        Available.setVisibility(View.VISIBLE);
-        scrollView = findViewById(R.id.scrollView);
-        pListt.addAll(CreditWorthinessModel.getListData());
-        rv.setLayoutManager(new LinearLayoutManager(this));
-        AdapterNavigator adapters = new AdapterNavigator(this,pListt);
-        rv.setAdapter(adapters);
-        dbHelper = new DB_Helper(this);
-        Cursor cursor = dbHelper.checkUser();
-        if (cursor.getCount()>0){
-            while (cursor.moveToNext()){
-                Token = cursor.getString(0);
+        try {
+            myDialog = new Dialog(this);
+            myDialog.setContentView(R.layout.dialog_report);
+            Note = myDialog.findViewById(R.id.etNote);
+            Konfirmasi = myDialog.findViewById(R.id.btnKonfirmasi);
+            Tutup = myDialog.findViewById(R.id.btnTutup);
+            Delete = findViewById(R.id.linearDelete);
+            Report = findViewById(R.id.linearReport);
+            Edit = findViewById(R.id.linearEdit);
+            rv = findViewById(R.id.recyclerNav);
+            Available = findViewById(R.id.linearAvailable);
+            Navigator = findViewById(R.id.linearNavigator);
+            ivMore = findViewById(R.id.ivMore);
+            More = findViewById(R.id.linearMore);
+            Back = findViewById(R.id.linearBack);
+            Header = findViewById(R.id.tvHeader);
+            Nama = findViewById(R.id.tvNama);
+            Jam = findViewById(R.id.tvJam);
+            web = findViewById(R.id.web);
+            cardKomen = findViewById(R.id.cardKomen);
+            etKomen = findViewById(R.id.etKomen);
+            Reply = findViewById(R.id.ivReply);
+            recyclerViewGambar = findViewById(R.id.recyclerGambar);
+            recyclerKomen = findViewById(R.id.recyclerComment);
+            GambarKomen = findViewById(R.id.ivKomenGambar);
+            Upload = findViewById(R.id.ivUpload);
+            Send = findViewById(R.id.ivSend);
+            ReplyName = findViewById(R.id.tvReplyName);
+            cancelReply = findViewById(R.id.tvCancelReply);
+            cardImg = findViewById(R.id.cardImg);
+            Available.setVisibility(View.VISIBLE);
+            scrollView = findViewById(R.id.scrollView);
+            pListt.addAll(CreditWorthinessModel.getListData());
+            rv.setLayoutManager(new LinearLayoutManager(this));
+            AdapterNavigator adapters = new AdapterNavigator(this,pListt);
+            rv.setAdapter(adapters);
+            dbHelper = new DB_Helper(this);
+            Cursor cursor = dbHelper.checkUser();
+            if (cursor.getCount()>0){
+                while (cursor.moveToNext()){
+                    Token = cursor.getString(0);
+                    Level = cursor.getString(1);
+                }
             }
-        }
-        Back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent goInput = new Intent(DetailForumActivity.this, HomeActivity.class);
-                goInput.putExtra("FORUM","FORUM");
-                startActivities(new Intent[]{goInput});
-            }
-        });
-        More.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                try {
-                    if (more){
-                        more = false;
-                        ivMore.setImageResource(R.drawable.close_concerate);
-                        Available.setVisibility(View.GONE);
-                        Navigator.setVisibility(View.VISIBLE);
-                    }else{
-                        more = true;
-                        ivMore.setImageResource(R.drawable.more_vertical_concerate);
-                        Available.setVisibility(View.VISIBLE);
-                        Navigator.setVisibility(View.GONE);
+            Back.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent goInput = new Intent(DetailForumActivity.this, HomeActivity.class);
+                    goInput.putExtra("FORUM","FORUM");
+                    startActivities(new Intent[]{goInput});
+                }
+            });
+            More.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    try {
+                        if (more){
+                            more = false;
+                            ivMore.setImageResource(R.drawable.close_concerate);
+                            Available.setVisibility(View.GONE);
+                            Navigator.setVisibility(View.VISIBLE);
+                        }else{
+                            more = true;
+                            ivMore.setImageResource(R.drawable.more_vertical_concerate);
+                            Available.setVisibility(View.VISIBLE);
+                            Navigator.setVisibility(View.GONE);
+                        }
+                    }catch (Exception e){
+
                     }
-                }catch (Exception e){
 
                 }
-
-            }
-        });
-        Intent intent = getIntent();
-        Uri datas = this.getIntent().getData();
-        if (datas != null && datas.isHierarchical()) {
-            String uri = this.getIntent().getDataString();
-            Log.i("MyApp", "Deep link clicked " + uri);
-            List<String> params = datas.getPathSegments();
-            String IDV2 = params.get(0); // "status"
-            GetDetailPost(IDV2);
+            });
+            Intent intent = getIntent();
+            Uri datas = this.getIntent().getData();
+            if (datas != null && datas.isHierarchical()) {
+                String uri = this.getIntent().getDataString();
+                Log.i("MyApp", "Deep link clicked " + uri);
+                List<String> params = datas.getPathSegments();
+                String IDV2 = params.get(0); // "status"
+                GetDetailPost(IDV2);
 //            String mail = params.get(1);
 //            Validasi(mail,fury);
-        }else{
-            ID = intent.getExtras().getString("ID");
-            CATEGORY = intent.getExtras().getString("CATEGORY");
-            JUDUL = intent.getExtras().getString("JUDUL");
-            REPLY_NAME = intent.getExtras().getString("REPLY_NAME");
-            REPLY = intent.getExtras().getString("REPLY");
-            EDIT = intent.getExtras().getString("EDIT");
-            KOMEN = intent.getExtras().getString("ISI_KOMEN");
-            SUBKOMEN = intent.getExtras().getString("SUB_KOMEN");
-            etKomen.setText(KOMEN);
-            Header.setText(JUDUL);
-            GetData();
-        }
-
-
-
-
-        if (REPLY_NAME==null || REPLY_NAME.equals("")){
-            cardKomen.setVisibility(View.GONE);
-            ReplyName.setVisibility(View.GONE);
-            cancelReply.setVisibility(View.GONE);
-        }else{
-            scrollView.fullScroll(View.FOCUS_DOWN);
-            cardKomen.setVisibility(View.VISIBLE);
-            etKomen.requestFocus();
-            if (EDIT.equals("NO")){
-                ReplyName.setText("Replying To "+REPLY_NAME);
             }else{
-                ReplyName.setText("Editing Comment "+REPLY_NAME);
+                ID = intent.getExtras().getString("ID");
+                CATEGORY = intent.getExtras().getString("CATEGORY");
+                JUDUL = intent.getExtras().getString("JUDUL");
+                REPLY_NAME = intent.getExtras().getString("REPLY_NAME");
+                REPLY = intent.getExtras().getString("REPLY");
+                EDIT = intent.getExtras().getString("EDIT");
+                KOMEN = intent.getExtras().getString("ISI_KOMEN");
+                SUBKOMEN = intent.getExtras().getString("SUB_KOMEN");
+                etKomen.setText(KOMEN);
+                Header.setText(JUDUL);
+                GetData();
             }
 
-        }
-        cancelReply.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+
+
+
+            if (REPLY_NAME==null || REPLY_NAME.equals("")){
+                cardKomen.setVisibility(View.GONE);
                 ReplyName.setVisibility(View.GONE);
                 cancelReply.setVisibility(View.GONE);
-                REPLY_NAME = "";
-                REPLY = "";
-            }
-        });
-        Reply.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+            }else{
                 scrollView.fullScroll(View.FOCUS_DOWN);
                 cardKomen.setVisibility(View.VISIBLE);
                 etKomen.requestFocus();
-            }
-        });
-        Upload.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Gambar1 = true;
-                Intent galleryIntent = new Intent(Intent.ACTION_PICK,
-                        MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(galleryIntent, REQUEST_PICK_PHOTO);
-                GambarKomen.setVisibility(View.VISIBLE);
-            }
-        });
-        Send.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
                 if (EDIT.equals("NO")){
-                    if (REPLY.equals("")){
-                        Komen();
-                    }else{
-                        SubKomen();
-                    }
+                    ReplyName.setText("Replying To "+REPLY_NAME);
                 }else{
-                    String IDS = intent.getExtras().getString("IDS");
-                    if (SUBKOMEN.equals("NO")){
-//                        Toast.makeText(DetailForumActivity.this, etKomen.getText().toString(), Toast.LENGTH_SHORT).show();
-                        EditKomen(IDS);
+                    ReplyName.setText("Editing Comment "+REPLY_NAME);
+                }
+
+            }
+            cancelReply.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    ReplyName.setVisibility(View.GONE);
+                    cancelReply.setVisibility(View.GONE);
+                    REPLY_NAME = "";
+                    REPLY = "";
+                }
+            });
+            Reply.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    scrollView.fullScroll(View.FOCUS_DOWN);
+                    cardKomen.setVisibility(View.VISIBLE);
+                    etKomen.requestFocus();
+                }
+            });
+            Upload.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Gambar1 = true;
+                    Intent galleryIntent = new Intent(Intent.ACTION_PICK,
+                            MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                    startActivityForResult(galleryIntent, REQUEST_PICK_PHOTO);
+                    GambarKomen.setVisibility(View.VISIBLE);
+                }
+            });
+            Send.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (Level.equals("trial")){
+                        Toast.makeText(DetailForumActivity.this, "Cannot Comment", Toast.LENGTH_SHORT).show();
                     }else{
-                        EditSubKomen(IDS);
+                        if (EDIT.equals("NO")){
+                            if (REPLY.equals("")){
+                                Komen();
+                            }else{
+                                SubKomen();
+                            }
+                        }else{
+                            String IDS = intent.getExtras().getString("IDS");
+                            if (SUBKOMEN.equals("NO")){
+//                        Toast.makeText(DetailForumActivity.this, etKomen.getText().toString(), Toast.LENGTH_SHORT).show();
+                                EditKomen(IDS);
+                            }else{
+                                EditSubKomen(IDS);
+                            }
+                        }
                     }
                 }
-            }
-        });
+            });
+        }catch (Exception e){
+            Toast.makeText(DetailForumActivity.this, "Anda Belum Login", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(DetailForumActivity.this, LoginActivity.class);
+            startActivity(intent);
+        }
     }
     private void GetDetailPost(String IDV2){
         ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
@@ -303,7 +315,9 @@ public class DetailForumActivity extends AppCompatActivity {
                     Header.setText(JUDUL);
                     GetData();
                 }catch (Exception e){
-
+                    Toast.makeText(DetailForumActivity.this, "Anda Belum Login", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(DetailForumActivity.this, LoginActivity.class);
+                    startActivity(intent);
                 }
             }
 
@@ -338,8 +352,9 @@ public class DetailForumActivity extends AppCompatActivity {
                                 response.body().getMessage();
                             }
                         }catch (Exception e){
-                            Log.d("ZYARGA : ",e.toString());
-                            Toast.makeText(DetailForumActivity.this, "Koneksi Gagal", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(DetailForumActivity.this, "Anda Belum Login", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(DetailForumActivity.this, LoginActivity.class);
+                            startActivity(intent);
                         }
                     }
 
@@ -391,7 +406,9 @@ public class DetailForumActivity extends AppCompatActivity {
                     goInput.putExtra("ISI_KOMEN","");
                     startActivities(new Intent[]{goInput});
                 }catch (Exception e){
-
+                    Toast.makeText(DetailForumActivity.this, "Anda Belum Login", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(DetailForumActivity.this, LoginActivity.class);
+                    startActivity(intent);
                 }
             }
 
@@ -441,7 +458,9 @@ public class DetailForumActivity extends AppCompatActivity {
                     goInput.putExtra("ISI_KOMEN","");
                     startActivities(new Intent[]{goInput});
                 }catch (Exception e){
-
+                    Toast.makeText(DetailForumActivity.this, "Anda Belum Login", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(DetailForumActivity.this, LoginActivity.class);
+                    startActivity(intent);
                 }
             }
 
@@ -492,7 +511,9 @@ public class DetailForumActivity extends AppCompatActivity {
                     goInput.putExtra("ISI_KOMEN","");
                     startActivities(new Intent[]{goInput});
                 }catch (Exception e){
-
+                    Toast.makeText(DetailForumActivity.this, "Anda Belum Login", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(DetailForumActivity.this, LoginActivity.class);
+                    startActivity(intent);
                 }
             }
 
@@ -544,7 +565,9 @@ public class DetailForumActivity extends AppCompatActivity {
                     goInput.putExtra("ISI_KOMEN","");
                     startActivities(new Intent[]{goInput});
                 }catch (Exception e){
-
+                    Toast.makeText(DetailForumActivity.this, "Anda Belum Login", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(DetailForumActivity.this, LoginActivity.class);
+                    startActivity(intent);
                 }
             }
 
@@ -566,118 +589,113 @@ public class DetailForumActivity extends AppCompatActivity {
         data.enqueue(new Callback<ResponseObject>() {
             @Override
             public void onResponse(Call<ResponseObject> call, Response<ResponseObject> response) {
-                try {
-                    if (response.body().getKode().equals(200)){
-                        if (NamaUser.equals(response.body().getData().getDetail().getNama_user())){
-                            Report.setVisibility(View.GONE);
-                            Delete.setVisibility(View.VISIBLE);
-                            Edit.setVisibility(View.VISIBLE);
-                            recyclerViewGambar.setVisibility(View.VISIBLE);
-                            Edit.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View view) {
-                                    Intent goInput = new Intent(DetailForumActivity.this, EditForumActivity.class);
-                                    goInput.putExtra("ID",response.body().getData().getDetail().getId_post());
-                                    goInput.putExtra("ISI",response.body().getData().getDetail().getIsi_post());
-                                    goInput.putExtra("JUDUL",response.body().getData().getDetail().getJudul_post());
-                                    goInput.putExtra("CATEGORY",response.body().getData().getDetail().getKategori_post());
-                                    startActivity(goInput);
-                                }
-                            });
-                        }else{
-                            recyclerViewGambar.setVisibility(View.GONE);
-                            Report.setVisibility(View.VISIBLE);
-                            Delete.setVisibility(View.GONE);
-                            Edit.setVisibility(View.GONE);
-                            Tutup.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View view) {
-                                    myDialog.dismiss();
-                                }
-                            });
-                            Report.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View view) {
-                                    myDialog.show();
-                                }
-                            });
-                            Konfirmasi.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View view) {
-                                    if (Note.getText().toString().isEmpty() || Note.getText().toString() == ""){
-                                        Toast.makeText(DetailForumActivity.this, "Note Tidak Boleh Kosong", Toast.LENGTH_SHORT).show();
-                                    }else{
-                                        ReportKomen();
-                                    }
-                                }
-                            });
-                        }
-                        Nama.setText(response.body().getData().getDetail().getNama_user());
-                        web.setText(response.body().getData().getDetail().getIsi_post());
-                        mItemsGambar=response.body().getData().getImage();
-                        mItemsKomen=response.body().getData().getKomen();
-                        Jam.setText(response.body().getData().getTgl_post());
-                        mAdapter = new AdapterGambarForum(DetailForumActivity.this,mItemsGambar,
-                                response.body().getData().getDetail().getId_post(),
-                                response.body().getData().getDetail().getId_post(),
-                                response.body().getData().getDetail().getKategori_post(),
-                                response.body().getData().getDetail().getJudul_post());
-                        recyclerViewGambar.setAdapter(mAdapter);
-                        mAdapter.notifyDataSetChanged();
-
-                        mAdapter2 = new AdapterKomen(DetailForumActivity.this,mItemsKomen,ID,CATEGORY,JUDUL,NamaUser);
-                        recyclerKomen.setAdapter(mAdapter2);
-                        mAdapter2.notifyDataSetChanged();
-                        Delete.setOnClickListener(new View.OnClickListener() {
+                if (response.body().getKode().equals(200)){
+                    if (NamaUser.equals(response.body().getData().getDetail().getNama_user())){
+                        Report.setVisibility(View.GONE);
+                        Delete.setVisibility(View.VISIBLE);
+                        Edit.setVisibility(View.VISIBLE);
+                        recyclerViewGambar.setVisibility(View.VISIBLE);
+                        Edit.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                AlertDialog.Builder builder = new AlertDialog.Builder(DetailForumActivity.this);
-
-                                // Set a title for alert dialog
-                                builder.setTitle("Pemberitahuan");
-
-                                // Ask the final question
-                                builder.setMessage("Apakah Anda Yakin Ingin Menghapus Komen ? ");
-
-                                // Set the alert dialog yes button click listener
-                                builder.setPositiveButton("Iya", new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        // Do something when user clicked the Yes button
-                                        // Set the TextView visibility GONE
-                                        DeleteKomen();
-                                    }
-                                });
-
-                                // Set the alert dialog no button click listener
-                                builder.setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        // Do something when No button clicked
-                                    }
-                                });
-
-                                AlertDialog dialog = builder.create();
-                                // Display the alert dialog on interface
-                                dialog.show();
+                                Intent goInput = new Intent(DetailForumActivity.this, EditForumActivity.class);
+                                goInput.putExtra("ID",response.body().getData().getDetail().getId_post());
+                                goInput.putExtra("ISI",response.body().getData().getDetail().getIsi_post());
+                                goInput.putExtra("JUDUL",response.body().getData().getDetail().getJudul_post());
+                                goInput.putExtra("CATEGORY",response.body().getData().getDetail().getKategori_post());
+                                startActivity(goInput);
                             }
                         });
-                        if (REPLY_NAME==null || REPLY_NAME.equals("")){
-                            cardKomen.setVisibility(View.GONE);
-                            ReplyName.setVisibility(View.GONE);
-                            cancelReply.setVisibility(View.GONE);
-                        }else{
-                            scrollView.fullScroll(View.FOCUS_DOWN);
-                            cardKomen.setVisibility(View.VISIBLE);
-                            etKomen.requestFocus();
-                            ReplyName.setText("Repllying To "+REPLY_NAME);
-                        }
                     }else{
-                        Toast.makeText(DetailForumActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                        recyclerViewGambar.setVisibility(View.GONE);
+                        Report.setVisibility(View.VISIBLE);
+                        Delete.setVisibility(View.GONE);
+                        Edit.setVisibility(View.GONE);
+                        Tutup.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                myDialog.dismiss();
+                            }
+                        });
+                        Report.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                myDialog.show();
+                            }
+                        });
+                        Konfirmasi.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                if (Note.getText().toString().isEmpty() || Note.getText().toString() == ""){
+                                    Toast.makeText(DetailForumActivity.this, "Note Tidak Boleh Kosong", Toast.LENGTH_SHORT).show();
+                                }else{
+                                    ReportKomen();
+                                }
+                            }
+                        });
                     }
-                }catch (Exception e){
-                    Log.d("ZYARGA : ",e.toString());
-                    Toast.makeText(DetailForumActivity.this, "Terjadi Kesaqlahan", Toast.LENGTH_SHORT).show();
+                    Nama.setText(response.body().getData().getDetail().getNama_user());
+                    web.setText(response.body().getData().getDetail().getIsi_post());
+                    mItemsGambar=response.body().getData().getImage();
+                    mItemsKomen=response.body().getData().getKomen();
+                    Jam.setText(response.body().getData().getTgl_post());
+                    mAdapter = new AdapterGambarForum(DetailForumActivity.this,mItemsGambar,
+                            response.body().getData().getDetail().getId_post(),
+                            response.body().getData().getDetail().getId_post(),
+                            response.body().getData().getDetail().getKategori_post(),
+                            response.body().getData().getDetail().getJudul_post());
+                    recyclerViewGambar.setAdapter(mAdapter);
+                    mAdapter.notifyDataSetChanged();
+
+                    mAdapter2 = new AdapterKomen(DetailForumActivity.this,mItemsKomen,ID,CATEGORY,JUDUL,NamaUser);
+                    recyclerKomen.setAdapter(mAdapter2);
+                    mAdapter2.notifyDataSetChanged();
+                    Delete.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            AlertDialog.Builder builder = new AlertDialog.Builder(DetailForumActivity.this);
+
+                            // Set a title for alert dialog
+                            builder.setTitle("Pemberitahuan");
+
+                            // Ask the final question
+                            builder.setMessage("Apakah Anda Yakin Ingin Menghapus Komen ? ");
+
+                            // Set the alert dialog yes button click listener
+                            builder.setPositiveButton("Iya", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    // Do something when user clicked the Yes button
+                                    // Set the TextView visibility GONE
+                                    DeleteKomen();
+                                }
+                            });
+
+                            // Set the alert dialog no button click listener
+                            builder.setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    // Do something when No button clicked
+                                }
+                            });
+
+                            AlertDialog dialog = builder.create();
+                            // Display the alert dialog on interface
+                            dialog.show();
+                        }
+                    });
+                    if (REPLY_NAME==null || REPLY_NAME.equals("")){
+                        cardKomen.setVisibility(View.GONE);
+                        ReplyName.setVisibility(View.GONE);
+                        cancelReply.setVisibility(View.GONE);
+                    }else{
+                        scrollView.fullScroll(View.FOCUS_DOWN);
+                        cardKomen.setVisibility(View.VISIBLE);
+                        etKomen.requestFocus();
+                        ReplyName.setText("Repllying To "+REPLY_NAME);
+                    }
+                }else{
+                    Toast.makeText(DetailForumActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
 

@@ -37,9 +37,12 @@ import com.ascendant.e_businessprofile.Activity.LoginActivity;
 import com.ascendant.e_businessprofile.Activity.ModuleActivity;
 import com.ascendant.e_businessprofile.Activity.NotifActivity;
 import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
+import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
 import com.ascendant.e_businessprofile.Activity.TukarPoinAtivity;
 import com.ascendant.e_businessprofile.Activity.UnitKerjaActivity;
+import com.ascendant.e_businessprofile.Activity.ui.Farming.Outlook.FarmingNewsletterActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Mining.MandiriUpdate.DetailMandiriUpdate;
+import com.ascendant.e_businessprofile.Activity.ui.Mining.Outlook.MiningNewsletterActivity;
 import com.ascendant.e_businessprofile.Adapter.AdapterBerita;
 import com.ascendant.e_businessprofile.Adapter.Spinner.SpinnerArea;
 import com.ascendant.e_businessprofile.Adapter.Spinner.SpinnerDirektorat;
@@ -73,7 +76,7 @@ public class HomeFragment extends Fragment {
     private RecyclerView.LayoutManager mManager;
     RecyclerView rv;
     DB_Helper dbHelper;
-    String Token;
+    String Token,Level;
     TextView divisi,nama,poin;
     RelativeLayout Healtcare,FMCG,Mining,Contractor,OilAndGas,Farm;
     ScrollView scroll;
@@ -131,6 +134,7 @@ public class HomeFragment extends Fragment {
         if (cursor.getCount()>0){
             while (cursor.moveToNext()){
                 Token = cursor.getString(0);
+                Level = cursor.getString(1);
             }
         }
         animation = view.findViewById(R.id.animation);
@@ -224,8 +228,9 @@ public class HomeFragment extends Fragment {
                         IdRegion.setText(String.valueOf(clickedItems));
                         GetArea(IdRegion.getText().toString());
                     }catch (Exception e){
-//                    Toast.makeText(getActivity(), "Failed ?", Toast.LENGTH_SHORT).show();
-//                    Log.d("ZYARGA : ",e.toString());
+                        Toast.makeText(getActivity(), "Anda Belum Login", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(getActivity(), LoginActivity.class);
+                        startActivity(intent);
                     }
                 }
 
@@ -371,45 +376,10 @@ public class HomeFragment extends Fragment {
                 @Override
                 public void onClick(android.view.View view) {
                     Intent i = new Intent(getActivity(), HomeActivity.class);
-                    i.putExtra("PROFIL", "PROFIL");
+                    i.putExtra("FORUM", "PROFIL");
                     startActivity(i);
                 }
             });
-//        spDivisi.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-//                try {
-//                    DataModel clickedItem = (DataModel) adapterView.getItemAtPosition(i);
-//                    int clickedItems = Integer.parseInt(clickedItem.getId_divisi_mandiri());
-//                    tvDivisi.setText(String.valueOf(clickedItems));
-//                }catch (Exception e){
-//                    Log.d("ZYARGA : ",e.toString());
-//                }
-//            }
-//
-//            @Override
-//            @Override
-//            public void onNothingSelected(AdapterView<?> adapterView) {
-//
-//            }
-//        });
-//        spWilayah.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-//                try {
-//                    DataModel clickedItem = (DataModel) adapterView.getItemAtPosition(i);
-//                    int clickedItems = Integer.parseInt(clickedItem.getId_wilayah_mandiri());
-//                    tvWilayah.setText(String.valueOfF(clickedItems));
-//                }catch (Exception e){
-//                    Log.d("ZYARGA : ",e.toString());
-//                }
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> adapterView) {
-//
-//            }
-//        });
             PilihDivisi.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -464,10 +434,14 @@ public class HomeFragment extends Fragment {
             Konfirmasi.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (JawabQuiz.equals("")){
-                        Toast.makeText(getActivity(), "Mohon Pilih Jawaban", Toast.LENGTH_SHORT).show();
+                    if (Level.equals("trial")){
+                        Toast.makeText(getActivity(), "You cannot do Quiz", Toast.LENGTH_SHORT).show();
                     }else{
-                        JawabQuiz();
+                        if (JawabQuiz.equals("")){
+                            Toast.makeText(getActivity(), "Mohon Pilih Jawaban", Toast.LENGTH_SHORT).show();
+                        }else{
+                            JawabQuiz();
+                        }
                     }
                 }
             });
@@ -495,7 +469,9 @@ public class HomeFragment extends Fragment {
                                 Intent intent = new Intent(getActivity(),HomeActivity.class);
                                 startActivity(intent);
                             }catch (Exception e){
-                                Toast.makeText(getActivity(), "Terjadi Kesalahan : "+e.toString(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getActivity(), "Anda Belum Login", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(getActivity(), LoginActivity.class);
+                                startActivity(intent);
                             }
                         }
 
@@ -722,7 +698,7 @@ public class HomeFragment extends Fragment {
                     }
                 }catch (Exception e){
                     Log.d("ZYARGA : ",e.toString());
-                    Toast.makeText(getActivity(), "Terjadi Kesaqlahan", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getActivity(), "Terjadi Kesaqlahan", Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -746,7 +722,7 @@ public class HomeFragment extends Fragment {
                     }
                 }catch (Exception e){
                     Log.d("ZYARGA : ",e.toString());
-                    Toast.makeText(getActivity(), "Koneksi Gagal", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getActivity(), "Koneksi Gagal", Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -940,7 +916,7 @@ public class HomeFragment extends Fragment {
                     public void onFailure(Call<ResponseObject> call, Throwable t) {
                         Intent intent = new Intent(getActivity(),LoginActivity.class);
                         startActivity(intent);
-                        Toast.makeText(getActivity(), "Waktu Sesi habis harap coba Login Lagfi", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "Waktu Sesi habis harap coba Login Lagi", Toast.LENGTH_SHORT).show();
                     }
                 });
             }

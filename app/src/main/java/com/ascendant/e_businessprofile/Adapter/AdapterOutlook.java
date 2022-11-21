@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -38,7 +39,7 @@ public class AdapterOutlook extends RecyclerView.Adapter<AdapterOutlook.HolderDa
     Dialog myDialog;
     Button View,Download;
     DB_Helper dbHelper;
-    String Token;
+    String Token,Level;
     public AdapterOutlook(Context ctx, List<DataModel> mList){
         this.ctx = ctx;
         this.mList = mList;
@@ -61,6 +62,7 @@ public class AdapterOutlook extends RecyclerView.Adapter<AdapterOutlook.HolderDa
         if (cursor.getCount()>0){
             while (cursor.moveToNext()){
                 Token = cursor.getString(0);
+                Level = cursor.getString(1);
             }
         }
         myDialog = new Dialog(ctx);
@@ -77,7 +79,11 @@ public class AdapterOutlook extends RecyclerView.Adapter<AdapterOutlook.HolderDa
                 Download.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(android.view.View view) {
-                        ascendant.Download(ctx,"pdf",dm.getLink_file_outlook(),dm.getNama_outlook());
+                        if (Level.equals("trial")){
+                            Toast.makeText(ctx, "You Cannot Download File", Toast.LENGTH_SHORT).show();
+                        }else{
+                            ascendant.Download(ctx,"pdf",dm.getLink_file_outlook(),dm.getNama_outlook());
+                        }
                     }
                 });
                 View.setOnClickListener(new View.OnClickListener() {
@@ -88,18 +94,22 @@ public class AdapterOutlook extends RecyclerView.Adapter<AdapterOutlook.HolderDa
                         data.enqueue(new Callback<ResponseObject>() {
                             @Override
                             public void onResponse(Call<ResponseObject> call, Response<ResponseObject> response) {
-                                if (dm.getLink_ebook().equals("") || dm.getLink_ebook().isEmpty()){
-                                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(ascendant.BASE_URL()+dm.getLink_file_outlook()));
-                                    ctx.startActivity(browserIntent);
+                                if (Level.equals("trial")){
+                                    Toast.makeText(ctx, "You Cannot Download File", Toast.LENGTH_SHORT).show();
                                 }else{
-                                    if (dm.getMode_ebook().equals("P")){
-                                        Intent i = new Intent(ctx, PortraitWebViewEbookActivity.class);
-                                        i.putExtra("LINK", dm.getLink_ebook());
-                                        ctx.startActivity(i);
+                                    if (dm.getLink_ebook().equals("") || dm.getLink_ebook().isEmpty()){
+                                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(ascendant.BASE_URL()+dm.getLink_file_outlook()));
+                                        ctx.startActivity(browserIntent);
                                     }else{
-                                        Intent i = new Intent(ctx, LandscapeWebViewEbookActivity.class);
-                                        i.putExtra("LINK", dm.getLink_ebook());
-                                        ctx.startActivity(i);
+                                        if (dm.getMode_ebook().equals("P")){
+                                            Intent i = new Intent(ctx, PortraitWebViewEbookActivity.class);
+                                            i.putExtra("LINK", dm.getLink_ebook());
+                                            ctx.startActivity(i);
+                                        }else{
+                                            Intent i = new Intent(ctx, LandscapeWebViewEbookActivity.class);
+                                            i.putExtra("LINK", dm.getLink_ebook());
+                                            ctx.startActivity(i);
+                                        }
                                     }
                                 }
                             }

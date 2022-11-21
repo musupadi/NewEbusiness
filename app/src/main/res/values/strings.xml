@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Mandiri e-Buss</string>
     <string name="login">Login</string>
+    <string name="login_pick">Pick Login</string>
     <string name="register">Register</string>
     <string name="username_login">Email</string>
     <string name="type_here">Type here...</string>
@@ -36,6 +37,7 @@
     <string name="oil_and_gas">Oil And Gas</string>
     <string name="farm">Farming</string>
     <string name="news">News</string>
+    <string name="voting_design">Voting Design</string>
     <string name="view_more">View More</string>
     <string name="back">Kembali</string>
     <string name="detail_healthcare"></string>

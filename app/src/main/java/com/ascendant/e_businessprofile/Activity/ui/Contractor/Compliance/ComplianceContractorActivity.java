@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,7 +15,10 @@ import android.widget.Toast;
 
 import com.ascendant.e_businessprofile.API.ApiRequest;
 import com.ascendant.e_businessprofile.API.RetroServer;
+import com.ascendant.e_businessprofile.Activity.LoginActivity;
 import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
+import com.ascendant.e_businessprofile.Activity.ui.Forum.DetailForumActivity;
+import com.ascendant.e_businessprofile.Activity.ui.Healthcare.Compliance.ComplianceActivity;
 import com.ascendant.e_businessprofile.Adapter.AdapterCompliance;
 import com.ascendant.e_businessprofile.Adapter.Static.AdapterNavigator;
 import com.ascendant.e_businessprofile.Model.DataModel;
@@ -116,11 +120,14 @@ public class ComplianceContractorActivity extends AppCompatActivity {
                         rv.setAdapter(mAdapter);
                         mAdapter.notifyDataSetChanged();
                     }else{
-                        Toast.makeText(ComplianceContractorActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ComplianceContractorActivity.this, "Anda Belum Login", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(ComplianceContractorActivity.this, LoginActivity.class);
+                        startActivity(intent);
                     }
                 }catch (Exception e){
-                    Log.d("ZYARGA : ",e.toString());
-                    Toast.makeText(ComplianceContractorActivity.this, "Terjadi Kesaqlahan", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ComplianceContractorActivity.this, "Anda Belum Login", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(ComplianceContractorActivity.this, LoginActivity.class);
+                    startActivity(intent);
                 }
             }
 

@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -38,6 +39,9 @@ public class AdapterBukuPerusahaan extends RecyclerView.Adapter<AdapterBukuPerus
     Boolean ONCLICK=true;
     Dialog myDialog;
     Button View,Download;
+
+    DB_Helper dbHelper;
+    String Token,Level;
     public AdapterBukuPerusahaan(Context ctx, List<DataModel> mList){
         this.ctx = ctx;
         this.mList = mList;
@@ -54,6 +58,15 @@ public class AdapterBukuPerusahaan extends RecyclerView.Adapter<AdapterBukuPerus
     @Override
     public void onBindViewHolder(@NonNull final HolderData holderData, int posistion) {
         DataModel dm = mList.get(posistion);
+
+        dbHelper = new DB_Helper(ctx);
+        Cursor cursor = dbHelper.checkUser();
+        if (cursor.getCount()>0){
+            while (cursor.moveToNext()){
+                Token = cursor.getString(0);
+                Level = cursor.getString(1);
+            }
+        }
         ascendant = new Ascendant();
         myDialog = new Dialog(ctx);
         myDialog.setContentView(R.layout.dialog_view_download);
@@ -70,31 +83,40 @@ public class AdapterBukuPerusahaan extends RecyclerView.Adapter<AdapterBukuPerus
                 Download.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(android.view.View view) {
-                        ascendant.Download(ctx,"pdf",ascendant.BASE_URL()+dm.getLink_konstruksi_2021(),"Buku Perusahaan "+dm.getNama_provinsi());
+                        if (Level.equals("trial")){
+                            Toast.makeText(ctx, "You Cannot Download File", Toast.LENGTH_SHORT).show();
+                        }else{
+                            ascendant.Download(ctx,"pdf",ascendant.BASE_URL()+dm.getLink_konstruksi_2021(),"Buku Perusahaan "+dm.getNama_provinsi());
+                        }
                     }
                 });
                 View.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(android.view.View view) {
-                        try {
-                            if (dm.getLink_ebook().equals("") || dm.getLink_ebook().isEmpty()){
+                        if (Level.equals("trial")){
+                            Toast.makeText(ctx, "You Cannot Download File", Toast.LENGTH_SHORT).show();
+                        }else{
+                            try {
+                                if (dm.getLink_ebook().equals("") || dm.getLink_ebook().isEmpty()){
+                                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(ascendant.BASE_URL()+dm.getLink_konstruksi_2021()));
+                                    ctx.startActivity(browserIntent);
+                                }else{
+                                    if (dm.getMode_ebook().equals("P")){
+                                        Intent i = new Intent(ctx, PortraitWebViewEbookActivity.class);
+                                        i.putExtra("LINK", dm.getLink_ebook());
+                                        ctx.startActivity(i);
+                                    }else{
+                                        Intent i = new Intent(ctx, LandscapeWebViewEbookActivity.class);
+                                        i.putExtra("LINK", dm.getLink_ebook());
+                                        ctx.startActivity(i);
+                                    }
+                                }
+                            }catch (Exception e){
                                 Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(ascendant.BASE_URL()+dm.getLink_konstruksi_2021()));
                                 ctx.startActivity(browserIntent);
-                            }else{
-                                if (dm.getMode_ebook().equals("P")){
-                                    Intent i = new Intent(ctx, PortraitWebViewEbookActivity.class);
-                                    i.putExtra("LINK", dm.getLink_ebook());
-                                    ctx.startActivity(i);
-                                }else{
-                                    Intent i = new Intent(ctx, LandscapeWebViewEbookActivity.class);
-                                    i.putExtra("LINK", dm.getLink_ebook());
-                                    ctx.startActivity(i);
-                                }
                             }
-                        }catch (Exception e){
-                            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(ascendant.BASE_URL()+dm.getLink_konstruksi_2021()));
-                            ctx.startActivity(browserIntent);
                         }
+
 
                     }
                 });

@@ -1,5 +1,6 @@
 package com.ascendant.e_businessprofile.Activity.ui.FMCG.Compliance;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 
@@ -17,7 +18,9 @@ import android.widget.Toast;
 
 import com.ascendant.e_businessprofile.API.ApiRequest;
 import com.ascendant.e_businessprofile.API.RetroServer;
+import com.ascendant.e_businessprofile.Activity.LoginActivity;
 import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
+import com.ascendant.e_businessprofile.Activity.ui.Contractor.Compliance.ComplianceContractorActivity;
 import com.ascendant.e_businessprofile.Adapter.AdapterCompliance;
 import com.ascendant.e_businessprofile.Model.DataModel;
 import com.ascendant.e_businessprofile.Model.ResponseArrayObject;
@@ -84,11 +87,14 @@ public class FMCGComplianceFragment extends Fragment {
                         rv.setAdapter(mAdapter);
                         mAdapter.notifyDataSetChanged();
                     }else{
-                        Toast.makeText(getActivity(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(),"Anda Belum Login", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(getActivity(), LoginActivity.class);
+                        startActivity(intent);
                     }
                 }catch (Exception e){
-                    Log.d("ZYARGA : ",e.toString());
-                    Toast.makeText(getActivity(), "Terjadi Kesaqlahan", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(),"Anda Belum Login", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getActivity(), LoginActivity.class);
+                    startActivity(intent);
                 }
             }
 

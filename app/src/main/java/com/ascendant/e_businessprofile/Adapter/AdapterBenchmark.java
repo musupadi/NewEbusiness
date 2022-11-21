@@ -6,16 +6,21 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.ascendant.e_businessprofile.Activity.LandscapeWebViewEbookActivity;
+import com.ascendant.e_businessprofile.Activity.PortraitWebViewEbookActivity;
+import com.ascendant.e_businessprofile.Activity.ui.Farming.MarketingInteligence.MarketingIntelienceFarmingActivity;
 import com.ascendant.e_businessprofile.Method.Ascendant;
 import com.ascendant.e_businessprofile.Model.DataModel;
 import com.ascendant.e_businessprofile.R;
@@ -60,14 +65,27 @@ public class AdapterBenchmark extends RecyclerView.Adapter<AdapterBenchmark.Hold
                 Download.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(android.view.View view) {
-                        ascendant.DownloadUniversal(dm.getLink_file_mandiri_update(),dm.getNama_benchmark(),ctx,dm.getLink_file_benchmark().substring(lastIndexExt));
+                        Toast.makeText(ctx, dm.getLink_file_benchmark(), Toast.LENGTH_SHORT).show();
+                        Log.d("Zyarga : ",dm.getLink_file_benchmark());
+                        ascendant.DownloadUniversal(dm.getLink_file_benchmark(),dm.getNama_benchmark(),ctx,dm.getLink_file_benchmark().substring(lastIndexExt));
                     }
                 });
                View.setOnClickListener(new View.OnClickListener() {
                    @Override
                    public void onClick(android.view.View view) {
-                       Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(dm.getLink_file_benchmark()));
-                       ctx.startActivity(browserIntent);
+                       try {
+                           if (dm.getEbook_benchmark().equals("") || dm.getEbook_benchmark().isEmpty()){
+                               Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(dm.getLink_file_benchmark()));
+                               ctx.startActivity(browserIntent);
+                           }else{
+                               Intent i = new Intent(ctx, LandscapeWebViewEbookActivity.class);
+                               i.putExtra("LINK", dm.getEbook_benchmark());
+                               ctx.startActivity(i);
+                           }
+                       }catch (Exception e){
+                           Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(dm.getLink_file_benchmark()));
+                           ctx.startActivity(browserIntent);
+                       }
                    }
                });
 //                AlertDialog.Builder builder = new AlertDialog.Builder(ctx);

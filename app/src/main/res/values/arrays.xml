@@ -5,6 +5,10 @@
         <item>Galery</item>
         <item>Kamera</item>
     </string-array>
+    <string-array name="AllCategory">
+        <item>All Category</item>
+        <item>Select Category</item>
+    </string-array>
 
     <string-array name="itemIds">
         <item>gallery_image</item>

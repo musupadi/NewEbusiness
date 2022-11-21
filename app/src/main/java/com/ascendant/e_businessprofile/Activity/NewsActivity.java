@@ -20,6 +20,7 @@ import android.widget.Toast;
 import com.ascendant.e_businessprofile.API.ApiRequest;
 import com.ascendant.e_businessprofile.API.RetroServer;
 import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
+import com.ascendant.e_businessprofile.Activity.ui.Mining.Outlook.MiningNewsletterActivity;
 import com.ascendant.e_businessprofile.Activity.ui.NavigatorFragment;
 import com.ascendant.e_businessprofile.Activity.ui.NewsFragment;
 import com.ascendant.e_businessprofile.Model.ResponseArrayObject;
@@ -46,43 +47,49 @@ public class NewsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news);
-        dbHelper = new DB_Helper(this);
-        Declaration();
-        dbHelper = new DB_Helper(NewsActivity.this);
-        Cursor cursor = dbHelper.checkUser();
-        if (cursor.getCount()>0){
-            while (cursor.moveToNext()){
-                Token = cursor.getString(0);
-                NotifID = cursor.getString(1);
+        try {
+            dbHelper = new DB_Helper(this);
+            Declaration();
+            dbHelper = new DB_Helper(NewsActivity.this);
+            Cursor cursor = dbHelper.checkUser();
+            if (cursor.getCount()>0){
+                while (cursor.moveToNext()){
+                    Token = cursor.getString(0);
+                    NotifID = cursor.getString(1);
+                }
             }
-        }
-        Uri datas = this.getIntent().getData();
-        if (datas != null && datas.isHierarchical()) {
-            String uri = this.getIntent().getDataString();
-            Log.i("MyApp", "Deep link clicked " + uri);
-            List<String> params = datas.getPathSegments();
-            String IDS = params.get(0); // "status"
-            GetDetailBerita(IDS);
+            Uri datas = this.getIntent().getData();
+            if (datas != null && datas.isHierarchical()) {
+                String uri = this.getIntent().getDataString();
+                Log.i("MyApp", "Deep link clicked " + uri);
+                List<String> params = datas.getPathSegments();
+                String IDS = params.get(0); // "status"
+                GetDetailBerita(IDS);
 //            String mail = params.get(1);
 //            Validasi(mail,fury);
-        }else{
-            Intent data = getIntent();
-            JUDUL = data.getStringExtra("JUDUL");
-            KATEGORI = data.getStringExtra("KATEGORI");
-            TGL_UPLOAD = data.getStringExtra("TGL_UPLOAD");
-            COVER = data.getStringExtra("COVER");
-            ISI_BERITA = data.getStringExtra("ISI_BERITA");
+            }else{
+                Intent data = getIntent();
+                JUDUL = data.getStringExtra("JUDUL");
+                KATEGORI = data.getStringExtra("KATEGORI");
+                TGL_UPLOAD = data.getStringExtra("TGL_UPLOAD");
+                COVER = data.getStringExtra("COVER");
+                ISI_BERITA = data.getStringExtra("ISI_BERITA");
 
-            bundle = new Bundle();
-            bundle.putString("JUDUL", JUDUL);
-            bundle.putString("KATEGORI", KATEGORI);
-            bundle.putString("TGL_UPLOAD", TGL_UPLOAD);
-            bundle.putString("COVER", COVER);
-            bundle.putString("ISI_BERITA", ISI_BERITA);
-            fragment = new NewsFragment();
-            fragment.setArguments(bundle);
-            ChangeFragment(fragment);
-            OnClick();
+                bundle = new Bundle();
+                bundle.putString("JUDUL", JUDUL);
+                bundle.putString("KATEGORI", KATEGORI);
+                bundle.putString("TGL_UPLOAD", TGL_UPLOAD);
+                bundle.putString("COVER", COVER);
+                bundle.putString("ISI_BERITA", ISI_BERITA);
+                fragment = new NewsFragment();
+                fragment.setArguments(bundle);
+                ChangeFragment(fragment);
+                OnClick();
+            }
+        }catch (Exception e){
+            Toast.makeText(NewsActivity.this, "Anda Belum Login", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(NewsActivity.this, LoginActivity.class);
+            startActivity(intent);
         }
     }
     private void GetDetailBerita(String IDS){
@@ -92,16 +99,22 @@ public class NewsActivity extends AppCompatActivity {
         data.enqueue(new Callback<ResponseObject>() {
             @Override
             public void onResponse(Call<ResponseObject> call, Response<ResponseObject> response) {
-                bundle = new Bundle();
-                bundle.putString("JUDUL", response.body().getData().getJudul_berita());
-                bundle.putString("KATEGORI", response.body().getData().getKategori_berita());
-                bundle.putString("TGL_UPLOAD", response.body().getData().getCreated_at());
-                bundle.putString("COVER", response.body().getData().getCover_berita());
-                bundle.putString("ISI_BERITA", response.body().getData().getIsi_berita());
-                fragment = new NewsFragment();
-                fragment.setArguments(bundle);
-                ChangeFragment(fragment);
-                OnClickV2();
+                try {
+                    bundle = new Bundle();
+                    bundle.putString("JUDUL", response.body().getData().getJudul_berita());
+                    bundle.putString("KATEGORI", response.body().getData().getKategori_berita());
+                    bundle.putString("TGL_UPLOAD", response.body().getData().getCreated_at());
+                    bundle.putString("COVER", response.body().getData().getCover_berita());
+                    bundle.putString("ISI_BERITA", response.body().getData().getIsi_berita());
+                    fragment = new NewsFragment();
+                    fragment.setArguments(bundle);
+                    ChangeFragment(fragment);
+                    OnClickV2();
+                }catch (Exception e){
+                    Toast.makeText(NewsActivity.this, "Anda Belum Login", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(NewsActivity.this, LoginActivity.class);
+                    startActivity(intent);
+                }
             }
 
             @Override

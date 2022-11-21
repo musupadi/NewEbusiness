@@ -57,7 +57,7 @@ public class PostForumActivity extends AppCompatActivity {
     Boolean more=true;
     private ArrayList<DataModel> pListt = new ArrayList<>();
     DB_Helper dbHelper;
-    String Token;
+    String Token,Level;
 
     ImageView ivFoto1,ivFoto2,ivFoto3,ivFoto4;
     CardView cardFoto1,cardFoto2,cardFoto3,cardFoto4;
@@ -117,6 +117,7 @@ public class PostForumActivity extends AppCompatActivity {
         if (cursor.getCount()>0){
             while (cursor.moveToNext()){
                 Token = cursor.getString(0);
+                Level = cursor.getString(1);
             }
         }
         Back.setOnClickListener(new View.OnClickListener() {
@@ -215,7 +216,11 @@ public class PostForumActivity extends AppCompatActivity {
         Post.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Checker();
+                if (Level.equals("trial")){
+                    Toast.makeText(PostForumActivity.this, "Trial cannot Making new Post Forum", Toast.LENGTH_SHORT).show();
+                }else{
+                    Checker();
+                }
             }
         });
     }

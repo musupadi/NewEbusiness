@@ -59,7 +59,7 @@ public class ResponseArrayObject {
     String link,total_penduduk;
     String imei,versi;
     String link_file_business_review,tgl_upload_business_review,tgl_business_review,nama_business_review,id_business_review;
-    String level_user,link_download;
+    String level_user,level,link_download;
     String kelas_rs,jumlah_bed_rs,jumlah_tenaga_rs;
     String email,password,nama,no_telpon,tgl_register,status_user;
     String log,tanggal,id_log_menu,log_tanggal,no_telpon_user;
@@ -2872,5 +2872,13 @@ public class ResponseArrayObject {
 
     public void setMax_page(String max_page) {
         this.max_page = max_page;
+    }
+
+    public String getLevel() {
+        return level;
+    }
+
+    public void setLevel(String level) {
+        this.level = level;
     }
 }

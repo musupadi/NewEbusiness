@@ -6,6 +6,27 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 public class DataModel {
+    @SerializedName("file_preview_pdf")
+    @Expose
+    public String file_preview_pdf;
+
+    @SerializedName("pilihan")
+    @Expose
+    public Integer pilihan;
+
+    @SerializedName("file_preview")
+    @Expose
+    public String file_preview;
+
+    @SerializedName("total_vote")
+    @Expose
+    public String total_vote;
+
+    @SerializedName("nama_design")
+    @Expose
+    public String nama_design;
+
+
     @SerializedName("benar")
     @Expose
     public String benar;
@@ -45,6 +66,10 @@ public class DataModel {
     @SerializedName("created_at")
     @Expose
     public String created_at;
+
+    @SerializedName("id_design_vote")
+    @Expose
+    public String id_design_vote;
 
 
     //Universal
@@ -697,6 +722,11 @@ public class DataModel {
     @SerializedName("link_file_benchmark")
     @Expose
     public String link_file_benchmark;
+
+
+    @SerializedName("ebook_benchmark")
+    @Expose
+    public String ebook_benchmark;
 
     @SerializedName("tgl_upload")
     @Expose
@@ -4500,5 +4530,61 @@ public class DataModel {
 
     public void setBenar(String benar) {
         this.benar = benar;
+    }
+
+    public String getEbook_benchmark() {
+        return ebook_benchmark;
+    }
+
+    public void setEbook_benchmark(String ebook_benchmark) {
+        this.ebook_benchmark = ebook_benchmark;
+    }
+
+    public String getFile_preview() {
+        return file_preview;
+    }
+
+    public void setFile_preview(String file_preview) {
+        this.file_preview = file_preview;
+    }
+
+    public String getTotal_vote() {
+        return total_vote;
+    }
+
+    public void setTotal_vote(String total_vote) {
+        this.total_vote = total_vote;
+    }
+
+    public String getNama_design() {
+        return nama_design;
+    }
+
+    public void setNama_design(String nama_design) {
+        this.nama_design = nama_design;
+    }
+
+    public String getId_design_vote() {
+        return id_design_vote;
+    }
+
+    public void setId_design_vote(String id_design_vote) {
+        this.id_design_vote = id_design_vote;
+    }
+
+    public String getFile_preview_pdf() {
+        return file_preview_pdf;
+    }
+
+    public void setFile_preview_pdf(String file_preview_pdf) {
+        this.file_preview_pdf = file_preview_pdf;
+    }
+
+    public Integer getPilihan() {
+        return pilihan;
+    }
+
+    public void setPilihan(Integer pilihan) {
+        this.pilihan = pilihan;
     }
 }

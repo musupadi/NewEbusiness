@@ -6,6 +6,7 @@ import com.ascendant.e_businessprofile.Model.ResponseArrayObject;
 import com.ascendant.e_businessprofile.Model.ResponseDataModel;
 import com.ascendant.e_businessprofile.Model.ResponseObject;
 import com.ascendant.e_businessprofile.Model.ResponseQuiz;
+import com.ascendant.e_businessprofile.Model.ResponseString;
 import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Perusahaan.Perusahaan;
 import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Rumus.Probing;
 import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Rumus.ResponseKMK;
@@ -75,6 +76,35 @@ public interface ApiRequest {
     Call<ResponseArrayObject> login(@Field("email") String email,
                                     @Field("password") String password,
                                     @Field("andro_token") String andro_token);
+
+    @FormUrlEncoded
+    @POST("login_nip")
+    Call<ResponseArrayObject> login_nip(@Field("nip") String nip,
+                                        @Field("password") String password,
+                                        @Field("andro_token") String andro_token);
+
+    @FormUrlEncoded
+    @POST("search")
+    Call<ResponseArrayObject> Search(@Field("search") String search,
+                                        @Field("industry") String industry,
+                                        @Field("token") String token);
+
+
+
+    @FormUrlEncoded
+    @POST("vote_design")
+    Call<ResponseArrayObject> VoteDesign(@Field("token") String token,
+                                    @Field("id_design_vote") String id_design_vote);
+
+    @FormUrlEncoded
+    @POST("daftar_design")
+    Call<ResponseArrayObject> DaftarDesign(@Field("token") String token);
+
+    @FormUrlEncoded
+    @POST("check_vote")
+    Call<ResponseString> CheckVote(@Field("token") String token);
+
+
 
     @FormUrlEncoded
     @POST("farming/benchmark")
@@ -647,4 +677,14 @@ public interface ApiRequest {
     @FormUrlEncoded
     @POST("contractor/perusahaan_book")
     Call<ResponseArrayObject> BukuPerusahaan(@Field("token") String token);
+
+    @FormUrlEncoded
+    @POST("contractor/outlook")
+    Call<ResponseArrayObject> OutlookContractor(@Field("token") String token,
+                                             @Field("jenis_outlook") String jenis_outlook);
+
+    @FormUrlEncoded
+    @POST("oil_and_gas/outlook")
+    Call<ResponseArrayObject> OilAndGasContractor(@Field("token") String token,
+                                                @Field("jenis_outlook") String jenis_outlook);
 }

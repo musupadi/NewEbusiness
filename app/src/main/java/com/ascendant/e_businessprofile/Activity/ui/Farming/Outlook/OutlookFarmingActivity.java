@@ -34,7 +34,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class OutlookFarmingActivity extends AppCompatActivity {
-    LinearLayout Regulation,BusinessStatus,BusinessProcess,BusinessReview,KeySuccess,RiskAndMitigation;
+    LinearLayout Regulation,BusinessStatus,BusinessProcess,BusinessReview,KeySuccess,RiskAndMitigation,Newsletter;
     LinearLayout Available,Navigator;
     RecyclerView rv,recyclerView;
     ImageView ivMore;
@@ -66,6 +66,7 @@ public class OutlookFarmingActivity extends AppCompatActivity {
         BusinessReview = findViewById(R.id.linearBusinessReview);
         KeySuccess = findViewById(R.id.linearKeySucces);
         RiskAndMitigation = findViewById(R.id.linearRiskAndMitigation);
+        Newsletter = findViewById(R.id.linearNewsletter);
         //Cut Here
         rv = findViewById(R.id.recyclerNav);
         Available = findViewById(R.id.linearAvailable);
@@ -204,6 +205,13 @@ public class OutlookFarmingActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent= new Intent(OutlookFarmingActivity.this,FarmingBusinessStatusAndProspectActivity.class);
+                startActivity(intent);
+            }
+        });
+        Newsletter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent(OutlookFarmingActivity.this,FarmingNewsletterActivity.class);
                 startActivity(intent);
             }
         });

@@ -16,12 +16,13 @@ import java.util.List;
 
 public class DB_Helper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "ebusinessprofile.db";
-    private static final int DATABASE_VERSION = 3;
+    private static final int DATABASE_VERSION = 4;
 
 
     //Account
     public static final String COLUMN_EMAIL = "email";
     public static final String COLUMN_PASSWORD = "password";
+    public static final String COLUMN_LEVEL = "level";
 
     //Account
     public static final String TABLE_NAME_ACCOUNT = "account";
@@ -64,6 +65,7 @@ public class DB_Helper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE "+TABLE_NAME_ACCOUNT+" (" +
                 COLUMN_TOKEN+" TEXT NOT NULL," +
+                COLUMN_LEVEL+" TEXT NOT NULL," +
                 NOTIF_ID+" TEXT NOT NULL);"
         );
         db.execSQL("CREATE TABLE "+TABLE_ANALISIS+" (" +
@@ -160,11 +162,12 @@ public class DB_Helper extends SQLiteOpenHelper {
     }
 
 
-    public void SaveUser(String token,String notif){
+    public void SaveUser(String token,String notif,String level){
         SQLiteDatabase db =this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(COLUMN_TOKEN, token);
         values.put(NOTIF_ID,notif);
+        values.put(COLUMN_LEVEL,level);
         db.insert(TABLE_NAME_ACCOUNT,null,values);
         db.close();
     }

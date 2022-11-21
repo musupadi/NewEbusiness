@@ -40,10 +40,12 @@ import com.ascendant.e_businessprofile.Activity.LoginActivity;
 import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
 import com.ascendant.e_businessprofile.Activity.UbahProfilActivity;
 import com.ascendant.e_businessprofile.Activity.UnitKerjaActivity;
+import com.ascendant.e_businessprofile.Activity.VotingActivity;
 import com.ascendant.e_businessprofile.Activity.WebActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Forum.PostForumActivity;
 import com.ascendant.e_businessprofile.Model.ResponseArrayObject;
 import com.ascendant.e_businessprofile.Model.ResponseObject;
+import com.ascendant.e_businessprofile.Model.ResponseString;
 import com.ascendant.e_businessprofile.R;
 import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -66,7 +68,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class ProfileFragment extends Fragment {
-    RelativeLayout Logout,Privacy,ChangePassword,ContactUs,UnitKerjas,ChangeProfile;
+    RelativeLayout Logout,Privacy,ChangePassword,ContactUs,UnitKerjas,ChangeProfile,Voting;
     Dialog myDialog;
     EditText OldPassword,NewPassword,ConfirmPassword;
     Button Confirm,Close;
@@ -139,6 +141,7 @@ public class ProfileFragment extends Fragment {
                 Token = cursor.getString(0);
             }
         }
+        Voting = view.findViewById(R.id.relativeVotingDesign);
         UnitKerjas = view.findViewById(R.id.relativeUnitKerja);
         ChangeProfile = view.findViewById(R.id.relativeEditProfile);
         tvHistory = view.findViewById(R.id.tvHistory);
@@ -164,6 +167,7 @@ public class ProfileFragment extends Fragment {
         NoTelpon = view.findViewById(R.id.tvNoTelpon);
         user = view.findViewById(R.id.ivUser);
         cardHistory = view.findViewById(R.id.cardPointHistory);
+        Voting();
         CheckQuiz();
         GetPoin();
         Privacy.setOnClickListener(new View.OnClickListener() {
@@ -211,6 +215,13 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), UbahProfilActivity.class);
+                startActivity(intent);
+            }
+        });
+        Voting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), VotingActivity.class);
                 startActivity(intent);
             }
         });
@@ -369,7 +380,6 @@ public class ProfileFragment extends Fragment {
                             }
                         }catch (Exception e){
                             Log.d("ZYARGA : ",e.toString());
-                            Toast.makeText(getActivity(), "Koneksi Gagal", Toast.LENGTH_SHORT).show();
                         }
                     }
 
@@ -380,6 +390,30 @@ public class ProfileFragment extends Fragment {
                         Toast.makeText(getActivity(), "Waktu Sesi habis harap coba Login Lagfi", Toast.LENGTH_SHORT).show();
                     }
                 });
+            }
+        });
+    }
+    private void Voting(){
+        Voting.setVisibility(View.GONE);
+        ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
+        final Call<ResponseString> data =api.CheckVote(Token);
+        data.enqueue(new Callback<ResponseString>() {
+            @Override
+            public void onResponse(Call<ResponseString> call, Response<ResponseString> response) {
+                try {
+                    if (response.body().getData().equals("0")){
+                        Voting.setVisibility(View.VISIBLE);
+                    }else{
+                        Voting.setVisibility(View.VISIBLE);
+                    }
+                }catch (Exception e){
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseString> call, Throwable t) {
+
             }
         });
     }

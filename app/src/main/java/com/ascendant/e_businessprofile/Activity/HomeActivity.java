@@ -11,20 +11,24 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
 import com.ascendant.e_businessprofile.Activity.ui.ChatFragment;
 import com.ascendant.e_businessprofile.Activity.ui.ForumFragment;
+import com.ascendant.e_businessprofile.Activity.ui.Healthcare.Compliance.ComplianceActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.HealthcareFragment;
 import com.ascendant.e_businessprofile.Activity.ui.HomeFragment;
 import com.ascendant.e_businessprofile.Activity.ui.ProfileFragment;
+import com.ascendant.e_businessprofile.Activity.ui.SearchFragment;
 import com.ascendant.e_businessprofile.Method.Ascendant;
 import com.ascendant.e_businessprofile.MyFirebaseMessagingService;
 import com.ascendant.e_businessprofile.R;
@@ -41,8 +45,9 @@ import java.io.IOException;
 import pub.devrel.easypermissions.EasyPermissions;
 
 public class HomeActivity extends AppCompatActivity {
-    LinearLayout LHome, LForum, LProfile;
-    ImageView Home, Forum, Profile;
+    LinearLayout LHome, LForum, LProfile,LSearch;
+    ImageView Home, Forum, Profile , Search;
+    TextView tvSearch;
     Fragment fragment;
     private String[] galleryPermissions =
             {Manifest.permission.READ_EXTERNAL_STORAGE,
@@ -57,38 +62,44 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        if(EasyPermissions.hasPermissions(HomeActivity.this, galleryPermissions)) {
-
-        }else{
-            EasyPermissions.requestPermissions(HomeActivity.this, "Access for storage",
-                    101, galleryPermissions);
-        }
-        Declaration();
-        OnClick();
-        dbHelper = new DB_Helper(HomeActivity.this);
-        Cursor cursor = dbHelper.checkUser();
-        if (cursor.getCount()>0){
-            while (cursor.moveToNext()){
-                Token = cursor.getString(0);
-                NotifID = cursor.getString(1);
-            }
-        }
-
-        OneSignal.setLogLevel(OneSignal.LOG_LEVEL.VERBOSE, OneSignal.LOG_LEVEL.NONE);
-        // OneSignal Initialization
-        OneSignal.initWithContext(this);
-        OneSignal.setAppId(ascendant.OneSignalAppId());
         try {
-            Intent intent = getIntent();
-            FORUM = intent.getExtras().getString("FORUM");
-            if (FORUM.equals("FORUM")){
-                Forum();
+            if(EasyPermissions.hasPermissions(HomeActivity.this, galleryPermissions)) {
+
             }else{
-                Profile();
+                EasyPermissions.requestPermissions(HomeActivity.this, "Access for storage",
+                        101, galleryPermissions);
+            }
+            Declaration();
+            OnClick();
+            dbHelper = new DB_Helper(HomeActivity.this);
+            Cursor cursor = dbHelper.checkUser();
+            if (cursor.getCount()>0){
+                while (cursor.moveToNext()){
+                    Token = cursor.getString(0);
+                    NotifID = cursor.getString(1);
+                }
             }
 
-        }catch (Exception e){
-            Home();
+            OneSignal.setLogLevel(OneSignal.LOG_LEVEL.VERBOSE, OneSignal.LOG_LEVEL.NONE);
+            // OneSignal Initialization
+            OneSignal.initWithContext(this);
+            OneSignal.setAppId(ascendant.OneSignalAppId());
+            try {
+                Intent intent = getIntent();
+                FORUM = intent.getExtras().getString("FORUM");
+                if (FORUM.equals("FORUM")){
+                    Forum();
+                }else{
+                    Profile();
+                }
+
+            }catch (Exception e){
+                Home();
+            }
+        }catch (Exception ex){
+            Toast.makeText(HomeActivity.this, "Anda Belum Login", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(HomeActivity.this, LoginActivity.class);
+            startActivity(intent);
         }
 
     }
@@ -112,7 +123,12 @@ public class HomeActivity extends AppCompatActivity {
                 Profile();
             }
         });
-
+        LSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Search();
+            }
+        });
     }
 
     private void Declaration() {
@@ -122,6 +138,9 @@ public class HomeActivity extends AppCompatActivity {
         Home = findViewById(R.id.ivHome);
         Forum = findViewById(R.id.ivForum);
         Profile = findViewById(R.id.ivProfile);
+        LSearch = findViewById(R.id.linearSearch);
+        Search = findViewById(R.id.ivSearch);
+        tvSearch = findViewById(R.id.tvSearch);
     }
     public void clearApplicationData() {
         File cache = getCacheDir();
@@ -154,6 +173,8 @@ public class HomeActivity extends AppCompatActivity {
         Home.setImageResource(R.drawable.home_inactive);
         Forum.setImageResource(R.drawable.forum_inactive);
         Profile.setImageResource(R.drawable.profile_inactive);
+        Search.setImageResource(R.drawable.search_innactive);
+        tvSearch.setTextColor(Color.rgb(135,135,135));
     }
 //    void getDeviceToken() {
 //        new AsyncTask() {
@@ -186,6 +207,13 @@ public class HomeActivity extends AppCompatActivity {
         Default();
         Forum.setImageResource(R.drawable.forum_active);
         fragment = new ForumFragment();
+        ChangeFragment(fragment);
+    }
+    private void Search() {
+        Default();
+        Search.setImageResource(R.drawable.search);
+        tvSearch.setTextColor(Color.rgb(24,60,110));
+        fragment = new SearchFragment();
         ChangeFragment(fragment);
     }
     private void Chat() {

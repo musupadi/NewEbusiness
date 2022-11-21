@@ -20,6 +20,8 @@
     <color name="colorBackEdit">#FFFFFF</color>
     <color name="colorLightGrey">#f5f5f5</color>
     <color name="colorTransparent">#CCCCCC</color>
+    <color name="Innactive">#878787</color>
+    <color name="Active">#183C6E</color>
     <color name="colorCream">#fffdd0</color>
     <color name="colorGreen">#49C200</color>
     <color name="colorOrange">#FCB400</color>

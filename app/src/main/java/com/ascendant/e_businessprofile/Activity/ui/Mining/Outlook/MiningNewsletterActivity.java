@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 
 import com.ascendant.e_businessprofile.API.ApiRequest;
 import com.ascendant.e_businessprofile.API.RetroServer;
+import com.ascendant.e_businessprofile.Activity.LoginActivity;
 import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
 import com.ascendant.e_businessprofile.Adapter.AdapterOutlook;
 import com.ascendant.e_businessprofile.Adapter.Static.AdapterNavigator;
@@ -48,58 +50,62 @@ public class MiningNewsletterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mining_newsletter);
-        dbHelper = new DB_Helper(this);
-        Cursor cursor = dbHelper.checkUser();
-        if (cursor.getCount()>0){
-            while (cursor.moveToNext()){
-                Token = cursor.getString(0);
+        try {
+            dbHelper = new DB_Helper(this);
+            Cursor cursor = dbHelper.checkUser();
+            if (cursor.getCount()>0){
+                while (cursor.moveToNext()){
+                    Token = cursor.getString(0);
+                }
             }
-        }
-        rv = findViewById(R.id.recycler);
-        Logic();
+            rv = findViewById(R.id.recycler);
+            Logic();
+            //Cut Here
+            rv2 = findViewById(R.id.recyclerNav);
+            Available = findViewById(R.id.linearAvailable);
+            Navigator = findViewById(R.id.linearNavigator);
+            ivMore = findViewById(R.id.ivMore);
+            More = findViewById(R.id.linearMore);
+            Back = findViewById(R.id.linearBack);
+            Available.setVisibility(View.VISIBLE);
+            pList.addAll(MiningOutlookModel.getListData());
+            rv2.setLayoutManager(new LinearLayoutManager(this));
+            AdapterNavigator adapters = new AdapterNavigator(this,pList);
+            rv2.setAdapter(adapters);
 
-        //Cut Here
-        rv2 = findViewById(R.id.recyclerNav);
-        Available = findViewById(R.id.linearAvailable);
-        Navigator = findViewById(R.id.linearNavigator);
-        ivMore = findViewById(R.id.ivMore);
-        More = findViewById(R.id.linearMore);
-        Back = findViewById(R.id.linearBack);
-        Available.setVisibility(View.VISIBLE);
-        pList.addAll(MiningOutlookModel.getListData());
-        rv2.setLayoutManager(new LinearLayoutManager(this));
-        AdapterNavigator adapters = new AdapterNavigator(this,pList);
-        rv2.setAdapter(adapters);
+            Back.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    onBackPressed();
+                }
+            });
+            More.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    try {
+                        if (more){
+                            more = false;
+                            ivMore.setImageResource(R.drawable.close_concerate);
+                            Available.setVisibility(View.GONE);
+                            Navigator.setVisibility(View.VISIBLE);
+                        }else{
+                            more = true;
+                            ivMore.setImageResource(R.drawable.more_vertical_concerate);
+                            Available.setVisibility(View.VISIBLE);
+                            Navigator.setVisibility(View.GONE);
+                        }
+                    }catch (Exception e){
 
-        Back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onBackPressed();
-            }
-        });
-        More.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                try {
-                    if (more){
-                        more = false;
-                        ivMore.setImageResource(R.drawable.close_concerate);
-                        Available.setVisibility(View.GONE);
-                        Navigator.setVisibility(View.VISIBLE);
-                    }else{
-                        more = true;
-                        ivMore.setImageResource(R.drawable.more_vertical_concerate);
-                        Available.setVisibility(View.VISIBLE);
-                        Navigator.setVisibility(View.GONE);
                     }
-                }catch (Exception e){
 
                 }
-
-            }
-        });
-
-        //Cut Here
+            });
+            //Cut Here
+        }catch (Exception e){
+            Toast.makeText(MiningNewsletterActivity.this, "Anda Belum Login", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(MiningNewsletterActivity.this, LoginActivity.class);
+            startActivity(intent);
+        }
     }
     private void Logic(){
         mManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false);
@@ -119,8 +125,9 @@ public class MiningNewsletterActivity extends AppCompatActivity {
                         Toast.makeText(MiningNewsletterActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 }catch (Exception e){
-                    Log.d("ZYARGA : ",e.toString());
-                    Toast.makeText(MiningNewsletterActivity.this, "Terjadi Kesaqlahan", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MiningNewsletterActivity.this, "Anda Belum Login", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(MiningNewsletterActivity.this, LoginActivity.class);
+                    startActivity(intent);
                 }
             }
 

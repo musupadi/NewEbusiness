@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,7 +15,9 @@ import android.widget.Toast;
 
 import com.ascendant.e_businessprofile.API.ApiRequest;
 import com.ascendant.e_businessprofile.API.RetroServer;
+import com.ascendant.e_businessprofile.Activity.LoginActivity;
 import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
+import com.ascendant.e_businessprofile.Activity.ui.Mining.Compliance.ComplianceMiningActivity;
 import com.ascendant.e_businessprofile.Adapter.AdapterCompliance;
 import com.ascendant.e_businessprofile.Adapter.Static.AdapterNavigator;
 import com.ascendant.e_businessprofile.Model.DataModel;
@@ -119,8 +122,9 @@ public class ComplianceFarmingActivity extends AppCompatActivity {
                         Toast.makeText(ComplianceFarmingActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 }catch (Exception e){
-                    Log.d("ZYARGA : ",e.toString());
-                    Toast.makeText(ComplianceFarmingActivity.this, "Terjadi Kesaqlahan", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ComplianceFarmingActivity.this, "Anda Belum Login", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(ComplianceFarmingActivity.this, LoginActivity.class);
+                    startActivity(intent);
                 }
             }
 

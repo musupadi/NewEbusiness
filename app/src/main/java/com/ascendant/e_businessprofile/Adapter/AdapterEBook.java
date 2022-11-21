@@ -41,7 +41,7 @@ public class AdapterEBook extends RecyclerView.Adapter<AdapterEBook.HolderData> 
     Button View,Download;
     int positions=0;
     DB_Helper dbHelper;
-    String Token;
+    String Token,Level;
     public AdapterEBook(Context ctx, List<DataModel> mList){
         this.ctx = ctx;
         this.mList = mList;
@@ -70,6 +70,7 @@ public class AdapterEBook extends RecyclerView.Adapter<AdapterEBook.HolderData> 
         if (cursor.getCount()>0){
             while (cursor.moveToNext()){
                 Token = cursor.getString(0);
+                Level = cursor.getString(1);
             }
         }
         holderData.card.setOnClickListener(new View.OnClickListener() {
@@ -81,7 +82,11 @@ public class AdapterEBook extends RecyclerView.Adapter<AdapterEBook.HolderData> 
                 Download.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(android.view.View view) {
-                        ascendant.Download(ctx,"pdf",dm.getLink_file_business_refrence(),dm.getNama_business_refrence());
+                        if (Level.equals("trial")){
+                            Toast.makeText(ctx, "You Cannot Download File", Toast.LENGTH_SHORT).show();
+                        }else{
+                            ascendant.Download(ctx,"pdf",dm.getLink_file_business_refrence(),dm.getNama_business_refrence());
+                        }
                     }
                 });
                 View.setOnClickListener(new View.OnClickListener() {
@@ -93,18 +98,22 @@ public class AdapterEBook extends RecyclerView.Adapter<AdapterEBook.HolderData> 
                             data.enqueue(new Callback<ResponseObject>() {
                                 @Override
                                 public void onResponse(Call<ResponseObject> call, Response<ResponseObject> response) {
-                                    if (dm.getLink_ebook().equals("") || dm.getLink_ebook().isEmpty()){
-                                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(ascendant.BASE_URL()+dm.getLink_file_business_refrence()));
-                                        ctx.startActivity(browserIntent);
+                                    if (Level.equals("trial")){
+                                        Toast.makeText(ctx, "You Cannot Download File", Toast.LENGTH_SHORT).show();
                                     }else{
-                                        if (dm.getMode_ebook().equals("P")){
-                                            Intent i = new Intent(ctx, PortraitWebViewEbookActivity.class);
-                                            i.putExtra("LINK", dm.getLink_ebook());
-                                            ctx.startActivity(i);
+                                        if (dm.getLink_ebook().equals("") || dm.getLink_ebook().isEmpty()){
+                                            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(ascendant.BASE_URL()+dm.getLink_file_business_refrence()));
+                                            ctx.startActivity(browserIntent);
                                         }else{
-                                            Intent i = new Intent(ctx, LandscapeWebViewEbookActivity.class);
-                                            i.putExtra("LINK", dm.getLink_ebook());
-                                            ctx.startActivity(i);
+                                            if (dm.getMode_ebook().equals("P")){
+                                                Intent i = new Intent(ctx, PortraitWebViewEbookActivity.class);
+                                                i.putExtra("LINK", dm.getLink_ebook());
+                                                ctx.startActivity(i);
+                                            }else{
+                                                Intent i = new Intent(ctx, LandscapeWebViewEbookActivity.class);
+                                                i.putExtra("LINK", dm.getLink_ebook());
+                                                ctx.startActivity(i);
+                                            }
                                         }
                                     }
                                 }

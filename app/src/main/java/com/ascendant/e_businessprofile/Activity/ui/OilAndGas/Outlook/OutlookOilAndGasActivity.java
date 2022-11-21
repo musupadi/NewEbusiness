@@ -33,7 +33,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class OutlookOilAndGasActivity extends AppCompatActivity {
-    LinearLayout Regulation,BusinessStatus,BusinessProcess,RiskAndMitigation,KeySucces;
+    LinearLayout Regulation,BusinessStatus,BusinessProcess,RiskAndMitigation,KeySucces,Newsletter;
     LinearLayout Available,Navigator;
     RecyclerView rv,recyclerView;
     ImageView ivMore;
@@ -56,6 +56,7 @@ public class OutlookOilAndGasActivity extends AppCompatActivity {
         BusinessProcess = findViewById(R.id.linearBusinessProcess);
         RiskAndMitigation = findViewById(R.id.linearRiskAndMitigation);
         KeySucces = findViewById(R.id.linearKeySucces);
+        Newsletter = findViewById(R.id.linearNewsletter);
         dbHelper = new DB_Helper(this);
         Cursor cursor = dbHelper.checkUser();
         if (cursor.getCount()>0){
@@ -234,6 +235,13 @@ public class OutlookOilAndGasActivity extends AppCompatActivity {
             public void onClick(android.view.View view) {
                 Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://mandiri-ebuss.com/files/oil_and_gas/outlook/key_success_factor.pdf"));
                 startActivity(browserIntent);
+            }
+        });
+        Newsletter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(android.view.View view) {
+                Intent intent = new Intent(OutlookOilAndGasActivity.this,OilAndGasNewsletterActivity.class);
+                startActivity(intent);
             }
         });
     }

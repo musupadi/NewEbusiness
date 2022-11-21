@@ -306,8 +306,8 @@ public class AdapterKomen extends RecyclerView.Adapter<AdapterKomen.HolderData> 
     }
 
     class HolderData extends RecyclerView.ViewHolder{
-        TextView Nama,Komen,Jam;
-        ImageView Reply,Gambar,Upload;
+        TextView Reply,Nama,Komen,Jam;
+        ImageView Gambar,Upload;
         RecyclerView recyclerView;
         CardView cardKomen;
         EditText etKomen;

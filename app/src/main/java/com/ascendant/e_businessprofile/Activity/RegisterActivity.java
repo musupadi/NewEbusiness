@@ -2,8 +2,10 @@ package com.ascendant.e_businessprofile.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -16,12 +18,20 @@ import android.widget.Toast;
 
 import com.ascendant.e_businessprofile.API.ApiRequest;
 import com.ascendant.e_businessprofile.API.RetroServer;
+import com.ascendant.e_businessprofile.Activity.ui.Healthcare.Ecosystem.EcosystemFragment;
 import com.ascendant.e_businessprofile.Adapter.Spinner.SpinnerDivisi;
 import com.ascendant.e_businessprofile.Adapter.Spinner.SpinnerWilayah;
+import com.ascendant.e_businessprofile.Method.Ascendant;
 import com.ascendant.e_businessprofile.Model.DataModel;
 import com.ascendant.e_businessprofile.Model.ResponseArrayObject;
 import com.ascendant.e_businessprofile.R;
+import com.github.barteksc.pdfviewer.PDFView;
 
+import java.io.BufferedInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,12 +44,16 @@ public class RegisterActivity extends AppCompatActivity {
     Spinner Divisi,Wilayah;
     TextView idDivisi,idWIlayah;
     EditText Name,Email,NIP,NoTelp,Password,Confirmassword;
-    LinearLayout Confirm;
+    LinearLayout Confirm,Accept,Decline;
+    Dialog myDialog;
+    PDFView photoView;
+    Ascendant ascendant = new Ascendant();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-
+        myDialog = new Dialog(RegisterActivity.this);
+        myDialog.setContentView(R.layout.dialog_privacy_and_policy);
         Divisi = findViewById(R.id.spinnerDivisi);
         Wilayah = findViewById(R.id.spinnerWilayah);
         idDivisi = findViewById(R.id.tvidDivisi);
@@ -51,8 +65,12 @@ public class RegisterActivity extends AppCompatActivity {
         Password = findViewById(R.id.etPassword);
         Confirmassword = findViewById(R.id.etConfirmPassword);
         Confirm = findViewById(R.id.linearConfirm);
+        Accept = myDialog.findViewById(R.id.linearAccept);
+        Decline = myDialog.findViewById(R.id.linearDecline);
+        photoView =myDialog.findViewById(R.id.pdf);
         DataDivisi();
         GetWilayah();
+
         Confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -91,6 +109,18 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
 
+            }
+        });
+        Accept.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AcceptRegister();
+            }
+        });
+        Decline.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                myDialog.hide();
             }
         });
     }
@@ -143,7 +173,7 @@ public class RegisterActivity extends AppCompatActivity {
         }
         return OK;
     }
-    private void Register(){
+    private void AcceptRegister(){
         if (Checker().equals("OK")){
             final ProgressDialog pd = new ProgressDialog(RegisterActivity.this);
             pd.setMessage("Sedang Mencoba Mendaftar");
@@ -182,6 +212,10 @@ public class RegisterActivity extends AppCompatActivity {
             });
         }
     }
+    private void Register(){
+        myDialog.show();
+        new RetreivePDFStreamsss().execute("https://mandiri-ebuss.com/files/terms.pdf");
+    }
 
     private void DataDivisi(){
         ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
@@ -203,5 +237,27 @@ public class RegisterActivity extends AppCompatActivity {
                 Toast.makeText(RegisterActivity.this, "Koneksi Gagal", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    class RetreivePDFStreamsss extends AsyncTask<String,Void, InputStream> {
+        InputStream inputStream;
+        @Override
+        protected InputStream doInBackground(String... strings) {
+            try {
+                URL url = new URL(strings[0]);
+                HttpURLConnection urlConnection = (HttpURLConnection)url.openConnection();
+                if (urlConnection.getResponseCode() == 200){
+                    inputStream = new BufferedInputStream(urlConnection.getInputStream());
+                }
+            }catch (IOException e){
+                return null;
+            }
+            return inputStream;
+        }
+
+        @Override
+        protected void onPostExecute(InputStream inputStream) {
+            photoView.fromStream(inputStream).load();
+        }
     }
 }

@@ -6,13 +6,17 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
+import com.ascendant.e_businessprofile.Activity.LoginActivity;
 import com.ascendant.e_businessprofile.Activity.ui.ChatFragment;
+import com.ascendant.e_businessprofile.Activity.ui.FMCG.Compliance.FMCGComplianceActivity;
 import com.ascendant.e_businessprofile.Activity.ui.ForumFragment;
 import com.ascendant.e_businessprofile.Activity.ui.HomeFragment;
 import com.ascendant.e_businessprofile.Activity.ui.NavigatorFragment;
@@ -30,12 +34,18 @@ public class ComplianceActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_compliance);
-        Uri datas = this.getIntent().getData();
-        Declaration();
-        Home.setImageResource(R.drawable.home_active);
-        fragment = new ComplianceFragment();
-        ChangeFragment(fragment);
-        OnClick();
+        try {
+            Uri datas = this.getIntent().getData();
+            Declaration();
+            Home.setImageResource(R.drawable.home_active);
+            fragment = new ComplianceFragment();
+            ChangeFragment(fragment);
+            OnClick();
+        }catch (Exception e){
+            Toast.makeText(ComplianceActivity.this, "Anda Belum Login", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(ComplianceActivity.this, LoginActivity.class);
+            startActivity(intent);
+        }
 
     }
     private void OnClick() {

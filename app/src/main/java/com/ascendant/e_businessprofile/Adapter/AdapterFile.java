@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +29,8 @@ public class AdapterFile extends RecyclerView.Adapter<AdapterFile.HolderData> {
     private Context ctx;
     Ascendant ascendant;
     String Tanggal;
+    DB_Helper dbHelper;
+    String Token,Level;
     public AdapterFile(Context ctx, List<DataModel> mList,String Tanggal){
         this.ctx = ctx;
         this.mList = mList;
@@ -46,6 +49,14 @@ public class AdapterFile extends RecyclerView.Adapter<AdapterFile.HolderData> {
     public void onBindViewHolder(@NonNull final HolderData holderData, int posistion) {
         DataModel dm = mList.get(posistion);
         ascendant = new Ascendant();
+        dbHelper = new DB_Helper(ctx);
+        Cursor cursor = dbHelper.checkUser();
+        if (cursor.getCount()>0){
+            while (cursor.moveToNext()){
+                Token = cursor.getString(0);
+                Level = cursor.getString(1);
+            }
+        }
         holderData.Tanggal.setText(ascendant.MagicDateChange(dm.getCreated_at()));
         holderData.Nama.setText(ascendant.SmallText(dm.getCaption_file()));
         holderData.ID.setText(String.valueOf(posistion+1));
@@ -68,7 +79,11 @@ public class AdapterFile extends RecyclerView.Adapter<AdapterFile.HolderData> {
                         // Do something when user clicked the Yes button
                         // Set the TextView visibility GONE
 
-                        ascendant.DownloadUniversal(dm.getLink_file_mandiri_update(),dm.getCaption_file(),ctx,dm.getLink_file_mandiri_update().substring(lastIndexExt));
+                        if (Level.equals("trial")){
+                            Toast.makeText(ctx, "You Cannot Download File", Toast.LENGTH_SHORT).show();
+                        }else{
+                            ascendant.DownloadUniversal(dm.getLink_file_mandiri_update(),dm.getCaption_file(),ctx,dm.getLink_file_mandiri_update().substring(lastIndexExt));
+                        }
                     }
                 });
 

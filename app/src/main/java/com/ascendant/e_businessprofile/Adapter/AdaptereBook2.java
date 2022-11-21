@@ -41,9 +41,8 @@ public class AdaptereBook2 extends RecyclerView.Adapter<AdaptereBook2.HolderData
     Dialog myDialog;
     Button View,Download;
     Ascendant ascendant = new Ascendant();
-
     DB_Helper dbHelper;
-    String Token;
+    String Token,Level;
     public AdaptereBook2(Context ctx, List<DataModel> mList){
         this.ctx = ctx;
         this.mList = mList;
@@ -61,8 +60,6 @@ public class AdaptereBook2 extends RecyclerView.Adapter<AdaptereBook2.HolderData
     public void onBindViewHolder(@NonNull AdaptereBook2.HolderData holderData, int posistion) {
         DataModel dm = mList.get(posistion);
         final Ascendant method = new Ascendant();
-
-
         myDialog = new Dialog(ctx);
         myDialog.setContentView(R.layout.dialog_view_download);
         holderData.icon.setText(String.valueOf(posistion+1));
@@ -73,6 +70,7 @@ public class AdaptereBook2 extends RecyclerView.Adapter<AdaptereBook2.HolderData
         if (cursor.getCount()>0){
             while (cursor.moveToNext()){
                 Token = cursor.getString(0);
+                Level = cursor.getString(1);
             }
         }
         holderData.card.setOnClickListener(new View.OnClickListener() {
@@ -85,7 +83,11 @@ public class AdaptereBook2 extends RecyclerView.Adapter<AdaptereBook2.HolderData
                 Download.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(android.view.View view) {
-                        method.Download(ctx,dm.getExt_file(),dm.getLink_file_ebook(),dm.getNama_ebook());
+                        if (Level.equals("trial")){
+                            Toast.makeText(ctx, "You Cannot Download File", Toast.LENGTH_SHORT).show();
+                        }else{
+                            method.Download(ctx,dm.getExt_file(),dm.getLink_file_ebook(),dm.getNama_ebook());
+                        }
                     }
                 });
                 View.setOnClickListener(new View.OnClickListener() {
@@ -97,20 +99,25 @@ public class AdaptereBook2 extends RecyclerView.Adapter<AdaptereBook2.HolderData
                             data.enqueue(new Callback<ResponseObject>() {
                                 @Override
                                 public void onResponse(Call<ResponseObject> call, Response<ResponseObject> response) {
-                                    if (dm.getLink_ebook().equals("") || dm.getLink_ebook().isEmpty()){
-                                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(dm.getLink_file_ebook()));
-                                        ctx.startActivity(browserIntent);
+                                    if (Level.equals("trial")){
+                                        Toast.makeText(ctx, "You Cannot Download File", Toast.LENGTH_SHORT).show();
                                     }else{
-                                        if (dm.getMode_ebook().equals("P")){
-                                            Intent i = new Intent(ctx, PortraitWebViewEbookActivity.class);
-                                            i.putExtra("LINK", dm.getLink_ebook());
-                                            ctx.startActivity(i);
+                                        if (dm.getLink_ebook().equals("") || dm.getLink_ebook().isEmpty()){
+                                            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(dm.getLink_file_ebook()));
+                                            ctx.startActivity(browserIntent);
                                         }else{
-                                            Intent i = new Intent(ctx, LandscapeWebViewEbookActivity.class);
-                                            i.putExtra("LINK", dm.getLink_ebook());
-                                            ctx.startActivity(i);
+                                            if (dm.getMode_ebook().equals("P")){
+                                                Intent i = new Intent(ctx, PortraitWebViewEbookActivity.class);
+                                                i.putExtra("LINK", dm.getLink_ebook());
+                                                ctx.startActivity(i);
+                                            }else{
+                                                Intent i = new Intent(ctx, LandscapeWebViewEbookActivity.class);
+                                                i.putExtra("LINK", dm.getLink_ebook());
+                                                ctx.startActivity(i);
+                                            }
                                         }
                                     }
+
                                 }
 
                                 @Override
