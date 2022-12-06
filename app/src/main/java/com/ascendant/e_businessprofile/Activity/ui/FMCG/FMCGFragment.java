@@ -27,13 +27,16 @@ import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
 import com.ascendant.e_businessprofile.Activity.ui.FMCG.BusinessRefrence.FMCGBusinessRefrenceActivity;
 import com.ascendant.e_businessprofile.Activity.ui.FMCG.Compliance.FMCGComplianceActivity;
 import com.ascendant.e_businessprofile.Activity.ui.FMCG.CreditDecisionTool.FMCGMainCreditDecisionToolActivity;
+import com.ascendant.e_businessprofile.Activity.ui.FMCG.CreditWorthiness.FMCGCreditWorthinessActivity;
 import com.ascendant.e_businessprofile.Activity.ui.FMCG.CreditWorthiness.FMCGMainCreditWorthinessActivity;
 import com.ascendant.e_businessprofile.Activity.ui.FMCG.Ecosystem.FMCGEcosystemActivity;
 import com.ascendant.e_businessprofile.Activity.ui.FMCG.ListOfProbing.FMCGListOfProbingActivity;
+import com.ascendant.e_businessprofile.Activity.ui.Healthcare.CreditWorthiness.CreditWorthinessActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Mining.MandiriUpdate.MiningMandiriUpdateActivity;
 import com.ascendant.e_businessprofile.Adapter.AdapterBerita;
 import com.ascendant.e_businessprofile.Model.DataModel;
 import com.ascendant.e_businessprofile.Model.ResponseArrayObject;
+import com.ascendant.e_businessprofile.Model.StaticModel.FMCG.Navigator.MandiriUpdate.FMCGMandiriUpdate;
 import com.ascendant.e_businessprofile.R;
 
 import java.util.ArrayList;
@@ -93,7 +96,7 @@ public class FMCGFragment extends Fragment {
         Ecosystem = view.findViewById(R.id.relativeEcosystem);
         CreditWorthiness = view.findViewById(R.id.relativeCreditWorthiness);
         CreditDecisionTool = view.findViewById(R.id.relativeCreditDecisionTool);
-        MandiriUpdate = view.findViewById(R.id.linearMandiriUpdate);
+//        MandiriUpdate = view.findViewById(R.id.linearMandiriUpdate);
         Logic();
         View.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -138,25 +141,27 @@ public class FMCGFragment extends Fragment {
         CreditWorthiness.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log("9");
-                Intent intent = new Intent(getActivity(), FMCGMainCreditWorthinessActivity.class);
-                startActivity(intent);
-            }
-        });
-        MandiriUpdate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(android.view.View view) {
                 Log("39");
-                Intent goInput = new Intent(getActivity(), MiningMandiriUpdateActivity.class);
+                Intent goInput = new Intent(getActivity(), FMCGCreditWorthinessActivity.class);
                 goInput.putExtra("KATEGORI","FMCG");
                 startActivity(goInput);
             }
         });
+//        MandiriUpdate.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(android.view.View view) {
+//                Log("39");
+//                Intent goInput = new Intent(getActivity(), MiningMandiriUpdateActivity.class);
+//                goInput.putExtra("KATEGORI","FMCG");
+//                startActivity(goInput);
+//            }
+//        });
         CreditDecisionTool.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), FMCGMainCreditDecisionToolActivity.class);
-                startActivity(intent);
+                Intent goInput = new Intent(getActivity(), MiningMandiriUpdateActivity.class);
+                goInput.putExtra("KATEGORI","FMCG");
+                startActivity(goInput);
             }
         });
         Back.setOnClickListener(new View.OnClickListener() {

@@ -25,7 +25,7 @@ public class PortraitWebViewEbookActivity extends AppCompatActivity {
         WebView webView = findViewById(R.id.webView);
         webView.getSettings().setJavaScriptEnabled(true);
         webView.getSettings().setBuiltInZoomControls(true);
-        webView.getSettings().setDisplayZoomControls(false);
+        webView.getSettings().setDisplayZoomControls(true);
         webView.loadUrl(LINK);
 
         webView.setWebChromeClient(new WebChromeClient() {

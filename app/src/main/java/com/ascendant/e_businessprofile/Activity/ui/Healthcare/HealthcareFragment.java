@@ -92,7 +92,7 @@ public class HealthcareFragment extends Fragment {
         Ecosystem = view.findViewById(R.id.relativeEcosystem);
         CreditWorthiness = view.findViewById(R.id.relativeCreditWorthiness);
         CreditDecisionTool = view.findViewById(R.id.relativeCreditDecisionTool);
-        MandiriUpdate = view.findViewById(R.id.linearMandiriUpdate);
+//        MandiriUpdate = view.findViewById(R.id.linearMandiriUpdate);
         Logic();
         BusinessRefrence.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -129,9 +129,10 @@ public class HealthcareFragment extends Fragment {
         CreditDecisionTool.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log("4");
-                Intent intent = new Intent(getActivity(), CrreditDecisionToolActivity.class);
-                startActivity(intent);
+                Log("38");
+                Intent goInput = new Intent(getActivity(), MiningMandiriUpdateActivity.class);
+                goInput.putExtra("KATEGORI","HEALTHCARE");
+                startActivity(goInput);
             }
         });
         Compliance.setOnClickListener(new View.OnClickListener() {
@@ -142,15 +143,12 @@ public class HealthcareFragment extends Fragment {
                 startActivity(intent);
             }
         });
-        MandiriUpdate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(android.view.View view) {
-                Log("38");
-                Intent goInput = new Intent(getActivity(), MiningMandiriUpdateActivity.class);
-                goInput.putExtra("KATEGORI","HEALTHCARE");
-                startActivity(goInput);
-            }
-        });
+//        MandiriUpdate.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(android.view.View view) {
+//
+//            }
+//        });
         Back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

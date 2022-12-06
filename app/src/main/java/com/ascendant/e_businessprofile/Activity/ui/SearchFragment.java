@@ -10,6 +10,8 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,12 +26,14 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.ascendant.e_businessprofile.API.ApiRequest;
 import com.ascendant.e_businessprofile.API.RetroServer;
 import com.ascendant.e_businessprofile.Activity.LoginActivity;
 import com.ascendant.e_businessprofile.Activity.SharedPreference.DB_Helper;
 import com.ascendant.e_businessprofile.Activity.ui.OilAndGas.Outlook.OilAndGasNewsletterActivity;
 import com.ascendant.e_businessprofile.Adapter.AdapterOutlook;
+import com.ascendant.e_businessprofile.Adapter.AdapterSearchEbook;
 import com.ascendant.e_businessprofile.Model.DataModel;
 import com.ascendant.e_businessprofile.Model.ResponseArrayObject;
 import com.ascendant.e_businessprofile.R;
@@ -43,7 +47,6 @@ import retrofit2.Response;
 
 
 public class SearchFragment extends Fragment {
-
     //Category
     ImageView ivHealthcare,ivFMCG,ivMining,ivContractor,ivOilAndGas,ivFarming;
     RelativeLayout Healthcare,FMCG,Mining,Contractor,OilAndGas,Farming;
@@ -54,6 +57,7 @@ public class SearchFragment extends Fragment {
     EditText etSearch;
     ImageView ivSearch;
     RecyclerView rv;
+    LottieAnimationView lottie;
     private List<DataModel> mItems = new ArrayList<>();
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mManager;
@@ -103,11 +107,13 @@ public class SearchFragment extends Fragment {
         etSearch = view.findViewById(R.id.etSearch);
         ivSearch = view.findViewById(R.id.ivSearch);
         rv = view.findViewById(R.id.recycler);
+        lottie = view.findViewById(R.id.lottie);
         Logic();
         onClick();
         Search();
     }
     private void Logic(){
+        lottie.setVisibility(View.GONE);
         dbHelper = new DB_Helper(getActivity());
         Cursor cursor = dbHelper.checkUser();
         if (cursor.getCount()>0){
@@ -132,8 +138,25 @@ public class SearchFragment extends Fragment {
 
             }
         });
+        etSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                Search();
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
     }
     private void Search(){
+        lottie.setVisibility(View.VISIBLE);
         mManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL,false);
         rv.setLayoutManager(mManager);
         ApiRequest api = RetroServer.getClient().create(ApiRequest.class);
@@ -141,13 +164,14 @@ public class SearchFragment extends Fragment {
         data.enqueue(new Callback<ResponseArrayObject>() {
             @Override
             public void onResponse(Call<ResponseArrayObject> call, Response<ResponseArrayObject> response) {
+                lottie.setVisibility(View.GONE);
                 try {
                     if (response.body().getKode().equals(200)){
                         LayoutAnimationController Animation = AnimationUtils.loadLayoutAnimation(getActivity(), R.anim.layout_animation2);
                         rv.setLayoutAnimation(Animation);
                         rv.scheduleLayoutAnimation();
                         mItems=response.body().getData();
-                        mAdapter = new AdapterOutlook(getActivity(),mItems);
+                        mAdapter = new AdapterSearchEbook(getActivity(),mItems);
                         rv.setAdapter(mAdapter);
                         mAdapter.notifyDataSetChanged();
                     }else{
@@ -162,6 +186,7 @@ public class SearchFragment extends Fragment {
 
             @Override
             public void onFailure(Call<ResponseArrayObject> call, Throwable t) {
+                lottie.setVisibility(View.GONE);
                 Toast.makeText(getActivity(), "Koneksi Gagal", Toast.LENGTH_SHORT).show();
             }
         });
@@ -215,31 +240,37 @@ public class SearchFragment extends Fragment {
         Default();
         ivFarming.setImageResource(R.drawable.peternakan_active);
         textCategory.setText("farming");
+        Search();
     }
     private void OilAndGas(){
         Default();
         ivOilAndGas.setImageResource(R.drawable.oil_gass_active);
         textCategory.setText("oil_and_gas");
+        Search();
     }
     private void Contractor(){
         Default();
         ivContractor.setImageResource(R.drawable.contractor_active);
         textCategory.setText("contractor");
+        Search();
     }
     private void Mining(){
         Default();
         ivMining.setImageResource(R.drawable.mining_active);
         textCategory.setText("mining");
+        Search();
     }
     private void FMCG(){
         Default();
         ivFMCG.setImageResource(R.drawable.fmcg_active);
         textCategory.setText("fmcg");
+        Search();
     }
     private void Healthcare(){
         Default();
         ivHealthcare.setImageResource(R.drawable.healthcare_active);
         textCategory.setText("healthcare");
+        Search();
     }
     private void Default(){
         ivHealthcare.setImageResource(R.drawable.healthcare_inactive);

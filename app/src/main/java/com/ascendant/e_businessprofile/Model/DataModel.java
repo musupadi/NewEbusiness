@@ -6,6 +6,30 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 public class DataModel {
+    @SerializedName("tag_setting")
+    @Expose
+    public String tag_setting;
+
+    @SerializedName("industry")
+    @Expose
+    public String industry;
+
+    @SerializedName("category")
+    @Expose
+    public String category;
+
+    @SerializedName("sub_category")
+    @Expose
+    public String sub_category;
+
+    @SerializedName("link")
+    @Expose
+    public String link;
+
+    @SerializedName("name")
+    @Expose
+    public String name;
+
     @SerializedName("file_preview_pdf")
     @Expose
     public String file_preview_pdf;
@@ -4586,5 +4610,53 @@ public class DataModel {
 
     public void setPilihan(Integer pilihan) {
         this.pilihan = pilihan;
+    }
+
+    public String getTag_setting() {
+        return tag_setting;
+    }
+
+    public void setTag_setting(String tag_setting) {
+        this.tag_setting = tag_setting;
+    }
+
+    public String getIndustry() {
+        return industry;
+    }
+
+    public void setIndustry(String industry) {
+        this.industry = industry;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public String getSub_category() {
+        return sub_category;
+    }
+
+    public void setSub_category(String sub_category) {
+        this.sub_category = sub_category;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

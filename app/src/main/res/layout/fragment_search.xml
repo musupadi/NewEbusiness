@@ -6,260 +6,272 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Activity.ui.SearchFragment">
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-            <LinearLayout
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-                <androidx.cardview.widget.CardView
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="5dp"
+                android:layout_margin="15dp">
+                <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:cardCornerRadius="5dp"
-                    android:layout_margin="15dp">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="0.000001dp"
-                        android:text=""
-                        android:id="@+id/tvCategory"/>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                        <com.google.android.material.textfield.TextInputLayout
-                            android:layout_margin="5dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:focusable="true"
-                            android:layout_weight="1"
-                            android:fontFamily="@font/inter"
-                            app:hintTextColor="@color/colorBlack2"
-                            android:textColorHint="@color/colorConcrete"
-                            android:focusableInTouchMode="true">
-                            <EditText
-                                android:fontFamily="@font/inter"
-                                android:textColorHighlight="@color/colorPrimary"
-                                android:textColorHint="@color/colorConcrete"
-                                android:id="@+id/etSearch"
-                                android:textColor="@color/colorPrimary"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="Search..."
-                                android:ems="10"
-                                android:inputType="text"
-                                android:textSize="@dimen/text_medium"/>
-                        </com.google.android.material.textfield.TextInputLayout>
-                        <ImageView
-                            android:id="@+id/ivSearch"
-                            android:layout_margin="5dp"
-                            android:layout_gravity="center"
-                            android:layout_width="35dp"
-                            android:layout_height="35dp"
-                            android:src="@drawable/search"/>
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-                <Spinner
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:entries="@array/AllCategory"
-                    android:id="@+id/spPilihCategory"/>
+                    android:layout_height="0.000001dp"
+                    android:text=""
+                    android:id="@+id/tvCategory"/>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:id="@+id/linearCategory">
-                    <TextView
+                    android:orientation="horizontal">
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_margin="5dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Select Category"
-                        android:textColor="@color/colorPrimary"
-                        android:fontFamily="@font/inter_extra_bold"
-                        android:textSize="@dimen/header_text_small"
-                        android:gravity="center"
-                        android:layout_marginTop="10dp"/>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="120dp"
+                        android:focusable="true"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/inter"
+                        app:hintTextColor="@color/colorBlack2"
+                        android:textColorHint="@color/colorConcrete"
+                        android:focusableInTouchMode="true">
+                        <EditText
+                            android:fontFamily="@font/inter"
+                            android:textColorHighlight="@color/colorPrimary"
+                            android:textColorHint="@color/colorConcrete"
+                            android:id="@+id/etSearch"
+                            android:textColor="@color/colorPrimary"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Search..."
+                            android:ems="10"
+                            android:inputType="text"
+                            android:textSize="@dimen/text_medium"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <ImageView
+                        android:id="@+id/ivSearch"
                         android:layout_margin="5dp"
-                        android:orientation="horizontal">
-
-                        <RelativeLayout
-                            android:id="@+id/relativeHealthcare"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_marginStart="15dp"
-                                android:layout_marginEnd="15dp"
-                                android:id="@+id/ivHealthcare"
-                                android:layout_marginBottom="15dp"
-                                android:src="@drawable/healthcare_inactive" />
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_alignParentBottom="true"
-                                android:layout_centerInParent="true"
-                                android:fontFamily="@font/inter"
-                                android:gravity="center"
-                                android:text="@string/healthcare"
-                                android:textColor="@color/colorBlack" />
-                        </RelativeLayout>
-
-                        <RelativeLayout
-                            android:id="@+id/relativeFMCG"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_marginStart="15dp"
-                                android:layout_marginEnd="15dp"
-                                android:id="@+id/ivFMCG"
-                                android:layout_marginBottom="15dp"
-                                android:src="@drawable/fmcg_inactive" />
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_alignParentBottom="true"
-                                android:fontFamily="@font/inter"
-                                android:gravity="center"
-                                android:text="@string/fmcg"
-                                android:textColor="@color/colorBlack" />
-                        </RelativeLayout>
-
-                        <RelativeLayout
-                            android:id="@+id/relativeMining"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_marginStart="15dp"
-                                android:layout_marginEnd="15dp"
-                                android:id="@+id/ivMining"
-                                android:layout_marginBottom="15dp"
-                                android:src="@drawable/mining_inactive" />
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_alignParentBottom="true"
-                                android:fontFamily="@font/inter"
-                                android:gravity="center"
-                                android:text="@string/mining"
-                                android:textColor="@color/colorBlack" />
-                        </RelativeLayout>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="120dp"
-                        android:layout_margin="5dp"
-                        android:orientation="horizontal">
-
-                        <RelativeLayout
-                            android:id="@+id/relativeContractor"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_marginStart="15dp"
-                                android:layout_marginEnd="15dp"
-                                android:layout_marginBottom="15dp"
-                                android:id="@+id/ivContractor"
-                                android:src="@drawable/contractor_inactive" />
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_alignParentBottom="true"
-                                android:fontFamily="@font/inter"
-                                android:gravity="center"
-                                android:text="@string/contractor"
-                                android:textColor="@color/colorBlack" />
-                        </RelativeLayout>
-
-                        <RelativeLayout
-                            android:id="@+id/relativeOilAndGas"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_marginStart="15dp"
-                                android:layout_marginEnd="15dp"
-                                android:layout_marginBottom="15dp"
-                                android:src="@drawable/oil_gass_inactive"
-                                android:id="@+id/ivOilGas"/>
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_alignParentBottom="true"
-                                android:fontFamily="@font/inter"
-                                android:gravity="center"
-                                android:text="@string/oil_and_gas"
-                                android:textColor="@color/colorBlack" />
-                        </RelativeLayout>
-
-                        <RelativeLayout
-                            android:id="@+id/relativeFarm"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_marginStart="15dp"
-                                android:layout_marginEnd="15dp"
-                                android:layout_marginBottom="15dp"
-                                android:src="@drawable/peternakan_inactive"
-                                android:id="@+id/ivFarming"/>
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_alignParentBottom="true"
-                                android:fontFamily="@font/inter"
-                                android:gravity="center"
-                                android:text="@string/farm"
-                                android:textColor="@color/colorBlack" />
-                        </RelativeLayout>
-                    </LinearLayout>
+                        android:layout_gravity="center"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:src="@drawable/search"/>
                 </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/AllCategory"
+                android:id="@+id/spPilihCategory"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/linearCategory">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Select Category"
+                    android:textColor="@color/colorPrimary"
+                    android:fontFamily="@font/inter_extra_bold"
+                    android:textSize="@dimen/header_text_small"
+                    android:gravity="center"
+                    android:layout_marginTop="10dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:layout_margin="5dp"
+                    android:orientation="horizontal">
+
+                    <RelativeLayout
+                        android:id="@+id/relativeHealthcare"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginEnd="15dp"
+                            android:id="@+id/ivHealthcare"
+                            android:layout_marginBottom="15dp"
+                            android:src="@drawable/healthcare_inactive" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerInParent="true"
+                            android:fontFamily="@font/inter"
+                            android:gravity="center"
+                            android:text="@string/healthcare"
+                            android:textColor="@color/colorBlack" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/relativeFMCG"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginEnd="15dp"
+                            android:id="@+id/ivFMCG"
+                            android:layout_marginBottom="15dp"
+                            android:src="@drawable/fmcg_inactive" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:fontFamily="@font/inter"
+                            android:gravity="center"
+                            android:text="@string/fmcg"
+                            android:textColor="@color/colorBlack" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/relativeMining"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginEnd="15dp"
+                            android:id="@+id/ivMining"
+                            android:layout_marginBottom="15dp"
+                            android:src="@drawable/mining_inactive" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:fontFamily="@font/inter"
+                            android:gravity="center"
+                            android:text="@string/mining"
+                            android:textColor="@color/colorBlack" />
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:layout_margin="5dp"
+                    android:orientation="horizontal">
+
+                    <RelativeLayout
+                        android:id="@+id/relativeContractor"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginEnd="15dp"
+                            android:layout_marginBottom="15dp"
+                            android:id="@+id/ivContractor"
+                            android:src="@drawable/contractor_inactive" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:fontFamily="@font/inter"
+                            android:gravity="center"
+                            android:text="@string/contractor"
+                            android:textColor="@color/colorBlack" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/relativeOilAndGas"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginEnd="15dp"
+                            android:layout_marginBottom="15dp"
+                            android:src="@drawable/oil_gass_inactive"
+                            android:id="@+id/ivOilGas"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:fontFamily="@font/inter"
+                            android:gravity="center"
+                            android:text="@string/oil_and_gas"
+                            android:textColor="@color/colorBlack" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/relativeFarm"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginEnd="15dp"
+                            android:layout_marginBottom="15dp"
+                            android:src="@drawable/peternakan_inactive"
+                            android:id="@+id/ivFarming"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:fontFamily="@font/inter"
+                            android:gravity="center"
+                            android:text="@string/farm"
+                            android:textColor="@color/colorBlack" />
+                    </RelativeLayout>
+                </LinearLayout>
+            </LinearLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
                 <androidx.recyclerview.widget.RecyclerView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/recycler"/>
-            </LinearLayout>
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/lottie"
+                    android:layout_width="250dp"
+                    android:layout_height="250dp"
+                    android:layout_centerInParent="true"
+                    app:lottie_autoPlay="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    app:lottie_fileName="world location.json"
+                    app:lottie_loop="true" />
+            </RelativeLayout>
         </LinearLayout>
-    </ScrollView>
+    </LinearLayout>
 
 </FrameLayout>

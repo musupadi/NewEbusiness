@@ -27,7 +27,7 @@ public class FMCGMainCreditWorthinessActivity extends AppCompatActivity {
     LinearLayout More,Back;
     Boolean more=true;
     private ArrayList<DataModel> pList = new ArrayList<>();
-    CardView FnB,NonFnB,Tobacco,MarketPotential;
+    CardView FnB,NonFnB,Tobacco,MarketPotential,CreditDecisionTool;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,7 +48,7 @@ public class FMCGMainCreditWorthinessActivity extends AppCompatActivity {
         NonFnB = findViewById(R.id.cardNonFoodAndBeverage);
         Tobacco = findViewById(R.id.cardTobacco);
         MarketPotential = findViewById(R.id.cardMarketPotential);
-
+        CreditDecisionTool = findViewById(R.id.cardCreditDecisionTool);
         Back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -104,6 +104,13 @@ public class FMCGMainCreditWorthinessActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(FMCGMainCreditWorthinessActivity.this, FMCGMarketPotentialActivity.class);
+                startActivity(intent);
+            }
+        });
+        CreditDecisionTool.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(FMCGMainCreditWorthinessActivity.this, FMCGMainCreditWorthinessActivity.class);
                 startActivity(intent);
             }
         });

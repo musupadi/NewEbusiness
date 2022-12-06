@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.ascendant.e_businessprofile.Activity.ui.Healthcare.CreditDecisionTool.CrreditDecisionToolActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.CreditWorthiness.HospitalFinanceIndicator.HospitalFinanceIndicatorActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.CreditWorthiness.HospitalKeyOfSucces.HospitalKeyOfSuccessActivity;
 import com.ascendant.e_businessprofile.Activity.ui.Healthcare.CreditWorthiness.HospitalOperationalPerfomanceIndicator.HospitalOperationalPerfomanceActivity;
@@ -30,7 +31,7 @@ public class CreditWorthinessActivity extends AppCompatActivity {
     LinearLayout More,Back;
     Boolean more=true;
     private ArrayList<DataModel> pList = new ArrayList<>();
-    CardView HospitalOperational,HospitalFinanceIndicator,HospitalRequirementRatio,BusinessOppurtinityForBank,HospitalKeyOfSuccess,RiskAndMitigation;
+    CardView HospitalOperational,HospitalFinanceIndicator,HospitalRequirementRatio,BusinessOppurtinityForBank,HospitalKeyOfSuccess,RiskAndMitigation,CreditDecisionTool;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +49,7 @@ public class CreditWorthinessActivity extends AppCompatActivity {
         BusinessOppurtinityForBank = findViewById(R.id.cardBusinessOppurtinity);
         HospitalKeyOfSuccess = findViewById(R.id.cardKeyOfSuccess);
         RiskAndMitigation = findViewById(R.id.cardRiskAndMitigation);
+        CreditDecisionTool = findViewById(R.id.cardCreditDecisionTool);
         Available.setVisibility(View.VISIBLE);
         pList.addAll(CreditWorthinessModel.getListData());
         rv.setLayoutManager(new LinearLayoutManager(this));
@@ -122,6 +124,13 @@ public class CreditWorthinessActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://mandiri-ebusinessraw.the-urbandev.com/uploads/hospital/credit_worthiness/risk-and-mitigation.pdf"));
                 startActivity(browserIntent);
+            }
+        });
+        CreditDecisionTool.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent =new Intent(CreditWorthinessActivity.this, CrreditDecisionToolActivity.class);
+                startActivity(intent);
             }
         });
     }
