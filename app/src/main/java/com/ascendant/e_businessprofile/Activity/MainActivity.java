@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<ResponseObject> call, Response<ResponseObject> response) {
                 try {
                     Double num = Double.parseDouble(response.body().getData().getVer());
-                    if (4.0<num){
+                    if (4.1<num){
                         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
                         builder.setMessage("Harap Update Aplikasi Anda")
                                 .setCancelable(false)

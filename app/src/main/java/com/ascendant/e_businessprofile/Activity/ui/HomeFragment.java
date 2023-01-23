@@ -213,8 +213,6 @@ public class HomeFragment extends Fragment {
             CheckQuiz();
             IsiQuiz();
             GetJumlahNotif();
-
-
             //Kantor Pusat
             GetGroup();
             //Region

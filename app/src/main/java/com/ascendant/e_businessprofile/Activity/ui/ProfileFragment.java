@@ -402,7 +402,7 @@ public class ProfileFragment extends Fragment {
             public void onResponse(Call<ResponseString> call, Response<ResponseString> response) {
                 try {
                     if (response.body().getData().equals("0")){
-                        Voting.setVisibility(View.VISIBLE);
+                        Voting.setVisibility(View.GONE);
                     }else{
                         Voting.setVisibility(View.VISIBLE);
                     }

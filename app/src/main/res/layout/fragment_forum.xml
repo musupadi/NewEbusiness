@@ -6,112 +6,144 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Activity.ui.ForumCategoryFragment">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cardCornerRadius="5dp"
-            android:layout_margin="10dp">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-                <EditText
-                    android:layout_weight="1"
-                    android:fontFamily="@font/inter"
-                    android:id="@+id/etSearch"
-                    android:textColor="@color/colorPrimary"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:hint="@string/search"
-                    android:inputType="text"
-                    android:textSize="@dimen/text_medium" />
-                <ImageView
-                    android:id="@+id/ivSearch"
-                    android:layout_margin="10dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="6"
-                    android:src="@drawable/search"/>
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cardCornerRadius="5dp"
-            android:layout_margin="10dp">
-            <Spinner
-                android:id="@+id/spinnerCategory"
-                android:layout_margin="5dp"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:entries="@array/Category"/>
-        </androidx.cardview.widget.CardView>
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/btn_rounded_primary"
-            android:layout_margin="10dp"
-            android:text="Create New Post"
-            android:textColor="@color/colorWhite"
-            android:id="@+id/btnPost"/>
+        android:layout_height="match_parent">
         <LinearLayout
+            android:visibility="gone"
+            android:id="@+id/linearVisible"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-            <androidx.recyclerview.widget.RecyclerView
-                android:layout_marginTop="5dp"
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/recycler"
-                android:layout_weight="1"/>
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="5dp"
+                android:layout_margin="10dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+                    <EditText
+                        android:layout_weight="1"
+                        android:fontFamily="@font/inter"
+                        android:id="@+id/etSearch"
+                        android:textColor="@color/colorPrimary"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:hint="@string/search"
+                        android:inputType="text"
+                        android:textSize="@dimen/text_medium" />
+                    <ImageView
+                        android:id="@+id/ivSearch"
+                        android:layout_margin="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="6"
+                        android:src="@drawable/search"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="5dp"
+                android:layout_margin="10dp">
+                <Spinner
+                    android:id="@+id/spinnerCategory"
+                    android:layout_margin="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:entries="@array/Category"/>
+            </androidx.cardview.widget.CardView>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_rounded_primary"
+                android:layout_margin="10dp"
+                android:text="Create New Post"
+                android:textColor="@color/colorWhite"
+                android:id="@+id/btnPost"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="4"
-                android:orientation="vertical"
-                android:gravity="center">
-                <TextView
+                android:orientation="vertical">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_marginTop="5dp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Page"
-                    android:gravity="center"
-                    android:textColor="@color/colorPrimary"
-                    android:fontFamily="@font/inter"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="5dp"/>
+                    android:layout_height="match_parent"
+                    android:id="@+id/recycler"
+                    android:layout_weight="1"/>
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:orientation="vertical"
                     android:gravity="center">
-                    <ImageView
-                        android:visibility="invisible"
-                        android:id="@+id/ivLeft"
-                        android:src="@drawable/left_primary"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_marginRight="10dp"/>
                     <TextView
-                        android:id="@+id/tvPaging"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="1"
+                        android:text="Page"
+                        android:gravity="center"
+                        android:textColor="@color/colorPrimary"
                         android:fontFamily="@font/inter"
                         android:textStyle="bold"
-                        android:textSize="@dimen/header_text_extra_small"/>
-                    <ImageView
-                        android:id="@+id/ivRight"
-                        android:layout_marginLeft="10dp"
-                        android:src="@drawable/right_primary"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"/>
+                        android:layout_marginBottom="5dp"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center">
+                        <ImageView
+                            android:visibility="invisible"
+                            android:id="@+id/ivLeft"
+                            android:src="@drawable/left_primary"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginRight="10dp"/>
+                        <TextView
+                            android:id="@+id/tvPaging"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1"
+                            android:fontFamily="@font/inter"
+                            android:textStyle="bold"
+                            android:textSize="@dimen/header_text_extra_small"/>
+                        <ImageView
+                            android:id="@+id/ivRight"
+                            android:layout_marginLeft="10dp"
+                            android:src="@drawable/right_primary"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"/>
+                    </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
+        <LinearLayout
+            android:id="@+id/linearMT"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+            <com.airbnb.lottie.LottieAnimationView
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                app:lottie_autoPlay="true"
+                app:lottie_fileName="mt.json"
+                app:lottie_loop="true">
+
+            </com.airbnb.lottie.LottieAnimationView>
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Forum under Maintenance"
+                android:gravity="center"
+                android:textSize="@dimen/header_text_small"
+                android:textColor="@color/colorPrimary"
+                android:fontFamily="@font/inter_extra_bold"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+
 
 </FrameLayout>

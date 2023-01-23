@@ -11,6 +11,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.ascendant.e_businessprofile.Activity.ui.FMCG.CreditDecisionTool.FMCGCreditDecisionToolActivity;
+import com.ascendant.e_businessprofile.Activity.ui.FMCG.CreditDecisionTool.FMCGMainCreditDecisionToolActivity;
 import com.ascendant.e_businessprofile.Activity.ui.FMCG.CreditWorthiness.MarketPotential.FMCGMarketPotentialActivity;
 import com.ascendant.e_businessprofile.Adapter.Static.AdapterNavigator;
 import com.ascendant.e_businessprofile.Model.DataModel;
@@ -110,7 +112,7 @@ public class FMCGMainCreditWorthinessActivity extends AppCompatActivity {
         CreditDecisionTool.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(FMCGMainCreditWorthinessActivity.this, FMCGMainCreditWorthinessActivity.class);
+                Intent intent = new Intent(FMCGMainCreditWorthinessActivity.this, FMCGMainCreditDecisionToolActivity.class);
                 startActivity(intent);
             }
         });

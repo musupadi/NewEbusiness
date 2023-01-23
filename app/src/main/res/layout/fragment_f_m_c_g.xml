@@ -164,7 +164,7 @@
                             android:layout_alignParentBottom="true"
                             android:fontFamily="@font/inter"
                             android:gravity="center"
-                            android:text="@string/credit_worthiness"
+                            android:text="@string/market_inteligence"
                             android:textColor="@color/colorBlack" />
                     </RelativeLayout>
                     <RelativeLayout

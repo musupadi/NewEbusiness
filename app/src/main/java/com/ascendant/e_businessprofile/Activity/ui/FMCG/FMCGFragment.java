@@ -142,7 +142,7 @@ public class FMCGFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Log("39");
-                Intent goInput = new Intent(getActivity(), FMCGCreditWorthinessActivity.class);
+                Intent goInput = new Intent(getActivity(), FMCGMainCreditWorthinessActivity.class);
                 goInput.putExtra("KATEGORI","FMCG");
                 startActivity(goInput);
             }

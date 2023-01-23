@@ -167,7 +167,7 @@ public class SearchFragment extends Fragment {
                 lottie.setVisibility(View.GONE);
                 try {
                     if (response.body().getKode().equals(200)){
-                        LayoutAnimationController Animation = AnimationUtils.loadLayoutAnimation(getActivity(), R.anim.layout_animation2);
+                        LayoutAnimationController Animation = AnimationUtils.loadLayoutAnimation(getActivity(), R.anim.layout_animation);
                         rv.setLayoutAnimation(Animation);
                         rv.scheduleLayoutAnimation();
                         mItems=response.body().getData();
@@ -178,7 +178,6 @@ public class SearchFragment extends Fragment {
                         Toast.makeText(getActivity(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 }catch (Exception e){
-                    Toast.makeText(getActivity(), "Anda Belum Login", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(getActivity(), LoginActivity.class);
                     startActivity(intent);
                 }
